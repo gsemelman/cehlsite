@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>Canadian Elite Hockey League</title>
+		<link rel="stylesheet" href="css/master.css" />
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script>
+			function getColor(m) {
+				var newimage = $('#' + m).attr('src').replace('.gif', '1.gif');
+				$('#' + m).attr('src', newimage);
+			}
+			
+			function loseColor(m) {
+				var oldimage = $('#' + m).attr('src').replace('1.gif', '.gif');
+				$('#' + m).attr('src', oldimage);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="banner"></div>
+		<div class="content">
+			<div class="transition">
+				<div class="rosters center">
+					<a href="../transfer/cehlRosters.html#Anaheim"><img id="ducks" src="..images/newteamlogos/ducks.gif" onMouseOver="getColor('ducks')" onMouseOut="loseColor('ducks')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Boston"><img id="bruins" src="./images/newteamlogos/bruins.gif" onMouseOver="getColor('bruins')" onMouseOut="loseColor('bruins')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Buffalo"><img id="sabres" src="./images/newteamlogos/sabres.gif" onMouseOver="getColor('sabres')" onMouseOut="loseColor('sabres')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Calgary"><img id="flames" src="./images/newteamlogos/flames.gif" onMouseOver="getColor('flames')" onMouseOut="loseColor('flames')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Carolina"><img id="hurricanes" src="./images/newteamlogos/hurricanes.gif" onMouseOver="getColor('hurricanes')" onMouseOut="loseColor('hurricanes')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Chicago"><img id="blackhawks" src="./images/newteamlogos/blackhawks.gif" onMouseOver="getColor('blackhawks')" onMouseOut="loseColor('blackhawks')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Colorado"><img id="avalanche" src="./images/newteamlogos/avalanche.gif" onMouseOver="getColor('avalanche')" onMouseOut="loseColor('avalanche')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Columbus"><img id="bluejackets" src="./images/newteamlogos/bluejackets.gif" onMouseOver="getColor('bluejackets')" onMouseOut="loseColor('bluejackets')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Dallas"><img id="stars" src="./images/newteamlogos/stars.gif" onMouseOver="getColor('stars')" onMouseOut="loseColor('stars')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Detroit"><img id="redwings" src="./images/newteamlogos/redwings.gif" onMouseOver="getColor('redwings')" onMouseOut="loseColor('redwings')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Edmonton"><img id="oilers" src="./images/newteamlogos/oilers.gif" onMouseOver="getColor('oilers')" onMouseOut="loseColor('oilers')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Florida"><img id="panthers" src="./images/newteamlogos/panthers.gif" onMouseOver="getColor('panthers')" onMouseOut="loseColor('panthers')"></a><!--
+					--><a href="../transfer/cehlRosters.html#LosAngeles"><img id="kings" src="./images/newteamlogos/kings.gif" onMouseOver="getColor('kings')" onMouseOut="loseColor('kings')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Minnesota"><img id="wild" src="./images/newteamlogos/wild.gif" onMouseOver="getColor('wild')" onMouseOut="loseColor('wild')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Montreal"><img id="canadiens" src="./images/newteamlogos/canadiens.gif" onMouseOver="getColor('canadiens')" onMouseOut="loseColor('canadiens')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Nashville"><img id="predators" src="./images/newteamlogos/predators.gif" onMouseOver="getColor('predators')" onMouseOut="loseColor('predators')"></a><!--
+					--><a href="../transfer/cehlRosters.html#New"><img id="devils" src="./images/newteamlogos/devils.gif" onMouseOver="getColor('devils')" onMouseOut="loseColor('devils')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Islanders"><img id="islanders" src="./images/newteamlogos/islanders.gif" onMouseOver="getColor('islanders')" onMouseOut="loseColor('islanders')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Rangers"><img id="rangers" src="./images/newteamlogos/rangers.gif" onMouseOver="getColor('rangers')" onMouseOut="loseColor('rangers')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Ottawa"><img id="senators" src="./images/newteamlogos/senators.gif" onMouseOver="getColor('senators')" onMouseOut="loseColor('senators')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Philly"><img id="flyers" src="./images/newteamlogos/flyers.gif" onMouseOver="getColor('flyers')" onMouseOut="loseColor('flyers')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Phoenix"><img id="coyotes" src="./images/newteamlogos/coyotes.gif" onMouseOver="getColor('coyotes')" onMouseOut="loseColor('coyotes')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Pittsburgh"><img id="penguins" src="./images/newteamlogos/penguins.gif" onMouseOver="getColor('penguins')" onMouseOut="loseColor('penguins')"></a><!--
+					--><a href="../transfer/cehlRosters.html#San"><img id="sharks" src="./images/newteamlogos/sharks.gif" onMouseOver="getColor('sharks')" onMouseOut="loseColor('sharks')"></a><!--
+					--><a href="../transfer/cehlRosters.html#St."><img id="blues" src="./images/newteamlogos/blues.gif" onMouseOver="getColor('blues')" onMouseOut="loseColor('blues')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Tampa"><img id="lightning" src="./images/newteamlogos/lightning.gif" onMouseOver="getColor('lightning')" onMouseOut="loseColor('lightning')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Toronto"><img id="leafs" src="./images/newteamlogos/leafs.gif" onMouseOver="getColor('leafs')" onMouseOut="loseColor('leafs')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Vancouver"><img id="canucks" src="./images/newteamlogos/canucks.gif" onMouseOver="getColor('canucks')" onMouseOut="loseColor('canucks')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Washington"><img id="capitals" src="./images/newteamlogos/capitals.gif" onMouseOver="getColor('capitals')" onMouseOut="loseColor('capitals')"></a><!--
+					--><a href="../transfer/cehlRosters.html#Winnipeg"><img id="jets" src="./images/newteamlogos/jets.gif" onMouseOver="getColor('jets')" onMouseOut="loseColor('jets')"></a>
+				</div>
+				<br />
+				<div class="cehllinks center">
+					<a href="../transfer/cehlTodayGames.html">Results</a>&nbsp; 
+					<a href="../transfer/cehlRules.html">Rules</a>&nbsp;
+					<a href="../transfer/cehlStandings.html">Standings</a>&nbsp;
+					<a href="../transfer/cehlLeaders.html">Leaders</a>&nbsp;
+					<a href="../transfer/cehlTeamStats.html">Team Stats</a>&nbsp;
+					<a href="../transfer/cehlIndividual.html">Individual&nbsp;Leaders</a>&nbsp;
+					<a href="../transfer/cehlSchedule.html">Schedule</a>&nbsp;
+					<a href="../transfer/cehlInjury.html">Injury&nbsp;Report</a>&nbsp;
+					<a href="../transfer/cehlWaivers.html">Waivers</a>&nbsp;
+					<a href="../transfer/cehlCoaches.html">Coach&nbsp;Ratings</a>&nbsp;
+					<a href="./cehlTransact.html">Transactions</a>&nbsp;
+					<a href="../transfer/cehlGMs.html">GM&nbsp;Page</a>&nbsp;
+					<a href="../gmo/">Online&nbsp;GM&nbsp;Editor</a>&nbsp;
+					<a href="../transfer/CEHL_files.zip">League&nbsp;Files</a>&nbsp;
+					<a href="../transfer/careerstats.html">Career&nbsp;Stats</a>
+					<a href="../transfer/champions.html">Past&nbsp;Champions</a>
+				</div>
+
+				<div class="center"><h1>Welcome to the Canadian Elite Hockey League</h1></div>
+			</div>
+			<br /><br />
+			<div class="box right">
+				<div class="center underline"><strong>Additional Information</strong></div><br />
+				<!-- -&nbsp;<a href="./prospects.html">Organization Rankings-PROSPECTS</a><br /> -->
+				<!-- -&nbsp;<a href="#">Free Agent Prospects</a><br />
+				-&nbsp;<a href="#">CEHL Youth Movements</a><br / -->				-&nbsp;<a href="https://docs.google.com/spreadsheets/d/1kgeW0jwgRH3NXLOJCjDxX1XIG7DKzAHTlP08jpNc1VU/edit?usp=sharing">CEHL 2016 Draft & Older</a><br />
+		        -&nbsp;<a href="https://docs.google.com/spreadsheets/d/1ceuVBl3WpTyWcA5IuQ-b2Mkwj1ysWuLk8t4BVhEQsiU/edit?usp=sharing">Prospects, Draft Picks, Claims & Steals</a></br>								-&nbsp;<a href="https://goo.gl/forms/FW3iOZTmERdl06x23">Player Creation Request Form</a></br>								-&nbsp;<a href="https://goo.gl/forms/dcCNrDIqqEHAC6Bg1">Player Claim Request Form</a></br>
+				-&nbsp;<a href="../transfer/cehlFarmStandings.html">Farm League Standings</a><br />
+				-&nbsp;<a href="../transfer/cehlFarmLeaders.html">Farm Leaders</a><br />
+				-&nbsp;<a href="../transfer/cehlUnassigned.html">Unassigned List</a><br />
+				-&nbsp;<a href="../transfer/cehlFreeAgents.html">Free Agents</a><br />
+				-&nbsp;<a href="https://docs.google.com/document/d/1jwNpslNcY3j9I2LyjJOE4RDxwGklGtbTdFIcc977evs/edit?pli=1">Free Agent Offers</a><br />
+				-&nbsp;<a href="./cehlprospectupdate.htm">Prospect Offers</a><br />
+				-&nbsp;<a href="./coachescontracts.htm">Coach Contracts</a><br />
+				-&nbsp;<a href="./season26contracts.htm">Contract Signings</a><br />
+				-&nbsp;<a href="./CEHLplayoffs.htm">CEHL Season 25 Playoff Results</a><br />
+                		<div class="center underline"><strong>Sites Run By GMs and Friends of CEHL</strong></div><br /><br />
+				-&nbsp;<a href="https://docs.google.com/spreadsheets/d/1ppBvRoh5wVDp5H3esDHwaRzHFqH83k5u9Mwi8vE_czU/edit?usp=drivesdk">CEHL 2016 Draft Order</a> - The Semelman Press<br />
+				-&nbsp;<a href="http://www.dirtydangle.com">Dirty Dangle</a> - A hockey site by Mark Mead<br />
+				-&nbsp;<a href="http://twitter.com/#!/KatsHockey">KatsHockey</a> - A twitter feed by Gus Katsaros<br /><br />
+				<div class="center underline"><strong>Other Leagues</strong></div><br />
+				-&nbsp;<a href="http://www.skwidslair.net/SLHL/home.html#0">SLHL</a> - STHS Sim League run by Skwid<br />
+				-&nbsp;<a href="http://superonlinehockey.com">SOHL</a> - FHL Sim League run by Steve Laundrie<br /><br />
+				<div class="center underline"><strong>Special Mentions</strong></div><br />
+				-&nbsp;<a href="./cehlraps/cehlrap.mp3">CEHL Rap</a> - Written and performed by Cory Williams<br />
+				-&nbsp;<a href="./cehlraps/cehlrap2.mp3">CEHL Rap 2</a> - Written and performed by Cory and Ryan<br />
+				-&nbsp;<a href="./cehlraps/PlayerClaim.mp3">Player Claim Rap</a> - Written and performed by Cory Williams<br />
+				-&nbsp;<a href="http://http://cehloilers.blogspot.ca/">CEHL Oilers Blog</a> - Written by Andy Bradley<br /><br />
+			</div>
+			<div class="photo left"><img src="./images/claudiochavez.jpg" width="153"/><br /></div>
+			<p>Live from Corsica</p>
+			<br />
+<p>Claudio Chavez - May 31st, 2018</p>
+<p>Sweet balls of fuck, regular season in the CEHL is in full force. Before we delve into the season winners and losers, and by that I mean just the losers and by that I mean the new GMs. </p>
+<p></p>
+<p>The good news is we have 4 new GMs to welcome to the league. Most of whom inherited shit filled balls of toilet paper as a team.</p>
+<p></p>
+<p>Wayne "St. Hebert" has found himself a new watering hole in Michigan. Issue is the drinking water in Flint is probably more refreshing and healthier than this shit pile of a team. Relax, I'm joking. He's got all his picks, at least until someone convinces him The Sedins are worth a first. </p>
+<p></p>
+<p>Nashville now has Jhett Folk-Singer as their GM in chief. Wonder whose dick he sucked to not end up with a total pile of garbage. Just joking, relax.  We already know that answer.</p>
+<p></p>
+<p>San Jose finally has a GM after years of not having one. Welcome Matt Fair-Price... bet you're totally happy that your best player went from legendary to average in a few seasons! Just joking, relax.  There's a good chance he'll be moved to a better team before he downrates.</p>
+<p></p>
+<p>L.A. turns a leaf with new GM Kevin "Big" Bamford. Wait, no, still a mediocre team but now with 90% less personality in the GM position. Just joking, we all know Steve had zero personality as well. Or was that talent?</p>
+<p></p>
+<p>And finally, the man who maybe the mastermind behind all the above names... new Calgary GM, Derek "Multi-Master" Tibbitts-Hunter-Holy-Fuck-What-A-Name. Glad to have an experienced GM finally behind the wheel in Alberta. Relax, I'm kidding. This is the guy who paid almost $9m a year for Vanek.</p>
+<p></p>
+<p>Hold the horses breaking news!!! There's been yet ANOTHER GM change in Calgary. The only thing consistent in Calgary is the lack of interest in it by every other GM in the league. Whose the new guy? Who cares! He'll quit in a week too.</p>
+<p></p>
+<p>So there, the welcome wagon is finally done and now maybe we can start focusing on something important. Like regular....</p>
+<p></p>
+<p>HOLD THE HORSES WE’VE GOT BREAKING NEWS.... AGAIN!!!!</p>
+<p></p>
+<p>I have just found out that esteemed and long-time running Commissioner Ryan Williams was replaced by Colin and Grant for having multiple BBM accounts which he is rumoured to have used to manipulate the league.</p>
+<p></p>
+<p>What a devastating atrocity!!! Hiding behind a pseudonym to protect your identity! What is this world coming too?</p>
+<p></p>
+<p>See you next Tuesday.</p> 
+<br />
+
+	
+			<br />
+
+			<div class="box center">
+				<strong>Here's the <a href="http://www.fhlsim.com/downloads/gmeditor.zip">OLD GM Editor</a> and <a href="http://www.fhlsim.com/downloads/gmeditor_v1.5beta1.zip">GM Editor v1.5beta 2</a>. 
+				You'll need v1.5beta to edit your rosters and lines.<br />
+				The league files must be in the same directory as the GM Editor in order to edit your lines.</strong>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//Following function should be called at the end of the page:
+			imagerollover()
+		</script>
+	</body>
+</html>
