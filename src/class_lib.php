@@ -13,7 +13,7 @@
 			{
 				if (isset($this->items[$key])) 
 				{
-					throw new KeyHasUseException("Key $key already in use.");
+					//throw new KeyHasUseException("Key $key already in use.");
 				}
 				else 
 				{
@@ -29,7 +29,7 @@
 			}
 			else 
 			{
-				throw new KeyInvalidException("Invalid key $key.");
+				//throw new KeyInvalidException("Invalid key $key.");
 			}
 		}
 		public function getItem($key) 
@@ -40,7 +40,7 @@
 			}
 			else 
 			{
-				throw new KeyInvalidException("Invalid key $key.");
+				//throw new KeyInvalidException("Invalid key $key.");
 			}
 		}
 		public function keys() 
@@ -97,18 +97,19 @@
 	}
 	
 	class Waivers {
-		private $waivers;
+	    private $waivers = array();
 		
 		public function __construct(string $file) {
 			
-			$waivers = new Collection();
+			//$waivers = new Collection();
+		    //$waivers = array();
 			
 			$c = 1;
 			$d = 0;
 			$e = 0;
 			$f = 0;
 			$g = 0;
-			$waiversPlayer = ''; 
+			$waivName = ''; 
 			$waivDate = ''; 
 			$waivBy = ''; 
 			$waivClaim = ''; 
@@ -145,9 +146,11 @@
 					$waiver->waiveDate = $waivDate;
 					$waiver->waivedBy = $waivBy;
 					$waiver->claimedBy = $waivClaim;
-	
-					$waivers->addItem($waiver, $counter);
+
 					
+					//$waivers->addItem($waiver, $counter);
+					array_push($waivers, $waiver);
+
 					$e = 1;
 					$g++;
 					$counter++;
@@ -173,24 +176,18 @@
 				
 			}
 			
-			foreach($waivers as $waiver){
-				print $waiver->player;
-			}
+ 			foreach($waivers as $waiver){
+				echo $waiver->player;
+			} 
+			
+			print_r ($waivers);
 			
 			//$this->waivers = $value;
 		}
-		
-		function test() {
-			return 'abcd';
-		}
-		
-		function get_waivers() {
+
+		public function get_waivers() {
 			return $this->waivers;
 		}
 		
-		public function getIterator() {
-			 //print $this->waivers->length;
-			 return new ArrayIterator($this->waivers->getItems());
-		}
 	}
 ?>

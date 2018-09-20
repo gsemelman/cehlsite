@@ -3,17 +3,10 @@
 include 'class_lib.php';
 include 'config.php';
 include 'lang.php';
-$CurrentHTML = 'MiniWaivers';
-$CurrentTitle = 'Waivers';
-$CurrentPage = 'MiniWaivers';
 
 ?>
 
-<div class = "container">
-<div class = "row">
-<div class = "col">
-<div class = "table-responsive">
-<table class="table table-sm">
+
 
 <?php
 if(!isset($playoff)) $playoff = '';
@@ -32,13 +25,15 @@ $Fnm = $folder.$folderLeagueURL.'Waivers.html';
 
 if(file_exists($Fnm)) {
 	$waivers = new Waivers($Fnm);
-	$isnull = null !== $waivers->get_waivers();
-	print "Is null? = $isnull";
-	$records = $waivers->get_waivers();
+	$results = $waivers->get_waivers();
 	
-/* 	foreach($records as $waiver){
-		echo 'getting waiver' . ' ' . $waiver->player;
-	} */
+	if(is_array($results)){
+	    foreach($results as $waiver){
+	        echo $waiver->player;
+	    } 
+	}else{
+	    echo 'NOT AN ARRAY';
+	}
 }
 else echo '<h3>'.$allFileNotFound.' - '.$Fnm.'</h3>';
 
