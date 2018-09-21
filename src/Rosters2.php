@@ -67,11 +67,11 @@ include_once 'classes/Roster.php';
                         echo '<table class="table table-sm">';
                         
                             echo '<tr class="tableau-top">
-                			<th>'.$rostersNumber.'</th>
+                			<th>#</th>
               		       	<th>'.$rostersName.'</th>
-                			<th>'.$rostersPosition.'</th>
+                			<th>PO</th>
                             <th>'.$rostersHD.'</th>
-                            <th>Condition</th>
+                            <th>CD</th>
                             <th>'.$rostersIJ.'</th>
                             <th>'.$rostersIT.'</th>
                             <th>'.$rostersSP.'</th>
