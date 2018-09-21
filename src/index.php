@@ -5,6 +5,7 @@
 
 <?php
 // CRÉATION DE LA LISTE DES ÉQUIPES
+$playoff = ''; //default for now (need to perperly handle this)
 $matches = glob($folder.'*'.$playoff.'GMs.html');
 $folderLeagueURL = '';
 $matchesDate = array_map('filemtime', $matches);
@@ -24,7 +25,7 @@ if(file_exists($FnmGMs)) {
 		$val = utf8_encode($val);
 		if(substr_count($val, 'HREF') && !substr_count($val, '<BR>')) {
 			$gmequipe[$i] = trim(substr($val, 0, 10));
-			if($currentTeam == '' && $i == 0) $currentTeam = $gmequipe[$i];
+			//if($currentTeam == '' && $i == 0) $currentTeam = $gmequipe[$i];
 			$i++;
 		}
 	}
@@ -64,7 +65,8 @@ else echo $allFileNotFound.' - '.$FnmGMs;
 										$teamImage = $matches[$j];
 										break 1;
 									}
-									echo '<a href="LinkedRosters.php?'.$dropLinkPlf.$dropLinkFarm.$dropLinkOne.'team='.$gmequipe[$i].'">';
+									//echo '<a href="LinkedRosters.php?'.$dropLinkPlf.$dropLinkFarm.$dropLinkOne.'team='.$gmequipe[$i].'">';
+									echo '<a href="LinkedRosters.php?team='.$gmequipe[$i].'">';
 									echo '<img src="'.$teamImage.'" width=55 alt="'.$gmequipe[$i].'">';
 									echo '</a>';
 
@@ -128,7 +130,7 @@ else echo $allFileNotFound.' - '.$FnmGMs;
 								<div class="card-header wow fadeIn"><h3>Waivers</h3></div>
 								<div class="card-body">
 									<div class="col section-2-box wow fadeInLeft card-text">
-										<?php include 'MiniWaivers.php'; ?>
+										<?php include 'MiniWaivers2.php'; ?>
 									</div>
 								</div>
 							</div>

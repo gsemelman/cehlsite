@@ -126,11 +126,11 @@ if (file_exists($Fnm)) {
 					echo '<a href="games.php?num='.$lastGames[$i].$playoffLink.'">';
 						echo '<div class="row">';
 							echo '<div class="col">';
-								echo '<div class="latest-image"><img src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].'"></div>';
+							echo '<div class="latest-image"><img src="'.$todayImage1.'" alt="'.$lastEquipe1[$i].'"></div>';
 								echo '<div class="latest-score text">'.$lastScore1[$i].'</div>';
 							echo '</div>';
 							echo '<div class="col">';
-								echo '<div class="latest-image"><img src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].'"></div>';
+							echo '<div class="latest-image"><img src="'.$todayImage2.'" alt="'.$lastEquipe2[$i].'"></div>';
 								echo '<div class="latest-score text">'.$lastScore2[$i].'</div>';
 							echo '</div>';
 						echo '</div>';

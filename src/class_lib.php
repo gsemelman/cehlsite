@@ -1,67 +1,6 @@
 <?php 
 
-	class Collection {
-		private $items = array();
-	 
-		public function addItem($obj, $key = null) 
-		{
-			if ($key == null) 
-			{
-				$this->items[] = $obj;
-			}
-			else 
-			{
-				if (isset($this->items[$key])) 
-				{
-					//throw new KeyHasUseException("Key $key already in use.");
-				}
-				else 
-				{
-					$this->items[$key] = $obj;
-				}
-			}
-		}
-		public function deleteItem($key) 
-		{
-			if (isset($this->items[$key])) 
-			{
-				unset($this->items[$key]);
-			}
-			else 
-			{
-				//throw new KeyInvalidException("Invalid key $key.");
-			}
-		}
-		public function getItem($key) 
-		{
-			if (isset($this->items[$key])) 
-			{
-				return $this->items[$key];
-			}
-			else 
-			{
-				//throw new KeyInvalidException("Invalid key $key.");
-			}
-		}
-		public function keys() 
-		{
-			return array_keys($this->items);
-		}
-		public function length() 
-		{
-			return count($this->items);
-		}
-		public function keyExists($key) 
-		{
-			return isset($this->items[$key]);
-		}
-		
-		public function getItems() {
-			return $this->items;
-		}
-	}
-
-	class Waiver {
+	class Waiver2 {
 		var $player;
 		var $waiveDate;
 		var $waivedBy;
@@ -75,7 +14,7 @@
 		}
 		
 		function set_waiveDate($new_waiveDate) {
-			$this->waiveDate = $waiveDate;
+		    $this->waiveDate = $new_waiveDate;
 		}
 		function get_waiveDate() {
 			return $this->waiveDate;
@@ -96,13 +35,10 @@
 		}
 	}
 	
-	class Waivers {
-	    private $waivers = array();
+	class Waivers2 {
+	    var $waivers = array();
 		
 		public function __construct(string $file) {
-			
-			//$waivers = new Collection();
-		    //$waivers = array();
 			
 			$c = 1;
 			$d = 0;
@@ -149,7 +85,7 @@
 
 					
 					//$waivers->addItem($waiver, $counter);
-					array_push($waivers, $waiver);
+					array_push($this->waivers, $waiver);
 
 					$e = 1;
 					$g++;
@@ -162,27 +98,13 @@
 				}
 				
 				//header
-				if(substr_count($val, '<pre>') || substr_count($val, '<PRE>')){
-/* 					echo '<tr class="tableau-top">';
-					echo '<td>'.$waiversPlayer.'</td>';
-					echo '<td>'.$waiversDate.'</td>';
-					echo '<td>'.$waiversBy.'</td>';
-					echo '<td>'.$waiversClaimed.'</td>';
-					echo '</tr>'; */
-									
+				if(substr_count($val, '<pre>') || substr_count($val, '<PRE>')){				
 					$d = 1;
 				}
 	
 				
 			}
-			
- 			foreach($waivers as $waiver){
-				echo $waiver->player;
-			} 
-			
-			print_r ($waivers);
-			
-			//$this->waivers = $value;
+
 		}
 
 		public function get_waivers() {

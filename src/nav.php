@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-  <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
-  <title>Canadian Elite Hockey League</title>
-  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">-->
-  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/docs.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/docs.js"></script>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>-->
-  
-  
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
-	<link rel="stylesheet" href="assets/css/animate.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/media-queries.css">
+  	<meta charset="UTF-8"/>
+  	<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86"/>
+  	<title>Canadian Elite Hockey League</title>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"/>
+	<link rel="stylesheet" href="assets/css/animate.css"/>
+	<link rel="stylesheet" href="assets/css/style.css"/>
+	<link rel="stylesheet" href="assets/css/media-queries.css"/>
 	
 	<!-- Javascript -->
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
@@ -76,7 +65,6 @@
 							<li class="nav-item"><a class="nav-link-inner" href="Schedule.php?only=0">Schedule</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="Transactions.php">Transactions</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="Unassigned.php">Unassigned</a></li>
-							<div class="dropdown-divider"></div>
 
 						</ul>
 					  </li>
@@ -87,13 +75,13 @@
 							<li class="nav-item"><a class="nav-link-inner" href="https://goo.gl/forms/FW3iOZTmERdl06x23">Create&nbsp;Request</a></li>-->
 							<li class="nav-item"><a class="nav-link-inner" href="ProspectForm.php?type=claim">Claim&nbsp;Request</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="ProspectForm.php">Create&nbsp;Request</a></li>
-							<div class="dropdown-divider"></div>
+							<li class="dropdown-divider"></li>
 							<!--<li class="nav-item"><a class="nav-link-inner" href="https://docs.google.com/spreadsheets/d/1kgeW0jwgRH3NXLOJCjDxX1XIG7DKzAHTlP08jpNc1VU/edit?usp=sharing">Drafts</a></li>-->
 							<li class="nav-item"><a class="nav-link-inner" href="Drafts.php">Drafts</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="GMs.php">General&nbsp;Managers</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="SearchPlayers.php">Player Search</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="Rules.php">Rules</a></li>
-							<div class="dropdown-divider"></div>
+							<li class="dropdown-divider"></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo $folderLegacy ?>index.html">Old&nbsp;Site</a></li>
 						</ul>
 					  </li>
