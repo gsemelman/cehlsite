@@ -22,6 +22,8 @@
 	<script src="assets/js/retina-1.1.0.min.js"></script>
 	<script src="assets/js/waypoints.min.js"></script>
 	<script src="assets/js/scripts.js"></script>
+	
+
 
 	<?php include 'style.php' ?>
 </head>
@@ -43,7 +45,7 @@
 					  <li class="nav-item"><a class="nav-link" href="<?php echo $folderGmo ?>">GM&nbsp;Editor</a></li>
 					  <li class="nav-item"><a class="nav-link" href="TodayGamesTSN.php">Scores</a></li>
 					  <li class="nav-item"><a class="nav-link" href="Standings.php">Standings</a></li>
-					  <li class="nav-item"><a class="nav-link" href="LinkedRosters.php">Teams</a></li>
+					  <li class="nav-item"><a class="nav-link" href="Rosters.php">Teams</a></li>
 					  <li class="dropdown">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats&nbsp;<span class="caret"></span></a>
 						<ul class="dropdown-menu">

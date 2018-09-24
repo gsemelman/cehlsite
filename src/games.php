@@ -284,12 +284,36 @@ while(list($cle,$val) = myEach($tableau)) {
 			<td style="font-size:8pt;'.$style1.' text-align:right;">'.substr($val, $pos+24, 3).'</td></tr>';
 		}
 	}
+// 	if($a == 10 && substr_count($val, '<BR><BR><PRE>')) {
+// 		$pos = strpos($val, '<');
+// 		$team = substr($val, 0, $pos);
+// 		if($b == 1)$float = 'right';
+// 		else $float = 'left';
+// 		echo '<div style="position: relative; text-align:left; float:'.$float.';"><table class="tableau" style="width:260px;"><tr style="'.$bg_2.'"><td colspan="9" style="text-align:center;'.$style1.'">'.$team.'</td></tr>
+// 		<tr class="tableau-top">
+// 		<td style="'.$style1.'"></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesGoal.'<span>'.$gamesGoalF.'</span></a></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesAss.'<span>'.$gamesAssF.'</span></a></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesPoints.'<span>'.$gamesPointsF.'</span></a></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">+/-<span>'.$gamesDiff.'</span></a></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesPIM.'<span>'.$gamesPIMF.'</span></a></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesShots.'<span>'.$gamesShotsF.'</span></a></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesHT.'<span>'.$gamesHTF.'</span></a></td>
+// 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesIceTime.'<span>'.$gamesIceTimeF.'</span></a></td></tr>';
+// 		$a = 11;
+// 	}
+// 	if(substr_count($val, 'Player Statistics')) {
+// 	    echo '</table></div><div style="clear:both;"><br></div><table class="tableau">
+// 		<tr class="tableau-top"><td colspan="9" style="'.$style1.'">'.$gamesPlayerStats.'</td></tr></table>';
+// 	    $a = 10;
+// 	}
+	
 	if($a == 10 && substr_count($val, '<BR><BR><PRE>')) {
-		$pos = strpos($val, '<');
-		$team = substr($val, 0, $pos);
-		if($b == 1)$float = 'right';
-		else $float = 'left';
-		echo '<div style="position: relative; text-align:left; float:'.$float.';"><table class="tableau" style="width:260px;"><tr style="'.$bg_2.'"><td colspan="9" style="text-align:center;'.$style1.'">'.$team.'</td></tr>
+	    $pos = strpos($val, '<');
+	    $team = substr($val, 0, $pos);
+	    //if($b == 1)$float = 'right';
+	    //else $float = 'left';
+	    echo '<div class = "col-sm-2"><table class="tableau" style="width:260px;"><tr style="'.$bg_2.'"><td colspan="9" style="text-align:center;'.$style1.'">'.$team.'</td></tr>
 		<tr class="tableau-top">
 		<td style="'.$style1.'"></td>
 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesGoal.'<span>'.$gamesGoalF.'</span></a></td>
@@ -300,7 +324,7 @@ while(list($cle,$val) = myEach($tableau)) {
 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesShots.'<span>'.$gamesShotsF.'</span></a></td>
 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesHT.'<span>'.$gamesHTF.'</span></a></td>
 		<td style="font-size:8pt; font-weight: bold ;'.$style1.' text-align:right;"><a href="javascript:return;" class="info">'.$gamesIceTime.'<span>'.$gamesIceTimeF.'</span></a></td></tr>';
-		$a = 11;
+	    $a = 11;
 	}
 	if(substr_count($val, 'Player Statistics')) {
 		echo '</table></div><div style="clear:both;"><br></div><table class="tableau">

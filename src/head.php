@@ -128,13 +128,13 @@ if(file_exists($FnmGMs)) {
 }
 else echo $allFileNotFound.' - '.$FnmGMs;
 
-$link = '';
-if($currentTeam != '') {
-	$team2 = '';
-	if(substr_count($currentTeam, ' ')) $team2 = substr($currentTeam, 0, strpos($currentTeam, ' '));
-	else $team2 = $currentTeam;
-	$link = '#'.$team2;
-}
+// $link = '';
+// if($currentTeam != '') {
+// 	$team2 = '';
+// 	if(substr_count($currentTeam, ' ')) $team2 = substr($currentTeam, 0, strpos($currentTeam, ' '));
+// 	else $team2 = $currentTeam;
+// 	$link = '#'.$team2;
+// }
 
 $farm = '';
 $dropLinkFarm = '';
@@ -154,9 +154,9 @@ if(isset($_GET['s']) || isset($_POST['s'])) {
 //if($currentFarm == 0 && $CurrentPage != 'ChatBox' && $CurrentPage != 'Unassigned' && $CurrentPage != 'games' && $CurrentPage != 'Injury' && $CurrentPage != 'CareerStats' && $CurrentPage != 'CareerStatsPlayer' && $CurrentPage != 'SearchPlayers' && $CurrentPage != 'ComparePlayers') $CurrentTitle .= ' - '.$currentTeam;
 if($CurrentPage == 'games') $folder .= $folderGames;
 
-$width = 555;
-if($CurrentPage == 'LinkedRosters' || $CurrentPage == 'StandingsTree') $width = 800;
-if($CurrentPage == 'Unassigned' || $CurrentPage == 'OverallStandings' || $CurrentPage == 'StandingsTree' || $CurrentPage == 'Standings' || $CurrentPage == 'Waivers' || $CurrentPage == 'Transact' || $CurrentPage == 'Schedule' || $CurrentPage == 'games' || $CurrentPage == 'Leaders' || $CurrentPage == 'GMs' || $CurrentPage == 'Coaches' || $CurrentPage == 'Injury' || $CurrentPage == 'Individual' || $CurrentPage == 'TeamStats' || $CurrentPage == 'TodayGames') $link = '';
+// $width = 555;
+// if($CurrentPage == 'Rosters' || $CurrentPage == 'StandingsTree') $width = 800;
+// if($CurrentPage == 'Unassigned' || $CurrentPage == 'OverallStandings' || $CurrentPage == 'StandingsTree' || $CurrentPage == 'Standings' || $CurrentPage == 'Waivers' || $CurrentPage == 'Transact' || $CurrentPage == 'Schedule' || $CurrentPage == 'games' || $CurrentPage == 'Leaders' || $CurrentPage == 'GMs' || $CurrentPage == 'Coaches' || $CurrentPage == 'Injury' || $CurrentPage == 'Individual' || $CurrentPage == 'TeamStats' || $CurrentPage == 'TodayGames') $link = '';
 ?>
 <?php include 'nav.php' ?>
 
@@ -180,18 +180,9 @@ if($CurrentPage == 'Schedule' && $currentPLF == 1 && isset($existRnd)) {
 	if($existRnd >= 1) echo ' - <a href="'.$CurrentPage.'.php?plf=1&rnd=1" class="lien-noir">'.$scheldRound.' 1</a>';
 }
 
-if($CurrentPage == 'LinkedRosters' || $CurrentPage == 'Finance' || $CurrentPage == 'Lines' || $CurrentPage == 'Futures' || $CurrentPage == 'fiche' || $CurrentPage == 'TeamScoring' || ($CurrentPage == 'Schedule' && $checked ==' checked="checked"')) {
+if($CurrentPage == 'Rosters' || $CurrentPage == 'LinkedRosters' || $CurrentPage == 'Finance' || $CurrentPage == 'Lines' || $CurrentPage == 'Futures' || $CurrentPage == 'fiche' || $CurrentPage == 'TeamScoring' || ($CurrentPage == 'Schedule' && $checked ==' checked="checked"')) {
 	$CurrentTitle .= ' - '.$currentTeam;
 	
-	//dont think we need this
-/* 	$boldFinance = $boldLinkedRosters = $boldLines = $boldFutures = $boldfiche = $boldScoring = '';
-	if($CurrentPage == 'TeamScoring') $boldScoring = ' style="font-weight:bold;"';
-	if($CurrentPage == 'LinkedRosters') $boldLinkedRosters = ' style="font-weight:bold;"';
-	if($CurrentPage == 'Finance') $boldFinance = ' style="font-weight:bold;"';
-	if($CurrentPage == 'Lines') $boldLines = ' style="font-weight:bold;"';
-	if($CurrentPage == 'Futures') $boldFutures = ' style="font-weight:bold;"';
-	if($CurrentPage == 'fiche') $boldfiche = ' style="font-weight:bold;"'; */
-
 	//team logo links
 	echo '<div class="row">';
 		echo '<div id="logo-header" class="col logo-header logo-header-description">';
@@ -203,11 +194,6 @@ if($CurrentPage == 'LinkedRosters' || $CurrentPage == 'Finance' || $CurrentPage 
 				break 1;
 			}
 			echo '<a id="'.$gmequipe[$i].'" href="'.$CurrentPage.'.php?'.$dropLinkPlf.$dropLinkFarm.$dropLinkOne.'team='.$gmequipe[$i].'">';
-/* 			if($currentTeam == $gmequipe[$i]) {
-				echo '<img id = class = "highlightTeam" src="'.$teamImage.'" width=55px>';
-			}else{
-				echo '<img src="'.$teamImage.'" width=55px>';
-			}	 */
 
 			echo '<img src="'.$teamImage.'" width=55>';
 			
@@ -220,7 +206,7 @@ if($CurrentPage == 'LinkedRosters' || $CurrentPage == 'Finance' || $CurrentPage 
 	echo '<nav id ="header-nav" class="nav nav-justified-center justify-content-center">';
 		echo'<a class="nav-item nav-link" href="TeamScoring.php'.$plfLink.'">'.$allScoring.'</a>';
 		echo'<a class="nav-item nav-link" href="Finance.php'.$plfLink.'">'.$allFinances.'</a>';
-		echo'<a class="nav-item nav-link" href="LinkedRosters.php'.$plfLink.'">'.$allRosters.'</a>';
+		echo'<a class="nav-item nav-link" href="Rosters.php'.$plfLink.'">'.$allRosters.'</a>';
 		echo'<a class="nav-item nav-link" href="Lines.php'.$plfLink.'">'.$allLines.'</a>';
 		//echo'<a class="nav-item nav-link" href="Futures.php'.$plfLink.'">'.$allProspects.'</a>';
 		echo'<a class="nav-item nav-link" href="Futures2.php">'.$allProspects.'</a>';

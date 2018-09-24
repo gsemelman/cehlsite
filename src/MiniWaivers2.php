@@ -3,8 +3,8 @@
 include_once 'config.php';
 include_once 'lang.php';
 include_once 'common.php';
-include_once 'classes/Waivers.php';
-include_once 'classes/Waiver.php';
+include_once 'classes/WaiversHolder.php';
+include_once 'classes/WaiverObj.php';
 
 ?>
 
@@ -25,7 +25,7 @@ include_once 'classes/Waiver.php';
                 
                 if (file_exists($fileName)) {
                     //get waivers from file
-                    $waivers = new Waivers($fileName);
+                    $waivers = new WaiversHolder($fileName);
                     $results = $waivers->get_waivers();
                     
                     if (isset($results) && !empty($results)) {

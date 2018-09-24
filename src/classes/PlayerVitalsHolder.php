@@ -28,7 +28,7 @@ class PlayerVitalsHolder {
         $height = '';
         $weight = '';
         $salaryTemp = 0;
-        $salary = 0;
+        $salary = '';
         $contractLength = '';
         
         $contents = file($file);
@@ -60,6 +60,7 @@ class PlayerVitalsHolder {
                 //parse averages
                 $reste = trim(substr($val, strpos($val, '  '), strpos($val, '</PRE>')-strpos($val, '  ')));
                 $this->avgAge = substr($reste, 0, strpos($reste, '  '));
+
                 $reste = trim(substr($reste, strpos($reste, '  ')));
                 $this->avgHeight = substr($reste, 0, strpos($reste, '  '));
                 $this->avgHeight = str_replace('ft', '\'', $this->avgHeight);
@@ -221,7 +222,15 @@ class PlayerVitalsHolder {
         $this->avgSalary = $avgSalary;
     }
 
-
+    public function findVital(int $number, string $name){
+        foreach ($this->vitals as $vital) {
+            if($vital->getNumber()  == $number && $vital->getName() == $name){
+                return $vital;
+            }
+        }
+        
+        return;
+    }
     
     
     
