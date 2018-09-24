@@ -111,6 +111,12 @@ td {
     border-width:1px 1px 1px 1px;
 	border-color:<?php echo $tableauBorderColor; ?>;
 }
+th {
+	font-size: 12px;
+	margin: 0px;
+    border-width:1px 1px 1px 1px;
+	border-color:<?php echo $tableauBorderColor; ?>;
+}
 tr.hover1, div.ch>atHover1 {
 	background-color:<?php echo $tableau_ligne1; ?>;
 }

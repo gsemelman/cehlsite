@@ -8,14 +8,20 @@ $CurrentPage = 'Rosters2';
 include 'head.php';
 
 include_once 'common.php';
-include_once 'classes/Rosters.php';
-include_once 'classes/Roster.php';
+include_once 'classes/RosterObj.php';
+include_once 'classes/RostersHolder.php';
+include_once 'classes/PlayerVitalObj.php';
+include_once 'classes/PlayerVitalsHolder.php';
+include_once 'classes/PlayerFilter.php';
 
 ?>
 
-<h3>Rosters</h3>
-
 <div class="container">
+	<div class="card">
+	<div class="card-header wow fadeIn">
+		<h3><?php echo $CurrentTitle; ?></h3>
+	</div>
+	<div class="card-body">
 	<div class="row">
 		<div class="col">
 
@@ -25,10 +31,13 @@ include_once 'classes/Roster.php';
                 $playoff = '';
             
             $fileName = getLeagueFile($folder, $playoff, 'Rosters.html', 'Rosters');
+            $vitalsFileName = getLeagueFile($folder, $playoff, 'PlayerVitals.html', 'PlayerVitals');
             
-            if (file_exists($fileName)) {
+            if (file_exists($fileName) && file_exists($vitalsFileName)) {
                 //get rosters from file
-                $rosters = new Rosters($fileName, 'Washington');
+                $rosters = new RostersHolder($fileName, 'Washington');
+                $playerVitals = new PlayerVitalsHolder($vitalsFileName, 'Washington');
+                
 
                 $lastUpdated = $rosters->getLastUpdated();
 
@@ -37,8 +46,8 @@ include_once 'classes/Roster.php';
                     echo '<h5>'.$lastUpdated.'</h5>';
                     
                     echo'<div id="rosterTabs" class="container">';
-                    echo'<ul class="nav nav-pills nav-fill">
-                        			<li class="nav-item active">
+                    echo'<ul class="nav nav-tabs nav-fill">
+                        			<li class="nav-item">
                                         <a class="nav-link" href="#Pro" data-toggle="tab">Pro Roster</a>
                         			</li>
                         			<li class="nav-item">
@@ -59,9 +68,7 @@ include_once 'classes/Roster.php';
                         }else{
                             echo'<div class="tab-pane" id="Farm">';
                         }
-                        
-                        
-                        
+                                         
                         //create table header
                         echo '<div class="table-responsive">';
                         echo '<table class="table table-sm">';
@@ -87,6 +94,12 @@ include_once 'classes/Roster.php';
                             <th>'.$rostersEX.'</th>
                             <th>'.$rostersLD.'</th>
                             <th>'.$rostersOV.'</th>
+                            <th>Age</th>
+                            <th>Salary</th>
+                            <th>CT</th>
+                            <th>HT</th>
+                            <th>WT</th>
+
                 			</tr>';
                             
                             if ($rosterType == 'Pro') {
@@ -98,9 +111,12 @@ include_once 'classes/Roster.php';
                             //create result rows
                             foreach ($results as $roster) {
                                 
+                                $vitalsMatch = array_filter($playerVitals->getVitals(), new PlayerFilter($roster->getNumber(),$roster->getName()));
+                                $vitals = $vitalsMatch[0];
+
                                 echo '<tr>';
                                 echo '<td>'.$roster->getNumber().'</td>';
-                                echo '<td>'.$roster->getName().'</td>';
+                                echo '<td class="text-left">'.$roster->getName().'</td>';
                                 echo '<td>'.$roster->getPosition().'</td>';
                                 echo '<td>'.$roster->getHand().'</td>';
                                 echo '<td>'.$roster->getCondition().'</td>';
@@ -119,8 +135,14 @@ include_once 'classes/Roster.php';
                                 echo '<td>'.$roster->getEx().'</td>';
                                 echo '<td>'.$roster->getLd().'</td>';
                                 echo '<td>'.$roster->getOv().'</td>';
+                                echo '<td>'.$vitals->getAge().'</td>';
+                                echo '<td>$'.$vitals->getSalary().'</td>';
+                                echo '<td>'.$vitals->getContractLength().'</td>';
+                                echo '<td>'.$vitals->getHeight().'</td>';
+                                echo '<td>'.$vitals->getWeight().'</td>';
                                 echo '</tr>';
                             }
+                            
                         
                         echo '</table>'; //end table
                         echo '</div>'; //end resp table
@@ -133,11 +155,18 @@ include_once 'classes/Roster.php';
                 }
                 
 
-            } else
-                echo '<h3>' . $allFileNotFound . ' - ' . $fileName . '</h3>';
+            } else{
+                if(!file_exists($fileName)){
+                    echo '<h3>' . $allFileNotFound . ' - ' . $fileName . '</h3>';
+                }
+                
+                if(!file_exists($vitalsFileName)){
+                    echo '<h3>' . $allFileNotFound . ' - ' . $vitalsFileName . '</h3>'; 
+                }
+            }
             
             ?>
-                
+           </div></div>     
 		</div>
 	</div>
 </div>

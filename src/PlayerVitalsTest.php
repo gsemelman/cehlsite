@@ -8,12 +8,12 @@ $CurrentPage = 'PlayersVitalsTest';
 include 'head.php';
 
 include_once 'common.php';
-include_once 'classes/PlayerVitals.php';
+include_once 'classes/PlayerVitalsHolder.php';
 include_once 'classes/PlayerVitalObj.php';
 
 ?>
 
-<h3>Rosters</h3>
+<h3>Player Vitals</h3>
 
 <div class="container">
 	<div class="row">
@@ -28,7 +28,7 @@ include_once 'classes/PlayerVitalObj.php';
             
             if (file_exists($fileName)) {
                 //get rosters from file
-                $playerVitals = new PlayerVitals($fileName, 'Washington');
+                $playerVitals = new PlayerVitalsHolder($fileName, 'Washington');
 
                 $lastUpdated = $playerVitals->getLastUpdated();
 
@@ -42,8 +42,14 @@ include_once 'classes/PlayerVitalObj.php';
                     
                     echo '<tr class="tableau-top">
                 			<th>#</th>
-              		       	<th>'.$rostersName.'</th>
+                            <th>R</th>
+              		       	<th>Name</th>
                 			<th>PO</th>
+                            <th>Age</th>
+                            <th>HT</th>
+                            <th>WT</th>
+                            <th>Salary</th>
+                            <th>Contract</th>
                 			</tr>';
                     
                     $results = $playerVitals->getVitals();
@@ -53,8 +59,14 @@ include_once 'classes/PlayerVitalObj.php';
                         
                         echo '<tr>';
                         echo '<td>'.$vitals->getNumber().'</td>';
+                        echo '<td>'.$vitals->getRookie().'</td>';
                         echo '<td>'.$vitals->getName().'</td>';
                         echo '<td>'.$vitals->getPosition().'</td>';
+                        echo '<td>'.$vitals->getAge().'</td>';
+                        echo '<td>'.$vitals->getHeight().'</td>';
+                        echo '<td>'.$vitals->getWeight().'</td>';
+                        echo '<td>$'.$vitals->getSalary().'</td>';
+                        echo '<td>'.$vitals->getContractLength().'</td>';
                         echo '</tr>';
                     }
                     

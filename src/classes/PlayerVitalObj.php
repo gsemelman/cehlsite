@@ -1,6 +1,7 @@
 <?php
 class PlayerVitalObj {
     private $number;
+    private $rookie;
     private $name;
     private $position;
     private $age;
@@ -14,6 +15,22 @@ class PlayerVitalObj {
     public function getNumber()
     {
         return $this->number;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRookie()
+    {
+        return $this->rookie;
+    }
+
+    /**
+     * @param mixed $rookie
+     */
+    public function setRookie($rookie)
+    {
+        $this->rookie = $rookie;
     }
 
     /**
