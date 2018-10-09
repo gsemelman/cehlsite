@@ -10,6 +10,7 @@ class PlayerVitalsHolder {
     private $avgHeight = '';
     private $avgWeight = '';
     private $avgSalary = '';
+    private $avgContract= 0;
     
     public function __construct(string $file, string $searchTeam) {
         if(!file_exists($file)) {
@@ -19,6 +20,7 @@ class PlayerVitalsHolder {
         if(!isset($searchTeam)){
             throw new InvalidArgumentException('Team must be set');
         }
+        
         
         $number = 0;
         $rookie = '';
@@ -33,10 +35,11 @@ class PlayerVitalsHolder {
         
         $contents = file($file);
         
+        $count = 0;
         $a = 0;
         $b = 0;
         $d = 1;
-        $i = 0;
+        //$i = 0;
         
         while(list($cle,$val) = myEach($contents)) {
             $val = utf8_encode($val);
@@ -98,7 +101,7 @@ class PlayerVitalsHolder {
                 $salaryTemp = substr($reste, 0, strpos($reste, '  '));
                 $salary = preg_replace('/\D/', '', $salaryTemp);
                 $reste = trim(substr($reste, strpos($reste, '  ')));
-                $contractLength = substr($reste, 0);
+                $contractLength = substr($reste, 0, 1);
 
                 //create object
                 $vitals = new PlayerVitalObj();
@@ -114,7 +117,7 @@ class PlayerVitalsHolder {
 
                 array_push($this->vitals, $vitals);
                 
-                $i++;
+                $count++;
             }
             if($a == 1 && $b && $d) {
                 $a++;

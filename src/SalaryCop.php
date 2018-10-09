@@ -13,10 +13,12 @@ $r = 'background-color:red;'; // Over Salary Cap
 $dr = 'background-color:#8B0000;'; // Under Floor Salary Cap
 ?>
 
-<div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border:solid 1px<?php echo $couleur_contour; ?>">
-<div class="titre"><span class="bold-blanc"><?php echo $salaryCopTitle; ?></span></div>
-<div style="padding:0px 0px 0px 0px;">
-<table class="tableau">
+<!--<div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border:solid 1px<?php echo $couleur_contour; ?>">-->
+<div class = "container">
+<!--<div class="titre"><span class="bold-blanc"><?php echo $salaryCopTitle; ?></span></div>-->
+<h3 class = "text-center wow fadeIn"><?php echo $salaryCopTitle; ?></h3>
+<div class = "col-sm-12 col-md-8 offset-md-2">
+<table class="table table-sm">
 
 <?php
 $i = 0;
@@ -34,7 +36,7 @@ foreach ($matchesDate as $j => $val) {
 $Fnm = $folder.$folderLeagueURL.'Injury.html';
 if (file_exists($Fnm)) {
 	$tableau = file($Fnm);
-	while(list($cle,$val) = each($tableau)) {
+	while(list($cle,$val) = myEach($tableau)) {
 		if(substr_count($val, 'A NAME')) {
 			$i++;
 			$blessure[$i] = '';
@@ -69,7 +71,7 @@ if($leagueSalaryIncFarm == 1) $colspan = 7;
 
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
-	while(list($cle,$val) = each($tableau)) {
+	while(list($cle,$val) = myEach($tableau)) {
 		$val = utf8_encode($val);
 		if(substr_count($val, '<P>(As of')){
 			$pos = strpos($val, ')');
@@ -79,7 +81,7 @@ if(file_exists($Fnm)) {
 			$leagueSalaryCap_ca = number_format($leagueSalaryCap, 0, ' ', ',');
 			$leagueSalaryCap_ca2 = number_format($leagueSalaryCapFloor, 0, ' ', ',');
 			$leagueSalaryClose_ca = number_format($leagueSalaryClose, 0, ' ', ',');
-			echo '<tr><td colspan="'.$colspan.'" style="padding-bottom:20px;">'.$allLastUpdate.' '.$val.'<br><br>';
+			echo '<tr><td colspan="'.$colspan.'">'.$allLastUpdate.' '.$val.'<br>';
 			echo $salaryCopSalaryCap.' '.$leagueSalaryCap_ca.'$<br>';
 			echo $salaryCopFloor.' '.$leagueSalaryCap_ca2.'$<br>';
 			echo $salaryCopNear.' '.$leagueSalaryClose_ca.'$ '.$salaryCopNearTo.' '.$leagueSalaryCap_ca.'$</td></tr>';

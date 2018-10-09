@@ -11,7 +11,7 @@ a:hover, a:focus { color: #856dc0; border: 0; text-decoration: none;   -webkit-f
 
 h1, h2 { margin-top: 10px; font-size: 38px; font-weight: 300; color: #555; line-height: 50px; font-style: italic; }
 h3 { font-size: 22px; font-weight: 300; color: #555; line-height: 25px; font-style: italic; }
-h5 { font-size: 15px; font-weight: 300; color: #555; line-height: 20px; font-style: italic; }
+h5 { font-size: 15px; font-weight: 300; color: #555; line-height: 18px; font-style: italic; }
 
 img { max-width: 100%; }
 
@@ -27,9 +27,11 @@ img { max-width: 100%; }
 
 .section-container-gray-bg { background: #f8f8f8; }
 
+/*
 .section-container-image-bg, 
 .section-container-image-bg h2, 
 .section-container-image-bg h3 { color: #fff; }
+*/
 
 .section-container-image-bg .divider-1 span { border-color: #fff; }
 
@@ -46,7 +48,7 @@ img { max-width: 100%; }
 .divider-1 span { display: inline-block; width: 200px; border-bottom: 1px dotted #aaa; }
 
 
-/***** Top menu *****/
+/***** Main Navbar  *****/
 
 .navbar {
 	background: #444;
@@ -95,7 +97,11 @@ img { max-width: 100%; }
 /***** Section 2 *****/
 .section-2 { margin-top: 10px}
 
-/***** Section 3 *****/
+
+/***** Header style *****/
+.header-content .description { margin-top: 5px; padding-bottom: 5px;}
+.header-content { margin-top: 75px; margin-bottom: 10px; background-color: #D8D8D8; border-radius:10px; }
+
 
 /***** Logo header *****/
 .logo-header .description { margin-top: 5px; padding-bottom: 5px;}
@@ -112,10 +118,6 @@ footer { padding: 40px 0; background-color: #D8D8D8; border-radius:10px;}
     width: 80%;
 }
 
-/***** Other *****/
-.header-content .description { margin-top: 5px; padding-bottom: 5px;}
-.header-content { margin-top: 75px; margin-bottom: 10px; background-color: #D8D8D8; border-radius:10px; }
-
 .centred-content{ 0 auto;
     overflow: hidden;
     padding: 10px 0;
@@ -124,6 +126,7 @@ footer { padding: 40px 0; background-color: #D8D8D8; border-radius:10px;}
     display: flex;
 	float: none;"
 }
+
 
 /***** iFrame embeds *****/
 .iframe-container {

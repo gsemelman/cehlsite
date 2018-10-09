@@ -66,7 +66,7 @@ else echo $allFileNotFound.' - '.$FnmGMs;
 										break 1;
 									}
 									//echo '<a href="LinkedRosters.php?'.$dropLinkPlf.$dropLinkFarm.$dropLinkOne.'team='.$gmequipe[$i].'">';
-									echo '<a href="LinkedRosters.php?team='.$gmequipe[$i].'">';
+									echo '<a href="Rosters.php?team='.$gmequipe[$i].'">';
 									echo '<img src="'.$teamImage.'" width=55 alt="'.$gmequipe[$i].'">';
 									echo '</a>';
 

@@ -143,13 +143,15 @@ if(file_exists($Fnm)) {
 			}
 			else $tmpFwdHT = $tmpFwdHT2;
 			
-			$scoringNameSearch = htmlspecialchars($tmpFwdName);
-			$scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
-
+			//$scoringNameSearch = htmlspecialchars($tmpFwdName);
+			//$scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
+			//$scoringNameLink = urlencode($tmpFwdName);
+			//<td><a href="'.$scoringNameLink.'">'.$tmpFwdName.'</a></td>
+			
 			echo '<tr class="hover'.$c.'">
 			<td>'.$tmpFwdPosition.'</td>
 			<td>'.$tmpFwdRookie.'</td>
-			<td><a href="'.$scoringNameLink.'">'.$tmpFwdName.'</a></td>
+			<td><a href="CareerStatsPlayer.php?csName='.urlencode($tmpFwdName).'">'.$tmpFwdName.'</a></td>
 			<td>'.$tmpFwdGP.'</td>
 			<td>'.$tmpFwdG.'</td>
 			<td>'.$tmpFwdA.'</td>

@@ -1,7 +1,5 @@
 <?php
 
-include_once Waiver;
-
 class WaiversHolder {
     var $waivers = array();
     
@@ -23,7 +21,7 @@ class WaiversHolder {
         
         $contents = file($file);
         
-        while(list($cle,$val) = each($contents)) {
+        while(list($cle,$val) = myEach($contents)) {
             $val = utf8_encode($val);
             //no players on waivers
             if(substr_count($val, 'NO PLAYERS ON WAIVERS')){
@@ -44,7 +42,7 @@ class WaiversHolder {
                 $reste = trim(substr($reste, strpos($reste, '  ')));
                 $waivClaim = $reste;
                 
-                $waiver = new Waiver();
+                $waiver = new WaiverObj();
                 $waiver->player = $waivName;
                 $waiver->waiveDate = $waivDate;
                 $waiver->waivedBy = $waivBy;

@@ -7,8 +7,10 @@ class RostersHolder{
     private $lastUpdated;
     private $proRosters = array();
     private $farmRosters = array();
+    private $proAverages;
+    private $farmAverages;
 
-    public function __construct(string $file, string $searchTeam) {
+    public function __construct(string $file, string $searchTeam, bool $generateAvg = true) {
         
         if(!file_exists($file)) {
             throw new InvalidArgumentException('File does not exist');
@@ -169,6 +171,11 @@ class RostersHolder{
                 $i = 0;
             }
         }
+        
+        if($generateAvg){
+            $this->proAverages = new RosterAvgObj($this->proRosters);
+            $this->farmAverages = new RosterAvgObj($this->farmRosters);
+        }
     }
     /**
      * @return string
@@ -195,29 +202,24 @@ class RostersHolder{
     }
 
     /**
-     * @param string $lastUpdated
+     * @return mixed
      */
-    public function setLastUpdated($lastUpdated)
+    public function getProAverages()
     {
-        $this->lastUpdated = $lastUpdated;
+        return $this->proAverages;
     }
 
     /**
-     * @param multitype: $proRosters
+     * @return mixed
      */
-    public function setProRosters($proRosters)
+    public function getFarmAverages()
     {
-        $this->proRosters = $proRosters;
-    }
-
-    /**
-     * @param multitype: $farmRosters
-     */
-    public function setFarmRosters($farmRosters)
-    {
-        $this->farmRosters = $farmRosters;
+        return $this->farmAverages;
     }
 
 
+    
+
+    
 
 }
