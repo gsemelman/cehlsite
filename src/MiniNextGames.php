@@ -10,28 +10,19 @@ include 'config.php';
 include 'lang.php';
 ?>
 
-<div class = "row">
+<!-- <div class = "row"> -->
 
 <?php
-if(!isset($playoff)) $playoff = '';
+$playoff = isPlayoffs($folder, $playoffMode);
 if($playoff == 1) $playoff = 'PLF';
-$matches = glob($folder.'*'.$playoff.'GMs.html');
-$folderLeagueURL = '';
-$matchesDate = array_map('filemtime', $matches);
-arsort($matchesDate);
-foreach ($matchesDate as $j => $val) {
-	if((!substr_count($matches[$j], 'PLF') && $playoff == '') || (substr_count($matches[$j], 'PLF') && $playoff == 'PLF')) {
-		$folderLeagueURL = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], 'GMs')-strrpos($matches[$j], '/')-1);
-		break 1;
-	}
-}
-$Fnm = $folder.$folderLeagueURL.'TodayGames.html';
+
+$Fnm = getLeagueFile($folder, $playoff, 'TodayGames.html', 'TodayGames');
 $i = 0;
 $j = 0;
 $round = 0;
 $playoffLink = '';
 $stop = 0;
-if(isset($lastGames)) unset($lastGames);
+
 if(isset($nextGames)) unset($nextGames);
 if (file_exists($Fnm)) {
 	$tableau = file($Fnm);
@@ -74,23 +65,10 @@ if (file_exists($Fnm)) {
 					break 1;
 				}
 				
-	/* 			echo '<div style="margin-top:12px; position:relative; display:block; width:45px; height:65px; text-align:center; float:left; padding:2px; border-radius:5px; margin-right:5px; border:solid 1px'.$couleur_contour.'">';
-				echo '<div style="position:absolute; top:-15px; left:2px; font-size:10px;">'.$nextGames[$i].'</div>';
-				echo '<img style="max-height:30px; max-width:60px; display:block; font-size:10px;" src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].'">';
-				echo '<img style="max-height:30px; max-width:60px; display:block; font-size:10px;" src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].'">';
-				echo '</div>'; */
-				
-/* 				echo '<div style="margin-top:12px; position:relative; display:block; width:45px; height:65px; text-align:center; float:left; padding:2px; border-radius:5px; margin-right:5px; border:solid 1px'.$couleur_contour.'">';
-					echo '<img style="max-height:30px; max-width:60px; display:block; font-size:10px;" src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].'">';
-					echo '<img style="max-height:30px; max-width:60px; display:block; font-size:10px;" src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].'">';
-				echo '</div>'; */
-				
 				echo '<div class="next-game">';
 					echo '<div class="next-image"><img src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].'"></div>';
 					echo '<div class="next-image"><img src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].'"></div>';
 				echo '</div>';
-				
-				
 
 			}
 		}
@@ -99,7 +77,7 @@ if (file_exists($Fnm)) {
 	else echo 'BoxScore by Dominik Lavoie detected, use Original FHLsim files...';
 }
 else echo $allFileNotFound.' - '.$Fnm;
-echo '</div>';
+// echo '</div>';
 ?>
 <style>
 .next-game { border-radius:10px; border-style: solid; margin:5px; padding:5px; }

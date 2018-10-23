@@ -29,22 +29,12 @@ if(!function_exists('firstNumber')) {
 	}
 }
 
-if(!isset($playoff)) $playoff = '';
+$playoff = isPlayoffs($folder, $playoffMode);
 if($playoff == 1) {
 	$playoff = 'PLF';
 }
-$matches = glob($folder.'*'.$playoff.'Individual.html');
-$folderLeagueURL = '';
-$matchesDate = array_map('filemtime', $matches);
-arsort($matchesDate);
-foreach ($matchesDate as $j => $val) {
-	if((!substr_count($matches[$j], 'PLF') && $playoff == '') || (substr_count($matches[$j], 'PLF') && $playoff == 'PLF')) {
-		$folderLeagueURL = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], 'Individual')-strrpos($matches[$j], '/')-1);
-		break 1;
-	}
-}
 
-$Fnm = $folder.$folderLeagueURL.'Individual.html';
+$Fnm = getLeagueFile($folder, $playoff, 'Individual.html', 'Individual');
 $a = 0;
 $c = 1;
 $i = 0;

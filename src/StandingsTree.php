@@ -64,7 +64,7 @@ for($j=1;$j<=$existRnd;$j++) {
 			unset($score1);
 			unset($score2);
 			unset($day);
-			while(list($cle,$val) = each($tableau)) {
+			while(list($cle,$val) = myEach($tableau)) {
 				$val = utf8_encode($val);
 				if(substr_count($val, 'Day ')){
 					$l = 0;

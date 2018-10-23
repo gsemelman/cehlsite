@@ -16,8 +16,8 @@ include_once 'classes/WaiverObj.php';
 				<table class="table table-sm">
 
                 <?php
-                if (! isset($playoff))
-                    $playoff = '';
+                $playoff = isPlayoffs($folder, $playoffMode);
+                
                 if ($playoff == 1)
                     $playoff = 'PLF';
                 

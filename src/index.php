@@ -31,6 +31,8 @@ if(file_exists($FnmGMs)) {
 	}
 }
 else echo $allFileNotFound.' - '.$FnmGMs;
+
+$playoffs = isPlayoffs($folder, $playoffMode);
 ?>
 
 		<div class="top-content">
@@ -57,6 +59,7 @@ else echo $allFileNotFound.' - '.$FnmGMs;
 	                    <?php
 							echo '<div class="row">';
 								echo '<div class="col-xs-12">';
+								sort($gmequipe); //sort
 								for($i=0;$i<count($gmequipe);$i++) {
 
 									$matches = glob($folderTeamLogos.strtolower($gmequipe[$i]).'.*');
@@ -77,33 +80,120 @@ else echo $allFileNotFound.' - '.$FnmGMs;
 	                </div>
 	            </div>
 			</div>
-		<div>	
-		
-		<div class="container" >
+		<div>
 
+		<div class="container section-2">
+			<div class="card-columns">
+
+				<div class="card">
+					<div class="card-header wow fadeIn">
+						<h3><?php
+						if ($playoffs) {
+                            echo 'Playoffs';
+                        } else {
+                            echo 'Overall Standings';
+                        }
+                
+                        ?></h3>
+					</div>
+					<div class="card-body">
+						<?php
+						if ($playoffs) {
+                            include 'MiniStandingsTree.php';
+                        } else {
+                            include 'MiniStandings.php';
+                        }
+                
+                        ?>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header wow fadeIn">
+						<h3>Latest Results</h3>
+					</div>
+					<div class="card-body">
+						<?php include 'MiniTodayGames.php'; ?>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header wow fadeIn">
+						<h3>News</h3>
+					</div>
+					<div class="card-body">
+						<?php include 'News.php'; ?>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header wow fadeIn">
+						<h3>Waivers</h3>
+					</div>
+					<div class="card-body">
+						<?php include 'MiniWaivers2.php'; ?>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header wow fadeIn">
+						<h3>Next Games</h3>
+					</div>
+					<div class="card-body">
+						<?php include 'MiniNextGames.php'; ?>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header wow fadeIn">
+						<h3>Leaders</h3>
+					</div>
+					<div class="card-body">
+						<?php include 'MiniTop5.php'; ?>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+		<!-- 
 			<div class="section-2-container section-container">
 				<div class="container">
 					<div class="row">
-					<div class="col-sm-12 col-md-6">
-						<div class="card section-2">
-							<div class="card-header wow fadeIn"><h3>Overall Standings</h3></div>
-							<div class="card-body">
-								<div class="col section-2-box wow fadeInLeft card-text">
-									<?php include 'MiniStandings.php'; ?>
+						<div class="col-sm-12 col-md-6">
+							<div class="card section-2">
+								<div class="card-header wow fadeIn">
+									<h3>Overall Standings</h3>
+								</div>
+								<div class="card-body">
+									<div class="col section-2-box wow fadeInLeft card-text">
+									<?php
+//                                     if (isPlayoffs($folder, $playoffMode)) {
+//                                         include 'MiniStandingsTree.php';
+//                                     } else {
+//                                         include 'MiniStandings.php';
+//                                     }
+                            
+                                    ?>
+								</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-sm-12 col-md-6">
-						<div class="card section-2">
-							<div class="card-header wow fadeIn"><h3>Latest Results</h3></div>
-							<div class="card-body">
-								<div class="col section-2-box wow fadeInLeft card-text">
-									<?php include 'MiniTodayGames.php'; ?>
+						<div class="col-sm-12 col-md-6">
+							<div class="card section-2">
+								<div class="card-header wow fadeIn">
+									<h3>Latest Results</h3>
+								</div>
+								<div class="card-body">
+									<div class="col section-2-box wow fadeInLeft card-text">
+									<?php //include 'MiniTodayGames.php'; ?>
+								</div>
 								</div>
 							</div>
 						</div>
-					</div>
 					</div>
 				</div>
 			</div>
@@ -113,10 +203,12 @@ else echo $allFileNotFound.' - '.$FnmGMs;
 					<div class="section-2-container section-container">
 						<div class="container">
 							<div class="card section-2">
-								<div class="card-header wow fadeIn"><h3>News</h3></div>
+								<div class="card-header wow fadeIn">
+									<h3>News</h3>
+								</div>
 								<div class="card-body">
 									<div class="col section-2-box wow fadeInLeft card-text">
-										<?php include 'News.php'; ?>
+										<?php //include 'News.php'; ?>
 									</div>
 								</div>
 							</div>
@@ -127,36 +219,42 @@ else echo $allFileNotFound.' - '.$FnmGMs;
 					<div class="section-2-container section-container">
 						<div class="container">
 							<div class="card section-2">
-								<div class="card-header wow fadeIn"><h3>Waivers</h3></div>
+								<div class="card-header wow fadeIn">
+									<h3>Waivers</h3>
+								</div>
 								<div class="card-body">
 									<div class="col section-2-box wow fadeInLeft card-text">
-										<?php include 'MiniWaivers2.php'; ?>
+										<?php //include 'MiniWaivers2.php'; ?>
 									</div>
 								</div>
 							</div>
 							<div class="card section-2">
-								<div class="card-header wow fadeIn"><h3>Next Games</h3></div>
+								<div class="card-header wow fadeIn">
+									<h3>Next Games</h3>
+								</div>
 								<div class="card-body">
 									<div class="col section-2-box wow fadeInLeft card-text">
-										<?php include 'MiniNextGames.php'; ?>
+										<?php //include 'MiniNextGames.php'; ?>
 									</div>
 								</div>
 							</div>
 							<div class="card section-2">
-								<div class="card-header wow fadeIn"><h3>Leaders</h3></div>
+								<div class="card-header wow fadeIn">
+									<h3>Leaders</h3>
+								</div>
 								<div class="card-body">
 									<div class="col section-2-box wow fadeInLeft card-text">
-										<?php include 'MiniTop5.php'; ?>
+										<?php// include 'MiniTop5.php'; ?>
 									</div>
 								</div>
 							</div>
-						
+
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		
-		
-	</body>
+			</div> -->
+			
+
+
+		</body>
 </html>

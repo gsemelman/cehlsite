@@ -5,25 +5,25 @@ $CurrentHTML = 'Lines';
 $CurrentTitle = $linesTitle;
 $CurrentPage = 'Lines';
 include 'head.php';
+include 'TeamHeader.php';
 ?>
-
-<!--<h3 class = "text-center wow fadeIn"><?php echo $linesTitle.' - '.$currentTeam; ?></h3>-->
 
 <div class="container">
 
 <?php
-$matches = glob($folder.'*'.$playoff.'Lines.html');
-$folderLeagueURL = '';
-$matchesDate = array_map('filemtime', $matches);
-arsort($matchesDate);
-foreach ($matchesDate as $j => $val) {
-	if((!substr_count($matches[$j], 'PLF') && $playoff == '') || (substr_count($matches[$j], 'PLF') && $playoff == 'PLF')) {
-		$folderLeagueURL = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], 'Lines')-strrpos($matches[$j], '/')-1);
-		break 1;
-	}
-}
+// $matches = glob($folder.'*'.$playoff.'Lines.html');
+// $folderLeagueURL = '';
+// $matchesDate = array_map('filemtime', $matches);
+// arsort($matchesDate);
+// foreach ($matchesDate as $j => $val) {
+// 	if((!substr_count($matches[$j], 'PLF') && $playoff == '') || (substr_count($matches[$j], 'PLF') && $playoff == 'PLF')) {
+// 		$folderLeagueURL = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], 'Lines')-strrpos($matches[$j], '/')-1);
+// 		break 1;
+// 	}
+// }
 
-$Fnm = $folder.$folderLeagueURL.'Lines.html';
+// $Fnm = $folder.$folderLeagueURL.'Lines.html';
+$Fnm = getLeagueFile($folder, $playoff, 'Lines.html', 'Lines');
 $a = 0;
 $b = 0;
 $c = 1;

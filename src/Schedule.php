@@ -65,6 +65,11 @@ $CurrentHTML = $linkSchedule;
 $CurrentTitle = $schedTitle;
 $CurrentPage = 'Schedule';
 include 'head.php';
+
+if($checked != ''){
+    include 'TeamHeader.php';
+}
+
 ?>
 
 <!--<div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border: solid 1px <?php echo $couleur_contour; ?>;"-->
@@ -72,20 +77,34 @@ include 'head.php';
 <!--<h3 class = "text-center wow fadeIn"><?php echo $schedTitle.$schedTitlePlayoff; ?></h3>-->
 
 <div class = "container">
-	
+
+
 	<div class="card">
 
 		<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">
 			<div class = "row d-flex align-items-center justify-content-center">
 				<?php
 				$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-				if(isset($teamCardLogoSrc[0]) && $checked ==' checked="checked"') {
+				if(isset($teamCardLogoSrc[0]) && $checked !='') {
 					echo'		<img class="float-left card-img-top" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
 				}?>
 				<h3><?php echo $CurrentTitle; ?></h3>
 			</div>
 		</div>
 		<div class="card-body">
+		
+        	<?php 
+        	if($currentPLF == 1 && isset($existRnd)) {
+        	    echo '<div class = "row">';
+        	    echo '<div class = "col">';
+        	    if($existRnd >= 4) echo '<a href="'.$CurrentPage.'.php?plf=1&rnd=4" class="lien-noir">'.$scheldRound.' 4</a>';
+        	    if($existRnd >= 3) echo ' - <a href="'.$CurrentPage.'.php?plf=1&rnd=3" class="lien-noir">'.$scheldRound.' 3</a>';
+        	    if($existRnd >= 2) echo ' - <a href="'.$CurrentPage.'.php?plf=1&rnd=2" class="lien-noir">'.$scheldRound.' 2</a>';
+        	    if($existRnd >= 1) echo ' - <a href="'.$CurrentPage.'.php?plf=1&rnd=1" class="lien-noir">'.$scheldRound.' 1</a>';
+        	    echo '</div>';
+        	    echo '</div>';
+        	}
+        	?>
 
 			<div class = "row wow fadeIn">
 				<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">

@@ -6,6 +6,7 @@ $CurrentHTML = 'TeamScoring';
 $CurrentTitle = $scoringTitle;
 $CurrentPage = 'TeamScoring';
 include 'head.php';
+include 'TeamHeader.php';
 ?>
 
 <!--<div class="container">

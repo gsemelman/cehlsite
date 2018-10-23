@@ -7,8 +7,6 @@ class WaiversHolder {
         
         $c = 1;
         $d = 0;
-        $e = 0;
-        $f = 0;
         $g = 0;
         $waivName = '';
         $waivDate = '';
@@ -48,11 +46,8 @@ class WaiversHolder {
                 $waiver->waivedBy = $waivBy;
                 $waiver->claimedBy = $waivClaim;
                 
-                
-                //$waivers->addItem($waiver, $counter);
                 array_push($this->waivers, $waiver);
-                
-                $e = 1;
+  
                 $g++;
                 $counter++;
             }

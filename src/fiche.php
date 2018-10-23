@@ -5,6 +5,7 @@ $CurrentHTML = '';
 $CurrentTitle = $teamCardTitle;
 $CurrentPage = 'fiche';
 include 'head.php';
+include 'TeamHeader.php';
 ?>
 
 <?php

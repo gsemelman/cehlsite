@@ -9,6 +9,7 @@ $CurrentHTML = 'Rosters';
 $CurrentTitle = $rostersTitle;
 $CurrentPage = 'Rosters';
 include 'head.php';
+include 'TeamHeader.php';
 
 include_once 'common.php';
 include_once 'classes/RosterObj.php';
@@ -18,6 +19,51 @@ include_once 'classes/PlayerVitalObj.php';
 include_once 'classes/PlayerVitalsHolder.php';
 
 ?>
+
+<style>
+
+.table.fixed-column-striped,
+.table.fixed-column {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table.fixed-column td, th,
+.table.fixed-column-striped td, th {
+    /*border: 1px solid #dddddd;*/
+    text-align: left;
+    padding: 3px;
+}
+
+.table.fixed-column-striped th:first-child, td:first-child,
+.table.fixed-column th:first-child, td:first-child
+{
+  position:sticky;
+  left:0px;
+}
+
+.table.fixed-column-striped tr:nth-child(even) td:first-child {
+     background-color:rgba(176, 214, 255, 1.0);
+}
+.table.fixed-column-striped tr:nth-child(odd) td:first-child {
+    background-color:rgba(225, 239, 255, 1.0);
+}
+
+.table tfoot th,
+.table thead th{
+    background-color:rgba(23, 145, 202, 1.0);
+}
+
+.table.fixed-column-striped th a,
+.table.fixed-column th a
+{
+  color:#ffffff;
+}
+
+.table-striped>tbody>tr:nth-child(even) {background-color:rgba(176, 214, 255, 1.0);}
+.table-striped>tbody>tr:nth-child(odd) {background-color:rgba(225, 239, 255, 1.0);}
+
+</style>
 
 <div class="container">
 	<div class="row no-gutters">
@@ -41,8 +87,8 @@ include_once 'classes/PlayerVitalsHolder.php';
         
                     <?php
                     
-                    if (! isset($playoff))
-                        $playoff = '';
+//                     if (! isset($playoff))
+//                         $playoff = '';
                     
                     $fileName = getLeagueFile($folder, $playoff, 'Rosters.html', 'Rosters');
                     $vitalsFileName = getLeagueFile($folder, $playoff, 'PlayerVitals.html', 'PlayerVitals');
@@ -87,8 +133,6 @@ include_once 'classes/PlayerVitalsHolder.php';
                                 
                                     echo '<thead>
                                         <tr class="tableau-top">
-                                			<!--<th>#</th>-->
-                              		       	<!--<th class="text-left" style = "background-color:rgba(23, 145, 202, 1.0);">'.$rostersName.'</th>-->
                                             <th class="text-left">'.$rostersName.'</th>
                                 			<th>PO</th>
                                             <th>'.$rostersHD.'</th>
@@ -109,7 +153,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                                             <th>'.$rostersLD.'</th>
                                             <th>'.$rostersOV.'</th>
                                             <th>Age</th>
-                                            <th>Salary</th>
+                                            <th class="text-right">Salary</th>
                                             <th>CT</th>
                                             <th>HT</th>
                                             <th>WT</th>
@@ -124,7 +168,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                                         $rosterAvgs = $rosters->getFarmAverages();
                                     }
                                     
-                                    echo '<tbody>';
+                                    echo '<tbody style="font-weight:normal">';
                                     //create result rows
                                     foreach ($results as $roster) {
                                         
@@ -135,8 +179,6 @@ include_once 'classes/PlayerVitalsHolder.php';
                                         $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
 
                                         echo '<tr>';
-                                        //echo '<td>'.$roster->getNumber().'</td>';
-                                            //echo '<td class="text-left"><a href="CareerStatsPlayer.php?csName='.urlencode($roster->getName()).'">'.$roster->getName().'</a></td>';
                                         echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$roster->getName().'</a></td>';
                                             echo '<td>'.$roster->getPosition().'</td>';
                                             echo '<td>'.$roster->getHand().'</td>';
@@ -155,10 +197,10 @@ include_once 'classes/PlayerVitalsHolder.php';
                                             echo '<td>'.$roster->getSc().'</td>';
                                             echo '<td>'.$roster->getEx().'</td>';
                                             echo '<td>'.$roster->getLd().'</td>';
-                                            echo '<td>'.$roster->getOv().'</td>';
+                                            echo '<td style="font-weight:bold; font-size: 13px;">'.$roster->getOv().'</td>';
                                             echo '<td>'.$vitals->getAge().'</td>';
-                                            echo '<td>'.$vitals->getSalary().'</td>';
-                                            echo '<td>'.$vitals->getContractLength().'</td>';
+                                            echo '<td class="text-right">$'.number_format($vitals->getSalary()).'</td>';
+                                            echo '<td class="text-center">'.$vitals->getContractLength().'</td>';
                                             echo '<td>'.$vitals->getHeight().'</td>';
                                             echo '<td>'.$vitals->getWeight().'</td>';
                                         echo '</tr>';             
@@ -188,7 +230,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                                             <th>'.$rosterAvgs->getAvgLd().'</th>
                                             <th>'.$rosterAvgs->getAvgOv().'</th>
                                             <th>'.$playerVitals->getAvgAge().'</th>
-                                            <th>'.$playerVitals->getAvgSalary().'</th>
+                                            <th class="text-right">$'.$playerVitals->getAvgSalary().'</th>
                                             <th></th>
                                             <th>'.$playerVitals->getAvgHeight().'</th>
                                             <th>'.$playerVitals->getAvgWeight().'</th>
@@ -234,57 +276,7 @@ window.onload = function () {
 
 </script>
 
-<style>
 
-.table.fixed-column-striped,
-.table.fixed-column {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.table.fixed-column td, th,
-.table.fixed-column-striped td, th {
-    /*border: 1px solid #dddddd;*/
-    text-align: left;
-    padding: 8px;
-}
-
-.table.fixed-column-striped th:first-child, td:first-child,
-.table.fixed-column th:first-child, td:first-child
-{
-  position:sticky;
-  left:0px;
-}
-
-.table.fixed-column-striped tr:nth-child(even) td:first-child {
-     background-color:rgba(176, 214, 255, 1.0);
-}
-.table.fixed-column-striped tr:nth-child(odd) td:first-child {
-    background-color:rgba(225, 239, 255, 1.0);
-}
-
-/*
-.table.fixed-column-striped tfoot th,
-.table.fixed-column-striped thead th {
-    background-color:rgba(23, 145, 202, 1.0);
-}
-*/
-
-.table tfoot th,
-.table thead th {
-    background-color:rgba(23, 145, 202, 1.0);
-}
-
-/*alternate row colours
-.table-striped>tbody>tr:nth-child(even) {background-color:<?php echo $tableau_ligne1; ?>;}
-.table-striped>tbody>tr:nth-child(odd) {background-color:<?php echo $tableau_ligne2; ?>;}
-*/
-
-.table-striped>tbody>tr:nth-child(even) {background-color:rgba(176, 214, 255, 1.0);}
-.table-striped>tbody>tr:nth-child(odd) {background-color:rgba(225, 239, 255, 1.0);}
-
-
-</style>
 
 
 

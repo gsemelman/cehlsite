@@ -2,10 +2,10 @@
 include_once 'config.php';
 include_once 'lang.php';
 include_once 'common.php';
-include_once 'class_lib.php';
+//include_once 'class_lib.php';
 ?>
 
-<div class="col">
+<!-- <div class="col"> -->
 <div class = "table-responsive scrollable-table">
 <table class="table table-sm table-fixed">
 
@@ -136,7 +136,7 @@ else {
 ?>
 </table>
 </div>
-</div>
+<!-- </div> -->
 
 </body>
 	

@@ -1,8 +1,5 @@
 ﻿<?php
-// Version 1.01
-// Made By Éric Leclerc
-// eleclerc@hotmail.ca
-// Edit this file with Notepad++ Or an editor with UTF-8 w/o BOM capability
+
 
 // Langue | Français: 'FR' | English: 'EN'
 $leagueLang = 'EN';
@@ -65,30 +62,19 @@ $folderGmo = 'gmo/';
 #Legacy file locations (old html files still referenced)
 $folderLegacy = 'legacy/';
 
-# CHAT BOX SETTINGS
-// Enabled : 1 | Disabled : 0
-$leagueChatBox = 0;
-
 // For more information about timezone available : http://php.net/manual/en/timezones.php, copy paste your timezone in the box bellow!
 $leagueTimeZone = 'America/Toronto';
-
-# BACK AND HOME BUTTONS
-// Enabled : 1 | Disabled : 0
-$leagueBackButton = 0;
-
-// Enabled : 1 | Disabled : 0
-$leagueHomeButton = 0;
 
 # FUTURES PAGE
 // Choose between hockeyDB : 1 or EliteProspect : 2
 $leagueFuturesLink = 2;
 
-# Playoff mode
-# Regular Season : 1 or Playoffs : 2
-#$playoff = 0;
+# Playoff mode (Auto mode will check if playoff files exist in transfer directory, other two settings are overrides)
+# Auto: 0 Regular Season : 1 or Playoffs : 2
+$playoffMode = 0;
 
 //////////////////////////////////////
-// PARAMÈTRES DES COULEURS - COLORS //
+// COLORS //
 //////////////////////////////////////
 
 // Bleu LHSX - LHSX Blue : 1

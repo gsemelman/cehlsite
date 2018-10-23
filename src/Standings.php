@@ -27,24 +27,17 @@ if($currentFarm == 1) {
 	include 'phpGetAbbr.php'; // Output $TSabbr
 	$playoff = '';
 }
-$matches = glob($folder.'*'.$playoff.$farm.'Standings.html');
-$folderLeagueURL = '';
-$matchesDate = array_map('filemtime', $matches);
-arsort($matchesDate);
-foreach ($matchesDate as $j => $val) {
-	if((!substr_count($matches[$j], 'Farm') && $farm == '') || (substr_count($matches[$j], 'Farm') && $farm == 'Farm')) {
-		if((!substr_count($matches[$j], 'PLF') && $playoff == '') || (substr_count($matches[$j], 'PLF') && $playoff == 'PLF')) {
-			if(!substr_count($matches[$j], 'Overall')) {
-				$folderLeagueURL = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], $farm.'Standings')-strrpos($matches[$j], '/')-1);
-				break 1;
-			}
-		}
-	}
+
+if( isset($farm) && $farm != ''){
+    $Fnm = getLeagueFile($folder, '', $farm.'Standings.html', $farm.'Standings');
+}else{
+    $Fnm = getLeagueFile2($folder, '', 'Standings.html', 'Standings', 'Farm'); //exclude farm
 }
+
 $c = 1;
 $d = 0;
 $e = 0;
-$Fnm = $folder.$folderLeagueURL.$farm.'Standings.html';
+
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = myEach($tableau)) {

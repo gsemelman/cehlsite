@@ -5,6 +5,7 @@ $CurrentHTML = 'Futures';
 $CurrentTitle = $prospectsTitle;
 $CurrentPage = 'Futures';
 include 'head.php';
+include 'TeamHeader.php';
 ?>
 
 <!--<h3 class = "text-center wow fadeIn"><?php echo $prospectsTitle.' - '.$currentTeam ?></h3>-->

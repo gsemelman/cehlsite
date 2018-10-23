@@ -5,6 +5,7 @@ $CurrentHTML = '';
 $CurrentTitle = 'Futures';
 $CurrentPage = 'Futures2';
 include 'head.php';
+include 'TeamHeader.php';
 ?>
 
 	<div class = "container">

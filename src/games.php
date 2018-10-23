@@ -5,6 +5,8 @@ ini_set("display_errors", "On");
 include 'config.php';
 include 'lang.php';
 
+$folder .= $folderGames;
+
 $matchNumber = '';
 $linkHTML = '';
 if(isset($_GET['num']) || isset($_POST['num'])) {

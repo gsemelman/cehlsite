@@ -17,11 +17,12 @@ jQuery(document).ready(function() {
 	/*
 	    Navigation
 	*/
-	$('a.scroll-link').on('click', function(e) {
-		e.preventDefault();
-		scroll_to($(this), $('nav').outerHeight());
-	});
-	// toggle "navbar-no-bg" class
+//	$('a.scroll-link').on('click', function(e) {
+//		e.preventDefault();
+//		scroll_to($(this), $('nav').outerHeight());
+//	});
+	
+	// toggle "navbar-no-bg" class for main page
 	$('.top-content .text').waypoint(function() {
 		$('nav').toggleClass('navbar-no-bg');
 	});
@@ -61,6 +62,15 @@ function makeSortable(table) {
     while (--i >= 0) (function (i) {
         var dir = 1;
         th[i].addEventListener('click', function () {sortTable(table, i, (dir = 1 - dir))});
+        
+        //add blank link, swap text from header.
+        var newLinkText = th[i].innerHTML;
+        var newlink = document.createElement('a');
+        newlink.setAttribute('href', '#');
+        newlink.innerHTML = newLinkText;
+        th[i].innerHTML = "";
+        th[i].appendChild(newlink);
+        
     }(i));
 }
 

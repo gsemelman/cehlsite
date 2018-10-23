@@ -6,33 +6,26 @@ ob_start();
 if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
 ob_end_flush();
 
-include 'config.php';
-include 'lang.php';
+include_once 'config.php';
+include_once 'lang.php';
+include_once 'common.php';
 ?>
 
-<div class = "row">
+<!-- <div class = "row"> -->
 
 <?php
-if(!isset($playoff)) $playoff = '';
+//if(!isset($playoff)) $playoff = '';
+$playoff = isPlayoffs($folder, $playoffMode);
 if($playoff == 1) $playoff = 'PLF';
-$matches = glob($folder.'*'.$playoff.'GMs.html');
-$folderLeagueURL = '';
-$matchesDate = array_map('filemtime', $matches);
-arsort($matchesDate);
-foreach ($matchesDate as $j => $val) {
-	if((!substr_count($matches[$j], 'PLF') && $playoff == '') || (substr_count($matches[$j], 'PLF') && $playoff == 'PLF')) {
-		$folderLeagueURL = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], 'GMs')-strrpos($matches[$j], '/')-1);
-		break 1;
-	}
-}
-$Fnm = $folder.$folderLeagueURL.'TodayGames.html';
+
+$Fnm = getLeagueFile($folder, $playoff, 'TodayGames.html', 'TodayGames');
+//$Fnm = $folder.$folderLeagueURL.'TodayGames.html';
 $i = 0;
 $j = 0;
 $round = 0;
 $playoffLink = '';
 $stop = 0;
 if(isset($lastGames)) unset($lastGames);
-if(isset($nextGames)) unset($nextGames);
 if (file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = each($tableau)) {
@@ -108,20 +101,7 @@ if (file_exists($Fnm)) {
 					$todayImage2 = $matches[$j];
 					break 1;
 				}
-				
-/* 				echo '<a class="lien-noir" style="margin-top:12px; position:relative; display:block; width:100px; height:70px; float:left; padding:2px; border-radius:5px; margin-right:5px; border:solid 1px'.$couleur_contour.'" href="games.php?num='.$lastGames[$i].$playoffLink.'">';
-				echo '<img style="float:left; display:block; max-height:30px; max-width:60px; font-size:10px;" src="'.$todayImage1.'" alt="'.$lastEquipe1[$i].'">';
-				echo '<span style="float:right; display:block; width:40px; text-align:center; font-size:18px;'.$bold1.'">'.$lastScore1[$i].'</span>';
-				echo '<img style="clear:left; float:left; display:block; max-height:30px; max-width:60px; font-size:10px;" src="'.$todayImage2.'" alt="'.$lastEquipe2[$i].'">';
-				echo '<span style="float:right; display:block; width:40px; text-align:center; font-size:18px;'.$bold2.'">'.$lastScore2[$i].'</span>';
-				echo '</a>'; */
-/* 				echo '<a class="lien-noir" style="margin-top:12px; position:relative; display:block; width:100px; height:100px; float:left; padding:2px; border-radius:5px; margin-right:5px; border:solid 1px'.$couleur_contour.'" href="games.php?num='.$lastGames[$i].$playoffLink.'">';
-				echo '<img style="float:left; display:block; max-height:30px; max-width:30px;" src="'.$todayImage1.'" alt="'.$lastEquipe1[$i].'">';
-				echo '<span style="float:right; display:block; width:40px; text-align:center; font-size:18px;'.$bold1.'">'.$lastScore1[$i].'</span>';
-				echo '<img style="clear:left; float:left; display:block; max-height:30px; max-width:30px;" src="'.$todayImage2.'" alt="'.$lastEquipe2[$i].'">';
-				echo '<span style="float:right; display:block; width:40px; text-align:center; font-size:18px;'.$bold2.'">'.$lastScore2[$i].'</span>';
-				echo '</a>'; */
-				
+
  				echo '<div class="latest-game">';
 					echo '<a href="games.php?num='.$lastGames[$i].$playoffLink.'">';
 						echo '<div class="row">';
@@ -137,13 +117,6 @@ if (file_exists($Fnm)) {
 					echo '</a>';
 				echo '</div>'; 
 
-/* 				echo '<div class="latest-game">';
-					echo '<a href="games.php?num='.$lastGames[$i].$playoffLink.'">';
-					echo '<div class="latest-image"><img src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].'"> '.$lastScore1[$i].'</div>';
-					echo '<div class="latest-image"><img src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].'"> '.$lastScore2[$i].'</div>';
-					echo '</a>';
-				echo '</div>'; */
-
 			}
 			echo '</div>';
 		}
@@ -152,7 +125,7 @@ if (file_exists($Fnm)) {
 	else echo 'BoxScore by Dominik Lavoie detected, use Original FHLsim files...';
 }
 else echo $allFileNotFound.' - '.$Fnm;
-echo '</div>';
+//echo '</div>';
 ?>
 
 <style>

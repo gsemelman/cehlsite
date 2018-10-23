@@ -5,9 +5,9 @@ $CurrentHTML = 'Finance';
 $CurrentTitle = $financeTitle;
 $CurrentPage = 'Finance';
 include 'head.php';
-?>
+include 'TeamHeader.php';
 
-<!--<h3 class = "text-center wow fadeIn"><?php echo $CurrentTitle; ?></h3>-->
+?>
 
 <div class="container">
 
@@ -215,7 +215,7 @@ if(file_exists($Fnm)) {
 	echo '</div>';
 	
 	echo '<div class="container">';
-		echo '<div class = "row wow fadeInLeft">';	
+		echo '<div class = "row wow fadeIn">';	
 			echo '<div class="col-sm-4 offset-sm-2">
 				<table class="table table-sm">
 				<tr class="tableau-top"><td colspan="2">'.$financeExpenses.'</td></tr>
@@ -271,7 +271,7 @@ if(file_exists($Fnm)) {
 	}
 
 	echo '<div class="container">';
-		echo '<div class = "row wow fadeInLeft">';	
+		echo '<div class = "row wow fadeIn">';	
 			echo '<div class="col-sm-4 offset-sm-2 ">
 			<table class="table table-sm">
 			<tr class="titre"><td colspan="3" class="text-blanc bold-blanc">'.$financeProPayroll2.'</td></tr>
