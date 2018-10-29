@@ -82,14 +82,14 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 			</div>
 		<div>
 
-		<div class="container section-2">
+		<div class="container-responsive section-2 mx-md-3 mx-lg-5">
 			<div class="card-columns">
 
-				<div class="card">
+				<div class="card wow fadeIn">
 					<div class="card-header wow fadeIn">
 						<h3><?php
 						if ($playoffs) {
-                            echo 'Playoffs';
+                            echo 'Playoff Tree';
                         } else {
                             echo 'Overall Standings';
                         }
@@ -108,7 +108,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 					</div>
 				</div>
 
-				<div class="card">
+				<div class="card wow fadeIn">
 					<div class="card-header wow fadeIn">
 						<h3>Latest Results</h3>
 					</div>
@@ -117,25 +117,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 					</div>
 				</div>
 
-				<div class="card">
-					<div class="card-header wow fadeIn">
-						<h3>News</h3>
-					</div>
-					<div class="card-body">
-						<?php include 'News.php'; ?>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-header wow fadeIn">
-						<h3>Waivers</h3>
-					</div>
-					<div class="card-body">
-						<?php include 'MiniWaivers2.php'; ?>
-					</div>
-				</div>
-
-				<div class="card">
+				<div class="card wow fadeIn">
 					<div class="card-header wow fadeIn">
 						<h3>Next Games</h3>
 					</div>
@@ -144,7 +126,26 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 					</div>
 				</div>
 
-				<div class="card">
+				<div class="card wow fadeIn">
+					<div class="card-header wow fadeIn">
+						<h3>News</h3>
+					</div>
+					<div class="card-body">
+						<?php include 'News.php'; ?>
+					</div>
+				</div>
+
+				<div class="card wow fadeIn">
+					<div class="card-header wow fadeIn">
+						<h3>Waivers</h3>
+					</div>
+					<div class="card-body">
+						<?php include 'MiniWaivers2.php'; ?>
+					</div>
+				</div>
+
+
+				<div class="card wow fadeIn">
 					<div class="card-header wow fadeIn">
 						<h3>Leaders</h3>
 					</div>

@@ -81,10 +81,6 @@ $CurrentTitle = $schedTitle;
 
 ?>
 
-<!--<div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border: solid 1px <?php echo $couleur_contour; ?>;"-->
-<!--<div class = "row" style="clear:both; width:555px; margin-left:auto; margin-right:auto;">-->
-<!--<h3 class = "text-center wow fadeIn"><?php echo $schedTitle.$schedTitlePlayoff; ?></h3>-->
-
 <div class = "container">
 
 
@@ -94,7 +90,7 @@ $CurrentTitle = $schedTitle;
 			<div class = "row d-flex align-items-center justify-content-center">
 				<h3><?php 
 				if($currentPLF){
-				    echo $CurrentTitle.' '.$schedTitlePlayoff;
+				    echo 'Playoff '.$CurrentTitle.' '.$schedTitlePlayoff;
 				}else{
 				    echo $CurrentTitle; 
 				}
@@ -110,7 +106,7 @@ $CurrentTitle = $schedTitle;
         	    echo '<div class = "col">';
         	    
         	    echo '<nav id ="header-nav" class="nav nav-justified-center justify-content-center">';
-        	    if($existRnd >= 4)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=4">'.$scheldRound.' 4</a>';
+        	    if($existRnd >= 4)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=4">Cup Finals</a>';
         	    if($existRnd >= 3)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=3">'.$scheldRound.' 3</a>';
         	    if($existRnd >= 2)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=2">'.$scheldRound.' 2</a>';
         	    if($existRnd >= 1)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=1">'.$scheldRound.' 1</a>';

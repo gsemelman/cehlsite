@@ -11,18 +11,7 @@ include 'TeamHeader.php';
 <div class="container">
 
 <?php
-// $matches = glob($folder.'*'.$playoff.'Lines.html');
-// $folderLeagueURL = '';
-// $matchesDate = array_map('filemtime', $matches);
-// arsort($matchesDate);
-// foreach ($matchesDate as $j => $val) {
-// 	if((!substr_count($matches[$j], 'PLF') && $playoff == '') || (substr_count($matches[$j], 'PLF') && $playoff == 'PLF')) {
-// 		$folderLeagueURL = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], 'Lines')-strrpos($matches[$j], '/')-1);
-// 		break 1;
-// 	}
-// }
 
-// $Fnm = $folder.$folderLeagueURL.'Lines.html';
 $Fnm = getLeagueFile($folder, $playoff, 'Lines.html', 'Lines');
 $a = 0;
 $b = 0;
@@ -78,7 +67,8 @@ if(file_exists($Fnm)) {
 			if(substr_count($val, '</PRE>'))$a = 0;
 			else {
 				if($y == 0) {
-					echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;">'.$linesScratches.'</td></tr>';	
+				    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>';
+					echo '<tr class="tableau-top"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesScratches.'</td></tr>';	
 					$y++;
 				}
 				if(substr_count($val, 'None')) echo '<tr class="hover2"><td colspan="4" style="text-align:center;">'.$linesNoPlayer.'</td></tr>';
@@ -113,7 +103,8 @@ if(file_exists($Fnm)) {
 			echo '<tr class="hover2"><td colspan="4" style="text-align:center;">'.$goal.'</td></tr>';
 		}
 		if(substr_count($val, 'STARTING') && $b && $d) {
-			echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;">'.$linesStartingGoalie.'</td></tr>';
+		    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>';
+			echo '<tr class="tableau-top"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesStartingGoalie.'</td></tr>';
 			$a = 7;
 			$z = 0;
 		}
@@ -214,7 +205,8 @@ if(file_exists($Fnm)) {
 			$a++;
 		}
 		if(substr_count($val, 'POWER') && $b && $d) {
-			echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;">'.$linesPP.'</td></tr>
+			echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>
+            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold">'.$linesPP.'</td></tr>
 			<tr class="tableau-top">
 			<td>POS</td>
 			<td>'.$linesL1.'</td>
@@ -226,7 +218,8 @@ if(file_exists($Fnm)) {
 			$i = 0;
 		}
 		if(substr_count($val, '<PRE>') && $b && $d) {
-			echo '<tr><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesEvenStrenght.'</td></tr>
+		    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>
+            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesEvenStrenght.'</td></tr>
 			<tr class="tableau-top">
 			<td>POS</td>
 			<td>'.$linesL1.'</td>
@@ -237,7 +230,8 @@ if(file_exists($Fnm)) {
 			$a = 1;
 		}
 		if(substr_count($val, 'PENALTY') && $b && $d) {
-			echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;">'.$linesPK.'</td></tr>
+		    echo  '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>
+            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesPK.'</td></tr>
 			<tr class="tableau-top">
 			<td>POS</td>
 			<td>'.$linesL1.'</td>

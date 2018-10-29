@@ -274,7 +274,7 @@ if(file_exists($Fnm)) {
 		echo '<div class = "row wow fadeIn">';	
 			echo '<div class="col-sm-4 offset-sm-2 ">
 			<table class="table table-sm">
-			<tr class="titre"><td colspan="3" class="text-blanc bold-blanc">'.$financeProPayroll2.'</td></tr>
+			<tr class="tableau-top titre"><td colspan="3" class="text-blanc bold-blanc">'.$financeProPayroll2.'</td></tr>
 			<tr class="tableau-top">
 			<td><a class="lien-blanc" style="font-size:8pt;'.$s1.'" href="'.$lienmem.$sortmemj.'">'.$financePlayers.'</a></td>
 			<td style="text-align:center;"><a class="lien-blanc" style="font-size:8pt;'.$s2.'" href="'.$lienmem.$sortmema.'">'.$financeYear2.'</a></td>
@@ -305,7 +305,7 @@ if(file_exists($Fnm)) {
 			$lienmem = '?sort=';
 			echo '<div class="col-sm-4">
 			<table class="table table-sm">
-			<tr class="titre"><td colspan="3" class="text-blanc bold-blanc">'.$financeFarmPayroll2.'</td></tr>
+			<tr class="tableau-top titre"><td colspan="3" class="text-blanc bold-blanc">'.$financeFarmPayroll2.'</td></tr>
 			<tr class="tableau-top">
 			<td><a class="lien-blanc" style="font-size:8pt;'.$s1.'" href="'.$lienmem.$sortmemj.'">'.$financePlayers.'</a></td>
 			<td style="text-align:center;"><a class="lien-blanc" style="font-size:8pt;'.$s2.'" href="'.$lienmem.$sortmema.'">'.$financeYear2.'</a></td>

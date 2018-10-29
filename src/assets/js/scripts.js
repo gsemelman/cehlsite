@@ -54,13 +54,16 @@ function sortTable(table, col, reverse) {
     for(i = 0; i < tr.length; ++i) tb.appendChild(tr[i]); // append each row in order
 }
 
+/*
+ * 
+ */
 function makeSortable(table) {
     var th = table.tHead, i;
     th && (th = th.rows[0]) && (th = th.cells);
     if (th) i = th.length;
     else return; // if no `<thead>` then do nothing
     while (--i >= 0) (function (i) {
-        var dir = 1;
+        var dir = 0; //0 for largest to smallest, 1 for smallest to largest
         th[i].addEventListener('click', function () {sortTable(table, i, (dir = 1 - dir))});
         
         //add blank link, swap text from header.

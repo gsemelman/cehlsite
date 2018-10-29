@@ -10,8 +10,6 @@ include 'config.php';
 include 'lang.php';
 ?>
 
-<!-- <div class = "row"> -->
-
 <?php
 $playoff = isPlayoffs($folder, $playoffMode);
 if($playoff == 1) $playoff = 'PLF';
@@ -65,10 +63,21 @@ if (file_exists($Fnm)) {
 					break 1;
 				}
 				
-				echo '<div class="next-game">';
-					echo '<div class="next-image"><img src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].'"></div>';
-					echo '<div class="next-image"><img src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].'"></div>';
-				echo '</div>';
+// 				echo '<div class="next-game">';
+// 					echo '<div class="next-image"><img src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].'"></div>';
+// 					echo '<div class="next-image"><img src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].'"></div>';
+// 				echo '</div>';
+				
+				
+				echo '<div class="col-3 col-md-2 latest-game">';
+    				echo '<div class="row latest-score">';
+    				    echo '<div class="latest-image"><img src="'.$todayImage1.'" alt="'.$nextEquipe1[$i].' "></div>';
+			        echo '</div>';
+			
+    				echo '<div class="row latest-score ">';
+    				    echo '<div class="latest-image"><img src="'.$todayImage2.'" alt="'.$nextEquipe2[$i].' "></div>';
+    				echo '</div>';
+				echo '</div>'; 
 
 			}
 		}
@@ -79,7 +88,3 @@ if (file_exists($Fnm)) {
 else echo $allFileNotFound.' - '.$Fnm;
 // echo '</div>';
 ?>
-<style>
-.next-game { border-radius:10px; border-style: solid; margin:5px; padding:5px; }
-.next-image {  max-width:30px;}
-</style>

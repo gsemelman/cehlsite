@@ -7,14 +7,21 @@ $CurrentTitle = $standingTitle;
 $CurrentPage = 'Standings';
 
 include 'head.php';
+
+if($currentFarm == 1) {
+    $tableCol = 11;
+    include 'phpGetAbbr.php'; // Output $TSabbr
+    $playoff = '';
+    $CurrentTitle = 'Farm '.$CurrentTitle;
+}
 ?>
 
 <!--<h3 class = "text-center wow fadeIn"><?php echo $CurrentTitle; ?></h3>-->
 <!-- <div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border: solid 1px <?php echo $couleur_contour; ?>;">  -->
 <div class = "container">
 
-<div class="card">
-	<div class="card-header wow fadeIn">
+<div class="card wow fadeIn">
+	<div class="card-header">
 		<h3><?php echo $CurrentTitle; ?></h3>
 	</div>
 	<div class="card-body">
@@ -22,11 +29,7 @@ include 'head.php';
 
 <?php
 $tableCol = 15;
-if($currentFarm == 1) {
-	$tableCol = 11;
-	include 'phpGetAbbr.php'; // Output $TSabbr
-	$playoff = '';
-}
+
 
 if( isset($farm) && $farm != ''){
     $Fnm = getLeagueFile($folder, '', $farm.'Standings.html', $farm.'Standings');
@@ -174,7 +177,7 @@ if(file_exists($Fnm)) {
 			echo '<tr class="hover'.$c.'">';
 			echo '<td style="'.$bold.'">'.$d.'</td>';
 			if($currentFarm == 0) echo '<td style="'.$bold.'">'.$serie.'</td>';
-			if($currentFarm == 0) echo '<td style="'.$bold.'"><a style="display:block; width:100%;" href="LinkedRosters.php?team='.$equipe.'">'.$equipe.'</a></td>';
+			if($currentFarm == 0) echo '<td style="'.$bold.'"><a style="display:block; width:100%;" href="Rosters.php?team='.$equipe.'">'.$equipe.'</a></td>';
 			if($currentFarm == 1) echo '<td style="'.$bold.'">'.$equipe.'</td>';
 			echo '<td style="text-align:right;'.$bold.'">'.$pj.'</td>';
 			echo '<td style="text-align:right;'.$bold.'">'.$standingsW.'</td>';

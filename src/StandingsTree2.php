@@ -1,8 +1,13 @@
 <style>
 
-#tree-nav > a.active{
-    font-weight: 1000;
-	font-size: large;
+#treeRow { display: flex; align-items: center; }
+
+.roundHeader {
+
+    //background-color:rgba(23, 145, 202, 1.0);
+    font-size:20pt;
+    //color:<?php echo $tableauSubTitleColor; ?>;
+    margin:20px;
 }
 
 </style>
@@ -39,28 +44,47 @@ if(file_exists($folder.$folderLeagueURL2.'PLF-Round1-Schedule.html')) {
 
 ?>
 
+<!--<div style="clear:both; width:800px; margin-left:auto; margin-right:auto; border: solid 1px <?php echo $couleur_contour; ?>;">  -->
 
+<!-- <div class="titre"><span class="bold-blanc"><?php echo $StandingsTreeTitle; ?></span></div>-->
+<!--<h3><?php echo $StandingsTreeTitle; ?></h3>-->
+<!-- <table class="tableau"> -->
+<!-- <tr class="tableau-top"> -->
 
+<div id = "treeRow" class="row">
+
+<?php 
+
+// if($existRnd >= 1) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=1">Round 1</a></td>';
+// if($existRnd >= 2) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=2">Round 2</a></td>';
+// if($existRnd >= 3) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=3">Round 3</a></td>';
+// if($existRnd >= 4) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=4">Cup Finals</a></td>';
+
+?>
+</tr><tr>
 
 <?php
 
-echo '<div class = "row">';
-echo '<div class = "col">';
-
-echo '<nav id ="tree-nav" class="nav nav-justified-center justify-content-center">';
-if($existRnd >= 4)echo'<a class="nav-item nav-link" href="Schedule2.php?plf=1&rnd=4">Cup Finals</a>';
-if($existRnd >= 3)echo'<a class="nav-item nav-link" href="Schedule2.php?plf=1&rnd=3">'.$scheldRound.' 3</a>';
-if($existRnd >= 2)echo'<a class="nav-item nav-link" href="Schedule2.php?plf=1&rnd=2">'.$scheldRound.' 2</a>';
-if($existRnd >= 1)echo'<a class="nav-item nav-link" href="Schedule2.php?plf=1&rnd=1">'.$scheldRound.' 1</a>';
-echo '</nav>';
-
-echo '</div>';
-echo '</div>';
-
 $k = 0;
-$j = $existRnd;
-//for($j=1;$j<=$existRnd;$j++) {
+for($j=1;$j<=$existRnd;$j++) {
 	//echo '<td>';
+    
+    if($j == 4){
+        $roundName = "Cup Finals";
+    }else{
+        $roundName = "Round ".$j;
+    }
+    
+    $order = $existRnd - $j;
+    if($order <= 0){
+        $order = 1;
+    }else{
+        $order++;
+    }
+    
+    echo '<div class="col-12 order-'.$order.' col-lg-3 order-lg-1">';
+	echo '<h3 class = "roundHeader">'.$roundName.'</h3>';
+
 	$TeamNumber = 100;
 	$currentTeamCpt = 0;
 	$equipe1 = '';
@@ -181,71 +205,52 @@ $j = $existRnd;
 				}
 			}
 			if($TeamNumber != 0) {
-				echo '<table class="table table-sm" >';
-				echo '<thead>';
-				echo '<tr class="tableau-top">';
-				echo '<td></td>';
-				//for($w=1;$w<=$m;$w++) {
-				for($w=1;$w<=8;$w++) {
-					if(isset($day[$w]) && isset($score1[$w])) echo '<td class = "col-xs-1"><a class="lien-blanc" href="games.php?num='.$day[$w].'&rnd='.$j.'" >'.$w.'</a></td>';
-					//else echo '<td>'.$w.'</td>';
-					elseif($w == 8) echo '<td><a class="lien-blanc" href="Schedule2.php">Series</a></td>';
-					else echo '<td></td>';
-				}
-				//echo '<td></td>';
-				echo '</tr>';
-				echo '</thead>';
-				$bold = '';
-				if($currentTeam == $equipe2) $bold = 'font-weight:bold;';
-				echo '<tr class="hover2"><td style="'.$bold.'">'.$equipe2.'</td>';
-				for($w=1;$w<=$m;$w++) {
-					if(!isset($score2[$w])) $score2[$w] = '';
-					else if($score2[$w] > $score1[$w]) $tmpTot2++;
-					echo '<td>'.$score2[$w].'</td>';
-				}
-				echo '<td style="font-weight:bold;">'.$tmpTot2.'</td>';
-				echo '</tr>';
-				$bold = '';
-				if($currentTeam == $equipe1) $bold = 'font-weight:bold;';
-				echo '<tr class="hover1"><td style="'.$bold.'">'.$equipe1.'</td>';
-				for($w=1;$w<=$m;$w++) {
-					if(!isset($score1[$w])) $score1[$w] = '';
-					else if($score2[$w] < $score1[$w]) $tmpTot1++;
-					echo '<td>'.$score1[$w].'</td>';
-				}
-				echo '<td style="font-weight:bold;">'.$tmpTot1.'</td>';
-				echo '</tr>';
-				echo '</table>';
+			    //echo '<table style="width:25%" class="table table-sm" >';
+			    //echo '<div class="col-3">';
+			    echo '<table class="table table-sm" >';
+			    echo '<thead>';
+			    echo '<tr class="tableau-top">';
+			    echo '<td></td>';
+			    
+			    //for($w=1;$w<=$m;$w++) {
+			    for($w=1;$w<=8;$w++) {
+			        if(isset($day[$w]) && isset($score1[$w])) echo '<td><a class="lien-blanc" href="games.php?num='.$day[$w].'&rnd='.$j.'" >'.$w.'</a></td>';
+			        //else echo '<td>'.$w.'</td>';
+			        elseif($w == 8) echo '<td><a class="lien-blanc" href="Schedule2.php?rnd='.$j.'">Series</a></td>';
+			        else echo '<td></td>';
+			    }
+			   
+			    echo '</tr>';
+			    echo '</thead>';
+			    echo '<tr class="hover2"><td>'.$equipe2.'</td>';
+			    for($w=1;$w<=$m;$w++) {
+			        if(!isset($score2[$w])) $score2[$w] = '';
+			        else if($score2[$w] > $score1[$w]) $tmpTot2++;
+			        echo '<td>'.$score2[$w].'</td>';
+			    }
+			    echo '<td style="font-weight:bold;">'.$tmpTot2.'</td>';
+			    echo '</tr>';
+			    echo '<tr class="hover1"><td>'.$equipe1.'</td>';
+			    for($w=1;$w<=$m;$w++) {
+			        if(!isset($score1[$w])) $score1[$w] = '';
+			        else if($score2[$w] < $score1[$w]) $tmpTot1++;
+			        echo '<td>'.$score1[$w].'</td>';
+			    }
+			    echo '<td style="font-weight:bold;">'.$tmpTot1.'</td>';
+			    echo '</tr>';
+			    echo '</table>';
+			    //echo '</div>';
 			}
 			else echo "Errors!";
 		}
 	}
 	else { 
-		//echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
-	    echo $allFileNotFound;
+		echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 	}
 	//echo '</td>';
-//}
+	echo '</div>';
+}
 ?>
 
-<script>
+</div>
 
-$(document).ready(function() {
-
-	$('a', $('#tree-nav')).each(function () {
-
-		var href = $(this).attr('href');
-		if(typeof href !== "undefined"){
-			if(href.indexOf("rnd=<?php echo $existRnd;?>") > -1){
-				$(this).addClass('active');
-			}
-		}
-
-	});
-
-});
-
-</script>
-
-</body>
-</html>

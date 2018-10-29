@@ -103,7 +103,7 @@ for($workSeason=$NumberSeason+1;$workSeason>0;$workSeason--) {
 			//if($z == 0) echo 'Season #'.$workSeason.'<br>';
 			//if($z == 1) echo 'Playoff #'.$workSeason.'<br>';
 			$tableau = file($Fnm);
-			while(list($cle,$val) = each($tableau)) {
+			while(list($cle,$val) = myEach($tableau)) {
 				$val = utf8_encode($val);
 				if(substr_count($val, 'A NAME=')) {
 					//$reste = substr($val, strpos($val, '='), strpos($val, '</')-strpos($val, '='));

@@ -856,8 +856,8 @@ if($leagueLang == 'EN') {
 	$financeProjectedRevenue = 'Projected Revenue';
 	$financeSalaryCommitment = 'SALARY COMMITMENT';
 	$financeYear = 'Year';
-	$financeProPayroll2 = 'PRO PAYROLL CONTRACT';
-	$financeFarmPayroll2 = 'FARM PAYROLL CONTRACT';
+	$financeProPayroll2 = 'PRO PAYROLL';
+	$financeFarmPayroll2 = 'FARM PAYROLL';
 	$financePlayers = 'PLAYERS';
 	$financeYear2 = 'Y';
 	$financeContract = 'CONTRACT';
@@ -1000,11 +1000,11 @@ if($leagueLang == 'EN') {
 	
 	// Team Scoring
 	$scoringTitle = 'Team Scoring';
-	$scoringScoring = 'Forwards';
-	$scoringGoalie = 'Goaltenders';
+	$scoringScoring = 'Player Stats';
+	$scoringGoalie = 'Goaltender Stats';
 	$scoringNumber = 'Number';
 	$scoringRookie = 'Rookie';
-	$scoringName = 'NAME';
+	$scoringName = 'Name';
 	$scoringTMm = 'TM';
 	$scoringTM = 'Team';
 	$scoringGPm = 'GP';
@@ -1113,7 +1113,7 @@ if($leagueLang == 'EN') {
 	$teamCardNextGame = 'Next Game';
 	$teamCardBestPlayer = 'Top 5 Scorers';
 	$teamCardBestGoalie = 'Top Goalies';
-	$teamCardPlayerInfos = 'Players Infos';
+	$teamCardPlayerInfos = 'Player Info';
 	$teamCardBest10Players = 'Top 10 All-Time Scoring';
 	$teamCardRecord = 'RECORD';
 	$teamCardRecordConference = 'Conference';

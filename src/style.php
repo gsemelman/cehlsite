@@ -25,7 +25,7 @@ a:hover.info {
 a.info span {display: none;}
 a:hover.info span {
   display: inline;
-  position: absolute; 
+  position: fixed; 
   bottom:15px;
   left:1px;
   z-index: 20;

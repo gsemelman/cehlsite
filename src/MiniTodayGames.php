@@ -11,6 +11,40 @@ include_once 'lang.php';
 include_once 'common.php';
 ?>
 
+<style>
+/*  .latest-game { border-radius:10px; border-style: solid; margin:5px; padding:5px; font-size: 17px;}   */
+.latest-game {
+    border-radius:5%; 
+    border-style: solid; 
+    margin:1%;
+   
+}
+ .latest-image { max-width: 66%; height: auto; }
+
+.latest-score {  
+  
+     display: flex;
+     justify-content: center;  
+     align-items: center;
+     padding:2px;
+ }
+ 
+ .square {
+  width: 25%;
+  height: 0;
+  padding-bottom: 25%; 
+  }
+
+.latest-score-text {  
+/*     font-size: 150%; */
+    font-size:18pt;
+/*     padding-left:10%;  */
+    margin-left:10%;
+    
+}
+
+</style>
+
 <!-- <div class = "row"> -->
 
 <?php
@@ -84,10 +118,6 @@ if (file_exists($Fnm)) {
 		if(!isset($lastGames)) echo '<div class="col"><h3>'.$todayNoSimGame.'<h3></div>';
 		else {
 			for($i=0;$i<count($lastGames);$i++){
-				$bold1 = '';
-				if($lastEquipe1[$i] == $currentTeam) $bold1 = 'font-weight:bold;';
-				$bold2 = '';
-				if($lastEquipe2[$i] == $currentTeam) $bold2 = 'font-weight:bold;';
 				
 				$matches = glob($folderTeamLogos.strtolower($lastEquipe1[$i]).'.*');
 				$todayImage1 = '';
@@ -102,23 +132,23 @@ if (file_exists($Fnm)) {
 					break 1;
 				}
 
- 				echo '<div class="latest-game">';
+				echo '<div class="col-3 col-md-2 latest-game">';
 					echo '<a href="games.php?num='.$lastGames[$i].$playoffLink.'">';
-						echo '<div class="row">';
-							echo '<div class="col">';
-							echo '<div class="latest-image"><img src="'.$todayImage1.'" alt="'.$lastEquipe1[$i].'"></div>';
-								echo '<div class="latest-score text">'.$lastScore1[$i].'</div>';
-							echo '</div>';
-							echo '<div class="col">';
-							echo '<div class="latest-image"><img src="'.$todayImage2.'" alt="'.$lastEquipe2[$i].'"></div>';
-								echo '<div class="latest-score text">'.$lastScore2[$i].'</div>';
-							echo '</div>';
+						echo '<div class="row latest-score">';
+                            echo '<div class="latest-image"><img src="'.$todayImage1.'" alt="'.$lastEquipe1[$i].' "></div>';
+                            echo '<div class="latest-score-text"><span>'.$lastScore1[$i].'</span></div>';
+						echo '</div>';
+						
+						echo '<div class="row latest-score ">';
+						    echo '<div class="latest-image"><img src="'.$todayImage2.'" alt="'.$lastEquipe2[$i].' "></div>';
+						    echo '<div class="latest-score-text"><span>'.$lastScore2[$i].'</span></div>';
 						echo '</div>';
 					echo '</a>';
 				echo '</div>'; 
 
 			}
-			echo '</div>';
+			echo '</div>'; 
+			//echo '</div>';
 		}
 	
 	}
@@ -128,9 +158,3 @@ else echo $allFileNotFound.' - '.$Fnm;
 //echo '</div>';
 ?>
 
-<style>
-.latest-game { border-radius:10px; border-style: solid; margin:5px; padding:5px; font-size: 17px;}
-.latest-image { max-width:30px; }
-.latest-score { font-size: 20px; line-height: 32px; }
-
-</style>

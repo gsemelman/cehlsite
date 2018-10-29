@@ -3,7 +3,7 @@ include 'config.php';
 include 'lang.php';
 $CurrentHTML = '';
 $CurrentTitle = $teamCardTitle;
-$CurrentPage = 'Overview';
+$CurrentPage = 'TeamOverview';
 include 'head.php';
 include 'TeamHeader.php';
 ?>
@@ -761,8 +761,8 @@ echo '</div>'; */
 
 echo '<div class = "row wow fadeIn">';
 	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
-		echo '<h5>Team Info</h5>';
 		echo '<table class="table table-sm">';
+		echo '<tr class="tableau-top"><td colspan="4">Team Info</td></tr>';
 		echo '<tr class="hover2"><td style="width:90px; font-weight:bold;">'.$teamCardGM.'</td><td style="width:175px;">'.$gm.'</td><td style="width:90px; font-weight:bold;">'.$teamCardArena.'</td><td>'.$arena.'</td></tr>';
 		echo '<tr class="hover1"><td style="font-weight:bold;">'.$teamCardCoach.'</td><td>'.$entraineur.'</td><td style="font-weight:bold;">'.$teamCardSeats.'</td><td>'.$sieges.'</td></tr>';
 		echo '<tr class="hover2"><td style="font-weight:bold;">'.$teamCardFarm.'</td><td>'.ucwords(strtolower($farmName)).'</td><td style="font-weight:bold;">'.$teamCardTicket.'</td><td>'.$billets.'</td></tr>';
@@ -778,7 +778,7 @@ echo '<div class="row wow fadeIn">';
 //echo '<div class="col-sm-12 col-md-4 offset-md-2">';
 echo '<div class="col-sm-12 col-md-5 offset-md-1">';
 
-echo '<table class="table table-sm">';
+//echo '<table class="table table-sm">';
 if(isset($lastNumber)) {
 	echo '<a href="games.php?num='.$lastNumber.$linkRnd.'">';
 	echo '<table class="table table-sm">';
