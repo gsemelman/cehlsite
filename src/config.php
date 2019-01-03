@@ -71,7 +71,7 @@ $leagueFuturesLink = 2;
 
 # Playoff mode (Auto mode will check if playoff files exist in transfer directory, other two settings are overrides)
 # Auto: 0 Regular Season : 1 or Playoffs : 2
-$playoffMode = 0;
+$playoffMode = 1;
 
 //////////////////////////////////////
 // COLORS //
