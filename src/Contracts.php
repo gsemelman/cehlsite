@@ -11,7 +11,7 @@ include 'head.php';
 
 		<div class="row">
 			<div class="col iframe-container">
-				<iframe src="<?php echo $folderLegacy ?>season26contracts.htm" frameborder="0" allowfullscreen></iframe>
+				<iframe src="<?php echo $folderLegacy ?>cehlContracts.htm" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 		
