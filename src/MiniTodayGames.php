@@ -154,7 +154,10 @@ if (file_exists($Fnm)) {
 	}
 	else echo 'BoxScore by Dominik Lavoie detected, use Original FHLsim files...';
 }
-else echo $allFileNotFound.' - '.$Fnm;
+else {
+    //echo $allFileNotFound.' - '.$Fnm;
+    echo 'No Results';
+}
 //echo '</div>';
 ?>
 

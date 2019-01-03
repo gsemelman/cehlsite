@@ -49,7 +49,8 @@ echo '<nav id ="header-nav" class="nav nav-justified-center justify-content-cent
     echo'<a class="nav-item nav-link" href="Rosters.php'.$plfLink.'">'.$allRosters.'</a>';
     echo'<a class="nav-item nav-link" href="Lines.php'.$plfLink.'">'.$allLines.'</a>';
     //echo'<a class="nav-item nav-link" href="Futures.php'.$plfLink.'">'.$allProspects.'</a>';
-    echo'<a class="nav-item nav-link" href="Futures2.php">'.$allProspects.'</a>';
+    //echo'<a class="nav-item nav-link" href="Futures2.php">'.$allProspects.'</a>';
+    echo'<a class="nav-item nav-link" target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNC0vO9e6s4zizPX3yYpongarBRr9sVdTQj1xxbzdTExEiEQwNmFidIWemXmmVimsYJjLKQOFnXrZZ/pubhtml?widget=true&amp;headers=false">'.$allProspects.'</a>';
     //echo'<a class="nav-item nav-link" href="fiche.php'.$plfLink.'">'.$allTeamCard.'</a>';
     echo'<a class="nav-item nav-link" href="TeamOverview.php'.$plfLink.'">'.$allTeamCard.'</a>';
     echo'<a class="nav-item nav-link" href="TeamSchedule.php'.$plfLink.'">'.$schedTitle.'</a>';
