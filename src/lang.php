@@ -644,7 +644,7 @@ if($leagueLang == 'EN') {
 	$allFinances = 'Finances';
 	$allPlayerVitals = 'Player Vitals';
 	$allLines = 'Lines';
-	$allProspects = 'Prospects';
+	$allProspects = 'Futures';
 	$allTeamCard = 'Overview';
 	$allRosters = 'Roster';
 	$allBack = 'Back';

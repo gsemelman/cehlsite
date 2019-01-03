@@ -1,19 +1,28 @@
-<div class = "news-image"><img class="rounded mx-auto d-block" src="./assets/img/news/redcoats.jpg" alt="News Image"/></div>
+<div class = "news-image"><img class="rounded mx-auto d-block" src="./assets/img/news/capscup.jpg" alt="News Image"/></div>
 <div class = "news-text">
 
-	<p class="medium-paragraph">Live from CEHL HQ - October 29th, 2018<p>
+	<p class="medium-paragraph">Live from CEHL HQ - Jan 3rd, 2019<p>
+	
+	<p class="medium-paragraph">The Washington Capitals have been crowned season 26 Smitty Cup Champions!!!</p>
+	
 
-	<p class="small-paragraph text-left">The playoffs are coming the playoffs are coming!!!!! After an great season, the playoff positions are set and the exciting playoff race begins!</p>
+	<p class="small-paragraph text-left">After a long battle of wills, sweat, tears, and possibly dark motives, 
+	 the Washington Capitals have won the smitty cup for the first time in franchise history. </p>
 	
-	<p class="small-paragraph text-left">You may notice the site is a little different. You can find the playoff tree on the front page and the standings page. All of the roster pages also reflect
-	your playoff lineup. For now if you need to see the season scoring results, you can go view the old site. Season history will be added for next season.</p>	
+	<p class="small-paragraph text-left">In a weird turn of events, Anaheim GM Dan Rudd was ejected from the Game 7 final for attempting to throw rocks from his box seats
+	on capitals players in retribution for the gooning of Patrick Kane earlier in the series. We attempted to reach out to Caps GM Grant Semelman
+	for comment, but he would not return our phone calls. He was later spotted hiding under his office desk with tears of joy, eating pie 
+	with a mysterious white powder on his face. The Capitals PR team also declined to comment.</p>	
 	
-	<p class="small-paragraph text-left">It's also time for teams that did not make the playoffs to wipe away their tears and look ahead to the draft. We will be holding a lottery draft
-	for the top 3 picks for the upcomming draft (2017 NHL Draft) during the playoffs. More details to come! </p>
+	<p class="small-paragraph text-left">Entering the offseason there is still much to do. FA is on the horizon, but first the much anticipated
+	 CEHL draft will take place Sunday January 6th at 1PM. </p>
 	
-	<p class="small-paragraph text-left">As for the rest of you bums, we will get things started once the playoff preview is sent out.</p>
-	
-	<p class="small-paragraph text-left">Good luck everyone!</p>
+	<p class="small-paragraph text-left">You can either navigate to the draft page and find the 'Enter 2017 Draft' button, or you can follow the link below.</p>
+
+	<p class="small-paragraph text-left">Good luck to those of you with picks!</p>
+
+	<a href="https://docs.google.com/spreadsheets/d/1hjOwb0M1nsEomyFvQL6dLpj0rSGLDTZ_vZS1p2QmN3c/edit?usp=sharing" target="_blank" class="btn btn-info" role="button">Enter 2017 Draft</a>
+			
 
 </div>
 
