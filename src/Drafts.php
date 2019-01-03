@@ -17,7 +17,7 @@ include 'head.php';
 		
 		<div class="col-sm-3">
 			<select name="menu1" class="form-control mb-3" id="menu1">
-    			<option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vTCOAzPLDY02CUCgRgyT96TGupcHtNGOS5v9Y9UWBTXy4p5KAAnt9IFcgMBb0PF-VpFKOqM1XPdGkJK/pubhtml?widget=true&amp;headers=false">2016 Draft</option>
+    			<option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vTCOAzPLDY02CUCgRgyT96TGupcHtNGOS5v9Y9UWBTXy4p5KAAnt9IFcgMBb0PF-VpFKOqM1XPdGkJK/pubhtml?gid=1385704465&amp;single=true&amp;widget=true&amp;headers=false">2016 Draft</option>
                 <option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-MY_MJPmANEv4h7JcR32CGPL0M67WuNNdySm1itvb8TafuieXJDHO3aHxBkzMhKcqWJrhhxZX1qpO/pubhtml?gid=1385704465&amp;single=true&amp;widget=true&amp;headers=false">2015 Draft</option>
                 <option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vRiFJzzhSl4WLhSTTtRkde82jb1cf_qGV0y68sTjHetqjDH2iSz0101jsxw8ML-VF4dcObgMP90TcqS/pubhtml?gid=1385704465&amp;single=true&amp;widget=true&amp;headers=false">2014 Draft</option>
                 <option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vQTgP2I-lRgcZuGqFjs_xYC3lstQmipd-mtaFBcRHaFeU_o4MMVkL8Y3Ch6adysiq3MeH_psMuY_tyv/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">2013 Draft</option>
