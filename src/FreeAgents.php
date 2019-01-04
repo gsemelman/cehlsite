@@ -1,4 +1,6 @@
 <?php
+$dataTablesRequired = 1; //require datatables import
+
 include 'config.php';
 include 'lang.php';
 $CurrentHTML = '';
@@ -31,7 +33,8 @@ include_once 'common.php';
 			name="positionInputField" class="form-control mb-3"
 			id="positionInputField">
 			<option value="">All Players</option>
-			<option value="SK">All Skaters</option>
+			<option value="Skaters">All Skaters</option>
+			<option value="Forwards">All Forwards</option>
 			<option value="C">Center</option>
 			<option value="RW">Right Wing</option>
 			<option value="LW">Left Wing</option>
@@ -210,6 +213,7 @@ include_once 'common.php';
 
 
 	var table = $('#faTable').DataTable({
+		dom: 'Blfrtip',
 		scrollY:        true,
         scrollX:        true,
         scrollCollapse: true,
@@ -229,14 +233,29 @@ include_once 'common.php';
           },    
         initComplete: function () {
         	$("#faTable").show(); 
-        }
+        },
+        
+        buttons: [
+        	'copyHtml5',
+            {
+                extend: 'excelHtml5',
+                title: 'FreeAgencyExport'
+            },
+            {
+                extend: 'csvHtml5',
+                title: 'FreeAgencyExport'
+            }
+        ]
         
 	});
 
+
     $("#positionInputField").on('change', function() {  
         var pos = $(this).val();
-        if(pos == 'SK'){
+        if(pos == 'Skaters'){
         	table.column(4).search('^(?=.*?(C|RW|LW|D)).*?', true, false).draw();
+        }else if(pos == 'Forwards'){
+        	table.column(4).search('^(?=.*?(C|RW|LW)).*?', true, false).draw();
         }else{
         	table.column(4).search(pos).draw() ; 
         }    
