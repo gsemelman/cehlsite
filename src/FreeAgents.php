@@ -31,6 +31,7 @@ include_once 'common.php';
 			name="positionInputField" class="form-control mb-3"
 			id="positionInputField">
 			<option value="">All Players</option>
+			<option value="SK">All Skaters</option>
 			<option value="C">Center</option>
 			<option value="RW">Right Wing</option>
 			<option value="LW">Left Wing</option>
@@ -222,7 +223,10 @@ include_once 'common.php';
         lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
         language: {
             "lengthMenu": "Display _MENU_ records"
-        },       
+        },   
+        search: {
+            "regex": true
+          },    
         initComplete: function () {
         	$("#faTable").show(); 
         }
@@ -231,7 +235,12 @@ include_once 'common.php';
 
     $("#positionInputField").on('change', function() {  
         var pos = $(this).val();
-        table.column(4).search(pos).draw() ;
+        if(pos == 'SK'){
+        	table.column(4).search('^(?=.*?(C|RW|LW|D)).*?', true, false).draw();
+        }else{
+        	table.column(4).search(pos).draw() ; 
+        }    
+        
     } );
 
 
