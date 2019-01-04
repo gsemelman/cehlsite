@@ -59,24 +59,8 @@ include_once 'common.php';
 	<h3><?php echo $CurrentTitle; ?></h3>
 	
 		<?php
-		
-		function everything_in_tags($string, $tagname)
-		{
-		    $pattern = "#<\s*?$tagname\b[^>]*>(.*?)</$tagname\b[^>]*>#s";
-		    preg_match($pattern, $string, $matches);
-		    return $matches[1];
-		}
-		
-		function extractString($string, $start, $end) {
-		    $string = " ".$string;
-		    $ini = strpos($string, $start);
-		    if ($ini == 0) return "";
-		    $ini += strlen($start);
-		    $len = strpos($string, $end, $ini) - $ini;
-		    return substr($string, $ini, $len);
-		}
-		
-		$playoff = '';
+
+		//$playoff = '';
 		
 		$Fnm = getLeagueFile($folder, $playoff, 'FreeAgents.html', 'FreeAgents');
 		
