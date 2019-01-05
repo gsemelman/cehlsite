@@ -213,7 +213,7 @@ include_once 'common.php';
 
 
 	var table = $('#faTable').DataTable({
-		dom: 'Blfrtip',
+		dom: 'lftBip',
 		scrollY:        true,
         scrollX:        true,
         scrollCollapse: true,
