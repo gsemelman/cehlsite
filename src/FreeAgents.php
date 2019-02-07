@@ -153,7 +153,12 @@ include_once 'common.php';
 		        
 		        for ($x = 0; $x < $i; $x++) {
 		            echo '<tr>';
-		            echo '<td class="text-left">'.$unassignedPL[$x].'</td>';
+		            
+		            $scoringNameSearch = htmlspecialchars($unassignedPL[$x]);
+		            $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
+		            
+// 		            echo '<td class="text-left">'.$unassignedPL[$x].'</td>';
+		            echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$unassignedPL[$x].'</a></td>';
 		            
 		            $division = $teamDivisions[$unassignedTeam[$x]];
 		            $agent = $agentDivisions[$division];
@@ -192,15 +197,6 @@ include_once 'common.php';
 		}
 		else echo $allFileNotFound.' - '.$Fnm;
 		?>
-		
-		
-        
-
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-sm-12 col-md-8 offset-md-2 iframe-container"> 
-				<iframe src="<?php echo $folder ?>cehlFreeAgents.html" frameborder="0" allowfullscreen></iframe>
-			</div> -->
-<!-- 		</div> -->
 		
 	</div>
 	</div>

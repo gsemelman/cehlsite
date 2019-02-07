@@ -179,7 +179,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                                         $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
 
                                         echo '<tr>';
-                                        echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$roster->getName().'</a></td>';
+                                            echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$roster->getName().'</a></td>';
                                             echo '<td>'.$roster->getPosition().'</td>';
                                             echo '<td>'.$roster->getHand().'</td>';
                                             echo '<td>'.$roster->getCondition().'</td>';
