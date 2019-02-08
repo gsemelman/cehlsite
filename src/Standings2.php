@@ -252,7 +252,7 @@ if (file_exists($Fnm)) {
 	}
 	?>
 	<div class="tab-pane <?php echo $playoffActive?>" id="Playoffs">
-		<?php include 'StandingsTree2.php'; ?>
+		<?php include 'StandingsTreeTemplate.php'; ?>
 	</div>
 </div>
 </div>

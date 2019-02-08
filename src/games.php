@@ -5,6 +5,18 @@ ini_set("display_errors", "On");
 include 'config.php';
 include 'lang.php';
 
+$baseFolder = '';
+$seasonId = '';
+if(isset($_GET['seasonId']) || isset($_POST['seasonId'])) {
+    $seasonId = ( isset($_GET['seasonId']) ) ? $_GET['seasonId'] : $_POST['seasonId'];
+}
+
+if(trim($seasonId) == false){
+    $baseFolder = $folder;
+}else{
+    $baseFolder = str_replace("#",$seasonId,$folderCarrerStats);
+}
+
 $matchNumber = '';
 $linkHTML = '';
 if(isset($_GET['num']) || isset($_POST['num'])) {
@@ -19,7 +31,7 @@ if(isset($_GET['num']) || isset($_POST['num'])) {
 	if($matchNumber != '') {
 		if($round != '') {
 			$playoff = 'PLF';
-			$matches = glob($folder.'*'.$playoff.'GMs.html');
+			$matches = glob($baseFolder.'*'.$playoff.'GMs.html');
 			$folderLeagueURL = '';
 			$matchesDate = array_map('filemtime', $matches);
 			arsort($matchesDate);
@@ -29,12 +41,12 @@ if(isset($_GET['num']) || isset($_POST['num'])) {
 					break 1;
 				}
 			}
-			$Fnm = $folder.$folderGames.$folderLeagueURL.'-R'.$round.'-'.$matchNumber.'.html';
+			$Fnm = $baseFolder.$folderGames.$folderLeagueURL.'-R'.$round.'-'.$matchNumber.'.html';
 			$linkHTML = '-R'.$round.'-'.$matchNumber;
 		}
 		else {
 			$playoff = '';
-			$matches = glob($folder.'*'.$playoff.'GMs.html');
+			$matches = glob($baseFolder.'*'.$playoff.'GMs.html');
 			$folderLeagueURL = '';
 			$matchesDate = array_map('filemtime', $matches);
 			arsort($matchesDate);
@@ -44,10 +56,11 @@ if(isset($_GET['num']) || isset($_POST['num'])) {
 					break 1;
 				}
 			}
-			$Fnm = $folder.$folderGames.$folderLeagueURL.$matchNumber.'.html';
+			$Fnm = $baseFolder.$folderGames.$folderLeagueURL.$matchNumber.'.html';
 		}
 	}
 }
+
 $rondes = '';
 if($round != '') $rondes = ' - '.$scheldRound.' '.$round;
 

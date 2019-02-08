@@ -8,7 +8,7 @@ $CurrentTitle = 'Free Agents';
 $CurrentPage = 'FreeAgents';
 include 'head.php';
 
-include_once 'common.php';
+include_once 'cehlConfig.php';
 ?>
 
 <style>
@@ -198,7 +198,7 @@ include_once 'common.php';
 		else echo $allFileNotFound.' - '.$Fnm;
 		?>
 		
-	</div>
+		</div>
 	</div>
 
 	<script>
