@@ -119,7 +119,7 @@
 						<ul class="dropdown-menu">
 							<!--<li class="nav-item"><a class="nav-link-inner" href="https://goo.gl/forms/dcCNrDIqqEHAC6Bg1">Claim&nbsp;Request</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="https://goo.gl/forms/FW3iOZTmERdl06x23">Create&nbsp;Request</a></li>-->
-							<li class="nav-item"><a class="nav-link-inner" target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNC0vO9e6s4zizPX3yYpongarBRr9sVdTQj1xxbzdTExEiEQwNmFidIWemXmmVimsYJjLKQOFnXrZZ/pubhtml?widget=true&amp;headers=false">Creation&nbsp;Requests</a></li>
+							<li class="nav-item"><a class="nav-link-inner" target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNC0vO9e6s4zizPX3yYpongarBRr9sVdTQj1xxbzdTExEiEQwNmFidIWemXmmVimsYJjLKQOFnXrZZ/pubhtml#">Creation&nbsp;Requests</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="ProspectForm.php?type=claim">Claim&nbsp;Request</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="ProspectForm.php">Create&nbsp;Request</a></li>
 							<li class="dropdown-divider"></li>
