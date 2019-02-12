@@ -39,8 +39,8 @@ if (file_exists($Fnm)) {
             
            // echo '<h5 class = "text-center">' . $allLastUpdate . ' ' . $val2 . '</h5>';
 
-            echo '<div class="col-sm-12 col-md-8 offset-md-2">';
-            echo '<div class="table-responsive">';
+           // echo '<div class="col-sm-12 col-md-8 offset-md-2">';
+            echo '<div class="col-sm-12 col-md-8 offset-md-2 table-responsive">';
             echo '<table class="table table-sm">';
         }
         if (substr_count($val, 'STK') && (substr_count($val, 'OL') || substr_count($val, 'OTL'))) {
@@ -186,7 +186,7 @@ if (file_exists($Fnm)) {
     }
     
     echo '</table>';
-    echo '</div>';
+   // echo '</div>';
     echo '</div>';
     echo '<h5 class = "text-center">' . $allLastUpdate . ' ' . $lastUpdated . '</h5>';
     

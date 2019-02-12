@@ -11,12 +11,13 @@ $currentPLF = 0;
 if(isPlayoffs($folder, $playoffMode)){
     $playoff = 'PLF';
     $currentPLF = 1;
+    
 }
 
 //$dropLinkPlf = '';
 $plfLink = '';
 $tmpFolderPlayoff = '';
-// TEAM CARD - TROUVÉ SI LES FICHIERS PLAYOFF EXIST
+// TEAM CARD - SEE IF PLAYOFFS GMS FILE EXISTS
 $matches = glob($folder.'*GMs.html');
 $matchesDate = array_map('filemtime', $matches);
 arsort($matchesDate);
@@ -50,12 +51,14 @@ if(isset($_GET['rnd']) || isset($_POST['rnd'])) {
 	$plfLink = '?plf=1';
 }
 
+//SORTING (FACTOR THIS OUT)
 $sort = '';
 if(isset($_GET['sort']) || isset($_POST['sort'])) {
 	$sort = ( isset($_GET['sort']) ) ? $_GET['sort'] : $_POST['sort'];
 	$sort = htmlspecialchars($sort);
 }
 
+//TRACK TEAM STATE
 $currentTeam = '';
 if(isset($_GET['team']) || isset($_POST['team'])) {
 	$currentTeam = ( isset($_GET['team']) ) ? $_GET['team'] : $_POST['team'];
@@ -71,35 +74,35 @@ else {
 	ob_end_flush();
 }
 
-$checkedOnly = 0;
-if(isset($_SESSION["only"])) $checkedOnly = $_SESSION["only"];
-ob_start();
-if(isset($_COOKIE['only'])) $checkedOnly = $_COOKIE['only'];
-ob_end_flush();
-if($checkedOnly == 1 && $currentPLF == 0) {
-	$checked = ' checked="checked"';
-	$checkedLink = '?only=0';
-}
-else {
-	$checked = '';
-	$checkedLink = '?only=1';
-}
-if(isset($_GET['only']) || isset($_POST['only'])) {
-	$checked = ( isset($_GET['only']) ) ? $_GET['only'] : $_POST['only'];
-	$checked = htmlspecialchars($checked);
-	if($checked == 1) {
-		$checked = ' checked="checked"';
-		$checkedLink = '?only=0';
-		$_SESSION["only"] = 1;
-		setcookie('only', 1, time() + (86400 * 30), "/");
-	}
-	else {
-		$checked = '';
-		$checkedLink = '?only=1';
-		$_SESSION["only"] = 0;
-		setcookie('only', 0, time() + (86400 * 30), "/");
-	}
-}
+// $checkedOnly = 0;
+// if(isset($_SESSION["only"])) $checkedOnly = $_SESSION["only"];
+// ob_start();
+// if(isset($_COOKIE['only'])) $checkedOnly = $_COOKIE['only'];
+// ob_end_flush();
+// if($checkedOnly == 1 && $currentPLF == 0) {
+// 	$checked = ' checked="checked"';
+// 	$checkedLink = '?only=0';
+// }
+// else {
+// 	$checked = '';
+// 	$checkedLink = '?only=1';
+// }
+// if(isset($_GET['only']) || isset($_POST['only'])) {
+// 	$checked = ( isset($_GET['only']) ) ? $_GET['only'] : $_POST['only'];
+// 	$checked = htmlspecialchars($checked);
+// 	if($checked == 1) {
+// 		$checked = ' checked="checked"';
+// 		$checkedLink = '?only=0';
+// 		$_SESSION["only"] = 1;
+// 		setcookie('only', 1, time() + (86400 * 30), "/");
+// 	}
+// 	else {
+// 		$checked = '';
+// 		$checkedLink = '?only=1';
+// 		$_SESSION["only"] = 0;
+// 		setcookie('only', 0, time() + (86400 * 30), "/");
+// 	}
+// }
 
 $dropLinkOne = '';
 if($CurrentPage == 'CareerLeaders' && (isset($_GET['one']) || isset($_POST['one']))) {
@@ -108,7 +111,7 @@ if($CurrentPage == 'CareerLeaders' && (isset($_GET['one']) || isset($_POST['one'
 	if($ctlOneTeams == 1) $dropLinkOne = 'one=1&';
 }
 
-// CRÉATION DE LA LISTE DES ÉQUIPES
+// CREATE TEAM LIST
 $matches = glob($folder.'*'.$playoff.'GMs.html');
 $folderLeagueURL = '';
 $matchesDate = array_map('filemtime', $matches);

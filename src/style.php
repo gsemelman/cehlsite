@@ -91,20 +91,7 @@ color:<?php echo $tableauSubTitleColor; ?>;
 
 .table { white-space:nowrap; }
 
-/* td {
-	font:12px arial;
-	margin: 0px;
-	border-style:solid;
-	border-width:1px 1px 1px 1px;
-	border-color:<?php echo $tableauBorderColor; ?>;
-}
-.titre {
-	height:20px;
-	text-align:center;
-	margin-bottom: 2px;
-	color:<?php echo $tableauSubTitleColor; ?>;
-    background: linear-gradient(<?php echo $titreFondGradient1; ?>, <?php echo $titreFondGradient2; ?>);
-} */
+
 td {
 	font-size: 12px;
 	margin: 0px;

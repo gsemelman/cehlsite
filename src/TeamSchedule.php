@@ -124,6 +124,7 @@ include 'TeamHeader.php';
 					<table class="table table-sm">
 
 					<?php
+					echo '<div><span>Team Schedule</span></div>';
 					$a = 0;
 					$c = 1;
 					$i = 0;

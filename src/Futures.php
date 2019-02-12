@@ -29,6 +29,7 @@ $a = 0;
 $b = 0;
 $c = 1;
 $d = 1;
+$yearCount = 0;
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = myEach($tableau)) {
@@ -69,12 +70,16 @@ if(file_exists($Fnm)) {
 			if($c == 1) $c = 2;
 			else $c = 1;
 			
-			$year = trim(substr($val, strpos($val, ':')+1, strpos($val, '</B>')-1-strpos($val, ':')-1));
-			$draft = trim(substr($val, strpos($val, '</B>')+4, strpos($val, '<BR>')-strpos($val, '</B>')-4));
-			
-			$pos = strpos($val, '<BR>');
-			$pos = $pos - 19;
-			echo '<tr class="hover'.$c.'"><td>'.$year.'</td><td>'.$draft.'</td></tr>';
+			$yearCount++;
+			if($yearCount <= $leagueFuturesDraftYears){
+			    $year = trim(substr($val, strpos($val, ':')+1, strpos($val, '</B>')-1-strpos($val, ':')-1));
+			    $draft = trim(substr($val, strpos($val, '</B>')+4, strpos($val, '<BR>')-strpos($val, '</B>')-4));
+			    
+			    $pos = strpos($val, '<BR>');
+			    $pos = $pos - 19;
+			    echo '<tr class="hover'.$c.'"><td>'.$year.'</td><td>'.$draft.'</td></tr>';
+			}
+
 			$a++;
 		}
 		if($a == 1 && $b && $d) {
@@ -86,11 +91,17 @@ if(file_exists($Fnm)) {
 				else $c = 1;
 				$tmp = trim(substr($tmpProspect, 0, strpos($tmpProspect, ',')));
 				$tmpProspect = substr($tmpProspect, strpos($tmpProspect, ',')+1);
+				
+				$scoringNameSearch = htmlspecialchars($tmp);
+				$scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%20eliteprospects.com&btnI';
+				
 				// Choose between hockeyDB : 1 or EliteProspect : 2 | $leagueFuturesLink
 				if($leagueFuturesLink == 1) $tmpLink = strtolower(str_replace(' ', '+', $tmp));
-				if($leagueFuturesLink == 2) $tmpLink = strtolower(str_replace(' ', '%20', $tmp));
+				//if($leagueFuturesLink == 2) $tmpLink = strtolower(str_replace(' ', '%20', $tmp));
 				if($leagueFuturesLink == 1) $hockeyFutureLink = 'http://www.hockeydb.com/ihdb/stats/findplayer.php?full_name='.$tmpLink;
-				if($leagueFuturesLink == 2) $hockeyFutureLink = 'http://www.eliteprospects.com/playersearch2.php?player='.$tmpLink;
+				//if($leagueFuturesLink == 2) $hockeyFutureLink = 'http://www.eliteprospects.com/playersearch2.php?player='.$tmpLink;
+				if($leagueFuturesLink == 2) $hockeyFutureLink = $scoringNameLink;
+				
 				echo '<tr class="hover'.$c.'"><td colspan="2"><a style="display:block; width:100%;" target="_blank" href="'.$hockeyFutureLink.'" class="lien-noir">'.$tmp.'</a></td></tr>';
 			}
 			echo '<tr class="tableau-top"><td colspan="2" style="text-align:center;">'.$prospectsDraft.'</td></tr>';

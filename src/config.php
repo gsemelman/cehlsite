@@ -67,7 +67,9 @@ $leagueTimeZone = 'America/Toronto';
 
 # FUTURES PAGE
 // Choose between hockeyDB : 1 or EliteProspect : 2
-$leagueFuturesLink = 2;
+$leagueFuturesLink = 1;
+//choose draft pick years (how many years ahead to display)
+$leagueFuturesDraftYears = 4;
 
 # Playoff mode (Auto mode will check if playoff files exist in transfer directory, other two settings are overrides)
 # Auto: 0 Regular Season : 1 or Playoffs : 2

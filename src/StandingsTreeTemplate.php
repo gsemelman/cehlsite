@@ -57,24 +57,7 @@ if(file_exists($baseFolder.$folderLeagueURL2.'PLF-Round1-Schedule.html')) {
 
 ?>
 
-<!--<div style="clear:both; width:800px; margin-left:auto; margin-right:auto; border: solid 1px <?php echo $couleur_contour; ?>;">  -->
-
-<!-- <div class="titre"><span class="bold-blanc"><?php echo $StandingsTreeTitle; ?></span></div>-->
-<!--<h3><?php echo $StandingsTreeTitle; ?></h3>-->
-<!-- <table class="tableau"> -->
-<!-- <tr class="tableau-top"> -->
-
 <div id = "treeRow" class="row">
-
-<?php 
-
-// if($existRnd >= 1) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=1">Round 1</a></td>';
-// if($existRnd >= 2) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=2">Round 2</a></td>';
-// if($existRnd >= 3) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=3">Round 3</a></td>';
-// if($existRnd >= 4) echo '<td style="width:25%"><a style="width:100%; text-align:center;" class="lien-blanc" href="Schedule.php?plf=1&rnd=4">Cup Finals</a></td>';
-
-?>
-</tr><tr>
 
 <?php
 

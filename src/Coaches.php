@@ -63,7 +63,7 @@ if(file_exists($Fnm)) {
 			if($coachTeam == 'Available') $coachTeam = str_replace('Available', $CoachesAvailable, $coachTeam);
 			
 			$b = '';
-			if(substr_count($val, $currentTeam)) $b = ' font-weight:bold;';
+			//if(substr_count($val, $currentTeam)) $b = ' font-weight:bold;'; //remove references to $b
 			
 			if($c == 1) $c = 2;
 			else $c =  1; 

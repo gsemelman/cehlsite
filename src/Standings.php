@@ -168,7 +168,7 @@ if(file_exists($Fnm)) {
 				if($d == 3) $final = 1;
 				if($d == 8) $b = 1;
 			}
-			if($equipe == $currentTeam || ($currentFarm == 1 && isset($TSabbr) && substr_count($val, '('.$TSabbr))) $bold = 'font-weight:bold;';
+			if(($currentFarm == 1 && isset($TSabbr) && substr_count($val, '('.$TSabbr))) $bold = 'font-weight:bold;';
 			else $bold = '';
 			if($b && $d > 8 && $final) $serie = '<a href="javascript:return;" class="info" style="color:#000000">'.$standingN.'<span>'.$standingNFull.'</span></a>';
 			if($c == 1) $c = 2;
