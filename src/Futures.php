@@ -38,7 +38,7 @@ if(file_exists($Fnm)) {
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
-			echo '<div class="card">';
+			echo '<div class="card wow fadeIn">';
 			echo '<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">';
 				echo'<div class = "row d-flex align-items-center justify-content-center">';
 
@@ -102,7 +102,7 @@ if(file_exists($Fnm)) {
 				//if($leagueFuturesLink == 2) $hockeyFutureLink = 'http://www.eliteprospects.com/playersearch2.php?player='.$tmpLink;
 				if($leagueFuturesLink == 2) $hockeyFutureLink = $scoringNameLink;
 				
-				echo '<tr class="hover'.$c.'"><td colspan="2"><a style="display:block; width:100%;" target="_blank" href="'.$hockeyFutureLink.'" class="lien-noir">'.$tmp.'</a></td></tr>';
+				echo '<tr class="hover'.$c.'"><td colspan="2"><a style="display:block; width:100%;" target="_blank" href="'.$hockeyFutureLink.'" >'.$tmp.'</a></td></tr>';
 			}
 			echo '<tr class="tableau-top"><td colspan="2" style="text-align:center;">'.$prospectsDraft.'</td></tr>';
 			$a = 2;

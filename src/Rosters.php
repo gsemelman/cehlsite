@@ -68,8 +68,8 @@ include_once 'classes/PlayerVitalsHolder.php';
 <div class="container">
 	<div class="row no-gutters">
 	<div class="col"> 
-	<div class="card">
-	<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">
+	<div class="card wow fadeIn">
+	<div class="card-header" style="padding-bottom: 0px; padding-top: 2px;">
 		
 		<div class = "row d-flex align-items-center justify-content-center">
 		<?php 
@@ -81,7 +81,7 @@ include_once 'classes/PlayerVitalsHolder.php';
 		<h3><?php echo $CurrentTitle; ?></h3>
 		</div>
 	</div>
-    	<div class="card-body wow fadeIn">
+    	<div class="card-body">
         	<!-- <div class="row no-gutters">
         		<div class="col">-->
         
