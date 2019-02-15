@@ -106,6 +106,7 @@
 							<li class="nav-item"><a class="nav-link-inner" href="Contracts.php">Contracts</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="Standings.php?s=1">Farm&nbsp;Standings</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="FreeAgents.php">Free&nbsp;Agents</a></li>
+							<li class="nav-item"><a class="nav-link-inner" href="FreeAgency.php">Free&nbsp;Agent&nbsp;Offers</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="Injury.php">Injuries</a></li>
 <!-- 							<li class="nav-item"><a class="nav-link-inner" href="Schedule.php?only=0">Schedule</a></li> -->
 							<li class="nav-item"><a class="nav-link-inner" href="Schedule2.php">Schedule</a></li>
