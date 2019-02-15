@@ -18,7 +18,7 @@ include 'head.php';
 		<h3>CEHL Transactions</h3>
 		
 		<div class="col-sm-3">
-			 <select name="menu1" class="form-control mb-3" id="menu1">
+			 <select name="tradesMenu" class="form-control mb-3" id="tradesMenu">
 			<option value="<?php echo $folderLegacy ?>cehlTransact.html">Current</option>
             <option value="<?php echo $folderLegacy ?>season26trades.html">Season 26</option>
             <option value="<?php echo $folderLegacy ?>season25trades.html">Season 25</option>
@@ -51,21 +51,31 @@ include 'head.php';
 		</div>
 		
 		<div class="col iframe-container"> 
-				<iframe id="transactFrame" src="<?php echo $folderLegacy ?>cehlTransact.html" frameborder="0" allowfullscreen></iframe>
+				<!-- <iframe id="transactFrame" src="<?php echo $folderLegacy ?>cehlTransact.html" frameborder="0" allowfullscreen></iframe>-->
+				<div id = 'trades'></div>
 		</div>
        
         <script type="text/javascript">
 
 
         
-         var urlmenu = document.getElementById( 'menu1' );
-         urlmenu.onchange = function() {
-              //window.open(  this.options[ this.selectedIndex ].value );
-        	 // location.href = this.options[ this.selectedIndex ].value;
+//          var urlmenu = document.getElementById( 'menu1' );
+//          urlmenu.onchange = function() {
+//               //window.open(  this.options[ this.selectedIndex ].value );
+//         	 // location.href = this.options[ this.selectedIndex ].value;
 
-        	 document.getElementById('transactFrame').src = this.options[ this.selectedIndex ].value;
+//         	 document.getElementById('transactFrame').src = this.options[ this.selectedIndex ].value;
 
-         };
+//          };
+
+		$('#trades').load('<?php echo $folderLegacy ?>cehlTransact.html');
+
+        $('#tradesMenu').on('change', function() {
+
+        	 $('#trades').load(this.value);
+
+        });
+
         </script>
 		
 	</div>
