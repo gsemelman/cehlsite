@@ -32,7 +32,6 @@ $teamDivisions = array(
     "St. Louis"=>"Central",
     "San Jose"=>"Pacific",
     "Tampa Bay"=>"Southeast",
-    "Calgary"=>"Northeast",
     "Toronto"=>"Northeast",
     "Vancouver"=>"Northwest",
     "Washington"=>"Southeast",
