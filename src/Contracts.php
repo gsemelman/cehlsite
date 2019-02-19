@@ -5,6 +5,7 @@ $CurrentHTML = '';
 $CurrentTitle = 'Contracts';
 $CurrentPage = 'Contracts';
 include 'head.php';
+
 ?>
 
 	<div class = "container">

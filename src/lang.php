@@ -786,7 +786,7 @@ if($leagueLang == 'EN') {
 	$CoachesDef = 'Defence';
 	$CoachesExp = 'Experience';
 	$CoachesLead = 'Leadership';
-	$CoachesSalary = 'SALARY';
+	$CoachesSalary = 'Salary';
 	
 	// Leaders
 	$leaderTitle = 'Leaders';

@@ -5,6 +5,7 @@ $CurrentHTML = 'Coaches';
 $CurrentTitle = $CoachesTitle;
 $CurrentPage = 'Coaches';
 include 'head.php';
+
 ?>
 
 <div class="container">
@@ -16,6 +17,24 @@ include 'head.php';
 	<div class="card-body">
 
 <?php
+
+//READ COACH CSV
+$coachArray = array();
+$start_row = 2; //define start row
+$i = 1; //define row count flag
+$csvLocation = $folderLegacy."coachContracts.csv";
+$file = fopen($csvLocation, "r");
+while (($row = fgetcsv($file)) !== FALSE) {
+    if($i >= $start_row) {
+        $coachArray[$row[0]] = $row;
+    }
+    $i++;
+}
+
+
+// close file
+fclose($file);
+
 $matches = glob($folder.'*'.$playoff.'Coaches.html');
 $folderLeagueURL = '';
 $matchesDate = array_map('filemtime', $matches);
@@ -60,6 +79,14 @@ if(file_exists($Fnm)) {
 			$reste = trim(substr($reste, 2));
 			$coachSalary = $reste;
 			
+			
+			$coachTerm = "N/A";
+
+			if(array_key_exists(trim($coachTeam), $coachArray)){
+			    $coachRow = $coachArray[trim($coachTeam)];
+			    $coachTerm = $coachRow[3];
+			}
+		
 			if($coachTeam == 'Available') $coachTeam = str_replace('Available', $CoachesAvailable, $coachTeam);
 			
 			$b = '';
@@ -75,7 +102,8 @@ if(file_exists($Fnm)) {
 			<td style="text-align:center;'.$b.'">'.$coachDf.'</td>
 			<td style="text-align:center;'.$b.'">'.$coachEx.'</td>
 			<td style="text-align:center;'.$b.'">'.$coachLd.'</td>
-			<td style="text-align:right;'.$b.'">'.$coachSalary.'$</td>
+			<td style="text-align:right;'.$b.'">$'.$coachSalary.'</td>
+            <td style="text-align:right;'.$b.'">'.$coachTerm.'</td>
 			</tr>';
 		}
 		if(substr_count($val, '                                   ')) {
@@ -88,6 +116,7 @@ if(file_exists($Fnm)) {
 			<td style="text-align:center;"><a href="javascript:return;" class="info">EX<span>'.$CoachesExp.'</span></a></td>
 			<td style="text-align:center;"><a href="javascript:return;" class="info">LD<span>'.$CoachesLead.'</span></a></td>
 			<td style="text-align:right;">'.$CoachesSalary.'</td>
+            <td>Term</td>
 			</tr>';
 			$a = 1;
 		}

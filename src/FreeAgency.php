@@ -32,6 +32,7 @@ include 'head.php';
     	    type: "GET",
     	    contentType: "html",
     	    crossDomain:true,
+    	    cache: false,
     	    url: 'https://docs.google.com/document/d/e/2PACX-1vSHQoRNiVgG0m6Ou-V0k295b3m7PrbLbnqlcp8CKz1S1f5paRl4uu7Ps-9s8QFtpzmz4dFfsJp6ISW1/pub',
     	    success: function(data){
     	    	$('#freeAgency').html(data);
