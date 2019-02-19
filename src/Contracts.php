@@ -65,11 +65,30 @@ include 'head.php';
 //         	  //alert( this.value );
 //          });
 
-		$('#contracts').load('<?php echo $folderLegacy ?>cehlContracts.htm');
+		//$('#contracts').load('<?php echo $folderLegacy ?>cehlContracts.htm');
+
+		 $.ajax({
+ 		    url: "<?php echo $folderLegacy ?>cehlContracts.htm",
+ 		    cache: false,
+ 		    dataType: "html",
+ 		    success: function(data) {
+ 		        $("#contracts").html(data);
+ 		    }
+ 		});
+		
 
         $('#contractsMenu').on('change', function() {
 
         	 $('#contracts').load(this.value);
+
+//         	 $.ajax({
+//         		    url: this.value,
+//         		    cache: false,
+//         		    dataType: "html",
+//         		    success: function(data) {
+//         		        $("#contracts").html(data);
+//         		    }
+//         		});
 
         });
 
