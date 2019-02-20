@@ -12,7 +12,7 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"/>
-	<link rel="stylesheet" href="assets/css/style.css"/>
+	<link rel="stylesheet" href="assets/css/style2.css"/>
 	<link rel="stylesheet" href="assets/css/media-queries.css"/>
      
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -64,7 +64,17 @@
 	
 	
 	
+	<style>
 	
+    @media (max-height: 640px) {
+
+        .navbar-nav{
+              max-height:350px;
+              overflow-y:auto;
+           }
+        }
+	
+	</style>
 	
 	
 
@@ -81,7 +91,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ml-auto">
+				<ul class="navbar-nav ml-auto scrollable">
 					<!--<li class="nav-item">
 						<a class="nav-link scroll-link" href="#top-content">Top</a>
 					</li>-->
@@ -117,7 +127,7 @@
 					  </li>
 					  <li class="dropdown">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other&nbsp;<span class="caret"></span></a>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu" role="menu">
 							<!--<li class="nav-item"><a class="nav-link-inner" href="https://goo.gl/forms/dcCNrDIqqEHAC6Bg1">Claim&nbsp;Request</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="https://goo.gl/forms/FW3iOZTmERdl06x23">Create&nbsp;Request</a></li>-->
 							<li class="nav-item"><a class="nav-link-inner" target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNC0vO9e6s4zizPX3yYpongarBRr9sVdTQj1xxbzdTExEiEQwNmFidIWemXmmVimsYJjLKQOFnXrZZ/pubhtml#">Creation&nbsp;Requests</a></li>

@@ -45,7 +45,7 @@ include 'head.php';
 		
 		<div class="col iframe-container"> 
 				<!--<iframe id="contractFrame" src="<?php echo $folderLegacy ?>cehlContracts.htm" frameborder="0" allowfullscreen></iframe>  -->
-				<div id = 'contracts'></div>
+				<div ALIGN=LEFT id = 'contracts'></div>
 		</div>
        
         <script type="text/javascript">

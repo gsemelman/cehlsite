@@ -52,7 +52,7 @@ include 'head.php';
 		
 		<div class="col iframe-container"> 
 				<!-- <iframe id="transactFrame" src="<?php echo $folderLegacy ?>cehlTransact.html" frameborder="0" allowfullscreen></iframe>-->
-				<div id = 'trades'></div>
+				<div ALIGN=LEFT id = 'trades'></div>
 		</div>
        
         <script type="text/javascript">

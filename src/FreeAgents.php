@@ -129,6 +129,7 @@ include_once 'cehlConfig.php';
                             <tr>
                                 <th>'.$rostersName.'</th>
                                 <th>Agent</th>
+                                <th>Team</th>
                                 <th>Age</th>
                                 <th>Status</th>
                     			<th>PO</th>
@@ -167,6 +168,7 @@ include_once 'cehlConfig.php';
 		            //echo '<td>'.$unassignedTeam[$x].'</td>';
 		            //echo '<td>'.$agent.'</td>';
 		            echo '<td><a href="mailto:'.$agentEmail.'">'.$agent.'</a></td>';
+		            echo '<td>'.$unassignedTeam[$x].'</td>';
 		            echo '<td>'.$unassignedAG[$x].'</td>';
 		            echo '<td>'.$unassignedStatus[$x].'</td>';
 		            echo '<td>'.$unassignedPO[$x].'</td>';
@@ -249,11 +251,11 @@ include_once 'cehlConfig.php';
     $("#positionInputField").on('change', function() {  
         var pos = $(this).val();
         if(pos == 'Skaters'){
-        	table.column(4).search('^(?=.*?(C|RW|LW|D)).*?', true, false).draw();
+        	table.column(5).search('^(?=.*?(C|RW|LW|D)).*?', true, false).draw();
         }else if(pos == 'Forwards'){
-        	table.column(4).search('^(?=.*?(C|RW|LW)).*?', true, false).draw();
+        	table.column(5).search('^(?=.*?(C|RW|LW)).*?', true, false).draw();
         }else{
-        	table.column(4).search(pos).draw() ; 
+        	table.column(5).search(pos).draw() ; 
         }    
         
     } );
