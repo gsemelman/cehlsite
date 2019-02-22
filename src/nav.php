@@ -66,14 +66,14 @@
 	
 	<style>
 	
-    @media (max-height: 640px) {
+ /*    @media (max-height: 640px) {
 
         .navbar-nav{
               max-height:350px;
               overflow-y:auto;
            }
-        }
-	
+        } */
+        
 	</style>
 	
 	
