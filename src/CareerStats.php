@@ -417,3 +417,5 @@ document.getElementById('csName').onkeypress = function(e){
 }
 //-->
 </script>
+
+<?php include 'footer.php'; ?>

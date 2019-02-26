@@ -260,5 +260,4 @@ if (file_exists($Fnm)) {
 </div>
 </div>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

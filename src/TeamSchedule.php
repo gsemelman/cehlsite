@@ -395,5 +395,4 @@ include 'TeamHeader.php';
 	</div>
 </div>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

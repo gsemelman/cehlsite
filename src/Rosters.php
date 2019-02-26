@@ -82,14 +82,9 @@ include_once 'classes/PlayerVitalsHolder.php';
 		</div>
 	</div>
     	<div class="card-body">
-        	<!-- <div class="row no-gutters">
-        		<div class="col">-->
-        
+    
                     <?php
-                    
-//                     if (! isset($playoff))
-//                         $playoff = '';
-                    
+
                     $fileName = getLeagueFile($folder, $playoff, 'Rosters.html', 'Rosters');
                     $vitalsFileName = getLeagueFile($folder, $playoff, 'PlayerVitals.html', 'PlayerVitals');
                     
@@ -261,12 +256,12 @@ include_once 'classes/PlayerVitalsHolder.php';
                     
                     ?>
                     
-        		</div> 
-            </div>   
-		</div>
-	</div>
+            		</div> 
+                </div>   
+    		</div>
+    	</div>
+    </div>
 </div>
-
 <script>
 
 window.onload = function () {
@@ -276,9 +271,4 @@ window.onload = function () {
 
 </script>
 
-
-
-
-
-</body>
-</html>
+<?php include 'footer.php'; ?>

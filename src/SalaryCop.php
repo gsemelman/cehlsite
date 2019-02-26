@@ -173,3 +173,5 @@ if(file_exists($Fnm)) {
 else echo '</table>'.$allFileNotFound.' - '.$Fnm;
 ?>
 </div></div>
+
+<?php include 'footer.php'; ?>

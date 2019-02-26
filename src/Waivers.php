@@ -113,5 +113,4 @@ else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 echo '</table></div></div>';
 ?>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

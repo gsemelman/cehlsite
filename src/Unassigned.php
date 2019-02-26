@@ -233,6 +233,4 @@ include_once 'common.php';
 
 	</script>
 
-</body>
-
-</html>
+<?php include 'footer.php'; ?>

@@ -1,4 +1,4 @@
-
+﻿
 <?php
 include_once 'config.php';
 include_once 'lang.php';
@@ -191,7 +191,8 @@ if (file_exists($Fnm)) {
     echo '<h5 class = "text-center">' . $allLastUpdate . ' ' . $lastUpdated . '</h5>';
     
 } else {
-    echo  $allFileNotFound . ' - ' . $Fnm ;
+    //echo  $allFileNotFound . ' - ' . $Fnm ;
+    echo '<h5>No season data found</h5>';
 }
 ?>
 

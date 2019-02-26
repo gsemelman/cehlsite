@@ -34,6 +34,13 @@ jQuery(document).ready(function() {
     //$('.section-4-container').backstretch("assets/img/backgrounds/1.jpg");
     
     /*
+     * Top container of each page. 
+     */
+	$('.top-container').waypoint(function() {
+		$('nav').toggleClass('navbar-no-bg');
+	});
+    
+    /*
         Wow
     */
     new WOW().init();

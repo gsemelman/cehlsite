@@ -91,5 +91,4 @@ if(!$d)echo '<tr><td>'.$injuryNoInjury.'</td></tr>';
 echo '</table></div></div></div>';
 ?>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

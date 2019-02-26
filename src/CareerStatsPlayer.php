@@ -1744,3 +1744,5 @@ else {
 	echo '<div style="display:block; clear:both; margin-left:auto; margin-right:auto; width:555px; text-align:center;">'.$careerStatsNoStatsFoundFor.' '.$csName.'</div>';
 }
 ?>
+
+<?php include 'footer.php'; ?>

@@ -1643,3 +1643,5 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 </div>
+
+<?php include 'footer.php'; ?>

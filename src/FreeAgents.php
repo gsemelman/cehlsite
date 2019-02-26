@@ -19,7 +19,7 @@ include_once 'cehlConfig.php';
 
 </style>
 
-	<div class = "container" style = "width: 100%; height: 100%;">
+	<div class = "container">
 	
 	<h3><?php echo $CurrentTitle; ?></h3>
 
@@ -264,6 +264,4 @@ include_once 'cehlConfig.php';
 
 	</script>
 
-</body>
-
-</html>
+<?php include 'footer.php'; ?>

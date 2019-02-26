@@ -1,4 +1,4 @@
-<style>
+﻿<style>
 
 #treeRow { display: flex; align-items: center; }
 
@@ -55,6 +55,14 @@ if(file_exists($baseFolder.$folderLeagueURL2.'PLF-Round1-Schedule.html')) {
 }
 
 
+?>
+
+<?php 
+if(trim($seasonId) == false && $existRnd == 0){
+    echo '<col>';
+    echo '<h5>Playoffs have not started</h5>';
+    echo '</col>';
+}
 ?>
 
 <div id = "treeRow" class="row">
@@ -241,10 +249,19 @@ for($j=1;$j<=$existRnd;$j++) {
 		}
 	}
 	else { 
-		echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
+	    
+	    if(trim($seasonId) == false){
+	        echo '<h5>Playoffs have not started</h5>';
+	    }else{
+	        echo '<h5>'.$allFileNotFound.' - '.$Fnm.'</h5>';
+	    }
+	    
+		
 	}
 	//echo '</td>';
+	
 	echo '</div>';
+
 }
 ?>
 

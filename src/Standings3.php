@@ -18,9 +18,6 @@ if($currentPLF == 1){
 
 ?>
 
-
-<!--<h3 class = "text-center wow fadeIn"><?php echo $CurrentTitle; ?></h3>-->
-<!-- <div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border: solid 1px <?php echo $couleur_contour; ?>;">  -->
 <div class="container wow fadeIn">
 
 	<div class="card">
@@ -52,11 +49,15 @@ if($currentPLF == 1){
 
 				<div class="tab-content">
     				<div class="tab-pane  <?php echo $seasonActive?>" id="Season">
-    					<?php include 'StandingsTemplate.php'; ?>
+    					<div id="SeasonInner" >
+    						<?php include 'StandingsTemplate.php'; ?>
+    					</div>
     				</div>
     
                 	<div class="tab-pane <?php echo $playoffActive?>" id="Playoffs">
-                		<?php include 'StandingsTreeTemplate.php'; ?>
+                		<div id="PlayoffsInner" >
+    						<?php include 'StandingsTreeTemplate.php'; ?>
+    					</div>
                 	</div>
 				</div>
 			</div>
@@ -83,7 +84,7 @@ if($currentPLF == 1){
     	    url: './StandingsTemplate.php',
     	    data: {seasonId: selection},
     	    success: function(data){
-    	    	$('#Season').html(data);
+    	    	$('#SeasonInner').html(data);
     	    }
     	});
 
@@ -92,7 +93,7 @@ if($currentPLF == 1){
     	    url: './StandingsTreeTemplate.php',
     	    data: {seasonId: selection},
     	    success: function(data){
-    	    	$('#Playoffs').html(data);
+    	    	$('#PlayoffsInner').html(data);
     	    }
     	});
         
@@ -113,8 +114,11 @@ if($currentPLF == 1){
         	    url: './StandingsTemplate.php',
         	    data: {seasonId: selection},
         	    success: function(data){
-        	    	$('#Season').html(data);
-        	    }
+        	    	$('#SeasonInner').html(data);
+        	    },
+              	 error: function(XMLHttpRequest, textStatus, errorThrown) {
+           	 		$('#SeasonInner').html('<p>Error loading data</p>');
+           	 	}
         	});
 
         	$.ajax({
@@ -122,12 +126,18 @@ if($currentPLF == 1){
         	    url: './StandingsTreeTemplate.php',
         	    data: {seasonId: selection},
         	    success: function(data){
-        	    	$('#Playoffs').html(data);
-        	    }
+        	    	$('#PlayoffsInner').html(data);
+        	    },
+               	 error: function(XMLHttpRequest, textStatus, errorThrown) {
+          	 		$('#PlayoffsInner').html('<p>Error loading data</p>');
+          	 	}
         	});
+
+        	$("#seasonMenu").val(selection);
         }
     });
 
 </script>
-</body>
-</html>
+
+
+<?php include 'footer.php'; ?>

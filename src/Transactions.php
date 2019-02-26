@@ -50,35 +50,42 @@ include 'head.php';
 		
 		</div>
 		
-		<div class="col iframe-container"> 
-				<!-- <iframe id="transactFrame" src="<?php echo $folderLegacy ?>cehlTransact.html" frameborder="0" allowfullscreen></iframe>-->
+		<div class="col"> 
+				<div class="loaderImage"><img src="assets/img/loader.gif"></div>
 				<div ALIGN=LEFT id = 'trades'></div>
 		</div>
-       
-        <script type="text/javascript">
 
+	<script type="text/javascript">
 
-        
-//          var urlmenu = document.getElementById( 'menu1' );
-//          urlmenu.onchange = function() {
-//               //window.open(  this.options[ this.selectedIndex ].value );
-//         	 // location.href = this.options[ this.selectedIndex ].value;
-
-//         	 document.getElementById('transactFrame').src = this.options[ this.selectedIndex ].value;
-
-//          };
-
+		$('.loaderImage').show();
 		$('#trades').load('<?php echo $folderLegacy ?>cehlTransact.html');
+		$('.loaderImage').hide();
 
         $('#tradesMenu').on('change', function() {
 
-        	 $('#trades').load(this.value);
+    		$("#trades").hide();
+        	$('.loaderImage').show();
+        	
+       		$.ajax({
+        		    url: this.value,
+        		    cache: false,
+        		    dataType: "html",
+        		    success: function(data) {
+        		        $("#trades").html(data);
+        		        $(".loaderImage").hide();
+        		    	$("#trades").show();
+        		    },
+                	 error: function(XMLHttpRequest, textStatus, errorThrown) {
+             	 		$('#trades').html('<p>Error loading data</p>');
+             	 		$(".loaderImage").hide();
+             	 	}
+        		});
 
         });
 
         </script>
-		
-	</div>
+
+</div>
 
 </body>
 

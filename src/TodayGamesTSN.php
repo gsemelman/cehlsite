@@ -465,12 +465,15 @@ if (file_exists($Fnm)) {
 		} */
 		echo '</div>';
 	}
-	else echo '<br>BoxScore by Dominik Lavoie detected, use Original FHLsim files...';
+	else{
+	    echo '<br>BoxScore by Dominik Lavoie detected, use Original FHLsim files...';
+	    echo '</div>';
+	}
+	
 }
 else echo $allFileNotFound.' - '.$Fnm;
 //echo '<div style="clear:both"></div></div>';
 echo '<div style="clear:both"></div>';
 ?>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

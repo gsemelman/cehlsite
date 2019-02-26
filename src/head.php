@@ -158,7 +158,8 @@ include 'nav.php'
 ?>
 
 <!-- workaround for margins. Fix this properly -->
-<div class="container header-content"></div>
+<div class="header-content top-container"></div>
+
 
 
 

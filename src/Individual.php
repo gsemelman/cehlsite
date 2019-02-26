@@ -1005,5 +1005,4 @@ else echo $allFileNotFound.' - '.$Fnm;
 echo '<div style="clear:both"></div></div></div>';
 ?>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

@@ -157,5 +157,4 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 			</div>
 		</div>
 
-		</body>
-</html>
+<?php include 'footer.php'; ?>

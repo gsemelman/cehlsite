@@ -613,5 +613,4 @@ document.addEventListener('DOMContentLoaded', result('PTS'), false);
 
 </div></div>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>
