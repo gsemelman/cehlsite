@@ -101,7 +101,7 @@ if(file_exists($Fnm)) {
 	}
 }
 else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
-echo '</table></div></div></div></div>';
+echo '</table></div></div></div></div></div>';
 ?>
 
 <?php include 'footer.php'; ?>

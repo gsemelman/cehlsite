@@ -471,7 +471,10 @@ if (file_exists($Fnm)) {
 	}
 	
 }
-else echo $allFileNotFound.' - '.$Fnm;
+else{ 
+//     echo $allFileNotFound.' - '.$Fnm;
+    echo '<h3>The season has not started.</h3>';
+}
 //echo '<div style="clear:both"></div></div>';
 echo '<div style="clear:both"></div>';
 ?>

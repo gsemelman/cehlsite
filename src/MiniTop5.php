@@ -151,111 +151,116 @@ if (file_exists($Fnm)) {
 		}
 	}
 	
-
-	$i = 0;
-	echo '<div class = "col">
-	<table class="table table-sm">
-	<tr class="titre"><td colspan="4">'.$top5Goals.'</td></tr>
-	<tr class="tableau-top">
-	<td>NAME</td>
-	<td>'.$individualTM.'</td>
-	<td>'.$individualG.'</td>
-	</tr>';
-	for($i=0;$i<count($goalj);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if(isset($TSabbr) && $goale[$i] == $TSabbr) $bold = 'font-weight:bold;';
-		echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$goalj[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$goale[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$goalg[$i].'</td>
-		</tr>';
-	}
-	echo '</table></div>';
-	
-	echo '<div class = "col">
-	<table class="table table-sm">
-	<tr class="titre"><td colspan="4">'.$top5Points.'</td></tr>
-	<tr class="tableau-top">
-	<td>P</td>
-	<td>NAME</td>
-	<td>'.$individualTM.'</td>
-	<td>'.$top5Pts.'</td>
-	</tr>';
-
-	$bold = '';
-	if(isset($TSabbr) && $cee[$i] == $TSabbr) $bold = 'font-weight:bold;';
-	echo '
-	<tr class="hover2">
-	<td style="'.$bold.'">C</td>
-	<td style="'.$bold.'">'.$cej[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$cee[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$ceg[0].'</td>
-	</tr>';
-	$bold = '';
-	if(isset($TSabbr) && $age[$i] == $TSabbr) $bold = 'font-weight:bold;';
-	echo '
-	<tr class="hover1">
-	<td style="'.$bold.'">'.$top5LW.'</td>
-	<td style="'.$bold.'">'.$agj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$age[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$agg[0].'</td>
-	</tr>';
-	$bold = '';
-	if(isset($TSabbr) && $ade[$i] == $TSabbr) $bold = 'font-weight:bold;';
-	echo '
-	<tr class="hover2">
-	<td style="'.$bold.'">'.$top5RW.'</td>
-	<td style="'.$bold.'">'.$adj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$ade[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$adg[0].'</td>
-	</tr>';
-	$bold = '';
-	if(isset($TSabbr) && $dfe[$i] == $TSabbr) $bold = 'font-weight:bold;';
-	echo '
-	<tr class="hover1">
-	<td style="'.$bold.'">D</td>
-	<td style="'.$bold.'">'.$dfj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$dfe[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$dfg[0].'</td>
-	</tr>';
-	$bold = '';
-	if(isset($TSabbr) && $rke[$i] == $TSabbr) $bold = 'font-weight:bold;';
-	echo '
-	<tr class="hover2">
-	<td style="'.$bold.'">*</td>
-	<td style="'.$bold.'">'.$rkj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rke[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rkg[0].'</td>
-	</tr>';
-	
-	echo '</table></div>';
-	
-	$c = 1;
-	$i = 0;
-	echo '<div class = "col">
-	<table class="table table-sm">
-	<tr class="titre"><td colspan="4">'.$top5SavePct.'</td></tr>
-	<tr class="tableau-top">
-	<td>NAME</td>
-	<td text-align:right;">'.$individualTM.'</td>
-	<td text-align:right;">%</td>
-	</tr>';
-	for($i=0;$i<count($spj);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if(isset($TSabbr) && $spe[$i] == $TSabbr) $bold = 'font-weight:bold;';
-		echo '
+	if (1==5) {
+	    
+	    $i = 0;
+	    echo '<div class = "col">
+    	<table class="table table-sm">
+    	<tr class="titre"><td colspan="4">'.$top5Goals.'</td></tr>
+    	<tr class="tableau-top">
+    	<td>NAME</td>
+    	<td>'.$individualTM.'</td>
+    	<td>'.$individualG.'</td>
+    	</tr>';
+    	    for($i=0;$i<count($goalj);$i++){
+    	        if($c == 1) $c = 2;
+    	        else $c = 1;
+    	        $bold = '';
+    	        if(isset($TSabbr) && $goale[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	        echo '
+    		<tr class="hover'.$c.'">
+    		<td style="'.$bold.'">'.$goalj[$i].'</td>
+    		<td style="text-align:right;'.$bold.'">'.$goale[$i].'</td>
+    		<td style="text-align:right;'.$bold.'">'.$goalg[$i].'</td>
+    		</tr>';
+    	    }
+    	    echo '</table></div>';
+    	    
+    	    echo '<div class = "col">
+    	<table class="table table-sm">
+    	<tr class="titre"><td colspan="4">'.$top5Points.'</td></tr>
+    	<tr class="tableau-top">
+    	<td>P</td>
+    	<td>NAME</td>
+    	<td>'.$individualTM.'</td>
+    	<td>'.$top5Pts.'</td>
+    	</tr>';
+    	    
+    	    $bold = '';
+    	    if(isset($TSabbr) && $cee[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	    echo '
+    	<tr class="hover2">
+    	<td style="'.$bold.'">C</td>
+    	<td style="'.$bold.'">'.$cej[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$cee[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$ceg[0].'</td>
+    	</tr>';
+    	    $bold = '';
+    	    if(isset($TSabbr) && $age[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	    echo '
+    	<tr class="hover1">
+    	<td style="'.$bold.'">'.$top5LW.'</td>
+    	<td style="'.$bold.'">'.$agj[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$age[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$agg[0].'</td>
+    	</tr>';
+    	    $bold = '';
+    	    if(isset($TSabbr) && $ade[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	    echo '
+    	<tr class="hover2">
+    	<td style="'.$bold.'">'.$top5RW.'</td>
+    	<td style="'.$bold.'">'.$adj[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$ade[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$adg[0].'</td>
+    	</tr>';
+    	    $bold = '';
+    	    if(isset($TSabbr) && $dfe[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	    echo '
+    	<tr class="hover1">
+    	<td style="'.$bold.'">D</td>
+    	<td style="'.$bold.'">'.$dfj[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$dfe[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$dfg[0].'</td>
+    	</tr>';
+    	    $bold = '';
+    	    if(isset($TSabbr) && $rke[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	    echo '
+    	<tr class="hover2">
+    	<td style="'.$bold.'">*</td>
+    	<td style="'.$bold.'">'.$rkj[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$rke[0].'</td>
+    	<td style="text-align:right;'.$bold.'">'.$rkg[0].'</td>
+    	</tr>';
+    	    
+    	    echo '</table></div>';
+    	    
+    	    $c = 1;
+    	    $i = 0;
+    	    echo '<div class = "col">
+    	<table class="table table-sm">
+    	<tr class="titre"><td colspan="4">'.$top5SavePct.'</td></tr>
+    	<tr class="tableau-top">
+    	<td>NAME</td>
+    	<td text-align:right;">'.$individualTM.'</td>
+    	<td text-align:right;">%</td>
+    	</tr>';
+	    for($i=0;$i<count($spj);$i++){
+	        if($c == 1) $c = 2;
+	        else $c = 1;
+	        $bold = '';
+	        if(isset($TSabbr) && $spe[$i] == $TSabbr) $bold = 'font-weight:bold;';
+	        echo '
 		<tr class="hover'.$c.'">
 		<td style="'.$bold.'">'.$spj[$i].'</td>
 		<td style="'.$bold.'">'.$spe[$i].'</td>
 		<td style="'.$bold.'">'.$spg[$i].'</td>
 		</tr>';
+	    }
+	    echo '</table></div>';
+	}else{
+	    
 	}
-	echo '</table></div>';
+	
 }
 else echo $allFileNotFound.' - '.$Fnm;
 

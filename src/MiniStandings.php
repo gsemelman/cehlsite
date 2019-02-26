@@ -123,7 +123,7 @@ if(file_exists($Fnm)) {
 		else $c = 1;
 		$pos = $d + 1;
 		echo '<tr class="hover'.$c.'">';
-		echo '<td><a class="lien-noir" style="display:block; width:100%;" href="LinkedRosters.php?team='.$equipe[$key].'">'.$equipe[$key].'</a></td>';
+		echo '<td><a class="lien-noir" style="display:block; width:100%;" href="Rosters.php?team='.$equipe[$key].'">'.$equipe[$key].'</a></td>';
 		echo '<td>'.$pj[$key].'</td>';
 		echo '<td>'.$standingsPts[$key].'</td>';
 		echo '</tr>';

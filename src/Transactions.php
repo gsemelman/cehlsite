@@ -87,6 +87,4 @@ include 'head.php';
 
 </div>
 
-</body>
-
-</html>
+<?php include 'footer.php'; ?>
