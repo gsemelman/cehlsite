@@ -215,7 +215,7 @@ include_once 'cehlConfig.php';
 		scrollY:        true,
         scrollX:        true,
         scrollCollapse: true,
-        order: [[ 18, "desc" ]],
+        order: [[ 19, "desc" ]],
         fixedColumns:   {
             leftColumns: 1,
             rightColumns: 1
