@@ -29,8 +29,8 @@ echo' </div>';
 echo '<div class="card-body">';
 
 //echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
-
-echo '<div class ="col-sm-12 col-lg-8" style="display: flex;">
+echo '<div class = "row">';
+echo '<div class ="col-sm-12 col-md-6">
 			<label for="seasonMenu" style="flex: 1;">Season:</label>
 			<select style="flex: 1;" name="seasonMenu" class="form-control mb-3" id="seasonMenu">
 			<option value="Current">Current</option>
@@ -61,13 +61,17 @@ echo '<div class ="col-sm-12 col-lg-8" style="display: flex;">
             <option value=2>Season 2</option>
             <option value=1>Season 1</option>
 
+    </div>
+    <div class ="col-sm-12 col-md-6">
+
 			</select>
-			<label for="typeMenu" style="flex: 1;">Game Type:</label>
+			<label for="typeMenu"  style="display: flex;">Game Type:</label>
 			<select style="flex: 1;" name="typeMenu" class="form-control mb-3" id="typeMenu">
 			<option value=REG>Regular Season</option>
 			<option value=PLF>Playoffs</option>
 			</select>
-			</div>';
+	</div>';
+echo '</div>';
 
 echo '<div id = "scoringInner">';
 

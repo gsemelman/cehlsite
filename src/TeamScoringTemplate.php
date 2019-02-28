@@ -335,7 +335,7 @@ if($fileExists && $d){
 // 	echo '<h5 class = "text-center">'.$scoringError.'</h5>';
 // }
 
-//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
+
 echo '</div>';
 ?>
 
