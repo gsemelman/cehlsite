@@ -92,15 +92,23 @@ include 'TeamHeader.php';
 	<div class="card">
 
 		<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">
-			<div class = "row d-flex align-items-center justify-content-center">
-				<?php
-				$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-				if(isset($teamCardLogoSrc[0])) {
-					echo'<img class="float-left card-img-top" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-				}?>
-				<h3><?php echo $CurrentTitle; ?></h3>
-			</div>
 
+			<div class = "row">
+            	<div class = "col-2">
+            	    <?php 
+                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+                    if(isset($teamCardLogoSrc[0])) {
+                        echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+                    }
+                    ?>
+            	</div>
+            	<div class = "col-8 d-flex align-items-center justify-content-center">
+                	<h3><?php echo $CurrentTitle; ?></h3>
+            	</div>
+            
+               <div class = "col-2"></div>
+    
+        	</div>
 			
 		</div>
 		<div class="card-body">
@@ -124,7 +132,7 @@ include 'TeamHeader.php';
 					<table class="table table-sm">
 
 					<?php
-					echo '<div><span>Team Schedule</span></div>';
+					echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">Team Schedule</h5>';
 					$a = 0;
 					$c = 1;
 					$i = 0;
@@ -356,7 +364,8 @@ include 'TeamHeader.php';
 
 				<?php
 				/* echo '<div class="titre"><span class="bold-blanc">'.$ScheldMatchups.'</span></div>'; */
-				echo '<div><span>'.$ScheldMatchups.'</span></div>';
+				//echo '<div><span>'.$ScheldMatchups.'</span></div>';
+				echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">'.$ScheldMatchups.'</h5>';
 				echo '<div class="table-responsive">';
 				echo '<table class="table table-sm">';
 				echo '<tr class="tableau-top">';

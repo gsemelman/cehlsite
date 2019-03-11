@@ -727,37 +727,27 @@ echo '<div class="card">';
 //echo '<div class="card-header wow fadeIn"><h3>'.$CurrentTitle.'</h3></div>';
 
 echo'<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">';
-	echo'<div class = "row d-flex align-items-center justify-content-center">';
 
-		$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-		if(isset($teamCardLogoSrc[0])) {
-			echo'<img class="float-left card-img-top" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-		}
-		echo'<h3>'.$CurrentTitle.'</h3>';
-	echo'</div>';
+    echo'<div class = "row">';
+        echo'<div class = "col-2">';
+        $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+        if(isset($teamCardLogoSrc[0])) {
+            echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+        }
+        echo '</div>';
+        echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
+        echo'<h3>'.$CurrentTitle.'</h3>';
+        echo '</div>';
+        
+        echo'<div class = "col-2">';
+        
+        echo '</div>';
+    
+    echo '</div>';
+    
 echo' </div>';
 
 echo '<div class="card-body">';
-/* 
-echo '<div class = "row wow fadeIn">';
-	echo '<div class = "col-sm-12 col-md-8 offset-md-2">';
-
-		$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-		if(isset($teamCardLogoSrc[0])) {
-			echo '<img class="img-responsive center-block" style="width:25%" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-		}
-	echo '</div>';
-echo '</div>'; */
-
-/* echo '<div class = "row wow fadeIn">';
-	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
-		echo '<table class="table table-sm">';
-		echo '<tr class="hover2"><td style="width:90px; font-weight:bold;">'.$teamCardGM.'</td><td style="width:175px;">'.$gm.'</td><td style="width:90px; font-weight:bold;">'.$teamCardArena.'</td><td>'.$arena.'</td></tr>';
-		echo '<tr class="hover1"><td style="font-weight:bold;">'.$teamCardCoach.'</td><td>'.$entraineur.'</td><td style="font-weight:bold;">'.$teamCardSeats.'</td><td>'.$sieges.'</td></tr>';
-		echo '<tr class="hover2"><td style="font-weight:bold;">'.$teamCardFarm.'</td><td>'.ucwords(strtolower($farmName)).'</td><td style="font-weight:bold;">'.$teamCardTicket.'</td><td>'.$billets.'</td></tr>';
-		echo '</table>';
-	echo '</div>';
-echo '</div>'; */
 
 echo '<div class = "row wow fadeIn">';
 	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
@@ -1401,6 +1391,8 @@ echo '</div>';
 		
 		echo '</div>';
 	echo '</div>';
+echo '</div>';
+echo '</div>';
 echo '</div>';
 	}
 }

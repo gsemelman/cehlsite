@@ -71,15 +71,23 @@ include_once 'classes/PlayerVitalsHolder.php';
 	<div class="card wow fadeIn">
 	<div class="card-header" style="padding-bottom: 0px; padding-top: 2px;">
 		
-		<div class = "row d-flex align-items-center justify-content-center">
-		<?php 
-    		$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-    		if(isset($teamCardLogoSrc[0])) {
-    		    echo'<img class="float-left card-img-top" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-    		}
-		?>
-		<h3><?php echo $CurrentTitle; ?></h3>
-		</div>
+		<div class = "row">
+        	<div class = "col-2">
+        	    <?php 
+                $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+                if(isset($teamCardLogoSrc[0])) {
+                    echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+                }
+                ?>
+        	</div>
+        	<div class = "col-8 d-flex align-items-center justify-content-center">
+            	<h3><?php echo $CurrentTitle; ?></h3>
+        	</div>
+        
+           <div class = "col-2"></div>
+
+    	</div>
+		
 	</div>
     	<div class="card-body">
     
@@ -87,6 +95,7 @@ include_once 'classes/PlayerVitalsHolder.php';
 
                     $fileName = getLeagueFile($folder, $playoff, 'Rosters.html', 'Rosters');
                     $vitalsFileName = getLeagueFile($folder, $playoff, 'PlayerVitals.html', 'PlayerVitals');
+                    $lastUpdated = '';
                     
                     if (file_exists($fileName) && file_exists($vitalsFileName)) {
                         //get rosters from file
@@ -99,7 +108,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                         if (isset($lastUpdated)) {
                             
                             //echo '<h5>'.$lastUpdated.'</h5>';
-                            echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
+                            //echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
                             
                             echo'<div id="rosterTabs">';
                             echo'<ul class="nav nav-tabs nav-fill">
@@ -238,6 +247,8 @@ include_once 'classes/PlayerVitalsHolder.php';
                                 echo '</div>'; //end tab pane
                             }
                             echo '</div>'; //end tab-content
+                            
+                            echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
                         }else{
                             //parsing error
                             echo '<h3>ERROR PARSING ROSTERS</h3>';

@@ -1739,6 +1739,7 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
+	echo '</div>';
 }
 else {
 	echo '<div style="display:block; clear:both; margin-left:auto; margin-right:auto; width:555px; text-align:center;">'.$careerStatsNoStatsFoundFor.' '.$csName.'</div>';

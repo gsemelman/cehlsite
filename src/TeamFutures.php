@@ -30,6 +30,7 @@ $b = 0;
 $c = 1;
 $d = 1;
 $yearCount = 0;
+$lastUpdated = '';
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = myEach($tableau)) {
@@ -38,20 +39,31 @@ if(file_exists($Fnm)) {
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
+			$lastUpdated = $val;			
+			
 			echo '<div class="card wow fadeIn">';
 			echo '<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">';
-				echo'<div class = "row d-flex align-items-center justify-content-center">';
 
-					$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-					if(isset($teamCardLogoSrc[0])) {
-						echo'<img class="float-left card-img-top" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-					}
-					echo'<h3>'.$CurrentTitle.'</h3>';
-				echo'</div>';
+    			echo'<div class = "row">';
+        			echo'<div class = "col-2">';
+        			$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+        			if(isset($teamCardLogoSrc[0])) {
+        			    echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+        			}
+        			echo '</div>';
+        			echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
+        			echo'<h3>'.$CurrentTitle.'</h3>';
+        			echo '</div>';
+        			
+        			echo'<div class = "col-2">';
+        			
+        			echo '</div>';
+    			
+    			echo '</div>';
 			echo' </div>';
 			echo '<div class="card-body">';
 
-			echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
+			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 
 			//echo '<div class = "container">';
 			echo '<div class = "col-sm-12 col-md-8 offset-md-2">';
@@ -115,9 +127,14 @@ if(file_exists($Fnm)) {
 		
 	}
 }
-else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
+else{
+    echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
+}
+
+echo '</table>';
+
+echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
 ?>
-</table>
 </div>
 </div>
 </div>

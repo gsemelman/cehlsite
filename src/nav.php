@@ -98,7 +98,7 @@
 					  <li class="nav-item"><a class="nav-link" href="<?php echo $folderGmo ?>">GM&nbsp;Editor</a></li>
 					  <li class="nav-item"><a class="nav-link" href="TodayGamesTSN.php">Scores</a></li>
 					  <li class="nav-item"><a class="nav-link" href="Standings3.php">Standings</a></li>
-					  <li class="nav-item"><a class="nav-link" href="Rosters.php">Teams</a></li>
+					  <li class="nav-item"><a class="nav-link" href="TeamRosters.php">Teams</a></li>
 					  <li class="dropdown">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats&nbsp;<span class="caret"></span></a>
 						<ul class="dropdown-menu">

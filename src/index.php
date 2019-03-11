@@ -3,6 +3,21 @@
 <?php include 'common.php' ?>
 <?php include 'nav.php' ?>
 
+<style>
+
+.team-header-content { 
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cedce7+9,596a72+100 */
+    background: rgb(206,220,231); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(206,220,231,1) 9%, rgba(89,106,114,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(206,220,231,1) 9%,rgba(89,106,114,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(206,220,231,1) 9%,rgba(89,106,114,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
+
+    border-radius: 5px;   
+    margin-bottom:10px;
+}
+</style>
+
 <?php
 // CRÉATION DE LA LISTE DES ÉQUIPES
 $playoff = ''; //default for now (need to perperly handle this)
@@ -55,7 +70,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 		<div class="section-1-container section-container section-container-gray-bg">
 			<div class="container">
 				<div class="row">
-	                <div class="col section-1 section-1-description wow fadeIn">
+	                <div class="col section-1 section-1-description wow fadeIn team-header-content">
 	                    <?php
 							echo '<div class="row">';
 								echo '<div class="col-xs-12">';
@@ -69,7 +84,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 										break 1;
 									}
 
-									echo '<a href="Rosters.php?team='.$gmequipe[$i].'">';
+									echo '<a href="TeamRosters.php?team='.$gmequipe[$i].'">';
 									echo '<img src="'.$teamImage.'" width=55 alt="'.$gmequipe[$i].'">';
 									echo '</a>';
 

@@ -1,4 +1,9 @@
 <?php
+//set headers to NOT cache a page
+//header("Cache-Control: no-cache, must-revalidate"); //HTTP 1.1
+//header("Pragma: no-cache"); //HTTP 1.0
+//header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
 include 'config.php';
 include 'lang.php';
 
@@ -9,6 +14,18 @@ include 'head.php';
 include 'TeamHeader.php';
 ?>
 
+<style>
+
+.selection-content { 
+    padding-bottom: 7px; 
+    padding-top: 7px; 
+    margin-bottom: 10px; 
+    background-color: rgba(225, 239, 255, 1.0); 
+    border-radius:5px; 
+}
+
+
+</style>
 
 
 <div class="container">
@@ -16,62 +33,90 @@ include 'TeamHeader.php';
 <?php
 
 echo '<div class="card">';
-echo '<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">';
-echo'<div class = "row d-flex align-items-center justify-content-center">';
 
-$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-if(isset($teamCardLogoSrc[0])) {
-    echo'<img class="float-left card-img-top" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-}
-echo'<h3>'.$CurrentTitle.'</h3>';
-echo'</div>';
-echo' </div>';
+    echo '<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">';
+        echo'<div class = "row">';
+            echo'<div class = "col-2">';
+                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+                    if(isset($teamCardLogoSrc[0])) {
+                        echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+                    }
+            echo '</div>';
+            echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
+                echo'<h3>'.$CurrentTitle.'</h3>';
+            echo '</div>';
+            
+            echo'<div class = "col-2">';
+                
+            echo '</div>';
+
+        echo '</div>';
+
+    echo' </div>'; //end of card header
 echo '<div class="card-body">';
+    
+    echo '<div class="selection-content row">';
+        echo '<div class ="col col-md-8 col-lg-6">';
+         echo ' <div class="row">
+                   <div class="col">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <label class = "input-group-text" for="seasonMenu">Season</label>
+                          </div>
 
-//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
-echo '<div class = "row">';
-echo '<div class ="col-sm-12 col-md-6">
-			<label for="seasonMenu" style="flex: 1;">Season:</label>
-			<select style="flex: 1;" name="seasonMenu" class="form-control mb-3" id="seasonMenu">
-			<option value="Current">Current</option>
-			<option value=26>Season	26</option>
-			<option value=25>Season	25</option>
-            <option value=24>Season	24</option>
-            <option value=23>Season	23</option>
-            <option value=22>Season	22</option>
-            <option value=21>Season	21</option>
-            <option value=20>Season	20</option>
-            <option value=19>Season	19</option>
-            <option value=18>Season	18</option>
-            <option value=17>Season	17</option>
-            <option value=16>Season	16</option>
-            <option value=15>Season	15</option>
-            <option value=14>Season	14</option>
-            <option value=13>Season	13</option>
-            <option value=12>Season	12</option>
-            <option value=11>Season	11</option>
-            <option value=10>Season	10</option>
-            <option value=9>Season 9</option>
-            <option value=8>Season 8</option>
-            <option value=7>Season 7</option>
-            <option value=6>Season 6</option>
-            <option value=5>Season 5</option>
-            <option value=4>Season 4</option>
-            <option value=3>Season 3</option>
-            <option value=2>Season 2</option>
-            <option value=1>Season 1</option>
+                          <select class="col custom-select" id="seasonMenu">
+                            <option selected value="Current">Current</option>
+                			<option value=26>26</option>
+                			<option value=25>25</option>
+                            <option value=24>24</option>
+                            <option value=23>23</option>
+                            <option value=22>22</option>
+                            <option value=21>21</option>
+                            <option value=20>20</option>
+                            <option value=19>19</option>
+                            <option value=18>18</option>
+                            <option value=17>17</option>
+                            <option value=16>16</option>
+                            <option value=15>15</option>
+                            <option value=14>14</option>
+                            <option value=13>13</option>
+                            <option value=12>12</option>
+                            <option value=11>11</option>
+                            <option value=10>10</option>
+                            <option value=9>9</option>
+                            <option value=8>8</option>
+                            <option value=7>7</option>
+                            <option value=6>6</option>
+                            <option value=5>5</option>
+                            <option value=4>4</option>
+                            <option value=3>3</option>
+                            <option value=2>2</option>
+                            <option value=1>1</option>
+                          </select>
+                        </div>
+                  </div>
+    
+    
+                 <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="typeMenu">Type</label>
+                            </div>
+                            <select class="custom-select" id="typeMenu">
+                         	    <option selected value=REG>Regular</option>
+                         		<option value=PLF>Playoffs</option>
+                            </select>
+                        </div>
+                </div>
+    
+        </div>';
+        
 
-    </div>
-    <div class ="col-sm-12 col-md-6">
 
-			</select>
-			<label for="typeMenu"  style="display: flex;">Game Type:</label>
-			<select style="flex: 1;" name="typeMenu" class="form-control mb-3" id="typeMenu">
-			<option value=REG>Regular Season</option>
-			<option value=PLF>Playoffs</option>
-			</select>
-	</div>';
-echo '</div>';
+            
+        echo' </div>';
+    echo' </div>'; //ender of header content
+
 
 echo '<div id = "scoringInner">';
 
@@ -83,56 +128,67 @@ echo '</div></div></div></div>';
 
 <script>
 
+
 var currentTeam = '<?php echo $currentTeam?>';
+
+$(window).on('pageshow', function(){
+
+	if (window.performance && window.performance.navigation.type == window.performance.navigation.TYPE_BACK_FORWARD) {
+	    var seasonSelection = $('#seasonMenu').find(":selected").val();
+	    var typeSelection = $('#typeMenu').find(":selected").val();
+		handleSelection(seasonSelection, typeSelection);
+	}
+});
+
 
 $("#seasonMenu").on('change', function() {  
     var selection = $(this).val();
-
-	if(selection == 'Current'){
-		selection = '';
-	}
-
     var typeSelection = $('#typeMenu').find(":selected").val();
 
-	if(typeSelection == 'REG'){
-		typeSelection = '';
-	}
-
-	$.ajax({
-	    type: "GET",
-	    url: './TeamScoringTemplate.php',
-	    data: {seasonId: selection, seasonType: typeSelection, team:currentTeam},
-	    success: function(data){
-	    	$('#scoringInner').html(data);
-	    }
-	});
+	handleSelection(selection, typeSelection);
     
 } );
 
 $("#typeMenu").on('change', function() {  
     var selection = $(this).val();
-
     var seasonSelection = $('#seasonMenu').find(":selected").val();
 
-	if(seasonSelection == 'Current'){
-		seasonSelection = '';
+	handleSelection(seasonSelection, selection);
+    
+} );
+
+function handleSelection(season, type){
+
+	var hash = generateHash(season, type);;
+	
+	if(season == 'Current'){
+		season = '';
 	}
 
-	if(selection == 'REG'){
-		selection = '';
+	if(type == 'REG'){
+		type = '';
 	}
 
 	$.ajax({
 	    type: "GET",
 	    url: './TeamScoringTemplate.php',
-	    data: {seasonId: seasonSelection, seasonType: selection, team:currentTeam},
+	    data: {seasonId: season, seasonType: type, team:currentTeam},
 	    success: function(data){
 	    	$('#scoringInner').html(data);
+
+	    	window.location.hash = hash;
 	    }
 	});
-    
-} );
+}
 
+
+function generateHash(season, type) {
+	return season + '-' + type;
+}
+
+function parseHash(){
+	
+}
 
 
 </script>

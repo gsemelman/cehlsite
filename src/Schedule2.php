@@ -118,7 +118,7 @@ $CurrentTitle = $schedTitle;
         	    echo '<div class = "row">';
         	    echo '<div class = "col">';
         	    
-        	    echo '<nav id ="header-nav" class="nav nav-justified-center justify-content-center">';
+        	    echo '<nav id ="header-nav" class="nav justify-content-center">';
         	    if($existRnd >= 4)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=4">Cup Finals</a>';
         	    if($existRnd >= 3)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=3">'.$scheldRound.' 3</a>';
         	    if($existRnd >= 2)echo'<a class="nav-item nav-link" href="'.$CurrentPage.'.php?plf=1&rnd=2">'.$scheldRound.' 2</a>';
