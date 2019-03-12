@@ -5,9 +5,9 @@ ini_set('display_errors', '1');
 
 include 'config.php';
 include 'lang.php';
-$CurrentHTML = 'Rosters';
+$CurrentHTML = 'TeamRosters';
 $CurrentTitle = $rostersTitle;
-$CurrentPage = 'Rosters';
+$CurrentPage = 'TeamRosters';
 include 'head.php';
 include 'TeamHeader.php';
 

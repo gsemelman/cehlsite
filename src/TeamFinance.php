@@ -1,9 +1,9 @@
 <?php
 include 'config.php';
 include 'lang.php';
-$CurrentHTML = 'Finance';
+$CurrentHTML = 'TeamFinance';
 $CurrentTitle = $financeTitle;
-$CurrentPage = 'Finance';
+$CurrentPage = 'TeamFinance';
 include 'head.php';
 include 'TeamHeader.php';
 

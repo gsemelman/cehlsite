@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "On");
 
-$gameNum = null;
-if(isset($_GET['gameNum']) || isset($_POST['gameNum'])) {
-    $gameNum = ( isset($_GET['gameNum']) ) ? $_GET['gameNum'] : $_POST['gameNum'];
+$dayNum = null;
+if(isset($_GET['dayNum']) || isset($_POST['dayNum'])) {
+    $dayNum = ( isset($_GET['dayNum']) ) ? $_GET['dayNum'] : $_POST['dayNum'];
 }
 
 include 'config.php';
@@ -70,14 +70,14 @@ $scheduleHolder = new ScheduleHolder($fileName, '');
 
 
 
-if(isset($gameNum)){
-    $lastGamePlayed = intval($gameNum);
+if(isset($dayNum)){
+    $selectedDay = intval($dayNum);
 }else{
-    $lastGamePlayed = $scheduleHolder->getLastDayPlayed();
+    $selectedDay = $scheduleHolder->getLastDayPlayed();
 }
 
 
-$lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
+$lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 
 
     if(isset($lastGames)) {
@@ -256,42 +256,84 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 	
 	
 	<div id="scores" class = "container">
+	<div class="card">
+	<div class="card-header" style="padding-bottom: 0px; padding-top: 4px;">
 	
-	<h2>Scores Day - <?php echo $lastGamePlayed?></h2>
+	<h3>Scores Day - <?php echo $selectedDay?></h3>
+	</div>
+	<div class = "card-body" style="padding: 5px;">
 	
 	<div class="row align-items-center justify-content-center"> 
 	
     <?php 
-    
-        $next = $lastGamePlayed + 1;
-        $game3 = $lastGamePlayed;
-        $game2 = $lastGamePlayed - 1;
-        $game1 = $lastGamePlayed - 2;
-        $previous =  $lastGamePlayed - 3;
+
+        if($selectedDay == 1){
+            $next = $selectedDay + 1;
+            $game3 = 3;
+            $game2 = 2;
+            $game1 = 1;
+            $previous =  0;
+        }else if($selectedDay == 2){
+            $next = 4;
+            $game3 = 3;
+            $game2 = 2;
+            $game1 = 1;
+            $previous = 1;
+        } else{
+            
+            $game3 = $selectedDay;
+            $game2 = $selectedDay - 1;
+            $game1 = $selectedDay - 2;
+            $next = $selectedDay + 1;
+            $previous =  $selectedDay - 1;
+        }
+        
+        $nextDisabled = '';
+        if($next > $scheduleHolder->getLastDayPlayed()){
+            $nextDisabled = 'disabled';
+        }
+        $prevDisabled = '';
+        if($previous < 1){
+            $prevDisabled = 'disabled';
+        }
     ?>
 
 	<div class="form-inline">
-		<div class="form-group mb-2">
+		<div class="form-group">
             <div>
                  <label for="daySelect" class="sr-only"><span>Day</span></label>
             </div>
         	<nav aria-label="Page nav" id="daySelect">
                   <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="<?php echo $CurrentHTML.'.php?gameNum='.$previous?>" aria-label="Previous">
+                    <li class="page-item <?php echo $prevDisabled ?>">
+                      <a class="page-link" href="<?php echo $CurrentHTML.'.php?dayNum=1'?>" aria-label="Start">
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                       </a>
                     </li>
+                    <li class="page-item <?php echo $prevDisabled ?>">
+                      <a class="page-link" href="<?php echo $CurrentHTML.'.php?dayNum='.$previous?>" aria-label="Previous">
+<!--                         <span aria-hidden="true">&lt;</span> -->
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
 					<?php 
-                    echo '<li class="page-item"><a class="page-link" href="'.$CurrentHTML.'.php?gameNum='.$game1.'">'.$game1.'</a></li>';
-                    echo '<li class="page-item"><a class="page-link" href="'.$CurrentHTML.'.php?gameNum='.$game2.'">'.$game2.'</a></li>';
-                    echo '<li class="page-item active"><a class="page-link" href="'.$CurrentHTML.'.php?gameNum='.$game3.'">'.$game3.'</a></li>';
+					echo '<li class="page-item'.(($game1 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game1.'">'.$game1.'</a></li>';
+                    echo '<li class="page-item'.(($game2 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game2.'">'.$game2.'</a></li>';
+                    echo '<li class="page-item'.(($game3 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game3.'">'.$game3.'</a></li>';
 
                     ?>
             
-                    <li class="page-item">
-                      <a class="page-link" href="<?php echo $CurrentHTML.'.php?gameNum='.$next?>" aria-label="Next">
+                    <li class="page-item  <?php echo $nextDisabled?>">
+                      <a class="page-link" href="<?php echo $CurrentHTML.'.php?dayNum='.$next?>" aria-label="Next">
+<!--                         <span aria-hidden="true">&gt;</span> -->
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                    <li class="page-item  <?php echo $nextDisabled?>">
+                      <a class="page-link" href="<?php echo $CurrentHTML.'.php?dayNum='.$scheduleHolder->getLastDayPlayed()?>" aria-label="Last">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                       </a>
@@ -301,6 +343,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 		</div>
    	 </div>
      </div>
+     
 	
 
 
@@ -362,8 +405,8 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 
 				//header
 				echo '<div class="col-sm-12 col-md-6 col-lg-4">';
-				
-				echo '<div class="card border-dark" style="margin-top:15px">';
+				echo '<div class="card-deck">';
+				echo '<div class="card border-dark" style="margin-top:15px;">';
 				echo '<div class="card-header box-score" style="padding-bottom: 0px; padding-top: 0px;">';
 				    echo '<div style = "text-transform: uppercase;">'.$lastEquipe1.' @ '.$lastEquipe2.' '.$gameOvertime[$i].'</div>';
 				
@@ -374,7 +417,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 				echo '<div class = "row" style=" margin-top: -15px;">';
 				    echo '<table class = "table table-sm table-bordered" >';
 				    echo '<tbody>';
-    				echo '<tr class="d-flex">'; //header
+    				echo '<tr class="d-flex"  style = "text-transform: uppercase;">'; //header
     				    echo '<th class = "col-6"></th>';
     				    echo '<th class = "col text-center">1st</th>';
     				    echo '<th class = "col text-center">2nd</th>';
@@ -491,7 +534,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
                 echo '</div>'; //end card footer 
                 
                 echo '</div>'; //end card
-                //echo '</div>'; //end col inner
+                echo '</div>'; //end card group
                 echo '</div>'; //end col outer
           
       
@@ -503,6 +546,8 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 		}
 
         echo '</div>'; //end row
+        echo '</div>'; //end card-body
+        echo '</div>'; //end card
         echo '</div>'; //end container 
         
 ?>
@@ -515,6 +560,11 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
     font-weight: bold;
     display: block;
     
+}
+
+#scores .pagination {
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 #scores .logo {
@@ -574,6 +624,8 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
     font-size: 13px;
     text-transform: uppercase;
 }
+
+
 </style>
 
 <?php include 'footer.php'; ?>

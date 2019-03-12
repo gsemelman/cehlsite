@@ -68,10 +68,10 @@ $playoffLink = '';
 
 $scheduleHolder = new ScheduleHolder($fileName, '');
 
-$lastGamePlayed = $scheduleHolder->getLastDayPlayed();
-$lastGamePlayed = 2;
+$selectedDay = $scheduleHolder->getLastDayPlayed();
+$selectedDay = 2;
 
-$lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
+$lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 
 
     if(isset($lastGames)) {

@@ -1,9 +1,9 @@
 <?php
 include 'config.php';
 include 'lang.php';
-$CurrentHTML = 'Lines';
+$CurrentHTML = 'TeamLines';
 $CurrentTitle = $linesTitle;
-$CurrentPage = 'Lines';
+$CurrentPage = 'TeamLines';
 include 'head.php';
 include 'TeamHeader.php';
 ?>

@@ -1,9 +1,9 @@
 <?php
 include 'config.php';
 include 'lang.php';
-$CurrentHTML = 'Futures';
+$CurrentHTML = 'TeamFutures';
 $CurrentTitle = $prospectsTitle;
-$CurrentPage = 'Futures';
+$CurrentPage = 'TeamFutures';
 include 'head.php';
 include 'TeamHeader.php';
 ?>

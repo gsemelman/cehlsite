@@ -73,7 +73,9 @@
               overflow-y:auto;
            }
         } */
-        
+        body {
+          background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
+     background-image: linear-gradient(to top, #ffffff, #fcfcff, #f9f9ff, #f5f7ff, #f1f4ff, #ecf1fc, #e7edf9, #e2eaf6, #dce4ef, #d5dee9, #cfd9e2, #c9d3dc);   
 	</style>
 	
 	
