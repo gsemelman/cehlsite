@@ -66,5 +66,20 @@ function isPlayoffs($rootFolder, $playoffMode){
     return false;
 }
 
+function getFilteredArray($aFilterKey, $aFilterValue, $array) {
+    $filtered_array = array();
+    foreach ($array as $value) {
+        
+        if (isset($value->$aFilterKey)) {
+            if($aFilterValue == $value->$aFilterKey){
+                $filtered_array[] = $value;
+            }
+        }
+        
+    }
+    
+    return $filtered_array;
+}
+
 
 ?>

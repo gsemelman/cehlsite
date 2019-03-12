@@ -96,7 +96,7 @@
 						<a class="nav-link scroll-link" href="#top-content">Top</a>
 					</li>-->
 					  <li class="nav-item"><a class="nav-link" href="<?php echo $folderGmo ?>">GM&nbsp;Editor</a></li>
-					  <li class="nav-item"><a class="nav-link" href="TodayGamesTSN.php">Scores</a></li>
+					  <li class="nav-item"><a class="nav-link" href="Scores.php">Scores</a></li>
 					  <li class="nav-item"><a class="nav-link" href="Standings3.php">Standings</a></li>
 					  <li class="nav-item"><a class="nav-link" href="TeamRosters.php">Teams</a></li>
 					  <li class="dropdown">
