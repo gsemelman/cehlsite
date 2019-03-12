@@ -12,9 +12,9 @@ include 'lang.php';
 include_once 'classes/ScheduleHolder.php';
 include_once 'classes/ScheduleObj.php';
 
-$CurrentHTML = 'TodayGamesNew2';
+$CurrentHTML = 'Scores';
 $CurrentTitle = $todayTitle;
-$CurrentPage = 'TodayGames';
+$CurrentPage = 'Scores';
 include 'head.php';
 
 
@@ -364,8 +364,8 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 				echo '<div class="col-sm-12 col-md-6 col-lg-4">';
 				//echo '<div class="col-sm-12 bordertest league-scores">';
 				echo '<div class="card" style="margin-top:15px">';
-				echo '<div class="card-header" style="padding-bottom: 1px; padding-top: 5px;">';
-				    echo '<h3>'.$lastEquipe1.' @ '.$lastEquipe2.' '.$gameOvertime[$i].'</h3>';
+				echo '<div class="card-header" style="padding-bottom: 1px; padding-top: 1px;">';
+				    echo '<div style = "text-transform: uppercase;">'.$lastEquipe1.' @ '.$lastEquipe2.' '.$gameOvertime[$i].'</div>';
 				
 				   // echo '<div class="row tableau-top"><span style="color:#ffffff">'.$lastEquipe1.' @ '.$lastEquipe2.' Final'.$gameOvertime[$i].'</span></div>';
 				echo '</div>';
@@ -433,7 +433,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
                     if($scoringList == '') $scoringList='None';
                     
          
-                    echo '<div class = "text-left">'.$lastEquipe1.' - <strong>'.$scoringList.'</strong></div>';
+                    echo '<div class = "text-left" style="width: 100%;">'.$lastEquipe1.' - <strong>'.$scoringList.'</strong></div>';
                     
                     $scoringList = '';
                     if(isset($gameScorer2[$i])) {
@@ -452,7 +452,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
                     $scoringList = substr($scoringList,0,-2);
                     if ($scoringList == '') $scoringList = 'None';
                     
-                    echo '<div class = "text-left">'.$lastEquipe2.' - <strong>'.$scoringList.'</strong></div>';
+                    echo '<div class = "text-left" style="width: 100%;" >'.$lastEquipe2.' - <strong>'.$scoringList.'</strong></div>';
                 
                 echo '</div>'; // end scoring details
                 
