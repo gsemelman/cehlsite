@@ -195,7 +195,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 						$tmpGoalRecord = trim(substr($reste, 0, strpos($reste, '<')));
 						if($tmpGoalStatus == 'W' || $tmpGoalStatus == 'L' || $tmpGoalStatus == 'T') {
 							if(isset($gameGoal1[$i]) && !isset($gameGoal2[$i])) {
-								$gameGoal2[$i] = $tmpGoalName.' ('.$tmpGoalSaves.' SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
+								$gameGoal2[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
 								$a = 4;
 							}
 							if(!isset($gameGoal1[$i])) $gameGoal1[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
@@ -255,7 +255,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 	?>
 	
 	
-	<div id="#scores" class = "container">
+	<div id="scores" class = "container">
 	
 	<h2>Scores Day - <?php echo $lastGamePlayed?></h2>
 	
@@ -362,17 +362,17 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 
 				//header
 				echo '<div class="col-sm-12 col-md-6 col-lg-4">';
-				//echo '<div class="col-sm-12 bordertest league-scores">';
-				echo '<div class="card" style="margin-top:15px">';
-				echo '<div class="card-header" style="padding-bottom: 1px; padding-top: 1px;">';
+				
+				echo '<div class="card border-dark" style="margin-top:15px">';
+				echo '<div class="card-header box-score" style="padding-bottom: 0px; padding-top: 0px;">';
 				    echo '<div style = "text-transform: uppercase;">'.$lastEquipe1.' @ '.$lastEquipe2.' '.$gameOvertime[$i].'</div>';
 				
 				   // echo '<div class="row tableau-top"><span style="color:#ffffff">'.$lastEquipe1.' @ '.$lastEquipe2.' Final'.$gameOvertime[$i].'</span></div>';
 				echo '</div>';
 				echo '<div class="card-body">';
 				
-				echo '<div class = "row">';
-				    echo '<table class = "table table-sm table-bordered">';
+				echo '<div class = "row" style=" margin-top: -15px;">';
+				    echo '<table class = "table table-sm table-bordered" >';
 				    echo '<tbody>';
     				echo '<tr class="d-flex">'; //header
     				    echo '<th class = "col-6"></th>';
@@ -385,33 +385,49 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
     				    echo '<th class = "col text-center">T</th>';
                     echo '</tr>';
                     
-                    echo '<tr class="d-flex" style= " background-color: transparent;">'; //header
-                        echo '<td class = "col-6 text-left"><img style=" height:35px;" src="'.$todayImage1.'" alt="'.$lastEquipe1.'">'.$lastEquipe1Abbr.'</td>';
-                        echo '<td class = "col mid-align">'.$gameAway2[$i][0].'</td>';
-                        echo '<td class = "col">'.$gameAway2[$i][1].'</td>';
-                        echo '<td class = "col">'.$gameAway2[$i][2].'</td>';
+                    echo '<tr class="d-flex">'; //header
+//                         echo '<td class = "col-6 text-left dark-text">
+//                                 <img class="logo" src="'.$todayImage1.'" alt="'.$lastEquipe1.'"</img>'.$lastEquipe1Abbr.'
+//                              </td>';
+                        echo '<td class = "col-6 text-left dark-text">
+                                <div><img class="logo" src="'.$todayImage1.'" alt="'.$lastEquipe1.'"</img></div>
+                                <div class = "team-acronym">'.$lastEquipe1Abbr.'</div>
+                             </td>';
+
+                        echo '<td class = "col text-center">'.$gameAway2[$i][0].'</td>';
+                        echo '<td class = "col text-center">'.$gameAway2[$i][1].'</td>';
+                        echo '<td class = "col text-center">'.$gameAway2[$i][2].'</td>';
                         if ($gameOvertime[$i] != '') {
                             echo '<td class = "col">'.$gameAway2[$i][3].'</td>';
                         }
-                        echo '<td class = "col"><strong>'.$lastScore1.'</strong></td>';
+                        echo '<td class = "col dark-text"><strong>'.$lastScore1.'</strong></td>';
                     echo '</tr>';
                     
-                    echo '<tr class="d-flex ">'; //header
-                    echo '<td class = "col-6 text-left"><img style=" max-height:35px;" src="'.$todayImage2.'" alt="'.$lastEquipe2.'">'.$lastEquipe2Abbr.'</td>';
-                    echo '<td class = "col">'.$gameHome2[$i][0].'</td>';
-                    echo '<td class = "col">'.$gameHome2[$i][1].'</td>';
-                    echo '<td class = "col">'.$gameHome2[$i][2].'</td>';
-                    if ($gameOvertime[$i] != '') {
-                        echo '<td class = "col">'.$gameHome2[$i][3].'</td>';
-                    }
-                    echo '<td class = "col"><strong>'.$lastScore2.'</strong></td>';
+                    echo '<tr class="d-flex">'; //header
+                        //echo '<td class = "col-6 text-left"><img style=" max-height:35px;" src="'.$todayImage2.'" alt="'.$lastEquipe2.'">'.$lastEquipe2Abbr.'</td>';
+                        
+    //                     echo '<td class = "col-6 text-left dark-text">
+    //                                 <img class="logo" src="'.$todayImage2.'" alt="'.$lastEquipe2.'"</img>'.$lastEquipe2Abbr.'
+    //                              </td>';
+                        echo '<td class = "col-6 text-left dark-text">
+                                    <div><img class="logo" src="'.$todayImage2.'" alt="'.$lastEquipe2.'"</img></div>
+    				                <div class = "team-acronym">'.$lastEquipe2Abbr.'</div>
+                                 </td>';
+                        
+                        echo '<td class = "col">'.$gameHome2[$i][0].'</td>';
+                        echo '<td class = "col">'.$gameHome2[$i][1].'</td>';
+                        echo '<td class = "col">'.$gameHome2[$i][2].'</td>';
+                        if ($gameOvertime[$i] != '') {
+                            echo '<td class = "col">'.$gameHome2[$i][3].'</td>';
+                        }
+                        echo '<td class = "col dark-text"><strong>'.$lastScore2.'</strong></td>';
                     echo '</tr>';
 
                     echo '</tbody>';
                     echo '</table>'; //end score-main table
                 echo '</div>'; //end score-main
                 
-                echo '<div class = "row game-score-footer">'; //goals scoring details
+                echo '<div class = "row game-score-footer" style="margin-top: -10px;">'; //goals scoring details
                     //echo '<span class = "footer-header">Goals</span>';
                     echo '<div class = "footer-header text-left" style="width: 100%;">Goals</div>';
                     
@@ -456,22 +472,22 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
                 
                 echo '</div>'; // end scoring details
                 
-               echo '<div class = "row game-score-footer">'; //goalie details 
+               echo '<div class = "row game-score-footer" style="margin-bottom: -15px;">'; //goalie details 
                  echo '<div class = "footer-header text-left" style="width: 100%;">Goalies</div>';
                  echo '<div>'.$lastEquipe1.' - '.$gameGoal1[$i].'</div>';
                  echo '<div>'.$lastEquipe2.' - '.$gameGoal2[$i].'</div>';      
                echo '</div>'; // end goalie details
-      
-               //box score link
-//                echo '<div class = "tableau-top row text-center">'; //box score link
-                
-//                 echo '<div class="col"><a class="lien-blanc" href="games.php?num='.$matchNumber.$playoffLink.'">BOX SCORE</a></div>';
-//                echo '</div>'; // end box score 
+               
+//                echo '<div class = "row box-score">'; //box score 
+//                 echo '<div class="col"><a class="lien-blanc" href="games.php?num='.$matchNumber.$playoffLink.'">BOX SCORE</a></div>';  
+//                echo '</div>'; // end box score
+              
+ 
       
                 echo '</div>'; //end card-body
-                echo '<div class = "tableau-top card-footer" style="padding-bottom: 1px; padding-top: 2px;">';
-                echo '<div class="col"><a class="lien-blanc" href="games.php?num='.$matchNumber.$playoffLink.'">BOX SCORE</a></div>';
                 
+                echo '<div class = "card-footer box-score" style="padding-bottom: 0px; padding-top: 0px;">';
+                    echo '<div class="col"><a class="lien-blanc" href="games.php?num='.$matchNumber.$playoffLink.'">BOX SCORE</a></div>';      
                 echo '</div>'; //end card footer 
                 
                 echo '</div>'; //end card
@@ -492,13 +508,6 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
 ?>
 
 <style>
-.bordertest {
-	margin-top:10px;
-	border: #cdcdcd thin solid;
-/* 	border-radius: 10px; */
-/* 	-moz-border-radius: 10px; */
-/* 	-webkit-border-radius: 10px; */
-}
 
 .footer-header{
 
@@ -508,21 +517,53 @@ $lastGames = $scheduleHolder->getScheduleByDay($lastGamePlayed);
     
 }
 
-.test{
-background-color: #fff;
+#scores .logo {
+    float: left;
+    vertical-align: middle;
+/*     width: 40px; */
+/*     height: 40px; */
+    max-width: 45px;
+    overflow:hidden;
+/*     margin: 0 auto; */
+    margin-left:3px;
+    display: block;
 }
 
-
-.table th{
+#scores .table th{
+    vertical-align: middle;
     background-color: #dcdee0;
     border: 0;
+    height: 20px;
+    line-height: 10px;
 }
 
-.table td{
+#scores .table td{
    border: 1px solid #dcdee0;
    font-size: 25px;
+   font-family: Arial,Helvetica,sans-serif;
+   vertical-align: middle;
+   padding: .1rem;
+   line-height: 45px;
+  
 }
 
+.dark-text{
+   color: #323232;
+}
+
+.team-acronym {
+    color: #323232;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 50px;
+    vertical-align: middle;
+}
+
+
+.box-score{
+    background-color: #7a7a7a;
+    color: white;
+}
 
 .game-score-footer {
     border: 1px solid #dcdee0;
