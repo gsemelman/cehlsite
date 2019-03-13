@@ -10,9 +10,21 @@ include 'head.php';
 ?>
 
 	<div class = "container">
-		<div class="loaderImage"><img src="assets/img/loader.gif"></div>
-		<div id="freeAgency">
-		</div>
+	
+		<div class = "card">
+		    <div class = "card-header">
+    			<h3>Free Agency</h3>
+    		</div>
+    		
+    		<div class = "card-body">
+    			<div class="loaderImage"><img src="assets/img/loader.gif"></div>
+        			<div id="freeAgency">
+        		</div>
+    		</div>
+    		
+    	</div>
+	
+		
 	
 	</div>
 
