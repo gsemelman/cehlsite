@@ -123,11 +123,12 @@ if(file_exists($Fnm)) {
 		else $c = 1;
 		$pos = $d + 1;
 		echo '<tr class="hover'.$c.'">';
-		echo '<td><a class="lien-noir" style="display:block; width:100%;" href="TeamRosters.php?team='.$equipe[$key].'">'.$equipe[$key].'</a></td>';
+		echo '<td><a class="lien-noir" style="display:block; width:100%;" href="TeamRosters.php?team='.urlencode($equipe[$key]).'">'.$equipe[$key].'</a></td>';
 		echo '<td>'.$pj[$key].'</td>';
 		echo '<td>'.$standingsPts[$key].'</td>';
 		echo '</tr>';
 	}
+	
 }
 else { 
 	echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
@@ -138,7 +139,7 @@ else {
 </div>
 <!-- </div> -->
 
-</body>
+<!-- </body> -->
 	
 <style>
 .scrollable-table {  
@@ -147,4 +148,4 @@ else {
 }
 </style>
 
-</html>
+<!-- </html> -->

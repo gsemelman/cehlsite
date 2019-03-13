@@ -63,7 +63,7 @@ if(!function_exists('search')) {
 $fileName = getLeagueFile($folder, $playoff, 'Schedule.html', 'Schedule');
 $i = 0;
 $j = 0;
-$round = 0;
+$round = 4;
 $playoffLink = '';
 
 $scheduleHolder = new ScheduleHolder($fileName, '');
@@ -258,12 +258,26 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 	<div id="scores" class = "container">
 	<div class="card">
 	<div class="card-header" style="padding-bottom: 0px; padding-top: 4px;">
+	<?php 
+	if($scheduleHolder->isSeasonStarted()){
+	    echo '<h3>Scores Day - '.$selectedDay.'</h3>';
+	}else{
+	    echo '<h3>Scores</h3>';
+	}
+	?>
 	
-	<h3>Scores Day - <?php echo $selectedDay?></h3>
 	</div>
-	<div class = "card-body" style="padding: 5px;">
+	<div class = "card-body">
 	
 	<div class="row align-items-center justify-content-center"> 
+	
+	<?php 
+	if(!$scheduleHolder->isSeasonStarted()){
+	    echo '<h3>The season has not started</h3>';
+	}
+	?>
+	
+	
 	
     <?php 
 
@@ -298,7 +312,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
         }
     ?>
 
-	<div class="form-inline">
+	<div class="form-inline" <?php echo ($scheduleHolder->isSeasonStarted() ? '' : 'hidden' )?>>
 		<div class="form-group">
             <div>
                  <label for="daySelect" class="sr-only"><span>Day</span></label>
@@ -404,8 +418,8 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 				
 
 				//header
-				echo '<div class="col-sm-12 col-md-6 col-lg-4">';
-				echo '<div class="card-deck">';
+				echo '<div class="col-sm-12 col-md-6 col-lg-4" style="padding-left: 7px; padding-right: 7px;">';
+				
 				echo '<div class="card border-dark" style="margin-top:15px;">';
 				echo '<div class="card-header box-score" style="padding-bottom: 0px; padding-top: 0px;">';
 				    echo '<div style = "text-transform: uppercase;">'.$lastEquipe1.' @ '.$lastEquipe2.' '.$gameOvertime[$i].'</div>';
@@ -534,7 +548,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
                 echo '</div>'; //end card footer 
                 
                 echo '</div>'; //end card
-                echo '</div>'; //end card group
+               
                 echo '</div>'; //end col outer
           
       

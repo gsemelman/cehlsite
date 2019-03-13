@@ -56,7 +56,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 					<div class="row">
 						<div class="col-md-8 offset-md-2 text">
 							<div class="wow fadeInLeftBig">
-								<img src="assets\img\logo2.png" alt="Canadian Elite Hockey League" class="img-fluid">
+								<img src="assets/img/logo2.png" alt="Canadian Elite Hockey League" class="img-fluid"/>
 							</div>
 						</div>
 					</div>
@@ -67,7 +67,8 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 		</div>
 		
 		<!-- team logo roster links (img-rounded makes corner rounded) -->
-		<div class="section-1-container section-container section-container-gray-bg">
+<!-- 		<div class="section-1-container section-container section-container-gray-bg"> -->
+        <div class="section-1-container section-container">
 			<div class="container">
 				<div class="row">
 	                <div class="col section-1 section-1-description wow fadeIn team-header-content">
@@ -84,7 +85,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 										break 1;
 									}
 
-									echo '<a href="TeamRosters.php?team='.$gmequipe[$i].'">';
+									echo '<a href="TeamRosters.php?team='.urlencode($gmequipe[$i]).'">';
 									echo '<img src="'.$teamImage.'" width=55 alt="'.$gmequipe[$i].'">';
 									echo '</a>';
 
@@ -128,7 +129,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 						<h3>Latest Results</h3>
 					</div>
 					<div class="card-body">
-						<?php include 'MiniTodayGames.php'; ?>
+						<?php include 'MiniTodayGames2.php'; ?>
 					</div>
 				</div>
 
