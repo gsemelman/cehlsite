@@ -99,6 +99,10 @@ img { max-width: 100%; }
 .top-content .description { margin: 30px 0 10px 0; }
 .top-content .description p { opacity: 0.8; } */
 
+.top-content{
+	text-align: center;
+}
+
 
 /***** Section 1 *****/
 .section-1 .description { margin-top: 5px; padding-bottom: 5px;}

@@ -257,11 +257,11 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 	
 	<div id="scores" class = "container">
 	<div class="card">
-	<div class="card-header" style="padding-bottom: 0px; padding-top: 4px;">
+	<div class="card-header" style="text-align: center;">
 	<?php 
 	if($scheduleHolder->isSeasonStarted()){
 	    //echo '<h3>Scores Day - '.$selectedDay.'</h3>';
-	echo '<span style="display: inline-block;"><h3>Scores </h3></span>';
+	echo '<span style="display: inline-block;"><h3 class="m-0">Scores</h3></span>';
     echo '<span style="display: inline-block; margin-left:5px; ">(Day - '.$selectedDay.')</span>';
 	}else{
 	    echo '<h3>Scores</h3>';
@@ -269,7 +269,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 	?>
 	
 	</div>
-	<div class = "card-body">
+	<div class = "card-body pt-2">
 	
 	<div class="row align-items-center justify-content-center"> 
 	

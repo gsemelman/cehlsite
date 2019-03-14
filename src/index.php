@@ -54,8 +54,8 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 			<div class="inner-bg">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-8 offset-md-2 text">
-							<div class="wow fadeInLeftBig">
+						<div class="col-md-8 offset-md-2 text ">
+							<div class="wow fadeInLeftBig ">
 								<img src="assets/img/logo2.png" alt="Canadian Elite Hockey League" class="img-fluid"/>
 							</div>
 						</div>

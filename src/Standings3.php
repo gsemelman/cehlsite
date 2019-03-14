@@ -43,7 +43,7 @@ if($currentPLF == 1){
 					
 					<li class="nav-item"><a
 						class="nav-link <?php echo $playoffActive?>" href="#Playoffs"
-						data-toggle="tab">Playoff Tree</a>
+						data-toggle="tab">Playoffs</a>
 					</li>
 				</ul>
 

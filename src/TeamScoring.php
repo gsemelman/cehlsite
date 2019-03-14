@@ -20,8 +20,9 @@ include 'TeamHeader.php';
     padding-bottom: 7px; 
     padding-top: 7px; 
     margin-bottom: 10px; 
-    background-color: rgba(225, 239, 255, 1.0); 
     border-radius:5px; 
+    text-align:center;
+ 
 }
 
 
@@ -30,125 +31,107 @@ include 'TeamHeader.php';
 
 <div class="container">
 
-<?php
+	<div class="card wow fadeIn">
 
-echo '<div class="card wow fadeIn">';
+		<div class="card-header p-1">
+		
+			<?php $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*'); ?>
+		 
+			<div class="teamheader logo-gradient">
+				<div class="team-logo gloss logo-gradient">
+					<a href="#"> <img src="<?php echo $teamCardLogoSrc[0]?>"
+						alt="<?php echo $currentTeam?>">
 
-    echo '<div class="card-header p-1">';
-//         echo'<div class = "row">';
-//             echo'<div class = "col-2">';
-//                     $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-//                     if(isset($teamCardLogoSrc[0])) {
-//                         echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-//                     }
-//             echo '</div>';
-//             echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
-//                 echo'<h3>'.$CurrentTitle.'</h3>';
-//             echo '</div>';
-            
-//             echo'<div class = "col-2">';
-                
-//             echo '</div>';
+					</a>
+				</div>
+				<div class="team-logo gloss logo-gradient team-logo-right">
+					<a href="#"> <img src="<?php echo $teamCardLogoSrc[0]?>"
+						alt="<?php echo $currentTeam?>">
+					</a>
+				</div>
 
-//         echo '</div>';
+				<div class="header-container">
 
-            $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-            
-            echo '<div class= "teamheader logo-gradient">
-        				<div class="team-logo gloss logo-gradient">
-        				<a href="#">
-        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
-    
-                        </a>
-                     </div>
-                     <div class="team-logo gloss logo-gradient team-logo-right">
-                        <a href="#">
-        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
-                        </a>
-                     </div>
-    
-                     <div class="header-container">
-    
-            			<div class="gloss"></div>
-            			<div class="header">
-              				<h3 class="mb-0">'.$CurrentTitle.'</h3>
-            			</div>
-        			</div>
-        		</div>';
+					<div class="gloss"></div>
+					<div class="header">
+						<h3 class="mb-0"><?php echo $CurrentTitle?></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end card header -->
+		<div class="card-body px-2 px-lg-4 pt-2">
+			<div class="row selection-content justify-content-center">
+				<div class="col col-md-8 col-lg-6">
+					<div class="row">
+						<div class="col">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="seasonMenu">Season</label>
+								</div>
 
-    echo' </div>'; //end of card header
-echo '<div class="card-body px-2 px-lg-4 pt-2">';
-    
-    echo '<div class="selection-content row">';
-        echo '<div class ="col col-md-8 col-lg-6">';
-         echo ' <div class="row">
-                   <div class="col">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <label class = "input-group-text" for="seasonMenu">Season</label>
-                          </div>
-
-                          <select class="col custom-select" id="seasonMenu">
-                            <option selected value="Current">Current</option>
-                			<option value=26>26</option>
-                			<option value=25>25</option>
-                            <option value=24>24</option>
-                            <option value=23>23</option>
-                            <option value=22>22</option>
-                            <option value=21>21</option>
-                            <option value=20>20</option>
-                            <option value=19>19</option>
-                            <option value=18>18</option>
-                            <option value=17>17</option>
-                            <option value=16>16</option>
-                            <option value=15>15</option>
-                            <option value=14>14</option>
-                            <option value=13>13</option>
-                            <option value=12>12</option>
-                            <option value=11>11</option>
-                            <option value=10>10</option>
-                            <option value=9>9</option>
-                            <option value=8>8</option>
-                            <option value=7>7</option>
-                            <option value=6>6</option>
-                            <option value=5>5</option>
-                            <option value=4>4</option>
-                            <option value=3>3</option>
-                            <option value=2>2</option>
-                            <option value=1>1</option>
-                          </select>
-                        </div>
-                  </div>
-    
-    
-                 <div class="col">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="typeMenu">Type</label>
-                            </div>
-                            <select class="custom-select" id="typeMenu">
-                         	    <option selected value=REG>Regular</option>
-                         		<option value=PLF>Playoffs</option>
-                            </select>
-                        </div>
-                </div>
-    
-        </div>';
-        
+								<select class="col custom-select" id="seasonMenu">
+									<option selected value="Current">Current</option>
+									<option value=26>26</option>
+									<option value=25>25</option>
+									<option value=24>24</option>
+									<option value=23>23</option>
+									<option value=22>22</option>
+									<option value=21>21</option>
+									<option value=20>20</option>
+									<option value=19>19</option>
+									<option value=18>18</option>
+									<option value=17>17</option>
+									<option value=16>16</option>
+									<option value=15>15</option>
+									<option value=14>14</option>
+									<option value=13>13</option>
+									<option value=12>12</option>
+									<option value=11>11</option>
+									<option value=10>10</option>
+									<option value=9>9</option>
+									<option value=8>8</option>
+									<option value=7>7</option>
+									<option value=6>6</option>
+									<option value=5>5</option>
+									<option value=4>4</option>
+									<option value=3>3</option>
+									<option value=2>2</option>
+									<option value=1>1</option>
+								</select>
+							</div>
+						</div>
 
 
-            
-        echo' </div>';
-    echo' </div>'; //ender of header content
+						<div class="col">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="typeMenu">Type</label>
+								</div>
+								<select class="custom-select" id="typeMenu">
+									<option selected value=REG>Regular</option>
+									<option value=PLF>Playoffs</option>
+								</select>
+							</div>
+						</div>
 
+					</div>
+				</div>
 
-echo '<div id = "scoringInner">';
+			</div>
+			
+			<div id="scoringInner">
+     
+     		<?php include 'TeamScoringTemplate.php';?>
+     
+    		</div>
 
-include 'TeamScoringTemplate.php';
+		</div>
 
-echo '</div></div></div></div>';
+		
+	</div>
+</div>
 
-?>
 
 <script>
 
