@@ -74,7 +74,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 	                <div class="col section-1 section-1-description wow fadeIn team-header-content">
 	                    <?php
 							echo '<div class="row">';
-								echo '<div class="col-xs-12">';
+								echo '<div class="col text-center">';
 								sort($gmequipe); //sort
 								for($i=0;$i<count($gmequipe);$i++) {
 
@@ -129,7 +129,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 						<h3>Latest Results</h3>
 					</div>
 					<div class="card-body">
-						<?php include 'MiniTodayGames2.php'; ?>
+						<?php include 'MiniTodayGames.php'; ?>
 					</div>
 				</div>
 

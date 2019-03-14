@@ -260,7 +260,9 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 	<div class="card-header" style="padding-bottom: 0px; padding-top: 4px;">
 	<?php 
 	if($scheduleHolder->isSeasonStarted()){
-	    echo '<h3>Scores Day - '.$selectedDay.'</h3>';
+	    //echo '<h3>Scores Day - '.$selectedDay.'</h3>';
+	echo '<span style="display: inline-block;"><h3>Scores </h3></span>';
+    echo '<span style="display: inline-block; margin-left:5px; ">(Day - '.$selectedDay.')</span>';
 	}else{
 	    echo '<h3>Scores</h3>';
 	}
@@ -422,7 +424,9 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 				
 				echo '<div class="card border-dark" style="margin-top:15px;">';
 				echo '<div class="card-header box-score" style="padding-bottom: 0px; padding-top: 0px;">';
-				    echo '<div style = "text-transform: uppercase;">'.$lastEquipe1.' @ '.$lastEquipe2.' '.$gameOvertime[$i].'</div>';
+				    echo '<div class = "text-center" style = "text-transform: uppercase;">
+                        '.$lastEquipe1.' @ '.$lastEquipe2.' '.$gameOvertime[$i].
+				         '</div>';
 				
 				   // echo '<div class="row tableau-top"><span style="color:#ffffff">'.$lastEquipe1.' @ '.$lastEquipe2.' Final'.$gameOvertime[$i].'</span></div>';
 				echo '</div>';
@@ -446,7 +450,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 //                         echo '<td class = "col-6 text-left dark-text">
 //                                 <img class="logo" src="'.$todayImage1.'" alt="'.$lastEquipe1.'"</img>'.$lastEquipe1Abbr.'
 //                              </td>';
-                        echo '<td class = "col-6 text-left dark-text">
+                        echo '<td class = "col-6 dark-text">
                                 <div><img class="logo" src="'.$todayImage1.'" alt="'.$lastEquipe1.'"</img></div>
                                 <div class = "team-acronym">'.$lastEquipe1Abbr.'</div>
                              </td>';
@@ -455,9 +459,9 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
                         echo '<td class = "col text-center">'.$gameAway2[$i][1].'</td>';
                         echo '<td class = "col text-center">'.$gameAway2[$i][2].'</td>';
                         if ($gameOvertime[$i] != '') {
-                            echo '<td class = "col">'.$gameAway2[$i][3].'</td>';
+                            echo '<td class = "col text-center">'.$gameAway2[$i][3].'</td>';
                         }
-                        echo '<td class = "col dark-text"><strong>'.$lastScore1.'</strong></td>';
+                        echo '<td class = "col text-center dark-text"><strong>'.$lastScore1.'</strong></td>';
                     echo '</tr>';
                     
                     echo '<tr class="d-flex">'; //header
@@ -466,18 +470,18 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
     //                     echo '<td class = "col-6 text-left dark-text">
     //                                 <img class="logo" src="'.$todayImage2.'" alt="'.$lastEquipe2.'"</img>'.$lastEquipe2Abbr.'
     //                              </td>';
-                        echo '<td class = "col-6 text-left dark-text">
+                        echo '<td class = "col-6 dark-text">
                                     <div><img class="logo" src="'.$todayImage2.'" alt="'.$lastEquipe2.'"</img></div>
     				                <div class = "team-acronym">'.$lastEquipe2Abbr.'</div>
                                  </td>';
                         
-                        echo '<td class = "col">'.$gameHome2[$i][0].'</td>';
-                        echo '<td class = "col">'.$gameHome2[$i][1].'</td>';
-                        echo '<td class = "col">'.$gameHome2[$i][2].'</td>';
+                        echo '<td class = "col text-center">'.$gameHome2[$i][0].'</td>';
+                        echo '<td class = "col text-center">'.$gameHome2[$i][1].'</td>';
+                        echo '<td class = "col text-center">'.$gameHome2[$i][2].'</td>';
                         if ($gameOvertime[$i] != '') {
-                            echo '<td class = "col">'.$gameHome2[$i][3].'</td>';
+                            echo '<td class = "col text-center">'.$gameHome2[$i][3].'</td>';
                         }
-                        echo '<td class = "col dark-text"><strong>'.$lastScore2.'</strong></td>';
+                        echo '<td class = "col text-center dark-text"><strong>'.$lastScore2.'</strong></td>';
                     echo '</tr>';
 
                     echo '</tbody>';
@@ -543,8 +547,8 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
       
                 echo '</div>'; //end card-body
                 
-                echo '<div class = "card-footer box-score" style="padding-bottom: 0px; padding-top: 0px;">';
-                    echo '<div class="col"><a class="lien-blanc" href="games.php?num='.$matchNumber.$playoffLink.'">BOX SCORE</a></div>';      
+                echo '<div class = "card-footer box-score py-1" >';
+                    echo '<div class="col text-center"><a class="lien-blanc" href="games.php?num='.$matchNumber.$playoffLink.'">BOX SCORE</a></div>';      
                 echo '</div>'; //end card footer 
                 
                 echo '</div>'; //end card
@@ -589,7 +593,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
     max-width: 45px;
     overflow:hidden;
 /*     margin: 0 auto; */
-    margin-left:3px;
+/*     margin-left:3px; */
     display: block;
 }
 
@@ -604,7 +608,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 #scores .table td{
    border: 1px solid #dcdee0;
    font-size: 25px;
-   font-family: Arial,Helvetica,sans-serif;
+/*    font-family: Arial,Helvetica,sans-serif; */
    vertical-align: middle;
    padding: .1rem;
    line-height: 45px;
@@ -619,7 +623,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
     color: #323232;
     font-size: 25px;
     font-weight: bold;
-    padding-left: 50px;
+    padding-left: 25px;
     vertical-align: middle;
 }
 

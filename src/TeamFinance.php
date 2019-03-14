@@ -51,23 +51,47 @@ if(file_exists($Fnm)) {
 				//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 				
 				echo '<div class="card wow fadeIn">';
-				echo '<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">';
-    				echo'<div class = "row">';
-        				echo'<div class = "col-2">';
-        				$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-        				if(isset($teamCardLogoSrc[0])) {
-        				    echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-        				}
-        				echo '</div>';
-        				echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
-        				echo'<h3>'.$CurrentTitle.'</h3>';
-        				echo '</div>';
+				echo '<div class="card-header p-1">';
+//     				echo'<div class = "row">';
+//         				echo'<div class = "col-2">';
+//         				$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+//         				if(isset($teamCardLogoSrc[0])) {
+//         				    echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+//         				}
+//         				echo '</div>';
+//         				echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
+//         				echo'<h3>'.$CurrentTitle.'</h3>';
+//         				echo '</div>';
         				
-        				echo'<div class = "col-2">';
+//         				echo'<div class = "col-2">';
         				
-        				echo '</div>';
+//         				echo '</div>';
     				
-    				echo '</div>';
+//     				echo '</div>';
+
+				$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+	
+				echo '<div class= "teamheader logo-gradient">
+        				<div class="team-logo gloss logo-gradient">
+        				<a href="#">
+        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
+                
+                        </a>
+                     </div>
+                     <div class="team-logo gloss logo-gradient team-logo-right">
+                        <a href="#">
+        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
+                        </a>
+                     </div>
+                     
+                     <div class="header-container">
+        
+            			<div class="gloss"></div>
+            			<div class="header">
+              				<h3 class="mb-0">'.$CurrentTitle.'</h3>
+            			</div>
+        			</div>
+        		</div>';
 				
 				echo' </div>';
 				echo '<div class="card-body">';
@@ -205,19 +229,19 @@ if(file_exists($Fnm)) {
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">';
 			echo '<table class="table table-sm">';
 			echo '<tr class="tableau-top"><td colspan="2" >'.$financeOrganization.'</td></tr>';
-			echo '<tr class="hover2"><td class="text-left">'.$financeArena.'</td><td>'.$valArena.'</td></tr>';
-			echo '<tr class="hover1"><td class="text-left">'.$financeCapacity.'</td><td>'.$valCapacity.'</td></tr>';
-			echo '<tr class="hover2"><td class="text-left">'.$financeTicket.'</td><td>'.$valTicket.'$</td></tr>';
+			echo '<tr class="hover2"><td class="text-left">'.$financeArena.'</td><td class="text-right">'.$valArena.'</td></tr>';
+			echo '<tr class="hover1"><td class="text-left">'.$financeCapacity.'</td><td class="text-right">'.$valCapacity.'</td></tr>';
+			echo '<tr class="hover2"><td class="text-left">'.$financeTicket.'</td><td class="text-right">'.$valTicket.'$</td></tr>';
 			echo '</table>';
 		echo '</div>';
 
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">';
 			echo '<table class="table table-sm">
 				<tr class="tableau-top"><td colspan="2">'.$financeSalaryCommitment.'</td></tr>
-				<tr class="hover2"><td class="text-left">'.$financeYear.' '.$year[0].'</td><td>'.$year[1].'$</td></tr>
-				<tr class="hover1"><td class="text-left">'.$financeYear.' '.$year[2].'</td><td>'.$year[3].'$</td></tr>
-				<tr class="hover2"><td class="text-left">'.$financeYear.' '.$year[4].'</td><td>'.$year[5].'$</td></tr>
-				<tr class="hover1"><td class="text-left">'.$financeYear.' '.$year[6].'</td><td>'.$year[7].'$</td></tr>
+				<tr class="hover2"><td class="text-left">'.$financeYear.' '.$year[0].'</td><td class="text-right">'.$year[1].'$</td></tr>
+				<tr class="hover1"><td class="text-left">'.$financeYear.' '.$year[2].'</td><td class="text-right">'.$year[3].'$</td></tr>
+				<tr class="hover2"><td class="text-left">'.$financeYear.' '.$year[4].'</td><td class="text-right">'.$year[5].'$</td></tr>
+				<tr class="hover1"><td class="text-left">'.$financeYear.' '.$year[6].'</td><td class="text-right">'.$year[7].'$</td></tr>
 				</table>';
 		echo '</div>';
 	echo '</div>';

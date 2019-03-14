@@ -55,7 +55,7 @@ if(file_exists($Fnm)) {
 
             $lastUpdated = $val;
             echo '<div class = "row wow fadeIn">';
-			echo '<div class="col-sm-12 col-md-8 offset-md-2">';
+			echo '<div class="col-sm-12 col-md-10 offset-md-1">';
 
 		}
 		if(substr_count($val, '</PRE><BR>') && $b) {
@@ -253,7 +253,7 @@ if(file_exists($Fnm)) {
                     <tr class="tableau-top">
             			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
             			<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
-            			<td >'.$scoringName.'</td>
+            			<td>'.$scoringName.'</td>
             			<td><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
             			<td><a class="info" href="javascript:return;">'.$scoringGm.'<span>'.$scoringG.'</span></a></td>
             			<td><a class="info" href="javascript:return;">A<span>'.$scoringAssits.'</span></a></td>

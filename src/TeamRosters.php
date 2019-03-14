@@ -22,74 +22,105 @@ include_once 'classes/PlayerVitalsHolder.php';
 
 <style>
 
-.table.fixed-column-striped,
-.table.fixed-column {
-    border-collapse: collapse;
-    width: 100%;
+.table.fixed-column-striped, .table.fixed-column {
+	border-collapse: collapse;
+	width: 100%;
 }
 
-.table.fixed-column td, th,
-.table.fixed-column-striped td, th {
-    /*border: 1px solid #dddddd;*/
-    text-align: left;
-    padding: 3px;
+.table.fixed-column td, th, .table.fixed-column-striped td, th {
+	/*border: 1px solid #dddddd;*/
+	text-align: left;
+	padding: 3px;
 }
 
-.table.fixed-column-striped th:first-child, td:first-child,
-.table.fixed-column th:first-child, td:first-child
-{
-  position:sticky;
-  left:0px;
+.table.fixed-column-striped th:first-child, td:first-child, .table.fixed-column th:first-child,
+	td:first-child {
+	position: sticky;
+	left: 0px;
 }
 
 .table.fixed-column-striped tr:nth-child(even) td:first-child {
-     background-color:rgba(176, 214, 255, 1.0);
+	background-color: rgba(176, 214, 255, 1.0);
 }
+
 .table.fixed-column-striped tr:nth-child(odd) td:first-child {
-    background-color:rgba(225, 239, 255, 1.0);
+	background-color: rgba(225, 239, 255, 1.0);
 }
 
-.table tfoot th,
-.table thead th{
-    background-color:rgba(23, 145, 202, 1.0);
+.table tfoot th, .table thead th {
+	background-color: rgba(23, 145, 202, 1.0);
 }
 
-.table.fixed-column-striped th a,
-.table.fixed-column th a
-{
-  color:#ffffff;
+.table.fixed-column-striped th a, .table.fixed-column th a {
+	color: #ffffff;
 }
 
-.table-striped>tbody>tr:nth-child(even) {background-color:rgba(176, 214, 255, 1.0);}
-.table-striped>tbody>tr:nth-child(odd) {background-color:rgba(225, 239, 255, 1.0);}
+.table-striped>tbody>tr:nth-child(even) {
+	background-color: rgba(176, 214, 255, 1.0);
+}
 
+.table-striped>tbody>tr:nth-child(odd) {
+	background-color: rgba(225, 239, 255, 1.0);
+}
 </style>
 
 <div class="container">
 	<div class="row no-gutters">
 	<div class="col"> 
 	<div class="card wow fadeIn">
-	<div class="card-header" style="padding-bottom: 0px; padding-top: 2px;">
-		
-		<div class = "row">
-        	<div class = "col-2">
-        	    <?php 
-                $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                if(isset($teamCardLogoSrc[0])) {
-                    echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                }
+	<div class="card-header p-1">
+		<div class= "teamheader logo-gradient">
+		 	<div class="team-logo gloss logo-gradient">
+                <a href="#">
+                <?php 
+                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+                    if(isset($teamCardLogoSrc[0])) {
+                        echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+                    }
                 ?>
-        	</div>
-        	<div class = "col-8 d-flex align-items-center justify-content-center">
-            	<h3><?php echo $CurrentTitle; ?></h3>
-        	</div>
         
-           <div class = "col-2"></div>
+                </a>
+             </div>
+             <div class="team-logo gloss logo-gradient team-logo-right">
+                <a href="#">
+                <?php 
+                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+                    if(isset($teamCardLogoSrc[0])) {
+                        echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+                    }
+                ?>
+        
+                </a>
+             </div>
+             
+             <div class="header-container">
 
-    	</div>
+    			<div class="gloss"></div>
+    			<div class="header">
+      				<h3 class="mb-0"><?php echo $CurrentTitle ?></h3>
+    			</div>
+			</div>
+		</div>
+
+<!-- 		<div class = "row"> -->
+<!--         	<div class = "col-2"> -->
+        	    <?php 
+//                 $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+//                 if(isset($teamCardLogoSrc[0])) {
+//                     echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+//                 }
+//                 ?>
+<!--         	</div> -->
+<!--         	<div class = "col-8 d-flex align-items-center justify-content-center"> -->
+  <!--          	<h3><?php //echo $CurrentTitle; ?></h3>-->
+<!--         	</div> -->
+        
+<!--            <div class = "col-2"></div> -->
+
+<!--     	</div> -->
 		
 	</div>
-    	<div class="card-body">
+    	<div class="card-body px-2 px-lg-4">
     
                     <?php
 

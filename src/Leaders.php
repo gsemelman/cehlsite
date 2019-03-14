@@ -30,6 +30,7 @@ $a = 0;
 $b = 0;
 $c = 1;
 $i = 0;
+$lastUpdated = '';
 $matches = glob($folder.'*'.$playoff.$farm.'Leaders.html');
 $folderLeagueURL = '';
 $matchesDate = array_map('filemtime', $matches);
@@ -51,8 +52,9 @@ if(file_exists($Fnm)) {
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
+			$lastUpdated = $val;
 			
-			echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
+			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 			
 			echo '<div class="col-sm-12 col-md-8 col-lg-8 offset-md-2 offset-lg-2">';
 			echo '<div class="table-responsive wow fadeIn">';
@@ -259,9 +261,19 @@ if(file_exists($Fnm)) {
 			echo '</tr>';
 		}
 	}
+	
+	
 }
-else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
-echo '</table></div></div></div>';
+else{
+    echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
+}
+echo '</table></div>';
+
+    if(isset($lastUpdated)){
+        echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
+    }
+
+echo'</div></div></div></div>';
 ?>
 
 <?php include 'footer.php'; ?>

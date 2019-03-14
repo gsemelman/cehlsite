@@ -19,157 +19,167 @@ include_once 'common.php';
 
 </style>
 
-	<div class = "container" style = "width: 100%; height: 100%;">
+	<div class = "container-fluid" style = "width: 100%; height: 100%;">
+		
+    	<div class = "card">
+    		<div class = "card-header">
+    			<h3><?php echo $CurrentTitle; ?></h3>
+    		</div>
+    		<div class = "card-body p-2">
+    			<div class="container">
+        			<div class = "row justify-content-center" style="padding-top:10px;"> 
+    
+                		<div class="col-*-*">
+                    		<label style="padding-right:10px;" class="text-center" for="positionInputField">Position: </label> 
+                    	</div>
+                    	<div class="col-*-*">
+                    		<select
+                			name="positionInputField" class="form-control mb-3"
+                			id="positionInputField">
+                			<option value="">All Players</option>
+                			<option value="Skaters">All Skaters</option>
+                			<option value="Forwards">All Forwards</option>
+                			<option value="C">Center</option>
+                			<option value="RW">Right Wing</option>
+                			<option value="LW">Left Wing</option>
+                			<option value="D">Defense</option>
+                			<option value="G">Goalie</option>
+                			</select>
+                    	</div>
+                
+                		
+                	</div>
+                
+                	<div class = "row"> 
+                	<?php
+                
+                    $Fnm = getLeagueFile($folder, $playoff, 'Unassigned.html', 'Unassigned');
+                		
+                		$a = 0;
+                		$i = 0;
+                		if (file_exists($Fnm)) {
+                		    $tableau = file($Fnm);
+                		    while(list($cle,$val) = myEach($tableau)) {
+                		        $val = utf8_encode($val);
+                		        if(substr_count($val, '</PRE>')) {
+                		            $a = 0;
+                		        }
+                		        if($a == 1) {
+                		            $reste = trim($val);
+                		            $unassignedOV[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedLD[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedEX[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedSC[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedDF[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedPC[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedPA[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedSK[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedDI[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedDU[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedEN[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedST[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedSP[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedIT[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedPO[$i] = trim(substr($reste, strrpos($reste, ' ')));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedAG[$i] = substr($reste, strrpos($reste, ' '));
+                		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
+                		            $unassignedPL[$i] = $reste;
+                		            $i++;
+                		        }
+                		        if(substr_count($val, '<PRE>Player')) {
+                		            $a = 1;
+                		        }
+                		    }
+                		    if(isset($unassignedPL)) {
+                		        
+                		        
+                		        echo '<div class="table-responsive">';
+                		        //echo '<table id="freeAgents" class="table table-sm table-striped fixed-column-striped">';
+                		        echo '<table id="faTable" class="table table-sm table-striped nowrap" style="width:100%">';
+                		          echo '<thead>
+                                            <tr>
+                                                <th>'.$rostersName.'</th>
+                                                <th>Age</th>
+                                    			<th>PO</th>
+                                                <th>'.$rostersIT.'</th>
+                                                <th>'.$rostersSP.'</th>
+                                                <th>'.$rostersST.'</th>
+                                                <th>'.$rostersEN.'</th>
+                                                <th>'.$rostersDU.'</th>
+                                                <th>'.$rostersDI.'</th>
+                                                <th>'.$rostersSK.'</th>
+                                                <th>'.$rostersPA.'</th>
+                                                <th>'.$rostersPC.'</th>
+                                                <th>'.$rostersDF.'</th>
+                                                <th>'.$rostersOF.'</th>
+                                                <th>'.$rostersEX.'</th>
+                                                <th>'.$rostersLD.'</th>
+                                                <th>'.$rostersOV.'</th>
+                
+                                			</tr>
+                                        </thead>';
+                		        echo '<tbody style="font-weight:normal">';
+                		        
+                		        for ($x = 0; $x < $i; $x++) {
+                		            echo '<tr>';
+                		            
+                		            $scoringNameSearch = htmlspecialchars($unassignedPL[$x]);
+                		            $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
+                		            
+                		            // 		            echo '<td class="text-left">'.$unassignedPL[$x].'</td>';
+                		            echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$unassignedPL[$x].'</a></td>';
+                		            echo '<td>'.$unassignedAG[$x].'</td>';
+                		            echo '<td>'.$unassignedPO[$x].'</td>';
+                		            echo '<td>'.$unassignedIT[$x].'</td>';
+                		            echo '<td>'.$unassignedSP[$x].'</td>';
+                		            echo '<td>'.$unassignedST[$x].'</td>';
+                		            echo '<td>'.$unassignedEN[$x].'</td>';
+                		            echo '<td>'.$unassignedDU[$x].'</td>';
+                		            echo '<td>'.$unassignedDI[$x].'</td>';
+                		            echo '<td>'.$unassignedSK[$x].'</td>';
+                		            echo '<td>'.$unassignedPA[$x].'</td>';
+                		            echo '<td>'.$unassignedPC[$x].'</td>';
+                		            echo '<td>'.$unassignedDF[$x].'</td>';
+                		            echo '<td>'.$unassignedSC[$x].'</td>';
+                		            echo '<td>'.$unassignedEX[$x].'</td>';
+                		            echo '<td>'.$unassignedLD[$x].'</td>';
+                		            echo '<td>'.$unassignedOV[$x].'</td>';
+                		            echo '</tr>';        
+                		        } 
+                		        echo '</tbody>';
+                		        echo '</table>';
+                		        echo '</div>';
+                		        
+                		    }else {
+                		        echo $langUnassignedPlayersNotFound;
+                		    }
+                
+                		}
+                		else echo $allFileNotFound.' - '.$Fnm;
+                		?>
+                		
+                	</div>
+            	</div>
+    		</div>
+    	</div>
 	
-	<h3><?php echo $CurrentTitle; ?></h3>
 
-	<div class = "row justify-content-center" style="padding-top:10px;"> 
-
-		<div class="col-*-*">
-    		<label style="padding-right:10px;" class="text-center" for="positionInputField">Position: </label> 
-    	</div>
-    	<div class="col-*-*">
-    		<select
-			name="positionInputField" class="form-control mb-3"
-			id="positionInputField">
-			<option value="">All Players</option>
-			<option value="Skaters">All Skaters</option>
-			<option value="Forwards">All Forwards</option>
-			<option value="C">Center</option>
-			<option value="RW">Right Wing</option>
-			<option value="LW">Left Wing</option>
-			<option value="D">Defense</option>
-			<option value="G">Goalie</option>
-			</select>
-    	</div>
-
-		
-	</div>
-
-	<div class = "row"> 
-	<?php
-
-    $Fnm = getLeagueFile($folder, $playoff, 'Unassigned.html', 'Unassigned');
-		
-		$a = 0;
-		$i = 0;
-		if (file_exists($Fnm)) {
-		    $tableau = file($Fnm);
-		    while(list($cle,$val) = myEach($tableau)) {
-		        $val = utf8_encode($val);
-		        if(substr_count($val, '</PRE>')) {
-		            $a = 0;
-		        }
-		        if($a == 1) {
-		            $reste = trim($val);
-		            $unassignedOV[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedLD[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedEX[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedSC[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedDF[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedPC[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedPA[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedSK[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedDI[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedDU[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedEN[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedST[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedSP[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedIT[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedPO[$i] = trim(substr($reste, strrpos($reste, ' ')));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedAG[$i] = substr($reste, strrpos($reste, ' '));
-		            $reste = trim(substr($reste, 0, strrpos($reste, ' ')));
-		            $unassignedPL[$i] = $reste;
-		            $i++;
-		        }
-		        if(substr_count($val, '<PRE>Player')) {
-		            $a = 1;
-		        }
-		    }
-		    if(isset($unassignedPL)) {
-		        
-		        
-		        echo '<div class="table-responsive">';
-		        //echo '<table id="freeAgents" class="table table-sm table-striped fixed-column-striped">';
-		        echo '<table id="faTable" class="table table-sm table-striped nowrap" style="width:100%">';
-		          echo '<thead>
-                            <tr>
-                                <th>'.$rostersName.'</th>
-                                <th>Age</th>
-                    			<th>PO</th>
-                                <th>'.$rostersIT.'</th>
-                                <th>'.$rostersSP.'</th>
-                                <th>'.$rostersST.'</th>
-                                <th>'.$rostersEN.'</th>
-                                <th>'.$rostersDU.'</th>
-                                <th>'.$rostersDI.'</th>
-                                <th>'.$rostersSK.'</th>
-                                <th>'.$rostersPA.'</th>
-                                <th>'.$rostersPC.'</th>
-                                <th>'.$rostersDF.'</th>
-                                <th>'.$rostersOF.'</th>
-                                <th>'.$rostersEX.'</th>
-                                <th>'.$rostersLD.'</th>
-                                <th>'.$rostersOV.'</th>
-
-                			</tr>
-                        </thead>';
-		        echo '<tbody style="font-weight:normal">';
-		        
-		        for ($x = 0; $x < $i; $x++) {
-		            echo '<tr>';
-		            
-		            $scoringNameSearch = htmlspecialchars($unassignedPL[$x]);
-		            $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
-		            
-		            // 		            echo '<td class="text-left">'.$unassignedPL[$x].'</td>';
-		            echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$unassignedPL[$x].'</a></td>';
-		            echo '<td>'.$unassignedAG[$x].'</td>';
-		            echo '<td>'.$unassignedPO[$x].'</td>';
-		            echo '<td>'.$unassignedIT[$x].'</td>';
-		            echo '<td>'.$unassignedSP[$x].'</td>';
-		            echo '<td>'.$unassignedST[$x].'</td>';
-		            echo '<td>'.$unassignedEN[$x].'</td>';
-		            echo '<td>'.$unassignedDU[$x].'</td>';
-		            echo '<td>'.$unassignedDI[$x].'</td>';
-		            echo '<td>'.$unassignedSK[$x].'</td>';
-		            echo '<td>'.$unassignedPA[$x].'</td>';
-		            echo '<td>'.$unassignedPC[$x].'</td>';
-		            echo '<td>'.$unassignedDF[$x].'</td>';
-		            echo '<td>'.$unassignedSC[$x].'</td>';
-		            echo '<td>'.$unassignedEX[$x].'</td>';
-		            echo '<td>'.$unassignedLD[$x].'</td>';
-		            echo '<td>'.$unassignedOV[$x].'</td>';
-		            echo '</tr>';        
-		        } 
-		        echo '</tbody>';
-		        echo '</table>';
-		        echo '</div>';
-		        
-		    }else {
-		        echo $langUnassignedPlayersNotFound;
-		    }
-
-		}
-		else echo $allFileNotFound.' - '.$Fnm;
-		?>
-		
-	</div>
+	
 	</div>
 
 	<script>

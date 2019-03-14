@@ -688,7 +688,7 @@ function result(tmpSearch) {
 	var result = document.getElementById("windowResult");
 	var tbl = document.createElement('table');
 		tbl.style.width='100%';
-		tbl.className = "tableau";
+		tbl.className = "table table-sm";
 	var tbdy = document.createElement('tbody');
 	// Entête - Header
 	if(currentType == 0) {
@@ -1602,44 +1602,50 @@ document.addEventListener("DOMContentLoaded", function() {
 //-->
 </script>
 
-<h3><?php echo $langCareerLeadersTitle; ?></h3>
+<div class = "container-fluid">
 
-<div class = "container">
-	<div class = "col-sm-12 col-md-12">
-		<!--<div class = "container" style="display:block; clear:both; margin-left:auto; margin-right:auto; width:480px; border:solid 1px<?php echo $couleur_contour; ?>" id="windowSearch">-->
-		<div class = "container" id="windowSearch">
-
-			<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
-			  <select onchange="javascript:result('X');" class="form-control mb-3" id="position">
-				  <option value="0" selected><?php echo $langCareerLeadersAllFoward; ?></option>
-				  <option value="C"><?php echo $langCareerLeadersCenter; ?></option>
-				  <option value="L"><?php echo $langCareerLeadersLeft; ?></option>
-				  <option value="R"><?php echo $langCareerLeadersRight; ?></option>
-				  <option value="D"><?php echo $langCareerLeadersDef; ?></option>
-				  <option value="G"><?php echo $langCareerLeadersGoalies; ?></option>
-			  </select>
-			</div>
-			
-			<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
-			  <select onchange="javascript:result('X');" class="form-control mb-3" id="season">
-				  <option value="0" selected><?php echo $langCareerLeadersSeasons; ?></option>
-				  <option value="1"><?php echo $langCareerLeadersPlayoffs; ?></option>
-			  </select>
-			</div>
-			
-			<!--<div style="float:right;">
-				<input onchange="javascript:window.location = <?php if($ctlOneTeams == 1) { echo $ctlOneLink; } else { echo '\''.$ctlOneLink.'\''; } ?>;" type="checkbox" id="allTeam" name="allTeam" value="all" <?php if($ctlOneTeams == '') echo 'checked="checked"'; ?>> <label for="allTeam"><?php echo $langCareerTeamLeadersAllTeam; ?></label>
-			</div>-->
-			<div style="clear:both;"></div>
+    <div class = "card">
+		<div class = "card-header">
+			<h3><?php echo $CurrentTitle; ?></h3>
 		</div>
-
-		<div class = "container">
-			<!--<div id="windowResult" style="display:none; margin-top:20px; margin-left:auto; margin-right:auto; width:555px; border:solid 1px<?php echo $couleur_contour; ?>">-->
-			<div class = "table-responsive">
-				<div id="windowResult">
+		<div class = "card-body p-2">
+			<div class="container">
+			
+				<div id="windowSearch" class = "row">
+        			<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+        			  <select onchange="javascript:result('X');" class="form-control mb-3" id="position">
+        				  <option value="0" selected><?php echo $langCareerLeadersAllFoward; ?></option>
+        				  <option value="C"><?php echo $langCareerLeadersCenter; ?></option>
+        				  <option value="L"><?php echo $langCareerLeadersLeft; ?></option>
+        				  <option value="R"><?php echo $langCareerLeadersRight; ?></option>
+        				  <option value="D"><?php echo $langCareerLeadersDef; ?></option>
+        				  <option value="G"><?php echo $langCareerLeadersGoalies; ?></option>
+        			  </select>
+        			</div>
+        			
+        			<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+        			  <select onchange="javascript:result('X');" class="form-control mb-3" id="season">
+        				  <option value="0" selected><?php echo $langCareerLeadersSeasons; ?></option>
+        				  <option value="1"><?php echo $langCareerLeadersPlayoffs; ?></option>
+        			  </select>
+        			</div>
+        	
+        			<div style="clear:both;"></div>
+            	</div>
+				
+			
+				<div class = "row">
+            	          
+            		<div class = "table-responsive">
+            				<div id="windowResult">
+            		</div>
+            	</div>
 			</div>
-		</div>	
+		</div>
 	</div>
+        			
+
+	
 </div>
 
 </div>

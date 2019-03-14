@@ -1,5 +1,7 @@
 <style>
 
+.header-content { margin-top: 65px; margin-bottom: 10px; }
+
 .highlight-team {
 	-webkit-filter: sepia(1);
 	filter: sepia(1);
@@ -44,6 +46,76 @@ border-bottom:1px solid blue;
 /* 	border-radius: 100%;   */
 }
 
+.nav-item{
+    text-transform: uppercase;
+}
+
+
+
+.teamheader {
+	background: linear-gradient(rgb(0, 39, 79) 0%, rgb(0, 39, 79) 60%,
+		rgb(27, 98, 162) 100%);
+/* 	height: 68px; */
+
+    overflow: hidden;
+    width: 100%;
+    float: left;
+
+	moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.team .header-container{
+    background: linear-gradient(rgb(0, 39, 79) 0%, rgb(0, 39, 79) 60%, rgb(27, 98, 162) 100%);
+    height: 68px; 
+}
+
+.teamheader .logo-gradient {
+	background: linear-gradient(rgb(0, 39, 79) 0%, rgb(0, 39, 79) 60%,
+		rgb(27, 98, 162) 100%);
+}
+
+.teamheader .gloss {
+	height: 34px;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%,
+		rgba(255, 255, 255, 0.5) 35%, rgba(255, 255, 255, 0.1) 100%);
+		
+}
+
+.teamheader .team-logo {
+	float: left;
+	vertical-align: middle;
+	text-align: center;
+	width: 68px;
+	height: 68px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.teamheader .team-logo-right {
+	float: right;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.teamheader .header {
+    vertical-align: middle;
+    line-height: 20px;
+    padding: 5px 10px;
+
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: -20px;
+    text-align: center;
+   
+}
+
 </style>
 
 <div class="container team-header-content">
@@ -54,7 +126,7 @@ border-bottom:1px solid blue;
     
 //team logo links
 echo '<div class="row">';
-    echo '<div id="logo-header" class="col ">';
+    echo '<div id="logo-header" class="col text-center">';
     
     sort($gmequipe); //sort
     for($i=0;$i<count($gmequipe);$i++) {
@@ -78,7 +150,7 @@ echo '</div>';
 
 //team nav
 echo '<div class="row justify-content-center team-nav">'; 
-echo '<nav id ="header-nav" class="nav justify-content-center ">';
+echo '<nav id ="header-nav" class="nav justify-content-center">';
     echo'<a class="nav-item nav-link" href="TeamScoring.php'.$plfLink.'">'.$allScoring.'</a>';
     echo'<a class="nav-item nav-link" href="TeamFinance.php'.$plfLink.'">'.$allFinances.'</a>';
     echo'<a class="nav-item nav-link" href="TeamRosters.php'.$plfLink.'">'.$allRosters.'</a>';

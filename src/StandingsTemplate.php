@@ -40,7 +40,7 @@ if (file_exists($Fnm)) {
            // echo '<h5 class = "text-center">' . $allLastUpdate . ' ' . $val2 . '</h5>';
 
            // echo '<div class="col-sm-12 col-md-8 offset-md-2">';
-            echo '<div class="col-sm-12 col-lg-8 offset-lg-2 table-responsive">';
+            echo '<div class="col-sm-12 col-lg-8 offset-lg-2 table-responsive px-0">';
             echo '<table class="table table-sm">';
         }
         if (substr_count($val, 'STK') && (substr_count($val, 'OL') || substr_count($val, 'OTL'))) {

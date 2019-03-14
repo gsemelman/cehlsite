@@ -27,6 +27,9 @@
 	
 	.section-description p { padding: 0; }
 	
+	.table{	line-height: inherit;}
+	.table{	line-height: 30px;}
+	
 /* 	.section-1-container { padding-bottom: 5px; } */
 	
 }

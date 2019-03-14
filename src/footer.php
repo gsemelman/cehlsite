@@ -22,7 +22,7 @@ body::after{ content:''; display:block; height:50px; }
 	<div class="container">
 		<div class="row">
 			
-			<div class="col">
+			<div class="col text-center">
 				<p>Canadian Elite Hockey League 2019</p>
 			</div>
 			

@@ -318,7 +318,7 @@ if($leagueLang == 'FR') {
 	$joueursProTeamAverage = 'Moyenne de l\'équipe';
 	
 	// Rosters
-	$rostersTitle = 'Rosters';
+	$rostersTitle = 'Roster';
 	$rostersLeft = 'G';
 	$rostersRight = 'D';
 	$rostersLW = 'AG';
@@ -859,7 +859,7 @@ if($leagueLang == 'EN') {
 	$financeProPayroll2 = 'PRO PAYROLL';
 	$financeFarmPayroll2 = 'FARM PAYROLL';
 	$financePlayers = 'PLAYERS';
-	$financeYear2 = 'Y';
+	$financeYear2 = 'YEARS';
 	$financeContract = 'CONTRACT';
 	
 	// Prospects
@@ -954,7 +954,7 @@ if($leagueLang == 'EN') {
 	$joueursProTeamAverage = 'Pro Team Average';
 	
 	// Rosters
-	$rostersTitle = 'Rosters';
+	$rostersTitle = 'Roster';
 	$rostersLeft = 'L';
 	$rostersRight = 'R';
 	$rostersLW = 'LW';

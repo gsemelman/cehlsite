@@ -89,26 +89,42 @@ include 'TeamHeader.php';
 <div class = "container">
 
 
-	<div class="card">
+	<div class="card wow fadeIn ">
 
-		<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">
+		<div class="card-header p-1">
 
-			<div class = "row">
-            	<div class = "col-2">
-            	    <?php 
-                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                    if(isset($teamCardLogoSrc[0])) {
-                        echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                    }
-                    ?>
-            	</div>
-            	<div class = "col-8 d-flex align-items-center justify-content-center">
-                	<h3><?php echo $CurrentTitle; ?></h3>
-            	</div>
-            
-               <div class = "col-2"></div>
-    
-        	</div>
+                <div class= "teamheader logo-gradient">
+        		 	<div class="team-logo gloss logo-gradient">
+                        <a href="#">
+                        <?php 
+                            $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+                            if(isset($teamCardLogoSrc[0])) {
+                                echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+                            }
+                        ?>
+                
+                        </a>
+                     </div>
+                     <div class="team-logo gloss logo-gradient team-logo-right">
+                        <a href="#">
+                        <?php 
+                            $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+                            if(isset($teamCardLogoSrc[0])) {
+                                echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+                            }
+                        ?>
+                
+                        </a>
+                     </div>
+                     
+                     <div class="header-container">
+        
+            			<div class="gloss"></div>
+            			<div class="header">
+              				<h3 class="mb-0"><?php echo $CurrentTitle ?></h3>
+            			</div>
+        			</div>
+        		</div>
 			
 		</div>
 		<div class="card-body">

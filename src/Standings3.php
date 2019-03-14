@@ -24,7 +24,7 @@ if($currentPLF == 1){
 		<div class="card-header">
 			<h3><?php echo $CurrentTitle; ?></h3>
 		</div>
-		<div class="card-body">
+		<div class="card-body px-2 px-md-3">
 
 			<div class ="col-sm-3" style="display: flex;">
 			    <label for="seasonMenu" style="flex: 1;">Season:</label>

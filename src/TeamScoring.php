@@ -32,28 +32,52 @@ include 'TeamHeader.php';
 
 <?php
 
-echo '<div class="card">';
+echo '<div class="card wow fadeIn">';
 
-    echo '<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">';
-        echo'<div class = "row">';
-            echo'<div class = "col-2">';
-                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                    if(isset($teamCardLogoSrc[0])) {
-                        echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                    }
-            echo '</div>';
-            echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
-                echo'<h3>'.$CurrentTitle.'</h3>';
-            echo '</div>';
+    echo '<div class="card-header p-1">';
+//         echo'<div class = "row">';
+//             echo'<div class = "col-2">';
+//                     $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+//                     if(isset($teamCardLogoSrc[0])) {
+//                         echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
+//                     }
+//             echo '</div>';
+//             echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
+//                 echo'<h3>'.$CurrentTitle.'</h3>';
+//             echo '</div>';
             
-            echo'<div class = "col-2">';
+//             echo'<div class = "col-2">';
                 
-            echo '</div>';
+//             echo '</div>';
 
-        echo '</div>';
+//         echo '</div>';
+
+            $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
+            
+            echo '<div class= "teamheader logo-gradient">
+        				<div class="team-logo gloss logo-gradient">
+        				<a href="#">
+        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
+    
+                        </a>
+                     </div>
+                     <div class="team-logo gloss logo-gradient team-logo-right">
+                        <a href="#">
+        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
+                        </a>
+                     </div>
+    
+                     <div class="header-container">
+    
+            			<div class="gloss"></div>
+            			<div class="header">
+              				<h3 class="mb-0">'.$CurrentTitle.'</h3>
+            			</div>
+        			</div>
+        		</div>';
 
     echo' </div>'; //end of card header
-echo '<div class="card-body">';
+echo '<div class="card-body px-2 px-lg-4 pt-2">';
     
     echo '<div class="selection-content row">';
         echo '<div class ="col col-md-8 col-lg-6">';
