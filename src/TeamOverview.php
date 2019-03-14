@@ -776,7 +776,7 @@ echo '<div class="card-body">';
 echo '<div class = "row wow fadeIn">';
 	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
 		echo '<table class="table table-sm">';
-		echo '<tr class="tableau-top"><td colspan="4">Team Info</td></tr>';
+		echo '<tr class="tableau-top"><td colspan="4"><h5 class="m-0">Team Info</h5></td></tr>';
 		echo '<tr class="hover2"><td style="width:90px; font-weight:bold;">'.$teamCardGM.'</td><td style="width:175px;">'.$gm.'</td><td style="width:90px; font-weight:bold;">'.$teamCardArena.'</td><td>'.$arena.'</td></tr>';
 		echo '<tr class="hover1"><td style="font-weight:bold;">'.$teamCardCoach.'</td><td>'.$entraineur.'</td><td style="font-weight:bold;">'.$teamCardSeats.'</td><td>'.$sieges.'</td></tr>';
 		echo '<tr class="hover2"><td style="font-weight:bold;">'.$teamCardFarm.'</td><td>'.ucwords(strtolower($farmName)).'</td><td style="font-weight:bold;">'.$teamCardTicket.'</td><td>'.$billets.'</td></tr>';
@@ -796,7 +796,7 @@ echo '<div class="col-sm-12 col-md-5 offset-md-1">';
 if(isset($lastNumber)) {
 	echo '<a href="games.php?num='.$lastNumber.$linkRnd.'">';
 	echo '<table class="table table-sm">';
-	echo '<tr class="tableau-top"><td colspan="2">'.$teamCardLastGame.' #'.$lastNumber.'</td></tr>';
+	echo '<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$teamCardLastGame.' #'.$lastNumber.'</h5></td></tr>';
 	echo '<tr class="hover2"><td>'.$lastEquipe1.'</td><td style="text-align:right;">'.$lastScore1.'</td></tr>';
 	echo '<tr class="hover1"><td>'.$lastEquipe2.'</td><td style="text-align:right;">'.$lastScore2.'</td></tr>';
 	echo '</table></a>';
@@ -804,7 +804,7 @@ if(isset($lastNumber)) {
 
 if(isset($nextNumber)) {
 	echo '<a href="'.$nextGameFile.'"><table class="table table-sm">';
-	echo '<tr class="tableau-top"><td>'.$teamCardNextGame.' #'.$nextNumber.'</td></tr>';
+	echo '<tr class="tableau-top"><td><h5 class="m-0">'.$teamCardNextGame.' #'.$nextNumber.'</h5></td></tr>';
 	echo '<tr class="hover2"><td>'.$nextEquipe1.'</td></tr>';
 	echo '<tr class="hover1"><td>'.$nextEquipe2.'</td></tr>';
 	echo '</table></a>';
@@ -812,7 +812,7 @@ if(isset($nextNumber)) {
 
 if(isset($propayroll)) {
 	echo '<a href="Finance.php'.$plfLink.'"><table class="table table-sm">';
-	echo '<tr class="tableau-top"><td colspan="2">'.$teamCardFinancial.'</td></tr>';
+	echo '<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$teamCardFinancial.'</h5></td></tr>';
 	echo '<tr class="hover2"><td>'.$teamCardProPayroll.'</td><td style="text-align:right;">'.$propayroll.'</td></tr>';
 	echo '<tr class="hover1"><td>'.$teamCardFarmPayroll.'</td><td style="text-align:right;">'.$farmpayroll.'</td></tr>';
 	$propayroll2 = preg_replace('/\D/', '', $propayroll);
@@ -829,7 +829,7 @@ if(isset($propayroll)) {
 }
 
 echo '<div><table class="table table-sm">';
-echo '<tr class="tableau-top"><td colspan="2">'.$teamCardPlayerInfos.'</td></tr>';
+echo '<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$teamCardPlayerInfos.'</h5></td></tr>';
 echo '<tr class="hover2"><td>'.$teamCardPlayers.'</td><td style="text-align:right;">'.$njoueurs.'</td></tr>';
 echo '<tr class="hover1"><td>'.$teamCardProspects.'</td><td style="text-align:right;">'.$npropect.'</td></tr>';
 echo '<tr class="hover2"><td>'.$teamCardAvgAge.'</td><td style="text-align:right;">'.$vitalsAge.'</td></tr>';
@@ -840,8 +840,12 @@ echo '</table></div>';
 
 if(isset($statsPosition) && count($statsPosition) >= 5) {
 	echo '<div><table class="table table-sm">';
-	echo '<tr><td colspan="9" style="font-weight:bold;">'.$teamCardBestPlayer.'</td></tr>';
-	echo '<table class="table table-sm"><tr class="tableau-top">
+
+	echo '<table class="table table-sm">
+        <tr class="tableau-top">
+            <td colspan="9"><h5 class="m-0">'.$teamCardBestPlayer.'</h5></td>
+        </tr>
+        <tr class="tableau-top">
 		<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
 		<td><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></td>
 		<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
@@ -871,8 +875,12 @@ if(isset($statsPosition) && count($statsPosition) >= 5) {
 
 if(isset($statsGNumber) && count($statsGNumber) >= 2) {
 	echo '<div><table class="table table-sm">';
-	echo '<tr><td colspan="9" style="font-weight:bold;">'.$teamCardBestGoalie.'</td></tr>';
-	echo '</table><table class="table table-sm"><tr class="tableau-top">
+
+	echo '</table><table class="table table-sm">
+        <tr class="tableau-top">
+            <td colspan="9"><h5 class="m-0">'.$teamCardBestGoalie.'</h5></td>
+        </tr>
+        <tr class="tableau-top">
 		<td><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></td>
 		<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
 		<td>'.$scoringName.'</td>
@@ -917,8 +925,11 @@ echo '</div>';
 //echo '<div class="col-sm-12 col-md-4">';
 echo '<div class="col-sm-12 col-md-5">';
 if(isset($standingFileSerie)) {
-	echo '<a href="Standings.php"><span style="font-weight:bold;">'.$teamCardConference;
-	echo '</span><table class="table table-sm">';
+	echo '<a href="Standings3.php">';
+	echo '<table class="table table-sm">';
+	echo '<tr class="tableau-top">
+	<td colspan="9"><h5 class="m-0">'.$teamCardConference.'</h5></td>
+	</tr>';
 	echo '<tr class="tableau-top">';
 	echo '<td></td>';
 	echo '<td></td>';
@@ -966,8 +977,11 @@ if(isset($standingFileSerie)) {
 }
 
 if(isset($standingFileDivisionSerie)) {
-	echo '<a href="Standings.php"><span style="font-weight:bold;">'.$teamCardDivision;
-	echo '</span><table class="table table-sm">';
+	echo '<a href="Standings3.php">';
+	echo '<table class="table table-sm">';
+	echo '<tr class="tableau-top">
+	<td colspan="9"><h5 class="m-0">'.$teamCardDivision.'</h5></td>
+	</tr>';
 	echo '<tr class="tableau-top">';
 	echo '<td></td>';
 	echo '<td></td>';
@@ -1000,8 +1014,11 @@ if(isset($standingFileDivisionSerie)) {
 	echo '</table></a>';
 }
 if(isset($standingFarmFilePJ)) {
-	echo '<a href="Standings.php?s=1"><span style="font-weight:bold;">'.$teamCardConferenceFarm;
-	echo '</span><table class="table table-sm">';
+	echo '<a href="Standings.php?s=1">';
+	echo '<table class="table table-sm">';
+	echo '<tr class="tableau-top">
+	<td colspan="7"><h5 class="m-0">'.$teamCardConferenceFarm.'</h5></td>
+	</tr>';
 	echo '<tr class="tableau-top">';
 	echo '<td></td>';
 	echo '<td><a href="Standings.php" class="info">'.$standingTeam.'</a></td>';
@@ -1045,8 +1062,11 @@ if(isset($standingFarmFilePJ)) {
 
 // Team Record
 if($recordConferenceGP != 0 || $recordDivisionGP != 0 || $recordHomeGP != 0 || $recordAwayGP != 0) {
-	echo '<span style="font-weight:bold;">'.$teamCardReccord.'</span>';
+
 	echo '<table class="table table-sm">';
+	echo '<tr class="tableau-top">
+	<td colspan="6"><h5 class="m-0">'.$teamCardReccord.'</h5></td>
+	</tr>';
 	echo '<tr class="tableau-top">';
 	echo '<td>'.$teamCardRecord.'</td>';
 	echo '<td style="text-align:right;"><a href="Standings.php?s=1" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></td>';
@@ -1109,8 +1129,10 @@ if($recordConferenceGP != 0 || $recordDivisionGP != 0 || $recordHomeGP != 0 || $
 
 // Team Stats
 if(isset($teamStatsFilePP)) {
-	echo '<span style="font-weight:bold;">'.$teamStatsTitle.'</span>';
 	echo '<table class="table table-sm">';
+	echo '<tr class="tableau-top">
+	<td colspan="4"><h5 class="m-0">'.$teamStatsTitle.'</h5></td>
+	</tr>';
 	echo '<tr class="tableau-top">';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$teamStatsPPm.'<span>'.$teamStatsPP.'</span></a></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$teamStatsPKm.'<span>'.$teamStatsPK.'</span></a></td>';
@@ -1354,9 +1376,12 @@ echo '</div>';
 		//echo '<div class="col-sm-12 col-md-8 offset-md-2">';
 		echo '<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">';
 		echo '<a href="CareerLeaders.php?one=1"><div style="clear:both;">';
-			echo '<div><span>'.$teamCardBest10Players.'</span></div>';
+	
 			echo '<div class="table-responsive">';
 			echo '<table class="table table-sm">';
+			echo '<tr class="tableau-top">
+        	<td colspan="18"><h5 class="m-0">'.$teamCardBest10Players.'</h5></td>
+        	</tr>';
 			echo '<tr class="tableau-top">
 				<td></td>
 				<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>

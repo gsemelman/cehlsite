@@ -154,7 +154,7 @@ if(file_exists($Fnm)) {
     		<div class="row">
     			<div class = "col-sm-12 col-md-6">
     			
-    				<h5>Prospects</h5>
+    				<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">Prospects</h5>
     				<table class="table table-sm table-striped">
     					<thead>
     						<tr class="tableau-top">
@@ -179,7 +179,7 @@ if(file_exists($Fnm)) {
     			
     			<div class = "col-sm-12 col-md-6">
     			
-    				<h5>picks</h5>
+    				<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">picks</h5>
     				<table class="table table-sm table-striped" style="white-space:normal;">
     					<thead>
     						<tr class="tableau-top">
@@ -209,6 +209,7 @@ if(file_exists($Fnm)) {
     	
     	<?php 
         	if(isset($lastUpdated)){
+        	    
         	    echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
         	}
     	    

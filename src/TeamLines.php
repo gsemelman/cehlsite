@@ -101,7 +101,7 @@ if(file_exists($Fnm)) {
 			else {
 				if($y == 0) {
 				    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>';
-					echo '<tr class="tableau-top"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesScratches.'</td></tr>';	
+					echo '<tr class="tableau-top"><td colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesScratches.'</h5></td></tr>';	
 					$y++;
 				}
 				if(substr_count($val, 'None')) echo '<tr class="hover2"><td colspan="4" style="text-align:center;">'.$linesNoPlayer.'</td></tr>';
@@ -137,7 +137,7 @@ if(file_exists($Fnm)) {
 		}
 		if(substr_count($val, 'STARTING') && $b && $d) {
 		    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>';
-			echo '<tr class="tableau-top"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesStartingGoalie.'</td></tr>';
+			echo '<tr class="tableau-top"><td colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesStartingGoalie.'</h5></td></tr>';
 			$a = 7;
 			$z = 0;
 		}
@@ -239,7 +239,7 @@ if(file_exists($Fnm)) {
 		}
 		if(substr_count($val, 'POWER') && $b && $d) {
 			echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>
-            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold">'.$linesPP.'</td></tr>
+            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold"><h5 class="m-0">'.$linesPP.'</h5></td></tr>
 			<tr class="tableau-top">
 			<td>POS</td>
 			<td>'.$linesL1.'</td>
@@ -252,7 +252,7 @@ if(file_exists($Fnm)) {
 		}
 		if(substr_count($val, '<PRE>') && $b && $d) {
 		    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold;"></td></tr>
-            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesEvenStrenght.'</td></tr>
+            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesEvenStrenght.'</h5></td></tr>
 			<tr class="tableau-top">
 			<td>POS</td>
 			<td>'.$linesL1.'</td>
@@ -264,7 +264,7 @@ if(file_exists($Fnm)) {
 		}
 		if(substr_count($val, 'PENALTY') && $b && $d) {
 		    echo  '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>
-            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesPK.'</td></tr>
+            <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesPK.'</h5></td></tr>
 			<tr class="tableau-top">
 			<td>POS</td>
 			<td>'.$linesL1.'</td>
