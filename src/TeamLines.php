@@ -251,7 +251,7 @@ if(file_exists($Fnm)) {
 			$i = 0;
 		}
 		if(substr_count($val, '<PRE>') && $b && $d) {
-		    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold; padding-top:20px;"></td></tr>
+		    echo '<tr><td colspan="4" style="text-align:center; font-weight:bold;"></td></tr>
             <tr class="tableau-top titre"><td colspan="4" style="text-align:center; font-weight:bold;">'.$linesEvenStrenght.'</td></tr>
 			<tr class="tableau-top">
 			<td>POS</td>

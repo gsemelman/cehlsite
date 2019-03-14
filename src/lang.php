@@ -863,7 +863,7 @@ if($leagueLang == 'EN') {
 	$financeContract = 'CONTRACT';
 	
 	// Prospects
-	$prospectsTitle = 'Prospects';
+	$prospectsTitle = 'Futures';
 	$prospectsDraft = 'Draft Picks';
 	
 	// Individuals Stats
