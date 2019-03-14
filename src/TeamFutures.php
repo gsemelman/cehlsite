@@ -82,15 +82,15 @@ if(file_exists($Fnm)) {
                 $tmp = trim(substr($tmpProspect, 0, strpos($tmpProspect, ',')));
                 $tmpProspect = substr($tmpProspect, strpos($tmpProspect, ',')+1);
                 
-                $scoringNameSearch = htmlspecialchars($tmp);
-                $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%20eliteprospects.com&btnI';
+//                 $scoringNameSearch = htmlspecialchars($tmp);
+//                 $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%20eliteprospects.com&btnI';
                 
-                // Choose between hockeyDB : 1 or EliteProspect : 2 | $leagueFuturesLink
-                if($leagueFuturesLink == 1) $tmpLink = strtolower(str_replace(' ', '+', $tmp));
-                //if($leagueFuturesLink == 2) $tmpLink = strtolower(str_replace(' ', '%20', $tmp));
-                if($leagueFuturesLink == 1) $hockeyFutureLink = 'http://www.hockeydb.com/ihdb/stats/findplayer.php?full_name='.$tmpLink;
-                //if($leagueFuturesLink == 2) $hockeyFutureLink = 'http://www.eliteprospects.com/playersearch2.php?player='.$tmpLink;
-                if($leagueFuturesLink == 2) $hockeyFutureLink = $scoringNameLink;
+//                 // Choose between hockeyDB : 1 or EliteProspect : 2 | $leagueFuturesLink
+//                 if($leagueFuturesLink == 1) $tmpLink = strtolower(str_replace(' ', '+', $tmp));
+//                 //if($leagueFuturesLink == 2) $tmpLink = strtolower(str_replace(' ', '%20', $tmp));
+//                 if($leagueFuturesLink == 1) $hockeyFutureLink = 'http://www.hockeydb.com/ihdb/stats/findplayer.php?full_name='.$tmpLink;
+//                 //if($leagueFuturesLink == 2) $hockeyFutureLink = 'http://www.eliteprospects.com/playersearch2.php?player='.$tmpLink;
+//                 if($leagueFuturesLink == 2) $hockeyFutureLink = $scoringNameLink;
                 
                 array_push($propects, $tmp);
                 
@@ -158,17 +158,46 @@ if(file_exists($Fnm)) {
     				<table class="table table-sm table-striped">
     					<thead>
     						<tr class="tableau-top">
-    							<td class="text-center">Name</td>
+    							<td colspan=2 class="text-center">Name</td>
     						</tr>
     					</thead>
     					<tbody>
 						
 							<?php 
+							$i = 0;
 							foreach ($propects as $prospect) {
-							    echo '<tr>';
-							     echo '<td class="text-center">'.$prospect.'</td>';
-							    echo '</tr>';
+
+							    $scoringNameSearch = htmlspecialchars($prospect);
+							    $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%20eliteprospects.com&btnI';
+							    
+							    // Choose between hockeyDB : 1 or EliteProspect : 2 | $leagueFuturesLink
+							    if($leagueFuturesLink == 1) $tmpLink = strtolower(str_replace(' ', '+', $tmp));
+							    if($leagueFuturesLink == 1) $hockeyFutureLink = 'http://www.hockeydb.com/ihdb/stats/findplayer.php?full_name='.$prospect;
+							    if($leagueFuturesLink == 2) $hockeyFutureLink = $scoringNameLink;
+							    
+							    if($i == 0){
+							        echo '<tr>';
+							        //echo '<td class="text-center">'.$prospect.'</td>';
+							        echo '<td class="text-center"> <a style="display:block; width:100%;" href="'.$hockeyFutureLink.'" >'.$prospect.'</a></td>';
+						
+							        $i++;
+							    }else{
+							        //echo '<td class="text-center">'.$prospect.'</td>';
+							        echo '<td class="text-center"> <a style="display:block; width:100%;" href="'.$hockeyFutureLink.'" >'.$prospect.'</a></td>';
+							        
+							        
+							        echo '</tr>';
+							        
+							        $i = 0;
+							    }
+		
 							}
+							
+							//in case tr was not closed because of uneven columns
+							if($i > 0){
+							    echo '<td></td></tr>';
+							}
+							
 							?>
 
     					</tbody>			

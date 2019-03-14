@@ -50,20 +50,20 @@ if (file_exists($Fnm)) {
             $pos = strpos($val, 'Conference</H3>');
             $pos2 = strpos($val, '<H3>');
             $val2 = substr($val, $pos2 + 4, $pos - $pos2 - 5);
-            echo '<tr><td colspan="' . $tableCol . '" style="height:20px;"></td></tr><tr class="titre"><td colspan="' . $tableCol . '">' . $val2 . ' ' . $standingConference . '</td></tr>';
+            echo '<tr><td colspan="' . $tableCol . '"></td></tr><tr class="titre"><td colspan="' . $tableCol . '"><h5 class="tableau-top"  style = "padding-top:5px; padding-bottom:5px">' . $val2 . ' ' . $standingConference . '</h5></td></tr>';
             $d = 1;
             $b = 0;
             $final = 0;
             
         }
         if (substr_count($val, '<H3>By Division</H3>')) {
-            echo '<tr><td colspan="' . $tableCol . '"><br></td></tr><tr><td colspan="' . $tableCol . '" style="font-weight:bold;">' . $standingByDivision . '</td></tr>';
+           // echo '<tr><td colspan="' . $tableCol . '"><br></td></tr><tr><td colspan="' . $tableCol . '" style="font-weight:bold;"><h5>' . $standingByDivision . '</h5></td></tr>';
         }
         if (substr_count($val, 'Division</H3>') && ! substr_count($val, '<H3>By Division</H3>')) {
             $pos = strpos($val, 'Division</H3>');
             $pos2 = strpos($val, '<H3>');
             $val2 = substr($val, $pos2 + 4, $pos - $pos2 - 5);
-            echo '<tr><td colspan="' . $tableCol . '"><br></td></tr><tr class="titre"><td colspan="' . $tableCol . '">' . $val2 . ' ' . $standingDivision . '</td></tr>';
+            echo '<tr><td colspan="' . $tableCol . '"><br></td></tr><tr class="titre"><td colspan="' . $tableCol . '"><h5 class="tableau-top"  style = "padding-top:5px; padding-bottom:5px">' . $val2 . ' ' . $standingDivision . '</h5></td></tr>';
             $d = 1;
             $b = 0;
         }

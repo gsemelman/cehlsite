@@ -1015,6 +1015,7 @@ if(isset($standingFileDivisionSerie)) {
 }
 if(isset($standingFarmFilePJ)) {
 	echo '<a href="Standings.php?s=1">';
+	echo '<div class="table-responsive">';
 	echo '<table class="table table-sm">';
 	echo '<tr class="tableau-top">
 	<td colspan="7"><h5 class="m-0">'.$teamCardConferenceFarm.'</h5></td>
@@ -1057,7 +1058,7 @@ if(isset($standingFarmFilePJ)) {
 		echo '<td style="text-align:right;'.$bold.'"><b>'.$standingFarmFilePts[$i].'</b></td>';
 		echo '</tr>';
 	}
-	echo '</table></a>';
+	echo '</table></div></a>';
 }
 
 // Team Record
@@ -1376,12 +1377,9 @@ echo '</div>';
 		//echo '<div class="col-sm-12 col-md-8 offset-md-2">';
 		echo '<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">';
 		echo '<a href="CareerLeaders.php?one=1"><div style="clear:both;">';
-	
+			echo '<div><h5 class="tableau-top m-0"  style = "padding-top:5px; padding-bottom:5px">'.$teamCardBest10Players.'</h3></div>';
 			echo '<div class="table-responsive">';
 			echo '<table class="table table-sm">';
-			echo '<tr class="tableau-top">
-        	<td colspan="18"><h5 class="m-0">'.$teamCardBest10Players.'</h5></td>
-        	</tr>';
 			echo '<tr class="tableau-top">
 				<td></td>
 				<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
