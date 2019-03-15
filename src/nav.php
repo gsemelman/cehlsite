@@ -88,6 +88,7 @@
 </head>
 
 <body>
+	<div class="site-content"><!-- for use with footer -->
   
   <!-- Top menu -->
 	<nav class="navbar navbar-dark fixed-top navbar-expand-lg navbar-no-bg">

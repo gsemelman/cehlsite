@@ -97,7 +97,11 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 	            </div>
 			</div>
 		</div>
-
+		
+		<div class="container rounded pt-3" style ="background:#444; padding-left:30px; padding-right:30px ">
+			<?php include 'ScoreCarousel.php'; ?>
+		</div>
+		
 		<div class="container-responsive section-2 mx-md-3 mx-lg-5">
 			<div class="card-columns">
 
@@ -124,14 +128,15 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 					</div>
 				</div>
 
-				<div class="card wow fadeIn">
-					<div class="card-header wow fadeIn">
-						<h3>Latest Results</h3>
-					</div>
-					<div class="card-body">
-						<?php include 'MiniTodayGames.php'; ?>
-					</div>
-				</div>
+<!-- 				<div class="card wow fadeIn"> -->
+<!-- 					<div class="card-header wow fadeIn"> -->
+<!-- 						<h3>Latest Results</h3> -->
+<!-- 					</div> -->
+<!-- 					<div class="card-body"> -->
+						<?php //include 'MiniTodayGames.php'; ?>
+						<?php //include 'test3.php'; ?>
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 				<div class="card wow fadeIn">
 					<div class="card-header wow fadeIn">

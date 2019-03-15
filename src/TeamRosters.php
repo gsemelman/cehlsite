@@ -279,7 +279,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                             }
                             echo '</div>'; //end tab-content
                             
-                            echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
+                            echo '<h6 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h6>';
                         }else{
                             //parsing error
                             echo '<h3>ERROR PARSING ROSTERS</h3>';

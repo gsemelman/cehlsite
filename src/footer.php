@@ -1,24 +1,29 @@
 
 <style>
 
-html{ height:100%; }
-body{ min-height:100%; padding:0; margin:0; position:relative; }
+html, body { height:100%; }
 
-body::after{ content:''; display:block; height:50px; }
+body{
+    display:flex;
+    flex-direction:column;
+}
 
-#footer{ 
-  position:absolute; 
-  bottom:0; 
-  width:100%;  
-  height:40px; 
-  border-radius:0;
-  
-  padding-top: 0px;
+.site-content{
+    flex: 1 0 auto;
+}
+
+.footer{
+    flex-shrink: 0;
+    background-color: #444;
+    margin-top: 15px;
+    color:white;
 }
 
 </style>
 
-<footer id="footer">
+</div> <!-- end site container -->
+
+<footer class="footer">
 	<div class="container">
 		<div class="row">
 			
