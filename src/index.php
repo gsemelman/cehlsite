@@ -133,8 +133,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 <!-- 						<h3>Latest Results</h3> -->
 <!-- 					</div> -->
 <!-- 					<div class="card-body"> -->
-						<?php //include 'MiniTodayGames.php'; ?>
-						<?php //include 'test3.php'; ?>
+
 <!-- 					</div> -->
 <!-- 				</div> -->
 

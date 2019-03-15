@@ -160,7 +160,7 @@ if (file_exists($Fnm)) {
                             if ($currentFarm == 0)
                                 echo '<td>' . $serie . '</td>';
                                 if ($currentFarm == 0)
-                                    echo '<td><a class="text-left" style="display:block; width:100%;" href="Rosters.php?team=' . $equipe . '">' . $equipe . '</a></td>';
+                                    echo '<td><a class="text-left" style="display:block; width:100%;" href="TeamRosters.php?team=' . $equipe . '">' . $equipe . '</a></td>';
                                     if ($currentFarm == 1)
                                         echo '<td>' . $equipe . '</td>';
                                         echo '<td style="text-align:right;">' . $pj . '</td>';

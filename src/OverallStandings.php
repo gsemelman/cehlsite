@@ -181,7 +181,7 @@ if(file_exists($Fnm)) {
 		echo '<tr class="hover'.$c.'">';
 		echo '<td style="'.$bold.'">'.$pos.'</td>';
 		if($currentFarm == 0) echo '<td style="'.$bold.'">'.$serie[$key].'</td>';
-		if($currentFarm == 0) echo '<td style="'.$bold.'"><a class="lien-noir" style="display:block; width:100%;" href="Rosters.php?team='.$equipe[$key].'">'.$equipe[$key].'</a></td>';
+		if($currentFarm == 0) echo '<td style="'.$bold.'"><a class="lien-noir" style="display:block; width:100%;" href="TeamRosters.php?team='.$equipe[$key].'">'.$equipe[$key].'</a></td>';
 		if($currentFarm == 1) echo '<td style="'.$bold.'">'.$equipe[$key].'</td>';
 		echo '<td style="text-align:right;'.$bold.'">'.$pj[$key].'</td>';
 		echo '<td style="text-align:right;'.$bold.'">'.$standingsW[$key].'</td>';

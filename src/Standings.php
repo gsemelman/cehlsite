@@ -177,7 +177,7 @@ if(file_exists($Fnm)) {
 			echo '<tr class="hover'.$c.'">';
 			echo '<td style="'.$bold.'">'.$d.'</td>';
 			if($currentFarm == 0) echo '<td style="'.$bold.'">'.$serie.'</td>';
-			if($currentFarm == 0) echo '<td style="'.$bold.'"><a style="display:block; width:100%;" href="Rosters.php?team='.$equipe.'">'.$equipe.'</a></td>';
+			if($currentFarm == 0) echo '<td style="'.$bold.'"><a style="display:block; width:100%;" href="TeamRosters.php?team='.$equipe.'">'.$equipe.'</a></td>';
 			if($currentFarm == 1) echo '<td style="'.$bold.'">'.$equipe.'</td>';
 			echo '<td style="text-align:right;'.$bold.'">'.$pj.'</td>';
 			echo '<td style="text-align:right;'.$bold.'">'.$standingsW.'</td>';

@@ -145,9 +145,7 @@ class ScheduleHolder{
     }
     
     public function getLastScheduleDay(){
-        if($this->isSeasonStarted()){
-            return getFilteredArray('gameDay', $this->getLastDayPlayed()-2, $this->getSchedule());
-        }
+        return getFilteredArray('gameDay', $this->getLastDayPlayed(), $this->getSchedule());
         
         return array();
     }

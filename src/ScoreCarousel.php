@@ -57,12 +57,12 @@ if(!function_exists('search')) {
 
 ?>
 
-  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-   <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <!--    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/> -->
 
 <!--   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-  <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!--     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
   
 
@@ -276,28 +276,6 @@ if($scheduleHolder->isSeasonStarted()){
 </div>
 
 <script>
-
-// $(document).ready(function(){
-//     $('.your-class').slick({
-// 	   	slidesToShow: 7,
-//         slidesToScroll: 4,
-// 	    infinite: false,
-// 		variableWidth: true,
-// 		waitForAnimate: false,
-// 		edgeFriction:0,
-// 		speed:100
-// 		//swipeToSlide: true,
-// 		//dots: true,
-//     	  //autoplay: true,
-//     	 // autoplaySpeed: 2000,
-//     	//dots: true,
-//     	 // centerMode: true,
-//     	//  focusOnSelect: true,
-    	
-//   	});
-// });
-
-var currentIndex = <?php echo $currentIndex + 1;?>
 
 $('.your-class').slick({
 	  dots: true,
