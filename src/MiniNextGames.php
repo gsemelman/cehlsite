@@ -6,9 +6,44 @@ ob_start();
 if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
 ob_end_flush();
 
-include 'config.php';
-include 'lang.php';
+include_once 'config.php';
+include_once 'lang.php';
+include_once 'common.php';
 ?>
+
+<style>
+/*  .latest-game { border-radius:10px; border-style: solid; margin:5px; padding:5px; font-size: 17px;}   */
+.latest-game {
+    border-radius:5%; 
+    border-style: solid; 
+    margin:1%;
+   
+}
+ .latest-image { max-width: 50%; height: auto; }
+
+.latest-score {  
+  
+     display: flex;
+     justify-content: center;  
+     align-items: center;
+     padding:2px;
+ }
+ 
+ .square {
+  width: 25%;
+  height: 0;
+  padding-bottom: 25%; 
+  }
+
+.latest-score-text {  
+/*     font-size: 150%; */
+    font-size:18pt;
+/*     padding-left:10%;  */
+    margin-left:10%;
+    
+}
+
+</style>
 
 <?php
 $playoff = isPlayoffs($folder, $playoffMode);
@@ -49,6 +84,7 @@ if (file_exists($Fnm)) {
 		
 		if(!isset($nextGames)) echo '<div class="col"><h3>'.$todayNoUpcomingGame.'<h3></div>';
 		else {
+		   
 			for($i=0;$i<count($nextGames);$i++){
 				$matches = glob($folderTeamLogos.strtolower($nextEquipe1[$i]).'.*');
 				$todayImage1 = '';

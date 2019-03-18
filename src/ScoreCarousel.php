@@ -174,6 +174,7 @@ if($scheduleHolder->isSeasonStarted()){
             else echo $allFileNotFound.' - '.$FnmAbbr;
             
             echo '<div>';
+            echo '<a href="games.php?num='.$games->getGameNumber().$playoffLink.'">';
             echo '<table class = "table table-sm " style="width:100px" >';
             echo '<tbody>';
             echo '<tr class="d-flex" style = "text-transform: uppercase;">'; //header
@@ -200,7 +201,7 @@ if($scheduleHolder->isSeasonStarted()){
             
             echo '</tbody>';
             echo '</table>'; //end score-main table
-            
+            echo '</a>';
             echo '</div>';
    
         }
@@ -236,7 +237,9 @@ if($scheduleHolder->isSeasonStarted()){
         }
         else echo $allFileNotFound.' - '.$FnmAbbr;
         
+       
         echo '<div>';
+        echo '<a href="games.php?num='.$games->getGameNumber().$playoffLink.'">';
         echo '<table class = "table table-sm " style="width:100px" >';
         echo '<tbody>';
         echo '<tr class="d-flex" style = "text-transform: uppercase;">'; //header
@@ -263,8 +266,9 @@ if($scheduleHolder->isSeasonStarted()){
         
         echo '</tbody>';
         echo '</table>'; //end score-main table
-        
+        echo '</a>';
         echo '</div>';
+       
     }
 }
 ?>
