@@ -89,45 +89,14 @@ include 'TeamHeader.php';
 <div class = "container">
 
 
-	<div class="card wow fadeIn ">
+	<div class="card">
 
 		<div class="card-header p-1">
 
-                <div class= "teamheader logo-gradient">
-        		 	<div class="team-logo gloss logo-gradient">
-                        <a href="#">
-                        <?php 
-                            $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                            if(isset($teamCardLogoSrc[0])) {
-                                echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                            }
-                        ?>
-                
-                        </a>
-                     </div>
-                     <div class="team-logo gloss logo-gradient team-logo-right">
-                        <a href="#">
-                        <?php 
-                            $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                            if(isset($teamCardLogoSrc[0])) {
-                                echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                            }
-                        ?>
-                
-                        </a>
-                     </div>
-                     
-                     <div class="header-container">
-        
-            			<div class="gloss"></div>
-            			<div class="header">
-              				<h3 class="mb-0"><?php echo $CurrentTitle ?></h3>
-            			</div>
-        			</div>
-        		</div>
+              <?php include 'TeamCardHeader.php' ?>
 			
 		</div>
-		<div class="card-body">
+		<div class="card-body wow fadeIn">
 		
         	<?php 
         	if($currentPLF == 1 && isset($existRnd)) {

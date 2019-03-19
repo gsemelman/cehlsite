@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
@@ -67,60 +66,11 @@ include_once 'classes/PlayerVitalsHolder.php';
 <div class="container">
 	<div class="row no-gutters">
 	<div class="col"> 
-	<div class="card wow fadeIn">
+	<div class="card">
 	<div class="card-header p-1">
-		<div class= "teamheader logo-gradient">
-		 	<div class="team-logo gloss logo-gradient">
-                <a href="#">
-                <?php 
-                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                    if(isset($teamCardLogoSrc[0])) {
-                        echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                    }
-                ?>
-        
-                </a>
-             </div>
-             <div class="team-logo gloss logo-gradient team-logo-right">
-                <a href="#">
-                <?php 
-                    $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                    if(isset($teamCardLogoSrc[0])) {
-                        echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                    }
-                ?>
-        
-                </a>
-             </div>
-             
-             <div class="header-container">
-
-    			<div class="gloss"></div>
-    			<div class="header">
-      				<h3 class="mb-0"><?php echo $CurrentTitle ?></h3>
-    			</div>
-			</div>
-		</div>
-
-<!-- 		<div class = "row"> -->
-<!--         	<div class = "col-2"> -->
-        	    <?php 
-//                 $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-//                 if(isset($teamCardLogoSrc[0])) {
-//                     echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-//                 }
-//                 ?>
-<!--         	</div> -->
-<!--         	<div class = "col-8 d-flex align-items-center justify-content-center"> -->
-  <!--          	<h3><?php //echo $CurrentTitle; ?></h3>-->
-<!--         	</div> -->
-        
-<!--            <div class = "col-2"></div> -->
-
-<!--     	</div> -->
-		
+		<?php include 'TeamCardHeader.php'?>
 	</div>
-    	<div class="card-body px-2 px-lg-4">
+    	<div class="card-body px-2 px-lg-4 wow fadeIn">
     
                     <?php
 
@@ -303,6 +253,7 @@ include_once 'classes/PlayerVitalsHolder.php';
     		</div>
     	</div>
     </div>
+ 
 </div>
 <script>
 

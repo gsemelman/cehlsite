@@ -48,55 +48,15 @@ if(file_exists($Fnm)) {
 				$pos = $pos - 10;
 				$val = substr($val, 10, $pos);
 				$lastUpdated = $val;
-				//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 				
-				echo '<div class="card wow fadeIn">';
+				echo '<div class="card">';
 				echo '<div class="card-header p-1">';
-//     				echo'<div class = "row">';
-//         				echo'<div class = "col-2">';
-//         				$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-//         				if(isset($teamCardLogoSrc[0])) {
-//         				    echo'<img class="float-left panel-profile-img" src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-//         				}
-//         				echo '</div>';
-//         				echo'<div class = "col-8 d-flex align-items-center justify-content-center">';
-//         				echo'<h3>'.$CurrentTitle.'</h3>';
-//         				echo '</div>';
-        				
-//         				echo'<div class = "col-2">';
-        				
-//         				echo '</div>';
-    				
-//     				echo '</div>';
 
-				$teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-	
-				echo '<div class= "teamheader logo-gradient">
-        				<div class="team-logo gloss logo-gradient">
-        				<a href="#">
-        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
-                
-                        </a>
-                     </div>
-                     <div class="team-logo gloss logo-gradient team-logo-right">
-                        <a href="#">
-        	                <img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">
-                        </a>
-                     </div>
-                     
-                     <div class="header-container">
-        
-            			<div class="gloss"></div>
-            			<div class="header">
-              				<h3 class="mb-0">'.$CurrentTitle.'</h3>
-            			</div>
-        			</div>
-        		</div>';
+				   include 'TeamCardHeader.php';
 				
 				echo' </div>';
-				echo '<div class="card-body">';
+				echo '<div class="card-body wow fadeIn">';
 
-				//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 			}
 			if(substr_count($val, 'A NAME='.$currentTeam) && $d) {
 				$pos = strpos($val, '</A>');

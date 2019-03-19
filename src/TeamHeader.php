@@ -1,3 +1,8 @@
+<?php 
+
+
+?>
+
 <style>
 
 .header-content { margin-top: 65px; margin-bottom: 10px; }
@@ -69,10 +74,10 @@ border-bottom:1px solid blue;
 	border-bottom-left-radius: 5px;
 }
 
-.team .header-container{
-    background: linear-gradient(rgb(0, 39, 79) 0%, rgb(0, 39, 79) 60%, rgb(27, 98, 162) 100%);
-    height: 68px; 
-}
+.team .header-container{ 
+     background: linear-gradient(rgb(0, 39, 79) 0%, rgb(0, 39, 79) 60%, rgb(27, 98, 162) 100%); */
+     height: 68px;  
+} 
 
 .teamheader .logo-gradient {
 	background: linear-gradient(rgb(0, 39, 79) 0%, rgb(0, 39, 79) 60%,
@@ -111,7 +116,7 @@ border-bottom:1px solid blue;
 
     color: #fff;
     text-transform: uppercase;
-    margin-top: -20px;
+    margin-top: -32px;
     text-align: center;
    
 }

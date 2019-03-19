@@ -175,7 +175,7 @@ if($scheduleHolder->isSeasonStarted()){
             
             echo '<div>';
             echo '<a href="games.php?num='.$games->getGameNumber().$playoffLink.'">';
-            echo '<table class = "table table-sm " style="width:100px" >';
+            echo '<table class = "table table-sm " style="width:90px" >';
             echo '<tbody>';
             echo '<tr class="d-flex" style = "text-transform: uppercase;">'; //header
             echo '<th class="col-9 p-1">Final</th>';
@@ -240,7 +240,7 @@ if($scheduleHolder->isSeasonStarted()){
        
         echo '<div>';
         echo '<a href="games.php?num='.$games->getGameNumber().$playoffLink.'">';
-        echo '<table class = "table table-sm " style="width:100px" >';
+        echo '<table class = "table table-sm " style="width:90px" >';
         echo '<tbody>';
         echo '<tr class="d-flex" style = "text-transform: uppercase;">'; //header
         echo '<th class="col-9 p-1">Final</th>';

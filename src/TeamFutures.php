@@ -67,7 +67,7 @@ if(file_exists($Fnm)) {
                 
                 $pos = strpos($val, '<BR>');
                 $pos = $pos - 19;
-                // echo '<tr class="hover'.$c.'"><td>'.$year.'</td><td>'.$draft.'</td></tr>';
+
             }
             
             $a++;
@@ -82,26 +82,14 @@ if(file_exists($Fnm)) {
                 $tmp = trim(substr($tmpProspect, 0, strpos($tmpProspect, ',')));
                 $tmpProspect = substr($tmpProspect, strpos($tmpProspect, ',')+1);
                 
-//                 $scoringNameSearch = htmlspecialchars($tmp);
-//                 $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%20eliteprospects.com&btnI';
-                
-//                 // Choose between hockeyDB : 1 or EliteProspect : 2 | $leagueFuturesLink
-//                 if($leagueFuturesLink == 1) $tmpLink = strtolower(str_replace(' ', '+', $tmp));
-//                 //if($leagueFuturesLink == 2) $tmpLink = strtolower(str_replace(' ', '%20', $tmp));
-//                 if($leagueFuturesLink == 1) $hockeyFutureLink = 'http://www.hockeydb.com/ihdb/stats/findplayer.php?full_name='.$tmpLink;
-//                 //if($leagueFuturesLink == 2) $hockeyFutureLink = 'http://www.eliteprospects.com/playersearch2.php?player='.$tmpLink;
-//                 if($leagueFuturesLink == 2) $hockeyFutureLink = $scoringNameLink;
-                
                 array_push($propects, $tmp);
-                
-                // echo '<tr class="hover'.$c.'"><td colspan="2"><a style="display:block; width:100%;" target="_blank" href="'.$hockeyFutureLink.'" >'.$tmp.'</a></td></tr>';
+
             }
-            //echo '<tr class="tableau-top"><td colspan="2" style="text-align:center;">'.$prospectsDraft.'</td></tr>';
+
             $a = 2;
             $c = 1;
         }
         if(substr_count($val, '<H4>Prospects</H4>') && $b && $d) {
-            // echo '<tr class="tableau-top"><td colspan="2" style="text-align:center;">'.$prospectsTitle.'</td></tr>';
             $a = 1;
         }
         
@@ -112,45 +100,14 @@ if(file_exists($Fnm)) {
 
 <div class = "container">
 
-	<div class="card wow fadeIn">
+	<div class="card">
 
     	<div class="card-header p-1">
     	
-    		<div class= "teamheader logo-gradient">
-    		 	<div class="team-logo gloss logo-gradient">
-                    <a href="#">
-                    <?php 
-                        $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                        if(isset($teamCardLogoSrc[0])) {
-                            echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                        }
-                    ?>
-            
-                    </a>
-                 </div>
-                 <div class="team-logo gloss logo-gradient team-logo-right">
-                    <a href="#">
-                    <?php 
-                        $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*');
-                        if(isset($teamCardLogoSrc[0])) {
-                            echo'<img src="'.$teamCardLogoSrc[0].'" alt="'.$currentTeam.'">';
-                        }
-                    ?>
-            
-                    </a>
-                 </div>
-                 
-                 <div class="header-container">
-    
-        			<div class="gloss"></div>
-        			<div class="header">
-          				<h3 class="mb-0"><?php echo $CurrentTitle ?></h3>
-        			</div>
-    			</div>
-    		</div>
+    		 <?php include 'TeamCardHeader.php'; ?>
     	
     	</div>
-    	<div class="card-body">
+    	<div class="card-body wow fadeIn">
     		<div class="row">
     			<div class = "col-sm-12 col-md-6">
     			

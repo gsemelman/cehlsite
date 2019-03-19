@@ -31,36 +31,15 @@ include 'TeamHeader.php';
 
 <div class="container">
 
-	<div class="card wow fadeIn">
+	<div class="card">
 
 		<div class="card-header p-1">
 		
-			<?php $teamCardLogoSrc = glob($folderTeamLogos.strtolower($currentTeam).'.*'); ?>
-		 
-			<div class="teamheader logo-gradient">
-				<div class="team-logo gloss logo-gradient">
-					<a href="#"> <img src="<?php echo $teamCardLogoSrc[0]?>"
-						alt="<?php echo $currentTeam?>">
-
-					</a>
-				</div>
-				<div class="team-logo gloss logo-gradient team-logo-right">
-					<a href="#"> <img src="<?php echo $teamCardLogoSrc[0]?>"
-						alt="<?php echo $currentTeam?>">
-					</a>
-				</div>
-
-				<div class="header-container">
-
-					<div class="gloss"></div>
-					<div class="header">
-						<h3 class="mb-0"><?php echo $CurrentTitle?></h3>
-					</div>
-				</div>
-			</div>
+		 <?php include 'TeamCardHeader.php' ?>
+			
 		</div>
 		<!--end card header -->
-		<div class="card-body px-2 px-lg-4 pt-2">
+		<div class="card-body px-2 px-lg-4 pt-2 wow fadeIn">
 			<div class="row selection-content justify-content-center">
 				<div class="col col-md-8 col-lg-6">
 					<div class="row">
