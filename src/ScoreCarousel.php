@@ -118,36 +118,58 @@ background-color: inherit;
 }
 
 .slick-slide{ 
-    width: 110px; 
+    width: 95px; 
 }
-  
+
+.dayPlayed{ 
+    height: 90px;
+/*      line-height: 90px;  */
+    width:50px; 
+    color:black;
+    background-color: #dcdee0; 
+    margin-right:5px; 
+
+ 
+ 
+}
+
+.dayPlayed span {
+ 
+ display: inline-block;
+ width:100%;
+ vertical-align: middle;
+}
+
+
+@media (max-width: 767px) {
+    /*workaround because lineheight of table changes at this breakpoint*/
+    .dayPlayed{	height: 100px;}
+}
+
 }
 
 </style>
 
-<div id ="scoringBanner" class="scoring-banner">
+<div id ="scoringBanner" class="scoring-banner pt-3">
 	<div class="button-container"></div>
-    <div class="your-class" >
+    <div class="score-scroll" >
     
 
 <?php
-//if(!isset($playoff)) $playoff = '';
 $playoff = isPlayoffs($folder, $playoffMode);
 if($playoff == 1) $playoff = 'PLF';
 
-//$Fnm = getLeagueFile($folder, $playoff, 'TodayGames.html', 'TodayGames');
-//$Fnm = $folder.$folderLeagueURL.'TodayGames.html';
 $fileName = getLeagueFile($folder, $playoff, 'Schedule.html', 'Schedule');
 $scheduleHolder = new ScheduleHolder($fileName, '');
 
 if($scheduleHolder->isSeasonStarted()){
 
     if($scheduleHolder->getLastDayPlayed() > 1){
-        
-        echo '<div style="width:50px; height:90px; color:black; ">';
-            echo '<div class="text-center" style="background-color: #dcdee0;  margin-right:10px; height:100%; ">';
-            echo '<div style="padding-top:50%"><strong>Day</strong></div>';
-            echo '<div ><strong>'.($scheduleHolder->getLastDayPlayed() -1).'</strong></div>';
+
+        echo '<div class="dayPlayed text-center">';
+            echo '<div style ="padding-top:50%">';
+                echo '<span><strong>Day</strong></span>';
+                echo '<span><strong>'.($scheduleHolder->getLastDayPlayed() -1 ).'</strong></span>';
             echo '</div>';
         echo '</div>';
         
@@ -175,7 +197,7 @@ if($scheduleHolder->isSeasonStarted()){
             
             echo '<div>';
             echo '<a href="games.php?num='.$games->getGameNumber().$playoffLink.'">';
-            echo '<table class = "table table-sm " style="width:90px" >';
+            echo '<table class = "table table-sm mb-0" style="width:90px" >';
             echo '<tbody>';
             echo '<tr class="d-flex" style = "text-transform: uppercase;">'; //header
             echo '<th class="col-9 p-1">Final</th>';
@@ -207,11 +229,10 @@ if($scheduleHolder->isSeasonStarted()){
         }
     }
     
-    
-    echo '<div style="width:50px; height:90px; color:black; ">';
-        echo '<div class="text-center" style="background-color: #dcdee0;  margin-right:10px; height:100%; ">';
-        echo '<div style="padding-top:50%"><strong>Day</strong></div>';
-        echo '<div ><strong>'.($scheduleHolder->getLastDayPlayed()).'</strong></div>';
+    echo '<div class="dayPlayed text-center">';
+        echo '<div style ="padding-top:50%">';
+            echo '<span><strong>Day</strong></span>';
+            echo '<span><strong>'.($scheduleHolder->getLastDayPlayed() ).'</strong></span>';
         echo '</div>';
     echo '</div>';
     
@@ -281,20 +302,20 @@ if($scheduleHolder->isSeasonStarted()){
 
 <script>
 
-$('.your-class').slick({
+$('.score-scroll').slick({
 	  dots: true,
 	  infinite: false,
 	  speed: 300,
 	  variableWidth: true,
 	  slidesToShow: 9,
-	  slidesToScroll: 6,
+	  slidesToScroll: 9,
 	  mobileFirst: true,
 	  responsive: [
 	  	{
 	      breakpoint: 1024,
 	      settings: {
-	        slidesToShow: 7,
-	        slidesToScroll: 5,
+	        slidesToShow: 12,
+	        slidesToScroll:12,
 	        infinite: false,
 	        dots: true
 	      }
@@ -327,8 +348,8 @@ $('.your-class').slick({
 	    {
 	      breakpoint: 440,
 	      settings: {
-	        slidesToShow: 3,
-	        slidesToScroll: 3,
+	        slidesToShow: 4,
+	        slidesToScroll: 4,
 	        touchThreshold:10
 	      }
 	    },
@@ -340,9 +361,6 @@ $('.your-class').slick({
 	        touchThreshold:10
 	      }
 	    }
-	    // You can unslick at a given breakpoint now by adding:
-	    // settings: "unslick"
-	    // instead of a settings object
 	  ]
 	});
 

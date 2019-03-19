@@ -98,7 +98,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 			</div>
 		</div>
 		
-		<div class="container rounded pt-3 wow fadeIn" style ="background:#444; padding-left:30px; padding-right:30px ">
+		<div class="container rounded wow fadeIn" style ="background:#444; padding-left:30px; padding-right:30px ">
 			<?php include 'ScoreCarousel.php'; ?>
 		</div>
 		
