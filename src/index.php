@@ -1,7 +1,15 @@
-<?php include 'config.php' ?>
-<?php include 'lang.php' ?>
-<?php include 'common.php' ?>
-<?php include 'nav.php' ?>
+<?php 
+include 'config.php';
+include 'lang.php';
+include 'common.php';
+
+if(!HTTPS_REQUIRED){
+    //checkHttps();
+}
+
+include 'nav.php';
+
+?>
 
 <style>
 

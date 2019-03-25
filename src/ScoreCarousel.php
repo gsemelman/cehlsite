@@ -14,6 +14,11 @@ include_once 'classes/ScheduleHolder.php';
 include_once 'classes/ScheduleObj.php';
 
 
+$playoffLink = '';
+if(isPlayoffs($folder, $playoffMode)){
+    $playoffLink = 'PLF';
+}
+
 if(!function_exists('search')) {
     function search($Fnm,$currentTeam) {
         $b = 0;

@@ -1,24 +1,56 @@
 <?php
-include_once 'common.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+include_once 'common.php';
+if(!HTTPS_REQUIRED){
+   //checkHttps();
+}
+session_name('GMO');
 session_start();
 
+if(isset($secured) && $secured){
+    if ( isset( $_SESSION['user_id'] ) ) {
+        // Grab user data from the database using the user_id
+        // Let them access the "logged in only" pages
+    } else {
+        // Redirect them to the login page
+        header("Location: http://www.yourdomain.com/login.php");
+    }
+}
+
+
+//TRACK TEAM STATE
+$currentTeam = '';
+if(isset($_GET['team']) || isset($_POST['team'])) {
+    $currentTeam = ( isset($_GET['team']) ) ? $_GET['team'] : $_POST['team'];
+    $currentTeam = htmlspecialchars($currentTeam);
+    
+    $_SESSION["team"] = $currentTeam;
+    setcookie('team', $currentTeam, time() + (86400 * 30), "/");
+}
+else {
+    if(isset($_SESSION["team"])) $currentTeam = $_SESSION["team"];
+    ob_start();
+    if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
+    ob_end_flush();
+}
+
+
+//TRACK PLAYOFF STATE
 $playoff = '';
 $currentPLF = 0;
 
-if(isPlayoffs($folder, $playoffMode)){
+if(isPlayoffs(TRANSFER_DIR, LEAGUE_MODE)){
     $playoff = 'PLF';
     $currentPLF = 1;
-    
 }
 
 //$dropLinkPlf = '';
 $plfLink = '';
 $tmpFolderPlayoff = '';
 // TEAM CARD - SEE IF PLAYOFFS GMS FILE EXISTS
-$matches = glob($folder.'*GMs.html');
+$matches = glob(TRANSFER_DIR.'*GMs.html');
 $matchesDate = array_map('filemtime', $matches);
 arsort($matchesDate);
 foreach ($matchesDate as $j => $val) {
@@ -58,52 +90,6 @@ if(isset($_GET['sort']) || isset($_POST['sort'])) {
 	$sort = htmlspecialchars($sort);
 }
 
-//TRACK TEAM STATE
-$currentTeam = '';
-if(isset($_GET['team']) || isset($_POST['team'])) {
-	$currentTeam = ( isset($_GET['team']) ) ? $_GET['team'] : $_POST['team'];
-	$currentTeam = htmlspecialchars($currentTeam);
-	
-	$_SESSION["team"] = $currentTeam;
-	setcookie('team', $currentTeam, time() + (86400 * 30), "/");
-}
-else {
-	if(isset($_SESSION["team"])) $currentTeam = $_SESSION["team"];
-	ob_start();
-	if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
-	ob_end_flush();
-}
-
-// $checkedOnly = 0;
-// if(isset($_SESSION["only"])) $checkedOnly = $_SESSION["only"];
-// ob_start();
-// if(isset($_COOKIE['only'])) $checkedOnly = $_COOKIE['only'];
-// ob_end_flush();
-// if($checkedOnly == 1 && $currentPLF == 0) {
-// 	$checked = ' checked="checked"';
-// 	$checkedLink = '?only=0';
-// }
-// else {
-// 	$checked = '';
-// 	$checkedLink = '?only=1';
-// }
-// if(isset($_GET['only']) || isset($_POST['only'])) {
-// 	$checked = ( isset($_GET['only']) ) ? $_GET['only'] : $_POST['only'];
-// 	$checked = htmlspecialchars($checked);
-// 	if($checked == 1) {
-// 		$checked = ' checked="checked"';
-// 		$checkedLink = '?only=0';
-// 		$_SESSION["only"] = 1;
-// 		setcookie('only', 1, time() + (86400 * 30), "/");
-// 	}
-// 	else {
-// 		$checked = '';
-// 		$checkedLink = '?only=1';
-// 		$_SESSION["only"] = 0;
-// 		setcookie('only', 0, time() + (86400 * 30), "/");
-// 	}
-// }
-
 $dropLinkOne = '';
 if($CurrentPage == 'CareerLeaders' && (isset($_GET['one']) || isset($_POST['one']))) {
 	$ctlOneTeams = ( isset($_GET['one']) ) ? $_GET['one'] : $_POST['one'];
@@ -112,7 +98,7 @@ if($CurrentPage == 'CareerLeaders' && (isset($_GET['one']) || isset($_POST['one'
 }
 
 // CREATE TEAM LIST
-$matches = glob($folder.'*'.$playoff.'GMs.html');
+$matches = glob(TRANSFER_DIR.'*'.$playoff.'GMs.html');
 $folderLeagueURL = '';
 $matchesDate = array_map('filemtime', $matches);
 arsort($matchesDate);
@@ -122,7 +108,7 @@ foreach ($matchesDate as $j => $val) {
 		break 1;
 	}
 }
-$FnmGMs = $folder.$folderLeagueURL.'GMs.html';
+$FnmGMs = TRANSFER_DIR.$folderLeagueURL.'GMs.html';
 $i = 0;
 if(file_exists($FnmGMs)) {
 	$tableau = file($FnmGMs);
@@ -154,7 +140,12 @@ if(isset($_GET['s']) || isset($_POST['s'])) {
 	}
 }
 
-include 'nav.php'
+if(isset($skipNav) && !$skipNav){
+ 
+}else{
+    include 'nav.php';
+}
+
 ?>
 
 <!-- workaround for margins. Fix this properly -->
