@@ -25,31 +25,11 @@ $posActive='';
 $linesActive='';
 
 $activeTab = 'lines';
-// if(isset($_GET['admin']) || isset($_POST['admin'])) {
-//     $adminActive = 'active';
-//     $activeTab = 'admin';
-// }else if(isset($_GET['pos']) || isset($_POST['pos'])){
-//     $posActive = 'active';
-//     $activeTab = 'pos';
-// }else{
-//     //$linesActive = 'active';
-//     $adminActive='active';
-// }
 
 $skipNav = false;
 include 'head.php';
 
-
-// if(file_exists(FS_ROOT.'gmo/config4.php')) {
-//     require FS_ROOT.'gmo/config4.php';
-// }
-// else {
-//     echo '<a href="install/">Please install the Online GM Editor! - Installer le GM Editor en ligne S.V.P.</a>';
-//     exit();
-// }
-
-include 'gmo/config4.php';
-
+include FS_ROOT.'gmo/config4.php';
 include FS_ROOT.'gmo/login/mysqli.php';
 
 
@@ -179,7 +159,7 @@ echo '<div class="header-content top-container"></div>';
 							<div class="tab-pane <?php echo $linesActive ?>" id="Lines">
 								<?php 
 								
-                                if (isset($_SESSION['equipe'])) {
+								if (isset($_SESSION['equipe']) && $_SESSION['equipe'] != 'ADMIN') {
 								    // MEMBRE ZONE
 								    $db_lang = '';
 								    include FS_ROOT.'gmo/login/mysqli.php';
@@ -217,7 +197,7 @@ echo '<div class="header-content top-container"></div>';
 							
 							<div class="tab-pane <?php echo $posActive ?>" id="PosChange">
 								<?php 
-								 if (isset($_SESSION['equipe'])) {
+								if (isset($_SESSION['equipe']) && $_SESSION['equipe'] != 'ADMIN') {
 								    // MEMBRE ZONE
 								    $db_lang = '';
 								    include FS_ROOT.'gmo/login/mysqli.php';

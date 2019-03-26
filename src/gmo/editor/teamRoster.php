@@ -1,3 +1,15 @@
+<style>
+.positionButton {
+    height:30px;
+    width:30px;
+    background-repeat:no-repeat;
+    border-width:2px; 
+    display:block;
+	background-size: 100%;
+}
+
+</style>
+
 <?php
 
 if(!isset($playerRank)) {
@@ -30,11 +42,11 @@ if(!isset($playerRank)) {
 
 <div style="float:right;">
 	<span style="font-weight:bold;"></span><br>
-	<button id="trImgC" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/c.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:trShowPosition(this.id);"></button>
-	<button id="trImgLW" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/lw.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:trShowPosition(this.id);"></button>
-	<button id="trImgRW" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/rw.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:trShowPosition(this.id);"></button>
-	<button id="trImgD" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/d.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:trShowPosition(this.id);"></button>
-	<button id="trImgG" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/g.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:trShowPosition(this.id);"></button>
+	<button class="positionButton" id="trImgC" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/c.png'); border-style:inset; " onclick="javascript:trShowPosition(this.id);"></button>
+	<button class="positionButton" id="trImgLW" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/lw.png'); border-style:inset;;" onclick="javascript:trShowPosition(this.id);"></button>
+	<button class="positionButton" id="trImgRW" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/rw.png'); border-style:inset;" onclick="javascript:trShowPosition(this.id);"></button>
+	<button class="positionButton" id="trImgD" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/d.png'); border-style:inset;" onclick="javascript:trShowPosition(this.id);"></button>
+	<button class="positionButton" id="trImgG" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/g.png'); border-style:inset;" onclick="javascript:trShowPosition(this.id);"></button>
 </div>
 
 <div class="trDivSelect" style="float:left;">

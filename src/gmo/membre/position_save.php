@@ -6,6 +6,8 @@ include '../../config.php';
 include FS_ROOT.'gmo/config4.php';
 include FS_ROOT.'gmo/login/mysqli.php';
 
+
+
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -44,23 +46,61 @@ $playerName = mysqli_real_escape_string($con, $playerName);
 $playerPosBf = mysqli_real_escape_string($con, $playerPosBf);
 $playerPosAf = mysqli_real_escape_string($con, $playerPosAf);
 
-$sql = "INSERT INTO `".$db_table."_position` (
-`ID`, 
-`DATE`, 
-`NAME`, 
-`TEAM`, 
-`POS_BF`, 
-`POS_AF`
-) 
-VALUES (
-NULL, 
-'$date_time', 
-'$playerName', 
-'$teamFHLSimName', 
-'$playerPosBf', 
-'$playerPosAf'
-)
-;";
+
+$query = mysqli_query($con,
+    "SELECT 1 FROM `".$db_table."_position` WHERE TEAM='$teamFHLSimName' AND NAME='$playerName' LIMIT 1") 
+    or die(mysqli_error($con));;
+
+$isNew = mysqli_num_rows($query) == 0;    
+
+if(!$isNew){
+    $sql = "UPDATE `".$db_table."_position` 
+    SET DATE = '$date_time',
+    POS_BF = '$playerPosBf',
+    POS_AF = '$playerPosAf'
+    WHERE TEAM='$teamFHLSimName' AND NAME='$playerName'
+    ;";
+
+    error_log($sql, 0);
+}else{
+    $sql = "INSERT INTO `".$db_table."_position` (
+    `ID`,
+    `DATE`,
+    `NAME`,
+    `TEAM`,
+    `POS_BF`,
+    `POS_AF`
+    )
+    VALUES (
+    NULL,
+    '$date_time',
+    '$playerName',
+    '$teamFHLSimName',
+    '$playerPosBf',
+    '$playerPosAf'
+    )
+    ;";
+}
+   
+
+
+// $sql = "INSERT INTO `".$db_table."_position` (
+// `ID`, 
+// `DATE`, 
+// `NAME`, 
+// `TEAM`, 
+// `POS_BF`, 
+// `POS_AF`
+// ) 
+// VALUES (
+// NULL, 
+// '$date_time', 
+// '$playerName', 
+// '$teamFHLSimName', 
+// '$playerPosBf', 
+// '$playerPosAf'
+// )
+// ;";
 
 //$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 //$query = mysqli_query($con, $sql);
