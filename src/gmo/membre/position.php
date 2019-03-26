@@ -191,7 +191,7 @@ if(!isset($teamRank)){
                 	</label>
                 	<br>
                 	
-                	<div style = "width:13em"><input class="button" value="Submit" onclick="javascript:save();"></div>
+                	<div style = "width:13em"><input class="button" type = "button" value="Submit" onclick="javascript:save();"></div>
                 	
                 </div>
                 
@@ -255,7 +255,7 @@ if($league_langue == "en") {
     $langPosition[104] = 'Poll Page';
 }
 
-
+$pendingRequests = false;
 $sql = "SELECT YEAR(`DATE`) FROM `".$db_table."_position` GROUP BY YEAR(`DATE`) ORDER BY `DATE` DESC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if(mysqli_num_rows($query) != 0) {
@@ -271,6 +271,9 @@ if(mysqli_num_rows($query) != 0) {
     $sql = "SELECT * FROM `".$db_table."_position` WHERE ".$sqlTeam."`DATE` >= '".$sqlYear."-01-01 00:00:00' AND `DATE` <= '".$sqlYear."-12-31 23:59:59' ORDER BY `ID` DESC";
     $query = mysqli_query($con, $sql) or die(mysqli_error($con));
     if(mysqli_num_rows($query) != 0) {
+        
+        $pendingRequests= true;
+        
         while($data = mysqli_fetch_array($query)) {
             $DB_ID[] = $data['ID'];
             $DB_DT[] = $data['DATE'];
@@ -300,13 +303,18 @@ if(mysqli_num_rows($query) != 0) {
 }
 
 mysqli_close($con);
+
+
 ?>
-	<div class="col-12">
+	<div class="col-12" >
 		<div class="card mt-2">
 			<div class="card-header text-center">Pending Changes</div>
-			<div class="card-header">
+			<div class="card-body">
+			
+			<?php if(!$pendingRequests) echo '<h4>No Pending Changes</h4>'; ?>
+			
 				<table class="table text-center"
-					style="line-height: 2; vertical-align: middle">
+					style="line-height: 2; vertical-align: middle; <?php if(!$pendingRequests) echo 'display:none'; ?>">
 					<tr class="tr">
 						<td><?php echo $langPosition[6]; ?></td>
 						<td><?php echo $langPosition[7]; ?></td>

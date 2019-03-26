@@ -1,28 +1,21 @@
 <style type="text/css">
-body { 
-	margin:0px; 
-	padding: 0px;
+ /*body { 
+ 	margin:0px;  
+ 	padding: 0px; 
 	font-size:12px;
 	font-weight:normal;
-	font-family:Arial,"trebuchet ms",sans-serif;
+ 	font-family:Arial,"trebuchet ms",sans-serif; 
+	color:#<?php //echo $databaseColors['colorMainText']; ?>;
+	background-color:#<?php //echo $databaseColors['colorMainBackground']; ?>;
+ 	text-decoration: none; 
+}*/
+
+#MyCEHL{
+	font-size:12px;
+	font-weight:normal;
 	color:#<?php echo $databaseColors['colorMainText']; ?>;
 	background-color:#<?php echo $databaseColors['colorMainBackground']; ?>;
 	text-decoration: none;
-}
-
-img {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-a {
-  text-decoration: none; 
-  color:#<?php echo $databaseColors['colorAText']; ?>;
-}
-a:hover {
-  text-decoration: none;
-  color:#<?php echo $databaseColors['colorATextHover']; ?>;
 }
 
 table.statsPadding td {
@@ -59,42 +52,43 @@ table.statsPadding td {
 	opacity: 1;
 }
 
-div.selected, input.selected {
+#MyCEHL div.selected, input.selected {
 	background-color:#<?php echo $databaseColors['colorDivBackgroundActive']; ?>;
 	color:#<?php echo $databaseColors['colorDivTextActive']; ?>;
 }
 
+
 /* Header for table */
-tr.tr td {
+#MyCEHL tr.tr td {
 	background-color: #<?php echo $databaseColors['colorTableHeaderBackground']; ?>;
 	border:1px solid #<?php echo $databaseColors['colorTableBorder']; ?>;
 	color:#<?php echo $databaseColors['colorTableHeaderText']; ?>;
 	font-weight:bold;
 }
 
-table.table {
+#MyCEHL table.table {
 	border-collapse: collapse;
 }
-table.table td {
+#MyCEHL table.table td {
 	border:1px solid #<?php echo $databaseColors['colorTableBorder']; ?>;
 	padding: 2px;
 }
 
-table.table tr.tr_content1 {
+#MyCEHL table.table tr.tr_content1 {
 	color:  #<?php echo $databaseColors['colorTableText1']; ?>;
 	background-color: #<?php echo $databaseColors['colorTableBackground1']; ?>;
 }
-table.table tr.tr_content2 {
+#MyCEHL table.table tr.tr_content2 {
 	color:  #<?php echo $databaseColors['colorTableText2']; ?>;
 	background-color: #<?php echo $databaseColors['colorTableBackground2']; ?>;
 }
-table.table tr.tr_content1:hover, table.table tr.tr_content2:hover {
+#MyCEHL table.table tr.tr_content1:hover, table.table tr.tr_content2:hover {
 	color:  #<?php echo $databaseColors['colorTableTextHover']; ?>;
 	background-color: #<?php echo $databaseColors['colorTableBackgroundHover']; ?>;
 }
 
 /* General Input Formatting */
-input.inputText, select {
+#MyCEHL input.inputText, select {
 	box-sizing: border-box;
 	border: 2px solid #<?php echo $databaseColors['colorInputBorder']; ?>;
 	color:  #<?php echo $databaseColors['colorInputText']; ?>;
@@ -104,11 +98,11 @@ input.inputText, select {
 	transition-duration: 0.2s;
 }
 
-input.inputText:hover, select:hover {
+#MyCEHL input.inputText:hover, select:hover {
 	border: 2px solid #<?php echo $databaseColors['colorInputBorderHover']; ?>;
 }
 
-input.button {
+#MyCEHL input.button {
 	width: 100%;
 	text-align: center;
 	background-color: #<?php echo $databaseColors['colorButtonBackground']; ?>; 
@@ -119,7 +113,7 @@ input.button {
 	border-radius: 4px;
 	transition-duration: 0.2s;
 }
-input.button:hover {
+#MyCEHL input.button:hover {
 	border: 2px solid #<?php echo $databaseColors['colorButtonBorderHover']; ?>;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -180,33 +174,6 @@ input.button:hover {
 	background: #<?php echo $databaseColors['colorInputBackground']; ?>;
 }
 
-/* MENU IMAGE BUTTON NOT LOGGED  */
-img.menu2 {
-	padding-left:5px;
-	padding-right:5px;
-	background-color:#ffffff;
-}
-img.menu2:hover {
-	background-color:#aaaaaa;
-}
-
-/* NAVIGATION MENU IMAGE BUTTON LOGGED */
-img.menu:hover {
-	background-color:#<?php echo $databaseColors['colorMenuBackgroundHover']; ?>;
-}
-
-/* OV CALCULATOR */
-table.calc td:last-child input {
-	width:50px;
-}
-
-table.calc {
-	padding:0px;
-}
-
-table.calc td:last-child {
-	text-align:right;
-}
 
 /* LEAGUE SETTINGS PAGE */
 table.tableSpace {
