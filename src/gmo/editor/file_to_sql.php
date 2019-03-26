@@ -1,6 +1,6 @@
 <?php
 
-include 'login/mysqli.php';
+include FS_ROOT.'gmo/login/mysqli.php';
 
 // Read the .tms file
 $filename = $file_folder.$file_tms;

@@ -5,8 +5,11 @@ include FS_ROOT.'gmo/login/mysqli.php';
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM`='file_folder'";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
-	$file_folder = $data['VALUE'];
+	//$file_folder = $data['VALUE'];
+    $file_folder = FS_ROOT.'gmo/'.$data['VALUE'];
+	
 }
+
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'TimeZone' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -52,6 +55,8 @@ if(isset($_POST['submit'])) {
 	if (isset($_FILES['leaguesEMLTMS']) && is_uploaded_file($_FILES['leaguesEMLTMS']['tmp_name'])) {
 		$succesUpdateEML2 = 1;
 	}
+	
+	header('Location: ' . $_SERVER['HTTP_REFERER'].'#Admin');
 }
 
 // Détecte si le fichier ROS existe
