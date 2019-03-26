@@ -1,14 +1,14 @@
 <?php
 
+include 'config.php';
+include 'lang.php';
+
 $CurrentHTML = 'MyTeam.php';
 $CurrentTitle = 'MyTeam';
 $CurrentPage = 'MyTeam';
 
-include 'config.php';
-include 'lang.php';
-
-error_reporting(E_ALL);
-ini_set("display_errors", "On");
+//error_reporting(E_ALL);
+//ini_set("display_errors", "On");
 
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
@@ -36,7 +36,7 @@ $activeTab = 'lines';
 //     $adminActive='active';
 // }
 
-$skipNav = true;
+$skipNav = false;
 include 'head.php';
 
 
@@ -130,18 +130,19 @@ if(isset($_SESSION['int'])) {
 
 //include 'head.php';
 include 'nav.php';
+echo '<div class="header-content top-container"></div>';
 ?>
 
 
 <div class="container">
-	<div class="row p-0">
-		<div class="col p-0">
-			<div class="card p-0">
+	<div class="row">
+		<div class="col p-1">
+			<div class="card">
 				<div class="card-header">
 					<h3>My GM</h3>
 				</div>
 
-				<div class="card-body">
+				<div class="card-body p-2">
 					<?php 
 					$requiresLogin = true;
 					
@@ -152,7 +153,9 @@ include 'nav.php';
     					    $requiresLogin = false;
     					}
 					?>
-		
+					
+					<div id="popupAlert" class="mb-2" style="display:none; height:40px; line-height:40px; text-align:center; vertical-align:middle; background-color:#ae654c; color:#ffffff; font-weight:bold; border-radius:10px; border:0px;"></div>
+					
 				
 					<div id="nav-mygm" <?php echo 'style='.(!$requiresLogin ? 'display:none' : '');  ?>>
 						<ul class="nav nav-tabs ">
@@ -165,7 +168,7 @@ include 'nav.php';
 								
 							
 							<?php 
-							if(isset($_SESSION['admin'])){
+							if(isAdmin()){
 							    echo '<li class="nav-item '.$adminActive.'"><a class="nav-link" href="#Admin"
 								data-toggle="tab">Admin</a></li>';
 							}
@@ -250,8 +253,9 @@ include 'nav.php';
 							</div>
 
 							<?php 
-							if(isset($_SESSION['admin'])){
+							if(isAdmin()){
 							    echo '<div class="tab-pane '.$adminActive.'" id="Admin">';
+							    echo '<div class="table-responsive">';
 							    
 							    $db_lang = '';
 							    include FS_ROOT.'gmo/login/mysqli.php';
@@ -264,6 +268,7 @@ include 'nav.php';
 							    include FS_ROOT.'gmo/admin/index.php';
 							    
 							    echo '</div>';
+							    echo '</div>';
 							}
 							?>
 					</div>
@@ -272,7 +277,7 @@ include 'nav.php';
 
 					</div>
 					
-				</div>
+				</div> <!-- end card body -->
 
 			</div>
 		</div>

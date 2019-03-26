@@ -10,6 +10,6 @@ mail($to,$subject,$txt,$headers);
 
 echo 'OK';
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+//header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 ?> 

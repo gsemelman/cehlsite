@@ -9,6 +9,26 @@ function checkHttps(){
     }
 }
 
+function isAuthenticated(){
+    
+    if(isset($authenticated) && $authenticated) {
+        return true;
+    }
+    else if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']){
+        return true;
+    }
+    
+    return false;
+}
+
+function isAdmin(){
+    if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']){
+        return true;
+    }
+    
+    return false;
+}
+
 
 function myEach(&$arr) {
     $key = key($arr);

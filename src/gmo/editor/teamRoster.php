@@ -46,7 +46,8 @@ if(!isset($playerRank)) {
 
 <div style="clear:both; float:left; margin-bottom:5px;">
 	<button class="gmoActiveButton" id="trButtonAuto" style="margin-right:5px; vertical-align:top; height: 25px; width: 105px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/auto.png'); background-repeat:no-repeat;" onclick="javascript:trAutoLine();"></button>
-	<button id="trImgProtect" style="height: 25px; width: 105px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/protect.png'); background-repeat:no-repeat; border-style:outset; border-width:2px;" onclick="javascript:trShowProtected();"></button>
+	<button id="trImgProtect" style="display:none; height: 25px; width: 105px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/protect.png'); background-repeat:no-repeat; border-style:outset; border-width:2px;" onclick="javascript:trShowProtected();"></button>
+
 </div>
 
 <div style="float:right; text-align:right;">

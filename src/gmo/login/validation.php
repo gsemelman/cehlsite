@@ -33,7 +33,7 @@ if($login) {
 	$user = strtoupper($user);
 	include 'mysqli.php';
 	$user = mysqli_real_escape_string($con, $user);
-	$sql = "SELECT `INT`, `USER` , `PASS` , `EQUIPE` , `EQUIPESIM` FROM `$db_table` WHERE `USER` = '$user'";
+	$sql = "SELECT `INT`, `USER` , `PASS` , `EQUIPE` , `EQUIPESIM`, `ADMIN` FROM `$db_table` WHERE `USER` = '$user'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	if($query){
 		while($data = mysqli_fetch_array($query)) {
@@ -45,8 +45,17 @@ if($login) {
 				$_SESSION['equipe'] = $data['EQUIPE'];
 				$_SESSION['equipesim'] = $data['EQUIPESIM'];
 				$_SESSION['int'] = $data['INT'];
-				$_SESSION['admin'] = 1;
+				if(1==$data['ADMIN']){
+				   // $_SESSION['admin'] = $data['ADMIN'];
+				    $_SESSION['isAdmin'] = true;
+				}else{  
+				    $_SESSION['isAdmin'] = false;
+				}
+				$_SESSION['authenticated'] = true;
 				
+				
+				
+
 			}
 		}
 	}

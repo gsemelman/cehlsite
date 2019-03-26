@@ -187,7 +187,7 @@ function folderListening() {
 		}
 	}
 var parameters="folder="+x;
-xmlhttp.open("POST", "admin/param2.php", true)
+xmlhttp.open("POST", "<?php echo BASE_URL?>gmo/admin/param2.php", true)
 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 xmlhttp.send(parameters)
 }

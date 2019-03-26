@@ -32,6 +32,7 @@ $teamID = $_SESSION['int'];
 $teamFHLSimName = $_SESSION['equipesim'];
 if($teamFHLSimName == '') {
 	echo 'No Filename detected! File not saved!';
+	error_log('No Filename detected! File not saved!',0);
 	exit();
 }
 
@@ -89,6 +90,7 @@ if( !is_readable($server_file) ) {
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 }
 
+error_log($file_folder_lines,0);
 // Saving the LNS File to the server
 $output = pack('H*', $LNS_File);
 //$newfile = "../".$file_folder_lines.$teamFHLSimName.".lns";

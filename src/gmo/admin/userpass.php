@@ -126,7 +126,9 @@ xmlhttp.send(parameters)
 //-->
 </script>
 
-<form method="post" action="<?php echo BASE_URL?>gmo/admin/index.php?<?php echo $link; ?>">
+<?php error_log('LINK IS :'.$link,0); ?>
+
+<form method="post" action="<?php echo BASE_URL?>MyCehl.php?<?php echo $link; ?>#Admin">
 <br><b><?php echo $db_admin_userpass_langue[0]; ?></b><br><?php echo $db_admin_userpass_langue[1]; ?><br><?php echo $db_admin_userpass_langue[18]; ?><br>
 <br><input class="button" onclick="generatePassword('all');" type="button" value="<?php echo $db_admin_userpass_langue[9]; ?>"><br>
 <table style="margin-top:25px;">

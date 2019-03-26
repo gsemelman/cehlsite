@@ -9,15 +9,21 @@ if(!HTTPS_REQUIRED){
 session_name('GMO');
 session_start();
 
-if(isset($secured) && $secured){
-    if ( isset( $_SESSION['user_id'] ) ) {
-        // Grab user data from the database using the user_id
-        // Let them access the "logged in only" pages
-    } else {
-        // Redirect them to the login page
-        header("Location: http://www.yourdomain.com/login.php");
-    }
+
+if(isAuthenticated()){
+    
 }
+
+
+// if(isset($secured) && $secured){
+//     if ( isset( $_SESSION['user_id'] ) ) {
+//         // Grab user data from the database using the user_id
+//         // Let them access the "logged in only" pages
+//     } else {
+//         // Redirect them to the login page
+//         header("Location: http://www.yourdomain.com/login.php");
+//     }
+// }
 
 
 //TRACK TEAM STATE
@@ -144,12 +150,13 @@ if(isset($skipNav) && !$skipNav){
  
 }else{
     include 'nav.php';
+    echo '<div class="header-content top-container"></div>';
 }
 
 ?>
 
 <!-- workaround for margins. Fix this properly -->
-<div class="header-content top-container"></div>
+<!-- <div class="header-content top-container"></div> -->
 
 
 

@@ -281,12 +281,12 @@ $tableau_soustitre = "#1791CA"; // #1791CA
 $tableau_titre1 = "#1B9DD4"; // #1B9DD4
 $tableau_titre2 = "#014A92"; // #014A92
 
-include_once 'config.php';
-include_once 'lang.php';
-include_once 'common.php';
-include_once 'nav.php';
+// include_once 'config.php';
+// include_once 'lang.php';
+// include_once 'common.php';
+// include_once 'nav.php';
 
-echo '<div class="header-content top-container"></div>';
+// echo '<div class="header-content top-container"></div>';
 
 include FS_ROOT.'gmo/css.php'; // Styling Pages
 
@@ -380,7 +380,7 @@ if ( $mode == 'poll') $classMenu14 = "active";
 
 
 
-<div style="margin-top:75px; margin-left:auto; margin-right:auto; <?php echo $divMaxWidth; ?>;">
+<div style="margin-top:25px; margin-left:auto; margin-right:auto; <?php echo $divMaxWidth; ?>;">
 
 <?php
 

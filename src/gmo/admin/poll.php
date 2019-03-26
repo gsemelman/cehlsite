@@ -170,16 +170,16 @@ $sql = "SELECT YEAR(`DATE`) FROM `".$db_table."_poll` GROUP BY YEAR(`DATE`) ORDE
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if(mysqli_num_rows($query) != 0) {
 	while($data = mysqli_fetch_array($query)) {
-		$DB_YR[] = $data['YEAR(`DATE`)'];
+		$$ADMIN_DB_YR[] = $data['YEAR(`DATE`)'];
 	}
 
-	$sqlYear = $DB_YR[0];
+	$sqlYear = $$ADMIN_DB_YR[0];
 	if(isset($currentYear)) $sqlYear = $currentYear;
 	$sql = "SELECT * FROM `".$db_table."_poll` WHERE `DATE` >= '".$sqlYear."-01-01 00:00:00' AND `DATE` <= '".$sqlYear."-12-31 23:59:59' ORDER BY `ID` DESC";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	if(mysqli_num_rows($query) != 0) {
 		while($data = mysqli_fetch_array($query)) {
-			$DB_ID[] = $data['ID'];
+			$ADMIN_DB_ID[] = $data['ID'];
 			$DB_QT[] = $data['QUESTION'];
 		}
 	}
@@ -205,12 +205,12 @@ mysqli_close($con);
 <span style="margin-right:15px;"><?php echo $db_admin_poll[2]; ?></span>
 <select id="selectYear" onchange="javascript:sortYear();">
 <?php
-if(isset($DB_YR)) {
-	for($i=0; $i<count($DB_YR);$i++){
+if(isset($$ADMIN_DB_YR)) {
+	for($i=0; $i<count($$ADMIN_DB_YR);$i++){
 		$currentYearSelected = '';
-		if(isset($currentYear) && $currentYear == $DB_YR[$i]) $currentYearSelected = ' selected';
+		if(isset($currentYear) && $currentYear == $$ADMIN_DB_YR[$i]) $currentYearSelected = ' selected';
 ?>
-	<option value="<?php echo $DB_YR[$i]; ?>"<?php echo $currentYearSelected; ?>><?php echo $DB_YR[$i]; ?></option>
+	<option value="<?php echo $$ADMIN_DB_YR[$i]; ?>"<?php echo $currentYearSelected; ?>><?php echo $$ADMIN_DB_YR[$i]; ?></option>
 <?php
 	}
 }
@@ -224,12 +224,12 @@ else {
 <select id="selectPoll" onchange="javascript:sortPoll();">
 <option value=""><?php echo $db_admin_poll[1]; ?></option>
 <?php
-if(isset($DB_ID)) {
-	for($i=0; $i<count($DB_ID);$i++){
+if(isset($ADMIN_DB_ID)) {
+	for($i=0; $i<count($ADMIN_DB_ID);$i++){
 		$currentPollSelected = '';
-		if(isset($currentPoll) && $currentPoll == $DB_ID[$i]) $currentPollSelected = ' selected';
+		if(isset($currentPoll) && $currentPoll == $ADMIN_DB_ID[$i]) $currentPollSelected = ' selected';
 ?>
-	<option value="<?php echo $DB_ID[$i]; ?>"<?php echo $currentPollSelected; ?>><?php echo $DB_QT[$i]; ?></option>
+	<option value="<?php echo $ADMIN_DB_ID[$i]; ?>"<?php echo $currentPollSelected; ?>><?php echo $DB_QT[$i]; ?></option>
 <?php
 	}
 }

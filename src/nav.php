@@ -77,6 +77,11 @@
           background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
           background-image: linear-gradient(to top, #ffffff, #fcfcff, #f9f9ff, #f5f7ff, #f1f4ff, #ecf1fc, #e7edf9, #e2eaf6, #dce4ef, #d5dee9, #cfd9e2, #c9d3dc);   
           }
+          
+       .navbar-nav ul{
+        line-height:1.5;
+       }
+       
 	</style>
 	
 	
@@ -100,7 +105,25 @@
 						<a class="nav-link scroll-link" href="#top-content">Top</a>
 					</li>-->
 					  <!--<li class="nav-item"><a class="nav-link" href="<?php echo $folderGmo ?>">GM&nbsp;Editor</a></li>  -->
-					  <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL?>MyTeam.php">MyTeam</a></li>
+					  <!--<li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL?>MyCehl.php">MyTeam</a></li>  -->
+					  <?php 
+    					  if(isAuthenticated()){
+    					      echo '<li class="dropdown">
+        						<a href="'.BASE_URL.'MyCehl.php" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My&nbspCEHL<span class="caret"></span></a>
+        						<ul class="dropdown-menu" style="line-height:1.8">
+        						  <li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#Lines">Line Editor</a></li>
+        						  <li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#PosChange">Position&nbspChange</a></li>';
+    					          if(isAdmin()) echo '<li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#Admin">Admin</a></li>';
+
+                              echo '<li class="dropdown-divider"></li>
+        						  <li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'gmo/login/logout.php">Logout</a></li>
+        						</ul>
+        					  </li>';
+    					  }else{
+    					      echo '<li class="nav-item"><a class="nav-link" href="'.BASE_URL.'MyCehl.php">Login</a></li>';
+    					  }
+					  ?>
+
 					  <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL?>Scores.php">Scores</a></li>
 					  <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL?>Standings3.php">Standings</a></li>
 					  <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL?>TeamRosters.php">Teams</a></li>

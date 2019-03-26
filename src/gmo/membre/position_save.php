@@ -62,7 +62,22 @@ NULL,
 )
 ;";
 
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
+//$query = mysqli_query($con, $sql) or die(mysqli_error($con));
+//$query = mysqli_query($con, $sql);
+
+if (!$query = mysqli_query($con, $sql))
+{
+    error_log('Caught exception: '.mysqli_error($con), 0);
+    
+    header( 'HTTP/1.1 500 Server error' );
+    
+    mysqli_close($con);
+    exit();
+    
+   // die(mysqli_error($con));
+}
+
+
 
 mysqli_close($con);
 ?>

@@ -1,14 +1,14 @@
 <style type="text/css">
-body { 
-	margin:0px; 
-	padding: 0px;
-	font-size:12px;
-	font-weight:normal;
-	font-family:Arial,"trebuchet ms",sans-serif;
-	color:#<?php echo $databaseColors['colorMainText']; ?>;
-	background-color:#<?php echo $databaseColors['colorMainBackground']; ?>;
-	text-decoration: none;
-}
+/* body {  */
+/* 	margin:0px;  */
+/* 	padding: 0px; */
+/* 	font-size:12px; */
+/* 	font-weight:normal; */
+/* 	font-family:Arial,"trebuchet ms",sans-serif; */
+/*	color:#<?php //echo $databaseColors['colorMainText']; ?>;
+	background-color:#<?php //echo $databaseColors['colorMainBackground']; ?>;*/
+/* 	text-decoration: none; */
+/* } */
 
 img {
 	margin: 0;
@@ -16,14 +16,6 @@ img {
 	border: 0;
 }
 
-a {
-  text-decoration: none; 
-  color:#<?php echo $databaseColors['colorAText']; ?>;
-}
-a:hover {
-  text-decoration: none;
-  color:#<?php echo $databaseColors['colorATextHover']; ?>;
-}
 
 table.statsPadding td {
 	padding-left:2px;
@@ -347,7 +339,7 @@ margin-bottom:0px;
 }
 
 /* GM EDITOR MOBILE VIEW - Team Lines */
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 465px) {
 	div#tlDivLinesEV, div#tlDivLinesPP, div#tlDivLinesPK {
 		max-width: 290px;
 	}
@@ -355,14 +347,7 @@ margin-bottom:0px;
 		float: right;
 	}
 }
-
-@media screen and (max-width: 500px) {
-	div#tlDivLinesEV, div#tlDivLinesPP, div#tlDivLinesPK {
-		max-width: 200px;
-	}
-}
-
-@media screen and (max-width: 342px) {
+@media screen and (max-width: 464px) {
 	div#tlDivLinesEV, div#tlDivLinesPP, div#tlDivLinesPK {
 		max-width: 145px;
 	}
@@ -391,5 +376,80 @@ margin-bottom:0px;
 	}
 }
 
+/* /* Main Menu GMO */ */
+/* @media screen and (min-width: 401px) { */
+/* 	ul { */
+/* 		width:200px; */
+/*     } */
+/* } */
+/* @media screen and (max-width: 400px) { */
+/* 	ul { */
+/* 		width:100%; */
+/*     } */
+/* } */
 
+/* /* Too Small Screen */ */
+/* @media screen and (max-width: 319px) { */
+/* 	body { */
+/* 		background-color:red; */
+/*     } */
+/* } */
+
+/* Main Menu GMO Style */
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #<?php echo $databaseColors['colorMenuBackground']; ?>;
+	display:none;
+	position: fixed;
+    left: 0px;
+    top: 60px;
+	bottom: 0px;
+	z-index:10;
+	overflow-x:scroll;
+	overflow-x:hidden;
+}
+
+li a {
+	display: block;
+	color: #<?php echo $databaseColors['colorMenuText']; ?>;
+	padding: 8px 8px;
+	text-decoration: none;
+	border-bottom:1px solid #ffffff;
+	transition-duration: 0.2s;
+}
+
+li a.active {
+	background-color: #<?php echo $databaseColors['colorMenuBackgroundActive']; ?>;
+	color: #<?php echo $databaseColors['colorMenuTextActive']; ?>;
+}
+
+li a img {
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+li a:hover:not(.active) {
+	background-color: #<?php echo $databaseColors['colorMenuBackgroundHover']; ?>;
+	color: #<?php echo $databaseColors['colorMenuTextHover']; ?>;
+}
+
+/* Bouton Inset/Outset (MS Edge) */
+.gmoActiveButton {
+	border-style:outset;
+	border-width:2px;
+}
+.gmoActiveButton:active {
+	border-style:inset;
+	border-width:2px;
+}
+
+/* Block text selection */
+.stopSelection {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */      
+}
 </style>

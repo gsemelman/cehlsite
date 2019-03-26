@@ -7,6 +7,9 @@ if(!HTTPS_REQUIRED){
     //checkHttps();
 }
 
+session_name('GMO');
+session_start();
+
 include 'nav.php';
 
 ?>

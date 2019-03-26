@@ -22,8 +22,9 @@ unset($_SESSION['login']);
 unset($_SESSION['equipe']);
 unset($_SESSION['equipesim']);
 unset($_SESSION['int']);
-unset($_SESSION['admin']);
+unset($_SESSION['isAdmin']);
 
+$_SESSION['authenticated'] = false;
 // remove all session variables
 //session_unset();
 

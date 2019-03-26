@@ -16,7 +16,7 @@ if($league_langue == "en") {
 	$db_login_langue[0] = 'GM EDITOR ONLINE v'.$version;
 	$db_login_langue[1] = 'Username';
 	$db_login_langue[2] = 'Password';
-	$db_login_langue[3] = 'Connect';
+	$db_login_langue[3] = 'Login';
 	$db_login_langue[4] = '<a href="mailto:eleclerc@hotmail.ca">Made by Éric Leclerc</a> - <a href="http://fantasysimhockey.freeforums.net">FHLSim Community Forum</a>';
 	$db_login_langue[5] = 'Update available!';
 	$db_login_langue[6] = 'Trade Page';

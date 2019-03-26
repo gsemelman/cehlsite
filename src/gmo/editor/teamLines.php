@@ -1,3 +1,22 @@
+<style>
+.positionButton {
+    height:28px;
+    width:28px;
+	background-repeat: no-repeat;
+/* 	border-style: inset; */
+	border-width: 2px;
+	display: block;
+	float: left;
+	background-size: 100%;
+}
+
+.gmoActiveButton{
+    height: 25px; width: 97px; 
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+</style>
+
 <div id="tlDivTableStats" style="width:100%;">
 	<div id="tlDivAssignedTo" style="display:block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width:100%;"><span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[76]; ?>: </span><span id="tlSpanAssignedTo"></span></div>
 	<div id="tlDivLineAverag" style="display:none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width:100%;"><span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[117]; ?>: </span><span id="tlSpanLineAverag"></span></div>
@@ -58,11 +77,11 @@
 		<span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[73]; ?></span><br>
 		<div id="tlSelectedPlayer" style="width:100%; height:160px; border-style:inset; overflow-x:scroll; overflow-x:hidden;"></div>
 	</div>
-	<button id="tlImgC" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/c.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block; float:left;" onclick="javascript:tlShowPosition(this.id);"></button>
-	<button id="tlImgLW" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/lw.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block; float:left;" onclick="javascript:tlShowPosition(this.id);"></button>
-	<button id="tlImgRW" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/rw.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block; float:left;" onclick="javascript:tlShowPosition(this.id);"></button>
-	<button id="tlImgD" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/d.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block; float:left;" onclick="javascript:tlShowPosition(this.id);"></button>
-	<button id="tlImgG" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/g.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block; float:left;" onclick="javascript:tlShowPosition(this.id);"></button>
+	<button class = "positionButton" id="tlImgC" style="border-style: inset; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/c.png');" onclick="javascript:tlShowPosition(this.id);"></button>
+	<button class = "positionButton" id="tlImgLW" style="border-style: inset; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/lw.png');" onclick="javascript:tlShowPosition(this.id);"></button>
+	<button class = "positionButton" id="tlImgRW" style="border-style: inset; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/rw.png');" onclick="javascript:tlShowPosition(this.id);"></button>
+	<button class = "positionButton" id="tlImgD" style="border-style: inset; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/d.png');" onclick="javascript:tlShowPosition(this.id);"></button>
+	<button class = "positionButton" id="tlImgG" style="border-style: inset; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/g.png');" onclick="javascript:tlShowPosition(this.id);"></button>
 	<table style="clear:left; margin-top:45px; width:150px; border-collapse: collapse;">
 		<tr>
 			<td></td>
@@ -93,7 +112,7 @@
 			<td><input id="tlPASSWD" type="password" value="" maxlength="10" style="width: 100px; font-size:11px; line-height: 17px;<?php echo $league_editorPassword; ?>"></td>
 		</tr>
 		<tr>
-			<td colspan="2" style="text-align:center;"><input onclick="javascript:tlButtonReset();" class="button" type="button" style="width:97px; margin-top:20px;" value="<?php echo $db_membre_gmo_langue[118]; ?>"></td>
+			<td colspan="2" style="text-align:center;"><input type="button" style="height: 25px; width: 97px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/reset.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:tlButtonReset();"></td>
 		</tr>
 	</table>
 </div>
@@ -404,8 +423,10 @@
 </div>
 
 <div style="float:right; margin-top:15px;">
-	<button class="gmoActiveButton" id="tlImgAuto" style="height: 25px; width: 97px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/auto.png'); background-repeat:no-repeat;" onclick="tlAutoLine();"></button>
-	<button class="gmoActiveButton" id="tlImgSave" style="height: 25px; width: 97px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/saveline.png'); background-repeat:no-repeat;" onclick="tlSave();"></button>
+	<button class="gmoActiveButton" id="tlImgAuto" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/auto.png');" onclick="tlAutoLine();"></button>
+	<button class="gmoActiveButton" id="tlImgSave" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/saveline.png');" onclick="tlSave();"></button>
+	<button class="gmoActiveButton" id="tlImgRoster" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php echo BASE_URL?>MyCehl.php?membre=gmonline&lines=1#Lines';"></button>
+	
 </div>
 
 <div id="tlDivBottomSpacer" style="clear:both; width:100%;"></div>

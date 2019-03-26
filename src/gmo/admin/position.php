@@ -22,8 +22,9 @@ function deleteChange(playerID) {
 			document.body.style.cursor = "default";
 			location.reload();
 		}
+		
 	}
-	var page = 'admin/position_delete.php';
+	var page = '<?php echo BASE_URL?>gmo/admin/position_delete.php';
 	var parameters = "";
 	parameters += "playerID=" + encodeURIComponent(playerID);
 	
@@ -56,57 +57,62 @@ if ( isset($_GET['year']) || isset($_POST['year']) ) {
 }
 
 if ( isset($_GET['team']) || isset($_POST['team']) ) {
-	$currentTeam = ( isset($_GET['team']) ) ? $_GET['team'] : $_POST['team'];
-	$currentTeam = htmlspecialchars($currentTeam);
-	if($currentTeam == "") unset($currentTeam);
+	$selectedTeam = ( isset($_GET['team']) ) ? $_GET['team'] : $_POST['team'];
+	$selectedTeam = htmlspecialchars($selectedTeam);
+	if($selectedTeam == "") unset($selectedTeam);
 }
 
 echo '<br><b>'.$db_admin_position[0].'</b><br>';
 
 include FS_ROOT.'gmo/login/mysqli.php';
 
-$sql = "SELECT YEAR(`DATE`) FROM `".$db_table."_position` GROUP BY YEAR(`DATE`) ORDER BY `DATE` DESC";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if(mysqli_num_rows($query) != 0) {
-	while($data = mysqli_fetch_array($query)) {
-		$DB_YR[] = $data['YEAR(`DATE`)'];
-	}
+//workaround due to conflict to other position page
+//if(isset($data)){
+    $sql = "SELECT YEAR(`DATE`) FROM `".$db_table."_position` GROUP BY YEAR(`DATE`) ORDER BY `DATE` DESC";
+    $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+    if(mysqli_num_rows($query) != 0) {
+        while($data = mysqli_fetch_array($query)) {
+            $ADMIN_DB_YR[] = $data['YEAR(`DATE`)'];
+        }
+        
+        $sqlYear = $ADMIN_DB_YR[0];
+        if(isset($currentYear)) $sqlYear = $currentYear;
+        $sqlTeam = "";
+        //if(isset($selectedTeam)) $sqlTeam = "`TEAM` = '".$selectedTeam."' AND ";
+        $sql = "SELECT * FROM `".$db_table."_position` WHERE ".$sqlTeam."`DATE` >= '".$sqlYear."-01-01 00:00:00' AND `DATE` <= '".$sqlYear."-12-31 23:59:59' ORDER BY `ID` DESC";
+        $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+        if(mysqli_num_rows($query) != 0) {
+            while($data = mysqli_fetch_array($query)) {
+                $ADMIN_DB_ID[] = $data['ID'];
+                $ADMIN_DB_DT[] = $data['DATE'];
+                $ADMIN_DB_NM[] = $data['NAME'];
+                $ADMIN_DB_TM[] = $data['TEAM'];
+                if($data['POS_BF'] == '00') $ADMIN_DB_BF[] = $db_admin_position[1];
+                if($data['POS_BF'] == '01') $ADMIN_DB_BF[] = $db_admin_position[2];
+                if($data['POS_BF'] == '02') $ADMIN_DB_BF[] = $db_admin_position[3];
+                if($data['POS_BF'] == '03') $ADMIN_DB_BF[] = $db_admin_position[4];
+                if($data['POS_BF'] == '04') $ADMIN_DB_BF[] = $db_admin_position[5];
+                if($data['POS_AF'] == '00') $ADMIN_DB_AF[] = $db_admin_position[1];
+                if($data['POS_AF'] == '01') $ADMIN_DB_AF[] = $db_admin_position[2];
+                if($data['POS_AF'] == '02') $ADMIN_DB_AF[] = $db_admin_position[3];
+                if($data['POS_AF'] == '03') $ADMIN_DB_AF[] = $db_admin_position[4];
+                if($data['POS_AF'] == '04') $ADMIN_DB_AF[] = $db_admin_position[5];
+            }
+        }
+        
+        $sql = "SELECT `TEAM` FROM `".$db_table."_position` WHERE `DATE` >= '".$sqlYear."-01-01 00:00:00' AND `DATE` <= '".$sqlYear."-12-31 23:59:59' GROUP BY `TEAM` ORDER BY `TEAM` ASC";
+        $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+        if(mysqli_num_rows($query) != 0) {
+            while($data = mysqli_fetch_array($query)) {
+                $DB_LSTM[] = $data['TEAM'];
+            }
+        }
+    }
+    
+    mysqli_close($con);
+//}
 
-	$sqlYear = $DB_YR[0];
-	if(isset($currentYear)) $sqlYear = $currentYear;
-	$sqlTeam = "";
-	if(isset($currentTeam)) $sqlTeam = "`TEAM` = '".$currentTeam."' AND ";
-	$sql = "SELECT * FROM `".$db_table."_position` WHERE ".$sqlTeam."`DATE` >= '".$sqlYear."-01-01 00:00:00' AND `DATE` <= '".$sqlYear."-12-31 23:59:59' ORDER BY `ID` DESC";
-	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-	if(mysqli_num_rows($query) != 0) {
-		while($data = mysqli_fetch_array($query)) {
-			$DB_ID[] = $data['ID'];
-			$DB_DT[] = $data['DATE'];
-			$DB_NM[] = $data['NAME'];
-			$DB_TM[] = $data['TEAM'];
-			if($data['POS_BF'] == '00') $DB_BF[] = $db_admin_position[1];
-			if($data['POS_BF'] == '01') $DB_BF[] = $db_admin_position[2];
-			if($data['POS_BF'] == '02') $DB_BF[] = $db_admin_position[3];
-			if($data['POS_BF'] == '03') $DB_BF[] = $db_admin_position[4];
-			if($data['POS_BF'] == '04') $DB_BF[] = $db_admin_position[5];
-			if($data['POS_AF'] == '00') $DB_AF[] = $db_admin_position[1];
-			if($data['POS_AF'] == '01') $DB_AF[] = $db_admin_position[2];
-			if($data['POS_AF'] == '02') $DB_AF[] = $db_admin_position[3];
-			if($data['POS_AF'] == '03') $DB_AF[] = $db_admin_position[4];
-			if($data['POS_AF'] == '04') $DB_AF[] = $db_admin_position[5];
-		}
-	}
-	
-	$sql = "SELECT `TEAM` FROM `".$db_table."_position` WHERE `DATE` >= '".$sqlYear."-01-01 00:00:00' AND `DATE` <= '".$sqlYear."-12-31 23:59:59' GROUP BY `TEAM` ORDER BY `TEAM` ASC";
-	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-	if(mysqli_num_rows($query) != 0) {
-		while($data = mysqli_fetch_array($query)) {
-			$DB_LSTM[] = $data['TEAM'];
-		}
-	}
-}
 
-mysqli_close($con);
 
 // TABLEAU
 ?>
@@ -115,12 +121,12 @@ mysqli_close($con);
 <span style="margin-right:15px;"><?php echo $db_admin_position[13]; ?></span>
 <select id="selectYear" onchange="javascript:sortYear();">
 <?php
-if(isset($DB_YR)) {
-	for($i=0; $i<count($DB_YR);$i++){
+if(isset($ADMIN_DB_YR)) {
+	for($i=0; $i<count($ADMIN_DB_YR);$i++){
 		$currentYearSelected = '';
-		if(isset($currentYear) && $currentYear == $DB_YR[$i]) $currentYearSelected = ' selected';
+		if(isset($currentYear) && $currentYear == $ADMIN_DB_YR[$i]) $currentYearSelected = ' selected';
 ?>
-	<option value="<?php echo $DB_YR[$i]; ?>"<?php echo $currentYearSelected; ?>><?php echo $DB_YR[$i]; ?></option>
+	<option value="<?php echo $ADMIN_DB_YR[$i]; ?>"<?php echo $currentYearSelected; ?>><?php echo $ADMIN_DB_YR[$i]; ?></option>
 <?php
 	}
 }
@@ -132,7 +138,7 @@ if(isset($DB_YR)) {
 if(isset($DB_LSTM)) {
 	for($i=0; $i<count($DB_LSTM);$i++){
 		$currentTeamSelected = '';
-		if(isset($currentTeam) && $currentTeam == $DB_LSTM[$i]) $currentTeamSelected = ' selected';
+		if(isset($selectedTeam) && $selectedTeam == $DB_LSTM[$i]) $currentTeamSelected = ' selected';
 ?>
 	<option value="<?php echo $DB_LSTM[$i]; ?>"<?php echo $currentTeamSelected; ?>><?php echo $DB_LSTM[$i]; ?></option>
 <?php
@@ -153,18 +159,18 @@ if(isset($DB_LSTM)) {
 	</tr>
 <?php
 $colorRow = 2;
-if(isset($DB_ID)) {
-for($i=0; $i<count($DB_ID);$i++){
+if(isset($ADMIN_DB_ID)) {
+for($i=0; $i<count($ADMIN_DB_ID);$i++){
 	if($colorRow == 1) $colorRow = 2;
 	else $colorRow = 1;
 ?>
 	<tr class="tr_content<?php echo $colorRow; ?>">
-		<td><?php echo $DB_DT[$i]; ?></td>
-		<td><?php echo $DB_NM[$i]; ?></td>
-		<td><?php echo $DB_TM[$i]; ?></td>
-		<td><?php echo $DB_BF[$i]; ?></td>
-		<td><?php echo $DB_AF[$i]; ?></td>
-		<td><input onclick="javascript:deleteChange('<?php echo $DB_ID[$i]; ?>');" class="button" type="button" value="<?php echo $db_admin_position[11]; ?>"></td>
+		<td><?php echo $ADMIN_DB_DT[$i]; ?></td>
+		<td><?php echo $ADMIN_DB_NM[$i]; ?></td>
+		<td><?php echo $ADMIN_DB_TM[$i]; ?></td>
+		<td><?php echo $ADMIN_DB_BF[$i]; ?></td>
+		<td><?php echo $ADMIN_DB_AF[$i]; ?></td>
+		<td><input onclick="javascript:deleteChange('<?php echo $ADMIN_DB_ID[$i]; ?>');" class="button" type="button" value="<?php echo $db_admin_position[11]; ?>"></td>
 	</tr>
 <?php
 }
