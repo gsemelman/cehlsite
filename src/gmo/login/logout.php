@@ -23,8 +23,21 @@ unset($_SESSION['equipe']);
 unset($_SESSION['equipesim']);
 unset($_SESSION['int']);
 unset($_SESSION['isAdmin']);
+$_SESSION['isAdmin'] = false;
 
 $_SESSION['authenticated'] = false;
+
+if(isset($_COOKIE['login'])){
+    unset($_COOKIE['login']);
+    setcookie('login', '', time() - 3600, '/'); // empty value and old timestamp
+
+}
+
+if(isset($_COOKIE['rememberMe'])){
+    unset($_COOKIE['rememberMe']);
+    setcookie('rememberMe', '', time() - 3600, '/'); // empty value and old timestamp
+}
+
 // remove all session variables
 //session_unset();
 

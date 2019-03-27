@@ -873,7 +873,7 @@ function trSave() {
 			document.body.style.cursor = "default";
 			if(response == "done") {
 				popupAlert("<?php echo $db_membre_gmo_langue[104]; ?>", "#4caf50");
-				document.location.href="?membre=gmonline&lines=2";
+				document.location.href="?membre=gmonline&lines=2#Lines";
 			}
 			else alert('Error! ' + response);
 		}

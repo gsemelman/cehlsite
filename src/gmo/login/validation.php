@@ -21,10 +21,10 @@ mysqli_close($con);
 session_name($SessionName);
 session_start();
 // remove all session variables
-session_unset();
+//session_unset();
 		
 // destroy the session
-session_destroy(); 
+//session_destroy(); 
 
 //include '../config4.php';
 
@@ -41,6 +41,8 @@ if($login) {
 			if(md5($pass) == $data['PASS']) {
 				session_name($SessionName);
 				session_start();
+				
+				$_SESSION['authenticated'] = true;
   				$_SESSION['login'] = $user;
 				$_SESSION['equipe'] = $data['EQUIPE'];
 				$_SESSION['equipesim'] = $data['EQUIPESIM'];
@@ -51,9 +53,12 @@ if($login) {
 				}else{  
 				    $_SESSION['isAdmin'] = false;
 				}
-				$_SESSION['authenticated'] = true;
+
+				setcookie('login', $user, time() + (86400 * 30), "/");
 				
-				
+				if(isset($rememberMe) && $rememberMe){
+				    setcookie('rememberMe', true, time() + (86400 * 30), "/");
+				}
 				
 
 			}

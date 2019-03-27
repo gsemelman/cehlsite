@@ -73,6 +73,8 @@ else {
 	die($error);
 }
 
+
+
 if(!isset($_GET['membre']) && !isset($_POST['membre'])) {
 	$mode = 'gmonline';
 }
@@ -380,7 +382,7 @@ if ( $mode == 'poll') $classMenu14 = "active";
 
 
 
-<div style="margin-top:25px; margin-left:auto; margin-right:auto; <?php echo $divMaxWidth; ?>;">
+<div style="margin-top:10px; margin-left:auto; margin-right:auto; <?php echo $divMaxWidth; ?>;">
 
 <?php
 

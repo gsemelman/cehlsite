@@ -21,6 +21,12 @@ $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 for($x=0;$x<strlen($hex);$x=$x+508) {
 	$teamName[$teamNumber] = substr($hex, $x, 20);
 	$teamLine[$teamNumber] = substr($hex, $x+348, 130);
+	$teamTickets[$teamNumber] = hexdec(substr($hex, $x + 192, 2));
+	
+	if(!$teamTickets[$teamNumber]){
+	    $teamTickets[$teamNumber] = 0;
+	}
+
 	$erreur = substr($hex, $x+506, 2);
 	if((hexdec($erreur)>="32") && (hexdec($erreur)<="126")) $x = $x - 2;
 	else {
@@ -34,7 +40,8 @@ for($x=0;$x<strlen($hex);$x=$x+508) {
 		
 		$sqlTeamName = mysqli_real_escape_string($con, $teamName[$teamNumber]);
 		
-		$sql = "UPDATE `$db_table` SET `RANK` = '$teamNumber', `TMS_LINEUP` = '$teamLine[$teamNumber]' WHERE `EQUIPESIM` = '$sqlTeamName' AND `RANK` = ''";
+
+		$sql = "UPDATE `$db_table` SET `RANK` = '$teamNumber', `TMS_LINEUP` = '$teamLine[$teamNumber]', `TICKETS` = '$teamTickets[$teamNumber]'  WHERE `EQUIPESIM` = '$sqlTeamName' AND `RANK` = ''";
 		$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 		
 		$teamNumber++;

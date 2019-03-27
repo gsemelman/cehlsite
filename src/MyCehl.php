@@ -20,11 +20,6 @@ ob_start('mb_output_handler');
 $version = '4.01';
 ini_set('arg_separator.output', '&amp;'); // MODE DANS LE URL
 
-$adminActive='';
-$posActive='';
-$linesActive='';
-
-$activeTab = 'lines';
 
 $skipNav = false;
 include 'head.php';
@@ -139,24 +134,36 @@ include 'nav.php';
 				
 					<div id="nav-mygm" <?php echo 'style='.(!$requiresLogin ? 'display:none' : '');  ?>>
 						<ul class="nav nav-tabs ">
+						
+							<li class="nav-item"><a class="nav-link" href="#Team"
+								data-toggle="tab">Team</a></li>
 	
-							<li class="nav-item <?php echo $linesActive ?>"><a class="nav-link" href="#Lines"
-								data-toggle="tab">Lines</a></li>
+							<li class="nav-item"><a class="nav-link" href="#Lines"
+								data-toggle="tab">Line Editor</a></li>
 								
-							<li class="nav-item <?php echo $posActive ?>" ><a class="nav-link" href="#PosChange"
+							<li class="nav-item"><a class="nav-link" href="#PosChange"
 								data-toggle="tab">Position Change</a></li>
 								
 							
 							<?php 
 							if(isAdmin()){
-							    echo '<li class="nav-item '.$adminActive.'"><a class="nav-link" href="#Admin"
+							    echo '<li class="nav-item"><a class="nav-link" href="#Admin"
 								data-toggle="tab">Admin</a></li>';
 							}
 							?>
 						</ul>
 						<div class="tab-content">
 							
-							<div class="tab-pane <?php echo $linesActive ?>" id="Lines">
+							<div class="tab-pane" id="Team">
+								<?php 
+								
+								include FS_ROOT.'gmo/membre/myTeam.php';
+								
+                                ?>
+							</div>
+							
+							
+							<div class="tab-pane" id="Lines">
 								<?php 
 								
 								if (isset($_SESSION['equipe']) && $_SESSION['equipe'] != 'ADMIN') {
@@ -195,7 +202,7 @@ include 'nav.php';
                                 ?>
 							</div>
 							
-							<div class="tab-pane <?php echo $posActive ?>" id="PosChange">
+							<div class="tab-pane" id="PosChange">
 								<?php 
 								if (isset($_SESSION['equipe']) && $_SESSION['equipe'] != 'ADMIN') {
 								    // MEMBRE ZONE
@@ -234,7 +241,7 @@ include 'nav.php';
 
 							<?php 
 							if(isAdmin()){
-							    echo '<div class="tab-pane '.$adminActive.'" id="Admin">';
+							    echo '<div class="tab-pane" id="Admin">';
 							    echo '<div class="table-responsive mt-2">';
 							    
 							    $db_lang = '';
