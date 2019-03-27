@@ -111,7 +111,8 @@
     					      echo '<li class="dropdown">
         						<a href="'.BASE_URL.'MyCehl.php" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My&nbspCEHL<span class="caret"></span></a>
         						<ul class="dropdown-menu" style="line-height:1.8">
-        						  <li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#Lines">Line Editor</a></li>
+        						  <li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#Team">Team</a></li>
+                                  <li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#Lines">Line Editor</a></li>
         						  <li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#PosChange">Position&nbspChange</a></li>';
     					          if(isAdmin()) echo '<li class="nav-item"><a class="nav-link-inner" href="'.BASE_URL.'MyCehl.php#Admin">Admin</a></li>';
 

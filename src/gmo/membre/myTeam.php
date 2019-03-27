@@ -8,11 +8,12 @@ include FS_ROOT.'gmo/login/mysqli.php';
 
 if(isset($teamID)){
 
-    $sql = "SELECT TICKETS FROM `".$db_table."`  WHERE `INT` = '$teamID' LIMIT 1";
+    $sql = "SELECT TICKETS,TICKETS_REQ  FROM `".$db_table."`  WHERE `INT` = '$teamID' LIMIT 1";
     $query = mysqli_query($con, $sql) or die(mysqli_error($con));
     if($query){
         while($data = mysqli_fetch_array($query)) {
             $TeamTicketPrice = $data['TICKETS'];
+            $ReqTeamTicketPrice = $data['TICKETS_REQ'];
         }
     }
 
@@ -59,15 +60,27 @@ if(isset($teamID)){
             <div class="my-3 p-2 bg-white rounded box-shadow">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Tickets</h6>
                 <div class="pt-3">
-                  <div class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
-                    <div class="d-flex2 clearfix" style="font-size:15;">
-                      <span><strong>Ticket Price:</strong></span>
-                      <span id="currentTicketPrice" class="ml-1 align-middle"><?php echo $TeamTicketPrice; ?></span>
-<!--                       <span class="float-right"><button class="btn btn-outline-primary" id="ticketRequest">Request Change</button></span> -->
-					  <span class="float-right"><button class="btn btn-outline-primary" data-toggle="modal" data-target="#ticketPriceModal" >Request Change</button></span>
-                      
-                      
-                    </div>
+                  <div class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray  clearfix">
+                  <span class="float-right"><button class="btn btn-outline-primary" data-toggle="modal" data-target="#ticketPriceModal" >Request Change</button></span>
+                    
+                    
+                  <div>
+                  	<span><strong>Ticket Price:</strong></span>
+                    <span id="currentTicketPrice" class="ml-1 align-middle"><?php echo $TeamTicketPrice; ?></span>
+                  </div>
+                  
+                
+                  <?php if(!isset($ReqTeamTicketPrice)){
+                    $displayRequested = 'display:none;';
+                  }else{
+                    $displayRequested='';
+                  }
+                  ?>   
+                  <div id="ReqTickPriceValue" style="<?php echo $displayRequested;?>">
+                   	<span><strong>Requested Ticket Price:</strong></span>
+                    <span id="requestedTicketPrice" class="ml-1 align-middle"><?php echo $ReqTeamTicketPrice; ?></span>
+                  </div>
+     
                    
                   </div>
                    
@@ -80,7 +93,7 @@ if(isset($teamID)){
 	</div>
 	
 	<div class="modal fade" id="ticketPriceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ticket Price Change</h5>
@@ -129,7 +142,8 @@ if(isset($teamID)){
 	    	 // dataType: 'json',
 	    	  success: function(data){
 	    	    //console.log(data.error); // overflow
-	    	    $('#currentTicketPrice').text(newValue);
+	    	    $('#requestedTicketPrice').text(newValue);
+	    	    $('#ReqTickPriceValue').show();
 	    	    $('#ticketPriceModal').modal('hide');
 	    	    //location.reload();
 	    	   
