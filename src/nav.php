@@ -90,7 +90,7 @@
 </head>
 
 <body>
-	<div class="site-content"><!-- for use with footer -->
+	<!-- <div class="site-content">-- for use with footer -->
   
   <!-- Top menu -->
 	<nav class="navbar navbar-dark fixed-top navbar-expand-lg navbar-no-bg">
@@ -177,5 +177,7 @@
 			
 		</div>
 	</nav>
+	
+	<div class="site-content header-content top-container">
 
 	

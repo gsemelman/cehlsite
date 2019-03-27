@@ -110,7 +110,7 @@ if(isset($_SESSION['int'])) {
 
 //include 'head.php';
 include 'nav.php';
-echo '<div class="header-content top-container"></div>';
+//echo '<div class="header-content top-container"></div>';
 ?>
 
 
@@ -235,7 +235,7 @@ echo '<div class="header-content top-container"></div>';
 							<?php 
 							if(isAdmin()){
 							    echo '<div class="tab-pane '.$adminActive.'" id="Admin">';
-							    echo '<div class="table-responsive">';
+							    echo '<div class="table-responsive mt-2">';
 							    
 							    $db_lang = '';
 							    include FS_ROOT.'gmo/login/mysqli.php';

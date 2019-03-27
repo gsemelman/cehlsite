@@ -15,6 +15,18 @@
     background-size: 100%;
     background-repeat: no-repeat;
 }
+
+#tlDivLinesEV label{
+   margin-bottom: 0px;
+   padding: 1px 0px;
+}
+
+#tlDivLinesEV table, #tlDivLinesPP table, #tlDivLinesEV table{
+    border-style: solid;
+    border-width: 1px;
+    margin-top:5px;
+    margin-right:5px;
+}
 </style>
 
 <div id="tlDivTableStats" style="width:100%;">
@@ -112,7 +124,9 @@
 			<td><input id="tlPASSWD" type="password" value="" maxlength="10" style="width: 100px; font-size:11px; line-height: 17px;<?php echo $league_editorPassword; ?>"></td>
 		</tr>
 		<tr>
-			<td colspan="2" style="text-align:center;"><input type="button" style="height: 25px; width: 97px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/reset.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:tlButtonReset();"></td>
+			<!-- <td colspan="2" style="text-align:center;"><input type="button" style="height: 25px; width: 97px; background-image:url('<?php //echo BASE_URL?>gmo/images/ligne/reset.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:tlButtonReset();"></td>-->
+			<td colspan="2" style="text-align:center;"><button class="gmoActiveButton" id="tlImgRoster" style="border-width:2px; display:block; background:url('<?php echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php echo BASE_URL?>MyCehl.php?membre=gmonline&lines=1#Lines';"></button></td>
+		
 		</tr>
 	</table>
 </div>
@@ -425,8 +439,9 @@
 <div style="float:right; margin-top:15px;">
 	<button class="gmoActiveButton" id="tlImgAuto" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/auto.png');" onclick="tlAutoLine();"></button>
 	<button class="gmoActiveButton" id="tlImgSave" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/saveline.png');" onclick="tlSave();"></button>
-	<button class="gmoActiveButton" id="tlImgRoster" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php echo BASE_URL?>MyCehl.php?membre=gmonline&lines=1#Lines';"></button>
-	
+	<!--<button class="gmoActiveButton" id="tlImgRoster" style="background:url('<?php //echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php //echo BASE_URL?>MyCehl.php?membre=gmonline&lines=1#Lines';"></button>-->
+	<button class="gmoActiveButton" id="tlImgReset" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/reset.png');" onclick="javascript:tlButtonReset();"></button>
+
 </div>
 
 <div id="tlDivBottomSpacer" style="clear:both; width:100%;"></div>

@@ -150,7 +150,7 @@ if(isset($skipNav) && !$skipNav){
  
 }else{
     include 'nav.php';
-    echo '<div class="header-content top-container"></div>';
+//     echo '<div class="header-content top-container"></div>';
 }
 
 ?>

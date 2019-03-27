@@ -262,6 +262,10 @@ input.lines:hover {
 	#trTableStats3 {
 		display:none;
 	}
+	
+	.selectedPlayers{
+	   height:200px;
+	}
 }
 @media screen and (max-width: 509px) {
 	.trButton1 {
@@ -310,6 +314,10 @@ margin-bottom:0px;
 	#trTableStats3 {
 		float:left;
 		display:block;
+	}
+	
+	.selectedPlayers{
+	   height:120px;
 	}
 }
 

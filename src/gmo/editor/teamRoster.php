@@ -8,6 +8,7 @@
 	background-size: 100%;
 }
 
+
 </style>
 
 <?php
@@ -24,14 +25,14 @@ if(!isset($playerRank)) {
 <div style="float:left;"><span id="trTotalPlayers"></span> <span id="trTotalPlayers2"></span></div><div id="trSalaryCop" style="float:right; font-weight:bold;"></div>
 <div class="trDivSelect" style="clear:both; float:left; margin-right:10px;">
 	<span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[55]; ?></span><br>
-	<div class="selectedPlayers" id="trSelectedPlayers1" style="width:100%; margin-bottom:7px; border:1px solid #<?php echo $databaseColors['colorMainText']; ?>; height:120px; overflow-x:scroll; overflow-x:hidden;"></div>
+	<div class="selectedPlayers" id="trSelectedPlayers1" style="width:100%; margin-bottom:7px; border:1px solid #<?php echo $databaseColors['colorMainText']; ?>; overflow-x:scroll; overflow-x:hidden;"></div>
 	<button class="trButton1 gmoActiveButton" style="height: 25px; width: 73px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/scratch.png'); background-repeat:no-repeat; margin-left:81px;" onclick="javascript:trProToScratch();"></button>
 </div>
 <button class="trButton2" style="height: 25px; width: 73px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/scratch.png'); background-repeat:no-repeat; float:left; position:relative; top:15px;" onclick="javascript:trProToScratch();"></button>
 
 <div class="trDivSelect" style="float:left; margin-right:10px;">
 	<span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[56]; ?></span><br>
-	<div class="selectedPlayers" id="trSelectedPlayers2" style="width:100%; margin-bottom:7px; border:1px solid #<?php echo $databaseColors['colorMainText']; ?>; height:120px; overflow-x:scroll; overflow-x:hidden;"></div>
+	<div class="selectedPlayers" id="trSelectedPlayers2" style="width:100%; margin-bottom:7px; border:1px solid #<?php echo $databaseColors['colorMainText']; ?>; overflow-x:scroll; overflow-x:hidden;"></div>
 	<button class="trButton1 gmoActiveButton" style="height: 25px; width: 73px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/dress.png'); background-repeat:no-repeat;" onclick="javascript:trScratchToPro();"></button>
 	<button class="trButton1 gmoActiveButton" style="height: 25px; width: 73px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/tofarm.png'); background-repeat:no-repeat; margin-left:4px;" onclick="javascript:trScratchToFarm();"></button>
 </div>
@@ -51,7 +52,7 @@ if(!isset($playerRank)) {
 
 <div class="trDivSelect" style="float:left;">
 	<span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[57]; ?></span><br>
-	<div class="selectedPlayers" id="trSelectedPlayers3" style="width:100%; margin-bottom:7px; border:1px solid #<?php echo $databaseColors['colorMainText']; ?>; height:120px; overflow-x:scroll; overflow-x:hidden;"></div>
+	<div class="selectedPlayers" id="trSelectedPlayers3" style="width:100%; margin-bottom:7px; border:1px solid #<?php echo $databaseColors['colorMainText']; ?>; overflow-x:scroll; overflow-x:hidden;"></div>
 	<button class="trButton1 gmoActiveButton" style="height: 25px; width: 73px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/topros.png'); background-repeat:no-repeat; margin-bottom:8px;" onclick="javascript:trFarmToScratch();"></button>
 </div>
 <button class="trButton2 gmoActiveButton" style="height: 25px; width: 73px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/topros.png'); background-repeat:no-repeat; float:left; margin-left:10px; position:relative; top:15px;" onclick="javascript:trFarmToScratch();"></button>
