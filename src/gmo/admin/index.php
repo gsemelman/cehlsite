@@ -52,6 +52,7 @@ if ( isset($_GET['admin']) || isset($_POST['admin']) ) {
 	if ( $mode == 'colors2' ) include FS_ROOT.'gmo/admin/colorsGet.php';
 	if ( $mode == 'position' ) include FS_ROOT.'gmo/admin/position.php';
 	if ( $mode == 'poll' ) include FS_ROOT.'gmo/admin/poll.php';
+	if ( $mode == 'tickets' ) include FS_ROOT.'gmo/admin/tickets.php';
 }
 else {
 	//echo $league_name.'<br>';	
