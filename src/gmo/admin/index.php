@@ -54,7 +54,7 @@ if ( isset($_GET['admin']) || isset($_POST['admin']) ) {
 	if ( $mode == 'poll' ) include FS_ROOT.'gmo/admin/poll.php';
 }
 else {
-	echo $league_name.'<br>';	
+	//echo $league_name.'<br>';	
 	include FS_ROOT.'gmo/admin/accueil.php';
 }
 

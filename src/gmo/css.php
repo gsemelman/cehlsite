@@ -231,7 +231,8 @@ input.lines:hover {
 /* GM EDITOR MOBILE VIEW - Team Roster */
 .selectedPlayers{
   cursor: pointer;
-  line-height:24px;
+/*   line-height:24px; */
+    line-height:2;
 }
 
 
@@ -326,7 +327,9 @@ margin-bottom:0px;
 	
 	.selectedPlayers{
 	   height:120px;
+	   line-height:22px;
 	}
+	
 }
 
 /* GM EDITOR MOBILE VIEW - Team Lines */

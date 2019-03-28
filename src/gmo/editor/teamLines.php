@@ -18,7 +18,8 @@
 
 #tlDivSelect{
     cursor: pointer;
-    line-height:24px;
+    line-height:22px;
+    height:200px;
 }
 
 #tlDivLinesEV label{

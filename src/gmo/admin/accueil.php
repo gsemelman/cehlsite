@@ -40,6 +40,7 @@ if($league_UFAToolStatus == 2) {
 }
 mysqli_close($con);
 
+echo '<div style="font-size:20px;">';
 echo '<br><b>'.$db_admin_menu_langue[0].'</b><br>';
 echo '<a href="?admin=userpass#Admin">'.$db_admin_menu_langue[1].'</a><br>';
 echo '<a href="?admin=param#Admin">'.$db_admin_menu_langue[9].'</a><br>';
@@ -49,6 +50,7 @@ if($league_TradeToolStatus == 2) echo '<a href="?admin=trade#Admin">'.$db_admin_
 if($league_UFAToolStatus == 2) echo '<a href="?admin=ufa#Admin">'.$db_admin_menu_langue[13].'</a><br>';
 if($league_UFAToolStatus == 2) echo '<a href="?admin=ufasign#Admin">'.$db_admin_menu_langue[14].' ('.$league_UFAPendingRows.')</a><br>';
 if($league_position == 1) echo '<a href="?admin=position#Admin">'.$db_admin_menu_langue[17].'</a><br>';
+echo '<a href="?admin=position#Admin">Tickets</a><br>';
 
 echo '<br><b>'.$db_admin_menu_langue[2].'</b><br>';
 echo '<a href="?admin=noms#Admin">'.$db_admin_menu_langue[3].'</a><br>';
@@ -59,7 +61,9 @@ echo '<a href="?admin=colors#Admin">'.$db_admin_menu_langue[16].'</a><br>';
 echo '<a href="?admin=poll#Admin">'.$db_admin_menu_langue[18].'</a><br>';
 echo '<a href="?admin=first#Admin">'.$db_admin_menu_langue[11].'</a><br>';
 
+
 echo '-----------------<br>';
 echo '<a href="?admin=pass#Admin">'.$db_admin_menu_langue[7].'</a><br>';
 echo '<a href="'.BASE_URL.'gmo/login/logout.php">'.$db_admin_menu_langue[8].'</a><br>';
+echo '</div>';
 ?>
