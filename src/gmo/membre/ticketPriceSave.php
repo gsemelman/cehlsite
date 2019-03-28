@@ -30,10 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (isset($_POST['newTicketPrice'])){
         $newTicketPrice = $_POST['newTicketPrice'];
 
-        if($newTicketPrice < 25 || $newTicketPrice > 999){
+        if($newTicketPrice < 25 || $newTicketPrice > 200){
             error_log('Ticket price out of range', 0);
             
-             header( 'HTTP/1.1 400' );
+            header( 'HTTP/1.1 400' );
+            exit();
         }
         
         

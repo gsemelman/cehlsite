@@ -184,6 +184,7 @@ function calcOv(&$arr){
                 	    $unassignedSAL[$i] = $value[17];
                 	    $unassignedCT[$i] = $value[18];
                 	    $unassignedOV[$i]  = calcOv($value);
+                	    $unassignedSts[$i] = $value[19];
                 	    
                 	    $i++;
                 	}
@@ -202,7 +203,7 @@ function calcOv(&$arr){
                                     			<th>PO</th>
                                                 <th>Salary</th>
                                                 <th>Contract</th>
-                
+                                                <th>Status</th>
                                                 <th>'.$rostersIT.'</th>
                                                 <th>'.$rostersSP.'</th>
                                                 <th>'.$rostersST.'</th>
@@ -234,6 +235,7 @@ function calcOv(&$arr){
                 		            echo '<td>'.$unassignedPO[$x].'</td>';
                 		            echo '<td>'.$unassignedSAL[$x].'</td>';
                 		            echo '<td>'.$unassignedCT[$x].'</td>';
+                		            echo '<td>'.$unassignedSts[$x].'</td>';
                 		            echo '<td>'.$unassignedIT[$x].'</td>';
                 		            echo '<td>'.$unassignedSP[$x].'</td>';
                 		            echo '<td>'.$unassignedST[$x].'</td>';
