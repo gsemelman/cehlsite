@@ -16,6 +16,11 @@
     background-repeat: no-repeat;
 }
 
+#tlDivSelect{
+    cursor: pointer;
+    line-height:24px;
+}
+
 #tlDivLinesEV label{
    margin-bottom: 0px;
    padding: 1px 0px;

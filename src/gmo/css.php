@@ -226,7 +226,15 @@ input.lines:hover {
 	line-height: 17px;
 }
 
+
+
 /* GM EDITOR MOBILE VIEW - Team Roster */
+.selectedPlayers{
+  cursor: pointer;
+  line-height:24px;
+}
+
+
 @media screen and (min-width: 510px) {
 	.trButton1 {
 		display:inline-block;

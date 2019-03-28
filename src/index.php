@@ -10,6 +10,7 @@ if(!HTTPS_REQUIRED){
 session_name('GMO');
 session_start();
 
+include 'auth.php';
 include 'nav.php';
 
 ?>

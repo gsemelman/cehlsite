@@ -15,6 +15,10 @@ if(isset($teamID)){
             $TeamEmail = $data['EMAIL'];
             $TeamTicketPrice = $data['TICKETS'];
             $ReqTeamTicketPrice = $data['TICKETS_REQ'];
+            
+            if(!$ReqTeamTicketPrice){
+                $ReqTeamTicketPrice = 'N/A';
+            }
         }
     }
 
@@ -25,13 +29,14 @@ if(isset($teamID)){
 ?>
 
 <div class = "container">
-
+<div class="row">
+<div class="col mt-2 px-0">
 	<div class = "card">
 	    <div class = "card-header text-center">
 			My Team
 		</div>
 		
-		<div class = "card-body">
+		<div class = "card-body px-3">
 		
     		<div class="my-3 p-2 bg-white rounded box-shadow">
                 <h6 class="border-bottom border-gray pb-2 mb-0">General</h6>
@@ -52,7 +57,7 @@ if(isset($teamID)){
                 <h6 class="border-bottom border-gray pb-2 mb-0">Tickets</h6>
                 <div class="pt-3">
                   <div class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray  clearfix">
-                  <span class="float-right"><button class="btn btn-outline-primary" data-toggle="modal" data-target="#ticketPriceModal" >Request Change</button></span>
+                  <span class="float-right"><button id="btnTicketPrice" class="btn btn-outline-primary" data-toggle="modal" data-target="#ticketPriceModal" >Request Change</button></span>
                     
                     
                   <div>
@@ -67,7 +72,7 @@ if(isset($teamID)){
                     $displayRequested='';
                   }
                   ?>   
-                  <div id="ReqTickPriceValue" style="<?php echo $displayRequested;?>">
+                  <div style="<?php echo $displayRequested;?>">
                    	<span><strong>Requested Ticket Price:</strong></span>
                     <span id="requestedTicketPrice" class="ml-1 align-middle"><?php echo $ReqTeamTicketPrice; ?></span>
                   </div>
@@ -95,11 +100,12 @@ if(isset($teamID)){
           <form id="ticketPriceForm" method="post" action="gmo/membre/ticketPriceSave.php">
           <div class="modal-body">
           	<label for="newTicketPrice">New Ticket Price:</label>
-          	<input type="text" name="newTicketPrice" class="form-control" id="newTicketPrice" placeholder="<?php echo $TeamTicketPrice; ?>">
+          	<input type="text" name="newTicketPrice" class="form-control" id="newTicketPrice" placeholder="<?php //echo $TeamTicketPrice; ?>">
+          	<span id="ticketError" style="color:red;"></span>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" id="submitTicketPrice" type="button" class="btn btn-primary">Save changes</button>
+            <button type="submit" id="submitTicketPrice" type="button" class="btn btn-primary">Submit</button>
           </div>
            </form>
         </div>
@@ -108,6 +114,14 @@ if(isset($teamID)){
 
 	
 	<script type="text/javascript">
+
+	var originalTicketPrice = <?php echo $TeamTicketPrice; ?>;
+
+	$("#ticketPriceModal").on("hidden.bs.modal", function(){
+	    $("#ticketError").text("");
+	    $("#newTicketPrice").val("");
+	    
+	});
 
 	$("#ticketPriceForm").submit(function(e) {
 
@@ -118,11 +132,14 @@ if(isset($teamID)){
 	    var newValue = e.currentTarget[0].value;
 
 	    if((!newValue || 0 === newValue.length)){
-	    	alert("Ticket price must be set");
+	    	//alert("Ticket price must be set");
+	    	$('#ticketError').text("Ticket Price cannot be blank");
 		    return;
 	    }
 	    else if(newValue < 25 || newValue > 200){
-	    	alert("Ticket price must be between 25 and 200");
+	    	//alert("Ticket price must be between 25 and 200");
+	    	$('#ticketError').text("Ticket price must be between 25 and 200");
+	    	$('#requestedTicketPrice').text("N/A");
 		    return;
 	    }
 
@@ -133,8 +150,13 @@ if(isset($teamID)){
 	    	 // dataType: 'json',
 	    	  success: function(data){
 	    	    //console.log(data.error); // overflow
-	    	    $('#requestedTicketPrice').text(newValue);
-	    	    $('#ReqTickPriceValue').show();
+	    	    if(newValue == originalTicketPrice){
+	    	     $('#requestedTicketPrice').text("N/A");
+	    	    }else{
+    	    	 $('#requestedTicketPrice').text(newValue);
+	    	    }
+    	   
+	    	    //$('#requestedTicketPrice').show();
 	    	    $('#ticketPriceModal').modal('hide');
 	    	    //location.reload();
 	    	   
@@ -154,8 +176,9 @@ if(isset($teamID)){
 // 	    	        } else {
 // 	    	            //handle error
 // 	    	        }
-	    	        alert("Error Requesting ticket price change");
-
+	    	       // alert("Error Requesting ticket price change");
+	    	        $('#ticketError').text("Error submitting ticket price");
+	    	        return;
 	    	       
 	    	    }
 	    	});
@@ -166,6 +189,6 @@ if(isset($teamID)){
 
 	</script>
 	
-	
-
+</div>
+</div>
 </div>
