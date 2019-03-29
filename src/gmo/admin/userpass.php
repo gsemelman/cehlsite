@@ -3,7 +3,7 @@ extract($_POST,EXTR_OVERWRITE);
 
 if(isset($userpasssend)) {
 	$i = 0;
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	
 	while(isset($_POST['new_int'.$i])) {
 		$username2 = mysqli_real_escape_string($con, $_POST['username'.$i]);
@@ -32,7 +32,7 @@ if(isset($userpasssend)) {
 }
 
 $i = 0;
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `USER`, `PASS`, `INT`, `TRADE_MANAGER`, `HISTORY_TRADE_MANAGER`, `UFA_SIGN_MANAGER`, `UFA_LIST_MANAGER`, `EMAIL` FROM `$db_table` WHERE `EQUIPE` != 'ADMIN' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {

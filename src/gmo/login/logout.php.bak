@@ -1,6 +1,6 @@
 <?php
-include FS_ROOT.'gmo/config4.php';
-include FS_ROOT.'gmo/mysqli.php';
+include GMO_ROOT.'config4.php';
+include GMO_ROOT.'mysqli.php';
 include FS_ROOT.'config.php';
 
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";

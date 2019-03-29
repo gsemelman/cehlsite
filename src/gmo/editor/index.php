@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "On");
 
-if($modeGMO == 1) include FS_ROOT.'gmo/editor/teamRoster.php';
-if($modeGMO == 2) include FS_ROOT.'gmo/editor/teamLines.php';
+if($modeGMO == 1) include GMO_ROOT.'editor/teamRoster.php';
+if($modeGMO == 2) include GMO_ROOT.'editor/teamLines.php';
 
 ?>
 

@@ -10,7 +10,7 @@ if(isset($_POST['changer']) && isset($_POST['actpass']) && isset($_POST['new1'])
 	if($new1 == $new2) {
 		$correct2 = 1;
 		$actpass = $_POST['actpass'];
-		include FS_ROOT.'gmo/login/mysqli.php';
+		include GMO_ROOT.'login/mysqli.php';
 		$user = mysqli_real_escape_string($con, $user);
 		$sql = "SELECT `PASS` FROM `".$db_table."` WHERE `USER` = '$user'";
 		$query = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -21,7 +21,7 @@ if(isset($_POST['changer']) && isset($_POST['actpass']) && isset($_POST['new1'])
 		}
 		if(isset($correct2) && $correct2 == 2) {
 			$new1 = md5($new1);
-			include FS_ROOT.'gmo/login/mysqli.php';
+			include GMO_ROOT.'login/mysqli.php';
 			$user = mysqli_real_escape_string($con, $user);
 			$sql = "UPDATE `".$db_table."` SET `PASS`='$new1' WHERE `USER`='$user'";
 			$query = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -42,7 +42,7 @@ if(isset($_POST['notification']) ) {
 		$e = $db_admin_pass_langue[8];
 	}
 	
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	$sql = "UPDATE `".$db_table."` SET `NOTIFICATION`='$checkboxNotification', `EMAIL`='$inputEmail' WHERE `INT`='$teamID'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
@@ -55,9 +55,9 @@ if(isset($_POST['language']) ) {
 	$e = $db_admin_pass_langue[13]." (".$text.")";
 	$f = "#4caf50";
 	$league_langue = $inputLanguage;
-	include FS_ROOT.'gmo/admin/lang.php';
+	include GMO_ROOT.'admin/lang.php';
 	
-	include FS_ROOT.'gmo/login/mysqli.php';;
+	include GMO_ROOT.'login/mysqli.php';;
 	$sql = "UPDATE `".$db_table."` SET `LANGUE`='$inputLanguage' WHERE `INT`='$teamID'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
@@ -65,7 +65,7 @@ if(isset($_POST['language']) ) {
 
 $languageEN = "";
 $languageFR = "";
-include FS_ROOT.'gmo/login/mysqli.php';;
+include GMO_ROOT.'login/mysqli.php';;
 $sql = "SELECT `NOTIFICATION`, `LANGUE`, `EMAIL` FROM `".$db_table."` WHERE `INT` = '$teamID' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {

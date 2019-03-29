@@ -164,7 +164,7 @@ if ( isset($_GET['poll']) || isset($_POST['poll']) ) {
 	if($currentPoll == "") unset($currentPoll);
 }
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 $sql = "SELECT YEAR(`DATE`) FROM `".$db_table."_poll` GROUP BY YEAR(`DATE`) ORDER BY `DATE` DESC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));

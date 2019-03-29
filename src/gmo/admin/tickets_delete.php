@@ -12,11 +12,11 @@ $teamId = $_POST['teamId'];
 //include '../login/mysqli.php';
 include '../../config.php';
 include FS_ROOT.'common.php';
-include FS_ROOT.'gmo/config4.php';
+include GMO_ROOT.'config4.php';
 
 
 if(isAuthenticated() && isAdmin()){
-    include FS_ROOT.'gmo/login/mysqli.php';
+    include GMO_ROOT.'login/mysqli.php';
     $sql = "UPDATE `".$db_table."` SET TICKETS_REQ = NULL WHERE `INT` = '$teamId';";
     $query = mysqli_query($con, $sql);
     

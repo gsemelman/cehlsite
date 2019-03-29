@@ -2,7 +2,7 @@
 
 $i = 0;
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 //include 'gmo/login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `IP` FROM `".$db_table."` WHERE `EQUIPESIM` != '' ORDER BY `IP` ASC";

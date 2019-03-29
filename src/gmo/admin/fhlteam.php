@@ -5,7 +5,7 @@ extract($_POST,EXTR_OVERWRITE);
 $message = '';
 
 if(isset($press_drop) && isset($table_drop)){
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	$sql = "DELETE FROM `$db_table` WHERE `INT`='$table_drop'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
@@ -13,7 +13,7 @@ if(isset($press_drop) && isset($table_drop)){
 }
 if(isset($press_add) && isset($add) && $add != ""){
 	$add2 = strtoupper($add);
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	$add = mysqli_real_escape_string($con, $add);
 	$add2 = mysqli_real_escape_string($con, $add2);
 	$sql = "INSERT INTO `$db_table` (EQUIPE,EQUIPESIM,USER,PASS) VALUES('$add','$add','$add2','none')";
@@ -69,7 +69,7 @@ if(isset($press_add) && isset($add) && $add != ""){
 }
 if(isset($changer)) {
 	if($mod != "") {
-	    include FS_ROOT.'gmo/login/mysqli.php';
+	    include GMO_ROOT.'login/mysqli.php';
 		
 		$mod = mysqli_real_escape_string($con, $mod);
 		$sql = "UPDATE `$db_table` SET `EQUIPESIM`='$mod' WHERE `INT` = '$mod_int'";
@@ -86,7 +86,7 @@ if(isset($changer)) {
 }
 
 $i = 0;
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `INT` FROM `$db_table` WHERE `EQUIPESIM` != 'ADMIN'";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -118,7 +118,7 @@ echo '<input class="button" style="width:100px; margin-left:20px;" type="submit"
 
 if(isset($press_mod)) {
 
-    include FS_ROOT.'gmo/login/mysqli.php';
+    include GMO_ROOT.'login/mysqli.php';
 	$sql = "SELECT `EQUIPESIM`, `INT` FROM `$db_table` WHERE `INT` = '$table_drop'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	while($data = mysqli_fetch_array($query)) {

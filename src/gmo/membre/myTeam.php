@@ -1,8 +1,8 @@
 
 <?php 
 
-include FS_ROOT.'gmo/config4.php';
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'config4.php';
+include GMO_ROOT.'login/mysqli.php';
 
 if($league_langue == "fr") {
     $langPosition[0] = 'Changement de Position';
@@ -64,9 +64,9 @@ if(isset($teamID)){
             $TeamTicketPrice = $data['TICKETS'];
             $ReqTeamTicketPrice = $data['TICKETS_REQ'];
             
-            if(!$ReqTeamTicketPrice){
-                $ReqTeamTicketPrice = 'N/A';
-            }
+//             if(!$ReqTeamTicketPrice){
+//                 $ReqTeamTicketPrice = 'N/A';
+//             }
         }
     }else{
        
@@ -115,6 +115,8 @@ if(isset($teamID)){
     $query = mysqli_query($con, $sql) or die(mysqli_error($con));
     if($query){
         while($data = mysqli_fetch_array($query)) {
+            if($data['POSI'] == '04') continue; //goalies can't change position
+            
             $playerName[] = $data['NAME'];
             $playerPosi[] = $data['POSI'];
             if($data['POSI'] == '00') $playerPosT[] = $langPosition[1];
@@ -131,6 +133,11 @@ if(isset($teamID)){
 
 ?>
 
+<style>
+
+.blink { background-color : orange; transition : all linear 600ms; }
+</style>
+
 <div class = "container">
 <div class="row">
 <div class="col mt-2 px-0">
@@ -139,9 +146,9 @@ if(isset($teamID)){
 			My Team
 		</div>
 		
-		<div class = "card-body px-3">
+		<div id="myTeamCardBody" class = "card-body px-3">
 		
-    		<div class="my-3 p-2 bg-white rounded box-shadow">
+    		<div class="my-3 p-2 bg-white rounded box-shadow border-bottom ">
                 <h6 class="border-bottom border-gray pb-2 mb-0">General</h6>
                 <div class="media text-muted pt-3">
                   	<span><strong>Team:</strong></span>
@@ -156,28 +163,35 @@ if(isset($teamID)){
 <!--                 </div> -->
             </div>
            
-            <div class="my-3 p-2 bg-white rounded box-shadow">
+            <div class="my-3 p-2 bg-white rounded box-shadow ">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Tickets</h6>
                 <div class="pt-3">
-                  <div class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray  clearfix">
-                  <span class="float-right"><button id="btnTicketPrice" class="btn btn-outline-primary" data-toggle="modal" data-target="#ticketPriceModal" >Request Change</button></span>
-                    
-                    
-                  <div>
+                  <div style ="block-inline" class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray clearfix ">
+           
+                  <?php if(!isset($ReqTeamTicketPrice)){
+                    $displayRequested = 'display:none;';
+                    $ticketPriceState = "REQ";
+                    $ticketPriceStateText = "Request Change";
+                  }else{
+                    $displayRequested='';
+                    $ticketPriceState = "CAN";
+                    $ticketPriceStateText = "Cancel Request";
+                  }
+                  ?>   
+
+<!--                   <span class="float-right"><button id="btnTicketPrice" class="btn btn-outline-primary" data-toggle="modal" data-target="#ticketPriceModal" value="REQ">Request Change</button></span> -->
+                  <span class="float-right"><button id="btnTicketPrice" class="btn btn-outline-primary" 
+                  		data-toggle="modal" value="<?php echo $ticketPriceState;?>"><?php echo $ticketPriceStateText;?></button></span>
+                
+                  <div class="media text-muted">
                   	<span><strong>Ticket Price:</strong></span>
                     <span id="currentTicketPrice" class="ml-1 align-middle"><?php echo $TeamTicketPrice; ?></span>
                   </div>
-                  
-                
-                  <?php if(!isset($ReqTeamTicketPrice)){
-                    $displayRequested = 'display:none;';
-                  }else{
-                    $displayRequested='';
-                  }
-                  ?>   
-                  <div style="<?php echo $displayRequested;?>">
+     
+
+                  <div id ="requestedTicketPrice" class="media text-muted pt-3" style="<?php echo $displayRequested;?> ">
                    	<span><strong>Requested Ticket Price:</strong></span>
-                    <span id="requestedTicketPrice" class="ml-1 align-middle"><?php echo $ReqTeamTicketPrice; ?></span>
+                    <span id="requestedTicketPriceValue" class="ml-1 align-middle"><?php echo $ReqTeamTicketPrice; ?></span>
                   </div>
      
                    
@@ -190,54 +204,55 @@ if(isset($teamID)){
             <!-- position change -->
     		<div class="my-3 p-2 bg-white rounded box-shadow">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Position Change</h6>
-                <div class="pt-3">
-                  	 <span class="float-right" style="float:right;"><button id="btnRequestPosChange" class="btn btn-outline-primary" data-toggle="modal" data-target="#positionChangeModal" >Request Change</button></span>
-                </div>
-
-                <div class="pt-5">
-                    <?php 
-                                   
-                    if(isset($DB_TEAM_POS_ID)){
-                        $tableStyle = '';
-                    }else{
-                        $tableStyle = 'display:none';
-                        echo '<div class="text-center">No pending requests</div>';
-                    }
-                    
-                    ?>
-                 	<table id="tableTeamPosChange" class="table table-striped table-sm text-center" style ="<?php echo $tableStyle?>">
-                      <thead>
-                        <tr>
-                       
-                          <th scope="col-4">Player</th>
-                          <th scope="col-5" colspan="3" style="text-align: center;" >Position Change</th>
-                          <th scope="col-3">Delete</th>
-                         
-                        </tr>
-                      </thead>
-                      <tbody>
-                       
+                <div class="border-bottom border-gray">
+                    <div class="pt-3 pb-2">
+                      	 <span class="float-right" style="float:right;"><button id="btnRequestPosChange" class="btn btn-outline-primary" data-toggle="modal" data-target="#positionChangeModal" >Request Change</button></span>
+                    </div>
+    
+                    <div class="pt-5">
                         <?php 
+                                       
                         if(isset($DB_TEAM_POS_ID)){
-                            for ($i = 0; $i < count($DB_TEAM_POS_ID); $i++) {
-                                echo '<tr  style="line-height:2.9">
-                            
-                                  <td>'.$DB_TEAM_POS_NM[$i].'</td>
-                                  <td>'.$DB_TEAM_POS_BF[$i].'</td>
-                                  <td><i style="margin-left:2px; margin-right:4px; border: solid #'.$databaseColors['colorMainText'].'; border-width: 0 3px 3px 0; display: inline-block; padding: 3px; transform: rotate(-45deg); -webkit-transform: rotate(-45deg);"></i></td>
-    				              <td>'.$DB_TEAM_POS_AF[$i].'</td>
-                                  <td>
-                                    <button value="'.$DB_TEAM_POS_ID[$i].'" class="btn btn-sm btn-primary btn-block"  >Cancel</button>  
-                                  </td>
-                                </tr>';
-                            }
+                            $tableStyle = '';
+                        }else{
+                            $tableStyle = 'display:none';
+                           // echo '<div class="text-center">No pending requests</div>';
                         }
+                        
                         ?>
-                 
-                      </tbody>
-                    </table>
+                     	<table id="tableTeamPosChange" class="table table-striped table-sm wow fadeIn" style ="<?php echo $tableStyle?>">
+                          <thead>
+                            <tr>
+                           
+                              <th class="text-left" style="width:40%">Player</th>
+                              <th class="text-center" colspan="3" style="width:33%" >Position Change</th>
+                              <th style="width:27%"></th>
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                           
+                            <?php 
+                            if(isset($DB_TEAM_POS_ID)){
+                                for ($i = 0; $i < count($DB_TEAM_POS_ID); $i++) {
+                                    echo '<tr  style="line-height:2.9">
+                                
+                                      <td>'.$DB_TEAM_POS_NM[$i].'</td>
+                                      <td class="text-right" style="width:13%">'.$DB_TEAM_POS_BF[$i].'</td>
+                                      <td class="text-center" style="width:10%"><i style="margin-left:2px; margin-right:4px; border: solid #'.$databaseColors['colorMainText'].'; border-width: 0 3px 3px 0; display: inline-block; padding: 3px; transform: rotate(-45deg); -webkit-transform: rotate(-45deg);"></i></td>
+        				              <td class="text-left" style="width:13%">'.$DB_TEAM_POS_AF[$i].'</td>
+                                      <td>
+                                        <button value="'.$DB_TEAM_POS_ID[$i].'" class="btn btn-sm btn-primary btn-block"  >Cancel</button>  
+                                      </td>
+                                    </tr>';
+                                }
+                            }
+                            ?>
+                     
+                          </tbody>
+                        </table>
+                    </div>
                 </div>
-
             </div>
       
     		
@@ -253,17 +268,17 @@ if(isset($teamID)){
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form id="ticketPriceForm" method="post" action="gmo/membre/ticketPriceSave.php">
+<!--           <form id="ticketPriceForm" method="post" action="gmo/membre/ticketPriceSave.php"> -->
           <div class="modal-body">
           	<label for="newTicketPrice">New Ticket Price:</label>
-          	<input type="text" name="newTicketPrice" class="form-control" id="newTicketPrice" placeholder="<?php //echo $TeamTicketPrice; ?>">
+          	<input type="number" name="newTicketPrice" class="form-control" id="newTicketPrice" placeholder="<?php //echo $TeamTicketPrice; ?>">
           	<span id="ticketError" style="color:red;"></span>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" id="submitTicketPrice" type="button" class="btn btn-primary">Submit</button>
+            <button type="button" id="btnSubmitTicketPrice" class="btn btn-primary">Submit</button>
           </div>
-           </form>
+<!--            </form> -->
         </div>
       </div>
     </div>
@@ -305,36 +320,76 @@ if(isset($teamID)){
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="submitPositionChange" type="button" class="btn btn-primary">Submit</button>
+                <button type="submit" id="submitPositionChange" type="button" class="btn btn-primary">Submit</button>
               </div>
 <!--            </form> -->
         </div>
       </div>
     </div>
     
+	<style>
+    .alert-fixed {
+/*         position:fixed;  */
+/*         top: 60px;  */
+/*         left: 0px;  */
+/*         width: 100%; */
+/*         z-index:9999;  */
+/*         border-radius:0px */
+        top: 60px;     
+        width: 75%;
+        position: fixed;
+        left: 50%;
+        margin-left: -37.5%;
+        z-index:9999; 
 
+    }
+	
+	</style>
 	
 	<script type="text/javascript">
 
+	function alert(title, text, type) {
+
+	  var html = $('#alertPop');	
+		
+      if(html.length){
+    	  html.remove();
+      }
+          
+	  html = $("<div id=\"alertPop\" class='alert-fixed alert text-center hide fade in "
+			   + type + "' role=\"alert\"><strong>" 
+			   + title + "</strong> " 
+			   + text + " </div>");
+
+	  $('body').append(html);
+	  setTimeout(function() {
+		 html.addClass('show');
+	  },0);
+
+	  setTimeout(function() {
+		  html.remove();
+		  },3000);
+	  
+	}
+
+	
+	//handle submit position change from modal
 	$('#submitPositionChange').on('click', function() {
 
 		var playerName = $('#selectPlayer :selected').val();
 		var playerPosBf = $("#selectPlayer option:selected").attr("data-pos");
 		var playerPosAf = $('#positionSelection :selected').val();
 
-		posChangeError
-
 		if(!playerName || 0 === playerName.length){
 		    	//alert("Ticket price must be between 25 and 200");
 		    	$('#ticketError').text("Ticket price must be between 25 and 200");
-		    	$('#requestedTicketPrice').text("N/A");
+		    	$('#requestedTicketPriceValue').text("N/A");
 			    return;
 		}
 		else if((!playerPosAf || 0 === playerPosAf.length)){
 	    	$('#posChangeError').text("Please choose a position");
 		    return;
 	    }
-	   
 
 		 $.ajax({
 	    	  type: "POST",
@@ -355,104 +410,139 @@ if(isset($teamID)){
 	    	            }            
 	    	            return;
 	    	        }
-//	    	        if (xhr.status == 500) {
-//	    	        } 
+
 	    	        $('#ticketError').text("Error submitting position");
 	    	        return;
 	    	       
 	    	    }
 	    	});
 
-//		alert(player +" and " + position );
 	});
 
+	//show position in modal dialog
+	//hide current position
 	$('#selectPlayer').on('change', function() {
 		 // alert( this.value );
+		 $("#positionSelection option[value=\"04\"]").hide();
 		  if(this.value){
+			  var playerPosBf = $("#selectPlayer option:selected").attr("data-pos");
+			  $("#positionSelection option[value=" + playerPosBf + "]").hide();
+			  
 			  $('#positionSelection').show();
 		  }else{
 			  $('#positionSelection').hide();
 		  }
 		});
 
-
-	function cancelPositionChange(playerID) {
-		document.body.style.cursor = "wait";
-		
-		if (window.XMLHttpRequest) {
-			xmlhttp=new XMLHttpRequest();
-		}
-		else {
-			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		xmlhttp.onreadystatechange=function() {
-			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-				var response = xmlhttp.responseText;
-				if(response) console.log(response);
-				document.body.style.cursor = "default";
-				location.reload();
-			}
-		}
-		var page = '<?php echo BASE_URL?>gmo/admin/position_delete.php';
-		var parameters = "";
-		parameters += "playerID=" + encodeURIComponent(playerID);
-		
-		xmlhttp.open("POST", page, true)
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-		xmlhttp.send(parameters)
-	}
-
+	
+	//cancel position change
 	$(document).on("click","#tableTeamPosChange tbody tr td button.btn", function() { // any button
 		  console.log($(this).val());
-		  cancelPositionChange($(this).val());
+		 //cancelPositionChange($(this).val());
+		  var playerID = $(this).val();
+		  var currentRow = $(this).parent().parent();
+
+		  document.body.style.cursor = "wait";
+			
+		  $.ajax({
+	    	  type: "POST",
+	    	  url: "<?php echo BASE_URL?>gmo/membre/position_delete.php",
+	    	  data: {playerID: playerID}, 
+	    	  success: function(data){
+	    		document.body.style.cursor = "default";
+	    	    //location.reload();
+				
+
+				var tbody = $("#tableTeamPosChange tbody");
+
+				if (tbody.children().length > 1) {
+					currentRow.hide(500);
+				    setTimeout(function() {
+				    	currentRow.remove();
+					  },500);
+					
+				}else{
+					$("#tableTeamPosChange").hide(500);
+					currentRow.remove();
+					//$("#tableTeamPosChange").hide();
+				}
+			
+	    		alert('Success!', 'Position change cancelled', 'alert-primary');
+	    		
+	    	   
+	    	  },
+	    	    error : function(xhr, textStatus, errorThrown ) {
+	    	    	document.body.style.cursor = "default";
+		    	    
+	    	        if (textStatus == 'timeout') {
+	    	            this.tryCount++;
+	    	            if (this.tryCount <= this.retryLimit) {
+	    	                //try again
+	    	                $.ajax(this);
+	    	                return;
+	    	            }            
+	    	            return;
+	    	        }
+	    	       // $('#ticketError').text("Error submitting position");
+	    	       alert('Error!', 'Unable to cancel position change', 'alert-danger');
+	    	       return;
+	    	       
+	    	    }
+	    	});
 		});
 	
 
 	var originalTicketPrice = <?php echo $TeamTicketPrice; ?>;
 
-	$("#ticketPriceModal").on("hidden.bs.modal", function(){
-	    $("#ticketError").text("");
-	    $("#newTicketPrice").val("");
-	    
+	//handle change ticket button press
+	$("#btnTicketPrice").on("click", function(){
+
+		if($(this).val() === "CAN"){
+			submitTicketPriceChange(originalTicketPrice, "REQ");
+   	    }else{
+   	    	$('#ticketPriceModal').modal('show');
+   	    }
+
+		  
 	});
 
-	$("#ticketPriceForm").submit(function(e) {
+	//reset modal
+	$("#ticketPriceModal").on("hidden.bs.modal", function(){
+	    $("#ticketError").text("");
+	    $("#newTicketPrice").val("");  
+	});
 
-	    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-	    var form = $(this);
-	    var url = form.attr('action');
-	    var newValue = e.currentTarget[0].value;
-
-	    if((!newValue || 0 === newValue.length)){
-	    	//alert("Ticket price must be set");
-	    	$('#ticketError').text("Ticket Price cannot be blank");
-		    return;
-	    }
-	    else if(newValue < 25 || newValue > 200){
-	    	//alert("Ticket price must be between 25 and 200");
-	    	$('#ticketError').text("Ticket price must be between 25 and 200");
-	    	$('#requestedTicketPrice').text("N/A");
-		    return;
-	    }
+	//submit function. handles change and cancel
+	function submitTicketPriceChange(newValue, newState){
 
 	    $.ajax({
 	    	  type: "POST",
-	    	  url: url,
-	    	  data: form.serialize(), // serializes the form's elements.
-	    	 // dataType: 'json',
+	    	  url: "<?php echo BASE_URL?>gmo/membre/ticketPriceSave.php",
+	    	  data: {newTicketPrice: newValue}, 
 	    	  success: function(data){
-	    	    //console.log(data.error); // overflow
 	    	    if(newValue == originalTicketPrice){
-	    	     $('#requestedTicketPrice').text("N/A");
+	    	    	$('#requestedTicketPrice').hide(500);
 	    	    }else{
-    	    	 $('#requestedTicketPrice').text(newValue);
+    	    		$('#requestedTicketPriceValue').text(newValue);
+    	    	 	$('#requestedTicketPrice').show(500);
 	    	    }
-    	   
-	    	    //$('#requestedTicketPrice').show();
+
+	    	    if(newState === "CAN"){
+	    	    	$("#btnTicketPrice").html("Cancel Request");
+	    	    }else{
+	    	    	$("#btnTicketPrice").html("Request Change");
+	    	    }
+    	    	$("#btnTicketPrice").val(newState); //set new state
+
 	    	    $('#ticketPriceModal').modal('hide');
-	    	    //location.reload();
+
+	    	    if(newState === "CAN"){
+	    	    	 alert('Success!', 'Ticket Price Request Successful!', 'alert-primary');
+	    	    }else{
+	    	    	 alert('Success!', 'Ticket Price Change Cancelled!', 'alert-primary');
+		    	}
 	    	   
+ 	   
 	    	  },
 	    	    error : function(xhr, textStatus, errorThrown ) {
 	    	        if (textStatus == 'timeout') {
@@ -464,18 +554,38 @@ if(isset($teamID)){
 	    	            }            
 	    	            return;
 	    	        }
-// 	    	        if (xhr.status == 500) {
-// 	    	        	 alert("Error Requesting ticket price change");
-// 	    	        } else {
-// 	    	            //handle error
-// 	    	        }
-	    	       // alert("Error Requesting ticket price change");
-	    	        $('#ticketError').text("Error submitting ticket price");
+
+		    	    $('#ticketPriceModal').modal('hide');
+
+		    
+		    	    alert('Error!', 'Error submitting ticket price', 'alert-danger');
+
+	    	        //$('#ticketError').text("Error submitting ticket price");
 	    	        return;
 	    	       
 	    	    }
 	    	});
+		
+	}
 
+	//ticket price change submit
+	$('#btnSubmitTicketPrice').on('click', function() {
+
+		var newValue = $('#newTicketPrice').val();
+
+	    if((!newValue || 0 === newValue.length)){
+	    	$('#ticketError').text("Ticket Price cannot be blank");
+		    return;
+	    }
+	    else if(newValue < 25 || newValue > 200){
+	    	$('#ticketError').text("Ticket price must be between 25 and 200");
+		    return;
+	    }else if(newValue == originalTicketPrice){
+	    	$('#ticketError').text("Ticket price already set to " + originalTicketPrice);
+		    return;
+	    }
+
+	    submitTicketPriceChange(newValue, "CAN");
 
 	});
 

@@ -64,7 +64,7 @@ if ( isset($_GET['team']) || isset($_POST['team']) ) {
 
 echo '<br><b>'.$db_admin_position[0].'</b><br>';
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 //workaround due to conflict to other position page
 //if(isset($data)){

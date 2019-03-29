@@ -6,8 +6,8 @@ $colorsID = json_decode($_POST['ID']);
 $colorsValue = json_decode($_POST['VALUE']);
 
 include '../../config.php';
-include FS_ROOT.'gmo/config4.php';
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'config4.php';
+include GMO_ROOT.'login/mysqli.php';
 
 for($i=0;$i<count($colorsID);$i++) {
 	$id = mysqli_real_escape_string($con, $colorsID[$i]);

@@ -22,7 +22,7 @@ else {
 	exit();
 }
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 
 // Get Infos from database
@@ -114,28 +114,28 @@ if(isset($_SESSION['int'])) {
 
 // LIGUE NAME
 if ( !isset($_SESSION['int']) ) {
-    include FS_ROOT.'gmo/login/header.php';
-    include FS_ROOT.'gmo/login/index.php';
+    include GMO_ROOT.'login/header.php';
+    include GMO_ROOT.'login/index.php';
 	$a = 1;
 }
 
 // ADMIN ZONE
 if (isset($_SESSION['admin'])) {
 	$db_lang = '';
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	$sql = "SELECT `LANGUE` FROM `".$db_table."` WHERE `INT`='".$teamID."'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	while($data = mysqli_fetch_array($query)) {
 		$db_lang = $data['LANGUE'];
 	}
 	if($db_lang) $league_langue = $db_lang;
-	include FS_ROOT.'gmo/admin/index.php';
+	include GMO_ROOT.'admin/index.php';
 	$a = 1;
 }
 // MEMBRE ZONE
 if (isset($_SESSION['equipe']) && !isset($_SESSION['admin'])) {
 	$db_lang = '';
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	$sql = "SELECT `LANGUE` FROM `".$db_table."` WHERE `INT`='".$teamID."'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	while($data = mysqli_fetch_array($query)) {
@@ -159,12 +159,12 @@ if (isset($_SESSION['equipe']) && !isset($_SESSION['admin'])) {
 		mysqli_close($con);
 	}
 	if($db_lang) $league_langue = $db_lang;
-	include FS_ROOT.'gmo/membre/lang.php';
-	include FS_ROOT.'gmo/membre/index.php';
+	include GMO_ROOT.'membre/lang.php';
+	include GMO_ROOT.'membre/index.php';
 	$a = 1;
 }
 
-//include FS_ROOT.'gmo/footer.php';
+//include GMO_ROOT.'footer.php';
 
 echo '</div>';
 ?>

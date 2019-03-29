@@ -2,7 +2,7 @@
 // Enregistrement des valeurs dans la base de donnée
 if(isset($_POST['submit'])) {
 	extract($_POST,EXTR_OVERWRITE);
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	if(isset($SessionName)) {
 		$sql = "UPDATE `".$db_table."_parameters` SET `VALUE`='$SessionName' WHERE `PARAM`='SessionName'";
 		$query = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -130,7 +130,7 @@ if(isset($_POST['submit'])) {
 
 
 // Lecture des valeurs dans la base de donnée
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `VALUE`, `PARAM` FROM `".$db_table."_parameters`";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 $i = 0;

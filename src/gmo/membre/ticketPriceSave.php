@@ -3,10 +3,11 @@ error_reporting(E_ALL);
 ini_set("display_errors", "Off");
 
 include '../../config.php';
-include FS_ROOT.'gmo/config4.php';
+include FS_ROOT.'common.php';
+include GMO_ROOT.'config4.php';
 
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -19,10 +20,11 @@ mysqli_close($con);
 session_name($SessionName);
 session_start();
 
-if(!isset($_SESSION['int'])){
-    error_log('Caught exception: Unknown team', 0);
-    header( 'HTTP/1.1 500 Server error' );
-    die('Caught exception: Unknown team');
+//must be logged in with admin privaleges
+if(!isAuthenticated()){
+    error_log('Cannot save ticket price. User not authenticated', 0);
+    header( 'HTTP/1.1 403 Forbidden' );
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -38,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         
         
-        include FS_ROOT.'gmo/login/mysqli.php';
+        include GMO_ROOT.'login/mysqli.php';
         $newTicketPrice = mysqli_real_escape_string($con, $newTicketPrice);
       
         $teamID = $_SESSION['int'];

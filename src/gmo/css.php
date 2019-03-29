@@ -13,8 +13,8 @@
 #MyCEHL{
 	font-size:12px;
 	font-weight:normal;
-	color:#<?php echo $databaseColors['colorMainText']; ?>;
-	background-color:#<?php echo $databaseColors['colorMainBackground']; ?>;
+	/*color:#<?php //echo $databaseColors['colorMainText']; ?>;
+	background-color:#<?php //echo $databaseColors['colorMainBackground']; ?>;*/
 	text-decoration: none;
 }
 
@@ -58,160 +58,6 @@ table.statsPadding td {
 }
 
 
-/* Header for table 
-#MyCEHL tr.tr td {
-	background-color: #<?php //echo $databaseColors['colorTableHeaderBackground']; ?>;
-	border:1px solid #<?php //echo $databaseColors['colorTableBorder']; ?>;
-	color:#<?php //echo $databaseColors['colorTableHeaderText']; ?>;
-	font-weight:bold;
-}
-
-#MyCEHL table.table {
-	border-collapse: collapse;
-}
-#MyCEHL table.table td {
-	border:1px solid #<?php //echo $databaseColors['colorTableBorder']; ?>;
-	padding: 2px;
-}
-
-#MyCEHL table.table tr.tr_content1 {
-	color:  #<?php //echo $databaseColors['colorTableText1']; ?>;
-	background-color: #<?php echo $databaseColors['colorTableBackground1']; ?>;
-}
-#MyCEHL table.table tr.tr_content2 {
-	color:  #<?php //echo $databaseColors['colorTableText2']; ?>;
-	background-color: #<?php echo $databaseColors['colorTableBackground2']; ?>;
-}
-#MyCEHL table.table tr.tr_content1:hover, table.table tr.tr_content2:hover {
-	color:  #<?php// echo $databaseColors['colorTableTextHover']; ?>;
-	background-color: #<?php echo $databaseColors['colorTableBackgroundHover']; ?>;
-}*/
-
-/* General Input Formatting 
-#MyCEHL input.inputText, select {
-	box-sizing: border-box;
-	border: 2px solid #<?php //echo $databaseColors['colorInputBorder']; ?>;
-	color:  #<?php //echo $databaseColors['colorInputText']; ?>;
-	background-color: #<?php //echo $databaseColors['colorInputBackground']; ?>;
-	padding: 5px 0px;
-	border-radius: 4px;
-	transition-duration: 0.2s;
-}
-
-#MyCEHL input.inputText:hover, select:hover {
-	border: 2px solid #<?php //echo $databaseColors['colorInputBorderHover']; ?>;
-}
-
-#MyCEHL input.button {
-	width: 100%;
-	text-align: center;
-	background-color: #<?php //echo $databaseColors['colorButtonBackground']; ?>; 
-	color: #<?php echo $databaseColors['colorButtonText']; ?>; 
-	border: 2px solid #<?php //echo $databaseColors['colorButtonBorder']; ?>;
-	padding: 5px 0px;
-	cursor: pointer;
-	border-radius: 4px;
-	transition-duration: 0.2s;
-}
-#MyCEHL input.button:hover {
-	border: 2px solid #<?php //echo $databaseColors['colorButtonBorderHover']; ?>;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}*/
-
-.labelContainer {
-	display: block;
-	position: relative;
-	padding-left: 35px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	font-size: 16px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.labelContainer {
-	display: block;
-	position: relative;
-	padding-left: 35px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	font-size: 16px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.labelContainer input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.customRadio {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #eee;
-    border-radius: 50%;
-}
-
-.labelContainer:hover input ~ .customRadio {
-    background-color: #<?php echo $databaseColors['colorInputBorderHover']; ?>;
-}
-
-.labelContainer input:checked ~ .customRadio {
-    background-color: #<?php echo $databaseColors['colorInputBorder']; ?>;
-}
-
-.customRadio:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.labelContainer input:checked ~ .customRadio:after {
-    display: block;
-}
-
-.labelContainer .customRadio:after {
- 	top: 6px;
-	left: 6px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: #<?php echo $databaseColors['colorInputBackground']; ?>;
-}
-
-
-/* LEAGUE SETTINGS PAGE
-table.tableSpace {
-	border-collapse: separate;
-    border-spacing:0px 5px;
-    width: 100%;
-}
-table.tableSpace tr {
-	box-shadow: 0px 0px 2px 0px rgba(38, 115, 76,0.12), 0px 2px 2px 0px rgba(38, 115, 76,0.24);
-}
-table.tableSpace td {
-	padding: 10px;
-}
-table.tableSpace tr:nth-child(even) {
-	background-color: #<?php //echo $databaseColors['colorTableBackground2']; ?>;
-	color:#<?php //echo $databaseColors['colorTableText2']; ?>;
-}
-table.tableSpace tr:nth-child(odd) {
-	background-color: #<?php //echo $databaseColors['colorTableBackground1']; ?>;
-	color:#<?php //echo $databaseColors['colorTableText1']; ?>;
-}
-table.tableSpace tr:hover {
-	background-color: #<?php //echo $databaseColors['colorTableBackgroundHover']; ?>;
-	color:#<?php //echo $databaseColors['colorTableTextHover']; ?>;
-} */
 
 /* GM EDITOR TEAM LINES */
 input.lines {
@@ -246,6 +92,11 @@ input.lines:hover {
   cursor: pointer;
 /*   line-height:24px; */
     line-height:2;
+}
+
+#trDivTableStats{
+    	background-color: #f0f0f0;
+		box-shadow: 5px 0px 5px #f0f0f0;
 }
 
 
@@ -323,7 +174,7 @@ input.lines:hover {
 		background-color: #f0f0f0;
 		width:100%;
 		box-shadow: 5px 0px 5px #f0f0f0;
-/* 		display:table */
+ 		display:table 
 	}
 	#trHrStats {
 /* 		margin-bottom:96px; */
@@ -346,6 +197,12 @@ margin-bottom:0px;
 }
 
 /* GM EDITOR MOBILE VIEW - Team Lines */
+
+#tlDivTableStats{
+  	background-color: #f0f0f0;
+	box-shadow: 5px 0px 5px #f0f0f0;
+}
+
 @media screen and (min-width: 501px) {
 	div#tlDivLinesEV, div#tlDivLinesPP, div#tlDivLinesPK {
 		max-width: 290px;

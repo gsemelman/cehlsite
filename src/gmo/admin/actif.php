@@ -2,7 +2,7 @@
 extract($_POST,EXTR_OVERWRITE);
 
 if(isset($changer)) {
-    include FS_ROOT.'gmo/login/mysqli.php';
+    include GMO_ROOT.'login/mysqli.php';
 	$sql = "UPDATE ".$db_table." SET `SEND`='0' WHERE `EQUIPESIM` != ''";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
@@ -14,7 +14,7 @@ echo '<br><b>'.$db_admin_actif_langue[0].'</b><br>';
 
 // LISTE DES ÉQUIPES ET # DENVOIE DE LIGNE
 $i = 0;
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `SEND` FROM ".$db_table." WHERE `EQUIPESIM`!='' ORDER BY `EQUIPESIM` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -27,7 +27,7 @@ mysqli_close($con);
 
 $date = date("Y-m-d H:i:s");
 $date_av = date('Y-m-d H:i:s', strtotime('-10 minute'));
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM` FROM ".$db_table." WHERE `LAST` BETWEEN '$date_av' AND '$date' AND `EQUIPESIM`!='' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -41,7 +41,7 @@ mysqli_close($con);
 
 $date_av = date('Y-m-d H:i:s', strtotime('-1 hour'));
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `EQUIPE` FROM ".$db_table." WHERE `LAST` BETWEEN '$date_av' AND '$date' AND `EQUIPESIM`!='' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -55,7 +55,7 @@ mysqli_close($con);
 
 
 $date_av = date('Y-m-d H:i:s', strtotime('-1 day'));
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `EQUIPE` FROM ".$db_table." WHERE `LAST` BETWEEN '$date_av' AND '$date' AND `EQUIPESIM`!='' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -69,7 +69,7 @@ mysqli_close($con);
 
 
 $date_av = date('Y-m-d H:i:s', strtotime('-2 days'));
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `EQUIPE` FROM ".$db_table." WHERE `LAST` BETWEEN '$date_av' AND '$date' AND `EQUIPESIM`!='' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -82,7 +82,7 @@ while($data = mysqli_fetch_array($query)) {
 mysqli_close($con);
 
 $date_av = date('Y-m-d H:i:s', strtotime('-1 week'));
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `EQUIPE` FROM ".$db_table." WHERE `LAST` BETWEEN '$date_av' AND '$date' AND `EQUIPESIM`!='' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -95,7 +95,7 @@ while($data = mysqli_fetch_array($query)) {
 mysqli_close($con);
 
 $date_av = date('Y-m-d H:i:s', strtotime('-2 week'));
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `EQUIPE` FROM ".$db_table." WHERE `LAST` BETWEEN '$date_av' AND '$date' AND `EQUIPESIM`!='' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -108,7 +108,7 @@ while($data = mysqli_fetch_array($query)) {
 mysqli_close($con);
 
 $date_av = date('Y-m-d H:i:s', strtotime('-1 month'));
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPESIM`, `EQUIPE` FROM ".$db_table." WHERE `LAST` BETWEEN '$date_av' AND '$date' AND `EQUIPESIM`!='' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {

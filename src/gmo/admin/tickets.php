@@ -2,7 +2,7 @@
 <?php
 
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 $TICKET_TEAM_INT = array();
 

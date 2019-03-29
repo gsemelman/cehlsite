@@ -1,7 +1,7 @@
 <?php
 //include '../../config.php';
-//include FS_ROOT.'gmo/config4.php';
-//include FS_ROOT.'gmo/mysqli.php';
+//include GMO_ROOT.'config4.php';
+//include GMO_ROOT.'mysqli.php';
 //include FS_ROOT.'config.php';
 
 include '../config4.php';

@@ -90,10 +90,13 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 								sort($gmequipe); //sort
 								for($i=0;$i<count($gmequipe);$i++) {
 
-									$matches = glob($folderTeamLogos.strtolower($gmequipe[$i]).'.*');
+								    $matches = glob(FS_ROOT.LOGO_DIR.strtolower($gmequipe[$i]).'.*');
+	
 									$teamImage = '';
 									for($j=0;$j<count($matches);$j++) {
 										$teamImage = $matches[$j];
+										$teamImage = LOGO_DIR.basename($teamImage);
+										error_log('team image = '.$teamImage);
 										break 1;
 									}
 

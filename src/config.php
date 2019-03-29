@@ -1,8 +1,18 @@
 ﻿<?php
 
-//define('PROJECT_ROOT','/cehlsite/');
-define("BASE_URL",'/cehlsite/');
+function getBaseUrl(){
+    $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+    $url = str_replace("\\",'/',$protocol.'://'.$_SERVER['HTTP_HOST'].substr(getcwd(),strlen($_SERVER['DOCUMENT_ROOT'])));  
+    
+    $url = rtrim($url, '/') . '/';
+    
+    return $url;
+}
+
+//define("BASE_URL",'/cehlsite/');
+define("BASE_URL",getBaseUrl());
 define("FS_ROOT",__DIR__.'/');
+define("GMO_ROOT",FS_ROOT.'gmo/');
 
 //Require HTTPS (1 on, 0 off)
 define("HTTPS_REQUIRED",0);
@@ -62,7 +72,6 @@ $folderCarrerStats = CAREER_STATS_DIR;
 // Enter where your team logos are located in your website. Same folder = '';, Previous directory = '../';
 define("LOGO_DIR",'logos/');
 $folderTeamLogos = LOGO_DIR;
-
 
 #GMO Location. 
 //Location of Online GM editor

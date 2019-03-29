@@ -4,11 +4,8 @@ ini_set("display_errors", "On");
 
 include '../../config.php';
 include FS_ROOT.'common.php';
-include FS_ROOT.'gmo/config4.php';
-include FS_ROOT.'gmo/login/mysqli.php';
-
-session_name('GMO');
-session_start();
+include GMO_ROOT.'config4.php';
+include GMO_ROOT.'login/mysqli.php';
 
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -30,7 +27,7 @@ session_name($SessionName);
 session_start();
 
 //must be logged in with admin privaleges
-if(!isAuthenticated() || !isAdmin()){
+if(!isAuthenticated()){
     error_log('HTTP/1.1 403 Forbidden', 0);
     header( 'HTTP/1.1 403 Forbidden' );
     exit;

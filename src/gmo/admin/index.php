@@ -3,11 +3,11 @@
 
 <?php
 
-include FS_ROOT.'gmo/membre/js.php';
+include GMO_ROOT.'membre/js.php';
 
-include FS_ROOT.'gmo/css.php'; // Styling Pages
+include GMO_ROOT.'css.php'; // Styling Pages
 
-include FS_ROOT.'gmo/admin/lang.php';
+include GMO_ROOT.'admin/lang.php';
 if ( isset($_GET['admin']) || isset($_POST['admin']) ) {
 	$mode = ( isset($_GET['admin']) ) ? $_GET['admin'] : $_POST['admin'];
 	$mode = htmlspecialchars($mode);
@@ -18,6 +18,35 @@ if ( isset($_GET['admin']) || isset($_POST['admin']) ) {
 	if ( $mode == 'ufasign' ) include FS_ROOT.'admin/ufaSign_js.php';
 }
 ?>
+
+<style>
+
+/* LEAGUE SETTINGS PAGE*/
+table.tableSpace {
+	border-collapse: separate;
+    border-spacing:0px 5px;
+    width: 100%;
+}
+table.tableSpace tr {
+	box-shadow: 0px 0px 2px 0px rgba(38, 115, 76,0.12), 0px 2px 2px 0px rgba(38, 115, 76,0.24);
+}
+table.tableSpace td {
+	padding: 10px;
+}
+table.tableSpace tr:nth-child(even) {
+	background-color: #<?php echo $databaseColors['colorTableBackground2']; ?>;
+	color:#<?php echo $databaseColors['colorTableText2']; ?>;
+}
+table.tableSpace tr:nth-child(odd) {
+	background-color: #<?php echo $databaseColors['colorTableBackground1']; ?>;
+	color:#<?php echo $databaseColors['colorTableText1']; ?>;
+}
+table.tableSpace tr:hover {
+	background-color: #<?php echo $databaseColors['colorTableBackgroundHover']; ?>;
+	color:#<?php //echo $databaseColors['colorTableTextHover']; ?>;
+} 
+
+</style>
 
 </head>
 <body>
@@ -34,29 +63,29 @@ if ( isset($_GET['admin']) || isset($_POST['admin']) ) {
 		echo $league_name.'<br>';
 	}
 
-	if ( $mode == 'user' ) include FS_ROOT.'gmo/admin/user.php';
-	if ( $mode == 'pass' ) include FS_ROOT.'gmo/admin/password.php';
-	if ( $mode == 'noms' ) include FS_ROOT.'gmo/admin/noms.php';
-	if ( $mode == 'userpass' ) include FS_ROOT.'gmo/admin/userpass.php';
-	if ( $mode == 'triche' ) include FS_ROOT.'gmo/admin/triche.php';
-	if ( $mode == 'actif' ) include FS_ROOT.'gmo/admin/actif.php';
-	if ( $mode == 'fhlteam' ) include FS_ROOT.'gmo/admin/fhlteam.php';
-	if ( $mode == 'first' ) include FS_ROOT.'gmo/admin/first.php';
-	if ( $mode == 'param' ) include FS_ROOT.'gmo/admin/param.php';
-	if ( $mode == 'upload' ) include FS_ROOT.'gmo/admin/upload.php';
-	if ( $mode == 'trade' ) include FS_ROOT.'gmo/admin/trade.php';
-	if ( $mode == 'trademan' ) include FS_ROOT.'gmo/admin/tradeMan.php';
-	if ( $mode == 'ufa' ) include FS_ROOT.'gmo/admin/ufaSend.php';
-	if ( $mode == 'ufasign' ) include FS_ROOT.'gmo/admin/ufaSign.php';
-	if ( $mode == 'colors' ) include FS_ROOT.'gmo/admin/colors.php';
-	if ( $mode == 'colors2' ) include FS_ROOT.'gmo/admin/colorsGet.php';
-	if ( $mode == 'position' ) include FS_ROOT.'gmo/admin/position.php';
-	if ( $mode == 'poll' ) include FS_ROOT.'gmo/admin/poll.php';
-	if ( $mode == 'tickets' ) include FS_ROOT.'gmo/admin/tickets.php';
+	if ( $mode == 'user' ) include GMO_ROOT.'admin/user.php';
+	if ( $mode == 'pass' ) include GMO_ROOT.'admin/password.php';
+	if ( $mode == 'noms' ) include GMO_ROOT.'admin/noms.php';
+	if ( $mode == 'userpass' ) include GMO_ROOT.'admin/userpass.php';
+	if ( $mode == 'triche' ) include GMO_ROOT.'admin/triche.php';
+	if ( $mode == 'actif' ) include GMO_ROOT.'admin/actif.php';
+	if ( $mode == 'fhlteam' ) include GMO_ROOT.'admin/fhlteam.php';
+	if ( $mode == 'first' ) include GMO_ROOT.'admin/first.php';
+	if ( $mode == 'param' ) include GMO_ROOT.'admin/param.php';
+	if ( $mode == 'upload' ) include GMO_ROOT.'admin/upload.php';
+	if ( $mode == 'trade' ) include GMO_ROOT.'admin/trade.php';
+	if ( $mode == 'trademan' ) include GMO_ROOT.'admin/tradeMan.php';
+	if ( $mode == 'ufa' ) include GMO_ROOT.'admin/ufaSend.php';
+	if ( $mode == 'ufasign' ) include GMO_ROOT.'admin/ufaSign.php';
+	if ( $mode == 'colors' ) include GMO_ROOT.'admin/colors.php';
+	if ( $mode == 'colors2' ) include GMO_ROOT.'admin/colorsGet.php';
+	if ( $mode == 'position' ) include GMO_ROOT.'admin/position.php';
+	if ( $mode == 'poll' ) include GMO_ROOT.'admin/poll.php';
+	if ( $mode == 'tickets' ) include GMO_ROOT.'admin/tickets.php';
 }
 else {
 	//echo $league_name.'<br>';	
-	include FS_ROOT.'gmo/admin/accueil.php';
+	include GMO_ROOT.'admin/accueil.php';
 }
 
 echo '</div>';

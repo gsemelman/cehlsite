@@ -3,7 +3,7 @@ extract($_POST,EXTR_OVERWRITE);
 
 if(isset($nom_team)) {
 	$i = 0;
-	include FS_ROOT.'gmo/login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	while(isset($_POST['new_int'.$i])) {
 		$nom_full2 = mysqli_real_escape_string($con, $_POST['nom_full'.$i]);
 		$new_int2 = $_POST['new_int'.$i];
@@ -16,7 +16,7 @@ if(isset($nom_team)) {
 }
 
 $i = 0;
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `EQUIPE`, `INT` FROM `".$db_table."` WHERE `EQUIPESIM` != '' ORDER BY `INT` ASC";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {

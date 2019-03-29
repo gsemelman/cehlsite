@@ -1,6 +1,6 @@
 <?php
 // Lecture des valeurs dans la base de donnée
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM`='file_folder'";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));

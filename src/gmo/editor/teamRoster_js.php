@@ -1,5 +1,5 @@
 <?php
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 $sql = "SELECT `RANK` FROM `$db_table` WHERE `INT` = '$teamID' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));

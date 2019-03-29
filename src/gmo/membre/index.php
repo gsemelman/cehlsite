@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "On");
 
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_folder' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -64,7 +64,7 @@ if(isset($file_ros) && isset($file_tms)) {
 	$d1 = new DateTime($file_date);
 	$d2 = new DateTime($file_lastUpdate);
 	if($d1 > $d2) {
-	    include FS_ROOT.'gmo/editor/file_to_sql.php';
+	    include GMO_ROOT.'editor/file_to_sql.php';
 		$txtFileUpdated =  $db_membre_File_Update[1].'<br><br>';
 	}
 }
@@ -104,7 +104,7 @@ if ( $mode == 'poll') $title = 18;
 
 
 <?php
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_folder_lines' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -290,9 +290,9 @@ $tableau_titre2 = "#014A92"; // #014A92
 
 // echo '<div class="header-content top-container"></div>';
 
-include FS_ROOT.'gmo/css.php'; // Styling Pages
+include GMO_ROOT.'css.php'; // Styling Pages
 
-include FS_ROOT.'gmo/membre/js.php';
+include GMO_ROOT.'membre/js.php';
 
 $divMaxWidth = "width:100%";
 if ( $mode == 'gmonline' ) {
@@ -302,34 +302,34 @@ if ( $mode == 'gmonline' ) {
 		$modeGMO = htmlspecialchars($modeGMO);
 	}
 
-	include FS_ROOT.'gmo/editor/lang.php';
+	include GMO_ROOT.'editor/lang.php';
 	if($modeGMO == 1) {
-	    include FS_ROOT.'gmo/editor/teamRoster_js.php';
+	    include GMO_ROOT.'editor/teamRoster_js.php';
 		$divMaxWidth = "max-width:530px";
 	}
 	if($modeGMO == 2) {
-	    include FS_ROOT.'gmo/editor/teamLines_js.php';
+	    include GMO_ROOT.'editor/teamLines_js.php';
 		$divMaxWidth = "max-width:530px";
 	}
 }
-if ( $mode == 'trade' ) include FS_ROOT.'gmo/trade/js.php';
-if ( $mode == 'ufa' ) include FS_ROOT.'gmo/ufa/js.php';
+if ( $mode == 'trade' ) include GMO_ROOT.'trade/js.php';
+if ( $mode == 'ufa' ) include GMO_ROOT.'ufa/js.php';
 
 if ( $mode == 'ufaListManager' && $gm_ufaListMan == 1 ) {
-    include FS_ROOT.'gmo/admin/lang.php';
-    include FS_ROOT.'gmo/admin/ufa_js.php';
+    include GMO_ROOT.'admin/lang.php';
+    include GMO_ROOT.'admin/ufa_js.php';
 }
 if ( $mode == 'tradeManager' && $gm_tradeMan == 1 ) {
-    include FS_ROOT.'gmo/admin/lang.php';
-    include FS_ROOT.'gmo/admin/trade_js.php';
+    include GMO_ROOT.'admin/lang.php';
+    include GMO_ROOT.'admin/trade_js.php';
 }
 if ( $mode == 'ufaSignManager' && $gm_ufaSignMan == 1 ) {
-    include FS_ROOT.'gmo/admin/lang.php';
-    include FS_ROOT.'gmo/admin/ufaSign_js.php';
+    include GMO_ROOT.'admin/lang.php';
+    include GMO_ROOT.'admin/ufaSign_js.php';
 }
 if ( $mode == 'historyTradeManager' && $gm_historyTradeMan == 1 ) {
-    include FS_ROOT.'gmo/admin/lang.php';
-    include FS_ROOT.'gmo/admin/tradeMan_js.php';
+    include GMO_ROOT.'admin/lang.php';
+    include GMO_ROOT.'admin/tradeMan_js.php';
 }
 
 if ( $mode == 'settings') $divMaxWidth = "max-width:530px";
@@ -388,23 +388,23 @@ if ( $mode == 'poll') $classMenu14 = "active";
 
 if(isset($txtFileUpdated)) echo $txtFileUpdated;
 
-if ( $mode == 'gmonline' ) include FS_ROOT.'gmo/editor/index.php';
-if ( $mode == 'send' AND $league_gmeditor ) include FS_ROOT.'gmo/membre/send.php';
-if ( $mode == 'settings' ) include FS_ROOT.'gmo/membre/settings.php';
-if ( $mode == 'league' ) include FS_ROOT.'gmo/membre/league.php';
-if ( $mode == 'ov' ) include FS_ROOT.'gmo/membre/ov.php';
-if ( $mode == 'position' ) include FS_ROOT.'gmo/membre/position.php';
-if ( $mode == 'poll' ) include FS_ROOT.'gmo/membre/poll.php';
+if ( $mode == 'gmonline' ) include GMO_ROOT.'editor/index.php';
+if ( $mode == 'send' AND $league_gmeditor ) include GMO_ROOT.'membre/send.php';
+if ( $mode == 'settings' ) include GMO_ROOT.'membre/settings.php';
+if ( $mode == 'league' ) include GMO_ROOT.'membre/league.php';
+if ( $mode == 'ov' ) include GMO_ROOT.'membre/ov.php';
+if ( $mode == 'position' ) include GMO_ROOT.'membre/position.php';
+if ( $mode == 'poll' ) include GMO_ROOT.'membre/poll.php';
 
-if ( $mode == 'trade' && $league_TradeToolStatus == 2) include FS_ROOT.'gmo/trade/index.php';
-if ( $mode == 'test') include FS_ROOT.'gmo/membre/test.php';
-if ( $mode == 'ufa' && $league_UFAToolStatus == 2) include FS_ROOT.'gmo/ufa/index.php';
+if ( $mode == 'trade' && $league_TradeToolStatus == 2) include GMO_ROOT.'trade/index.php';
+if ( $mode == 'test') include GMO_ROOT.'membre/test.php';
+if ( $mode == 'ufa' && $league_UFAToolStatus == 2) include GMO_ROOT.'ufa/index.php';
 
 
-if ( $mode == 'ufaSignManager' && $gm_ufaSignMan == 1) include FS_ROOT.'gmo/admin/ufaSign.php';
-if ( $mode == 'tradeManager' && $gm_tradeMan == 1) include FS_ROOT.'gmo/admin/trade.php';
-if ( $mode == 'ufaListManager' && $gm_ufaListMan == 1) include FS_ROOT.'gmo/admin/ufaSend.php';
-if ( $mode == 'historyTradeManager' && $gm_historyTradeMan == 1) include FS_ROOT.'gmo/admin/tradeMan.php';
+if ( $mode == 'ufaSignManager' && $gm_ufaSignMan == 1) include GMO_ROOT.'admin/ufaSign.php';
+if ( $mode == 'tradeManager' && $gm_tradeMan == 1) include GMO_ROOT.'admin/trade.php';
+if ( $mode == 'ufaListManager' && $gm_ufaListMan == 1) include GMO_ROOT.'admin/ufaSend.php';
+if ( $mode == 'historyTradeManager' && $gm_historyTradeMan == 1) include GMO_ROOT.'admin/tradeMan.php';
 
 echo '</div>';
 ?>

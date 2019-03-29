@@ -24,8 +24,8 @@ ini_set('arg_separator.output', '&amp;'); // MODE DANS LE URL
 $skipNav = false;
 include 'head.php';
 
-include FS_ROOT.'gmo/config4.php';
-include FS_ROOT.'gmo/login/mysqli.php';
+include GMO_ROOT.'config4.php';
+include GMO_ROOT.'login/mysqli.php';
 
 
 // Get Infos from database
@@ -88,7 +88,7 @@ if(isset($_SESSION['int'])) {
         if (isset($_SESSION['int']) AND $_SESSION['equipe'] =="ADMIN"){
             $_SESSION['admin'] = 1;
         }
-        include FS_ROOT.'gmo/login/mysqli.php';
+        include GMO_ROOT.'login/mysqli.php';
         $sql = "UPDATE `".$db_table."` SET `LAST`='".$date_time."' WHERE `INT`='".$teamID."'";
         $query = mysqli_query($con, $sql) or die(mysqli_error($con));
         mysqli_close($con);
@@ -123,8 +123,8 @@ include 'nav.php';
 					
     					if ( !isset($_SESSION['int']) ) {
     					    // LIGUE NAME
-    					    include FS_ROOT.'gmo/login/header.php';
-    					    include FS_ROOT.'gmo/login/index.php';
+    					    include GMO_ROOT.'login/header.php';
+    					    include GMO_ROOT.'login/index.php';
     					    $requiresLogin = false;
     					}
 					?>
@@ -136,15 +136,11 @@ include 'nav.php';
 						<ul class="nav nav-tabs ">
 						
 							<li class="nav-item"><a class="nav-link" href="#Team"
-								data-toggle="tab">Team</a></li>
+								data-toggle="tab">My Team</a></li>
 	
 							<li class="nav-item"><a class="nav-link" href="#Lines"
 								data-toggle="tab">Line Editor</a></li>
 								
-							<li class="nav-item"><a class="nav-link" href="#PosChange"
-								data-toggle="tab">Position Change</a></li>
-								
-							
 							<?php 
 							if(isAdmin()){
 							    echo '<li class="nav-item"><a class="nav-link" href="#Admin"
@@ -157,7 +153,7 @@ include 'nav.php';
 							<div class="tab-pane" id="Team">
 								<?php 
 								
-								include FS_ROOT.'gmo/membre/myTeam.php';
+								include GMO_ROOT.'membre/myTeam.php';
 								
                                 ?>
 							</div>
@@ -169,7 +165,7 @@ include 'nav.php';
 								if (isset($_SESSION['equipe']) && $_SESSION['equipe'] != 'ADMIN') {
 								    // MEMBRE ZONE
 								    $db_lang = '';
-								    include FS_ROOT.'gmo/login/mysqli.php';
+								    include GMO_ROOT.'login/mysqli.php';
 								    $sql = "SELECT `LANGUE` FROM `".$db_table."` WHERE `INT`='".$teamID."'";
 								    $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 								    while($data = mysqli_fetch_array($query)) {
@@ -193,8 +189,8 @@ include 'nav.php';
 								        mysqli_close($con);
 								    }
 								    if($db_lang) $league_langue = $db_lang;
-								    include FS_ROOT.'gmo/membre/lang.php';
-								    include FS_ROOT.'gmo/membre/index.php';
+								    include GMO_ROOT.'membre/lang.php';
+								    include GMO_ROOT.'membre/index.php';
 								    
 								    echo'<div class="pt-3 text-center">*NOTE: LINES MUST BE SAVED FOR ROSTER CHANGES TO TAKE EFFECT*</div>';
 								}else{
@@ -204,57 +200,20 @@ include 'nav.php';
                                 ?>
 							</div>
 							
-							<div class="tab-pane" id="PosChange">
-								<?php 
-								if (isset($_SESSION['equipe']) && $_SESSION['equipe'] != 'ADMIN') {
-								    // MEMBRE ZONE
-								    $db_lang = '';
-								    include FS_ROOT.'gmo/login/mysqli.php';
-								    $sql = "SELECT `LANGUE` FROM `".$db_table."` WHERE `INT`='".$teamID."'";
-								    $query = mysqli_query($con, $sql) or die(mysqli_error($con));
-								    while($data = mysqli_fetch_array($query)) {
-								        $db_lang = $data['LANGUE'];
-								    }
-								    if(isset($_GET['lang']) || isset($_POST['lang'])) {
-								        $mode = ( isset($_GET['lang']) ) ? $_GET['lang'] : $_POST['lang'];
-								        $mode = htmlspecialchars($mode);
-								        
-								        if($mode == 'fr' || $mode == 'en') {
-								            if($db_lang == '') {
-								                if($league_langue == "en") $db_lang = "fr";
-								                if($league_langue == "fr") $db_lang = "en";
-								            }
-								            else {
-								                $db_lang = $mode;
-								            }
-								            $sql = "UPDATE `".$db_table."` SET `LANGUE`='$db_lang' WHERE `INT`='".$teamID."'";
-								            $query = mysqli_query($con, $sql) or die(mysqli_error($con));
-								        }
-								        mysqli_close($con);
-								    }
-								    if($db_lang) $league_langue = $db_lang;
-								    include FS_ROOT.'gmo/membre/lang.php';
-								    include FS_ROOT.'gmo/membre/position.php';
-								}else{
-								    echo '<h3>Error loading Page</h3>';
-								}
-								?>
-							</div>
-
 							<?php 
 							if(isAdmin()){
 							    echo '<div class="tab-pane" id="Admin">';
 							    echo '<div class="table-responsive mt-2">';
 							    
 							    $db_lang = '';
-							    include FS_ROOT.'gmo/login/mysqli.php';
+							    include GMO_ROOT.'login/mysqli.php';
 							    $sql = "SELECT `LANGUE` FROM `".$db_table."` WHERE `INT`='".$teamID."'";
 							    $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 							    while($data = mysqli_fetch_array($query)) {
 							        $db_lang = $data['LANGUE'];
 							    }
 							    if($db_lang) $league_langue = $db_lang;
-							    include FS_ROOT.'gmo/admin/index.php';
+							    include GMO_ROOT.'admin/index.php';
 							    
 							    echo '</div>';
 							    echo '</div>';
@@ -299,7 +258,7 @@ include 'nav.php';
 
 	</script>
 
-</div>
+<!-- </div> -->
 
 
 
