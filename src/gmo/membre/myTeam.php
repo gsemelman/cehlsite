@@ -510,7 +510,39 @@ if(isset($teamID)){
 	$("#ticketPriceModal").on("hidden.bs.modal", function(){
 	    $("#ticketError").text("");
 	    $("#newTicketPrice").val("");  
+
+	    //hack for code below
+	    history.replaceState(null, null, "#Team");
+
 	});
+
+
+	//below 4 queries are a hack to close to modal on back button press
+	
+	$("#positionChangeModal").on("hidden.bs.modal", function(){
+
+	    history.replaceState(null, null, "#Team");
+
+	});
+	
+	$(window).on('hashchange', function (event) {
+        if(window.location.hash != "#modal") {
+            $('#ticketPriceModal').modal('hide');
+            $('#positionChangeModal').modal('hide');
+        }
+    });
+
+	$("#ticketPriceModal").on("show.bs.modal", function(){
+		 //history.pushState(null, null, "#modal");
+		 history.pushState(null, null, "#modal");
+
+	});
+
+	$("#positionChangeModal").on("show.bs.modal", function(){
+		 //history.pushState(null, null, "#modal");
+		 history.pushState(null, null, "#modal");
+	});
+	
 
 	//submit function. handles change and cancel
 	function submitTicketPriceChange(newValue, newState){

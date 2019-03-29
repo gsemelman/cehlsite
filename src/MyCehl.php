@@ -235,8 +235,9 @@ include 'nav.php';
 
 	  $(document).ready(function() {
 		  // add a hash to the URL when the user clicks on a tab
-		  $('a[data-toggle="tab"]').on('click', function(e) {
-		    history.pushState(null, null, $(this).attr('href'));
+		  $('#MyCEHL a[data-toggle="tab"]').on('click', function(e) {
+			var currentTab = $(this).attr('href');
+		    history.pushState(null, null, currentTab);
 		  });
 		  // navigate to a tab when the history changes
 		  window.addEventListener("popstate", function(e) {
@@ -244,7 +245,7 @@ include 'nav.php';
 		    if (activeTab.length) {
 		      activeTab.tab('show');
 		    } else {
-		      $('.nav-tabs a:first').tab('show');
+		      $('#MyCEHL .nav-tabs a:first').tab('show');
 		    }
 		  });
 	      //inittab
@@ -252,7 +253,7 @@ include 'nav.php';
 		    if (activeTab.length) {
 		      activeTab.tab('show');
 		    } else {
-		      $('.nav-tabs a:first').tab('show');
+		      $('#MyCEHL .nav-tabs a:first').tab('show');
 		    }
 		});
 

@@ -8,7 +8,7 @@ $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_fol
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
 	while($data = mysqli_fetch_array($query)) {
-	    $file_folder = FS_ROOT.'gmo/'.$data['VALUE'];
+	    $file_folder = GMO_ROOT.$data['VALUE'];
 	}
 }
 
@@ -61,11 +61,18 @@ if(isset($matches) && count($matches)) {
 if(isset($file_ros) && isset($file_tms)) {
 	$file_date = date ("Y-m-d H:i:s", filemtime($file_folder.$file_ros));
 	
+	error_log("checking for new new files!!!!!");
+	
 	$d1 = new DateTime($file_date);
 	$d2 = new DateTime($file_lastUpdate);
+	
+	error_log($d1);
+	error_log($d2);
+	
 	if($d1 > $d2) {
 	    include GMO_ROOT.'editor/file_to_sql.php';
 		$txtFileUpdated =  $db_membre_File_Update[1].'<br><br>';
+		error_log("loading new files!!!!!");
 	}
 }
 else {

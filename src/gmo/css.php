@@ -62,12 +62,14 @@ table.statsPadding td {
 /* GM EDITOR TEAM LINES */
 input.lines {
 	cursor: pointer;
-	width: 115px;
-	border: 0px;
+/* 	width: 115px; */
+ 	border: 0px; 
 	/*background-color: #f9f9f9;*/
+	width: 100%;
 	font-size:11px;
-	line-height: 17px;
-	padding:1px 0px;
+/* 	line-height: 17px; */
+    line-height: 20px;
+/* 	padding:1px 0px; */
 }
 
 .linesPos {
@@ -205,7 +207,7 @@ margin-bottom:0px;
 
 @media screen and (min-width: 501px) {
 	div#tlDivLinesEV, div#tlDivLinesPP, div#tlDivLinesPK {
-		max-width: 290px;
+		max-width: 320px;
 	}
 	table#tlTableStatsRight {
 		float: right;

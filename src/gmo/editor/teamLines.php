@@ -10,6 +10,17 @@
 	background-size: 100%;
 }
 
+.lineButton {
+    height:30px;
+    width:30px;
+    background-repeat:no-repeat;
+    border-width:2px; 
+    display:block;
+	background-size: 100%;
+	margin-bottom:5px;
+}
+
+
 .gmoActiveButton{
     height: 25px; width: 97px; 
     background-size: 100%;
@@ -19,7 +30,7 @@
 #tlDivSelect{
     cursor: pointer;
     line-height:22px;
-    height:200px;
+/*     height:200px; */
 }
 
 #tlDivLinesEV label{
@@ -28,10 +39,10 @@
 }
 
 #tlDivLinesEV table, #tlDivLinesPP table, #tlDivLinesEV table{
-    border-style: solid;
-    border-width: 1px;
-    margin-top:5px;
-    margin-right:5px;
+/*     border-style: solid; */
+/*     border-width: 1px; */
+/*     margin-top:5px; */
+/*     margin-right:5px; */
 }
 </style>
 
@@ -138,11 +149,15 @@
 </div>
 
 <div id="tlDivLinesEV" style="float:left;">
+	<div class="container pt-1">
+	<div class="row">
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card ">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlESL1');">
+		<?php echo $db_membre_gmo_langue[30]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bolder; cursor:pointer;" onclick="javascript:tlLineAverage('tlESL1');"><?php echo $db_membre_gmo_langue[30]; ?></td>
-		</tr>
+
 		<tr>
 			<td><label for="tlESL1CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlESL1CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL1CT) != 0) echo $tlESL1CT; ?>" data-assigned-id="L1C" class="lines" value="<?php if(strlen($tlESL1CT) != 0) echo $playerName[$tlESL1CT]; ?>" readonly></td>
@@ -164,12 +179,15 @@
 			<td><input id="tlESL1D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL1D2) != 0) echo $tlESL1D2; ?>" data-assigned-id="L1D2" class="lines" value="<?php if(strlen($tlESL1D2) != 0) echo $playerName[$tlESL1D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlESL2');">
+		<?php echo $db_membre_gmo_langue[36]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlESL2');"><?php echo $db_membre_gmo_langue[36]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlESL2CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlESL2CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL2CT) != 0) echo $tlESL2CT; ?>" data-assigned-id="L2C" class="lines" value="<?php if(strlen($tlESL2CT) != 0) echo $playerName[$tlESL2CT]; ?>" readonly></td>
@@ -191,12 +209,18 @@
 			<td><input id="tlESL2D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL2D2) != 0) echo $tlESL2D2; ?>" data-assigned-id="L2D2" class="lines" value="<?php if(strlen($tlESL2D2) != 0) echo $playerName[$tlESL2D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	</div>
+	
+	<div class="row">
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlESL3');">
+		<?php echo $db_membre_gmo_langue[35]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlESL3');"><?php echo $db_membre_gmo_langue[35]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlESL3CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlESL3CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL3CT) != 0) echo $tlESL3CT; ?>" data-assigned-id="L3C" class="lines" value="<?php if(strlen($tlESL3CT) != 0) echo $playerName[$tlESL3CT]; ?>" readonly></td>
@@ -218,12 +242,15 @@
 			<td><input id="tlESL3D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL3D2) != 0) echo $tlESL3D2; ?>" data-assigned-id="L3D2" class="lines" value="<?php if(strlen($tlESL3D2) != 0) echo $playerName[$tlESL3D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlESL4');">
+		<?php echo $db_membre_gmo_langue[37]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlESL4');"><?php echo $db_membre_gmo_langue[37]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlESL4CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlESL4CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL4CT) != 0) echo $tlESL4CT; ?>" data-assigned-id="L4C" class="lines" value="<?php if(strlen($tlESL4CT) != 0) echo $playerName[$tlESL4CT]; ?>" readonly></td>
@@ -245,6 +272,12 @@
 			<td><input id="tlESL4D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlESL4D2) != 0) echo $tlESL4D2; ?>" data-assigned-id="L4D2" class="lines" value="<?php if(strlen($tlESL4D2) != 0) echo $playerName[$tlESL4D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
+	
+	</div>
+	
+	</div>
 </div>
 
 <div id="tlDivLinesPP" style="float:left; display:none;">
@@ -437,9 +470,9 @@
 </div>
 
 <div style="float:right;">
-	<button id="tlImgLineEV" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/even.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:tlShowLines(this.id);"></button>
-	<button id="tlImgLinePP" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/pp.png'); background-repeat:no-repeat; border-style:outset; border-width:2px; display:block;" onclick="javascript:tlShowLines(this.id);"></button>
-	<button id="tlImgLinePK" style="height: 25px; width: 25px; background-image:url('<?php echo BASE_URL?>gmo/images/ligne/pk.png'); background-repeat:no-repeat; border-style:outset; border-width:2px; display:block;" onclick="javascript:tlShowLines(this.id);"></button>
+	<button id="tlImgLineEV" class="lineButton" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/even.png'); border-style:inset;" onclick="javascript:tlShowLines(this.id);"></button>
+	<button id="tlImgLinePP" class="lineButton" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/pp.png'); border-style:outset; " onclick="javascript:tlShowLines(this.id);"></button>
+	<button id="tlImgLinePK" class="lineButton" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/pk.png'); border-style:outset;" onclick="javascript:tlShowLines(this.id);"></button>
 </div>
 
 <div style="float:right; margin-top:15px;">
