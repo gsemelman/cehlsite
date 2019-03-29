@@ -1,7 +1,6 @@
 
 <?php
 
-echo '<br><b>'.$db_admin_position[0].'</b><br>';
 
 include FS_ROOT.'gmo/login/mysqli.php';
 
@@ -31,10 +30,12 @@ $TICKET_TEAM_INT = array();
    // echo '<pre>'; print_r($TICKET_TEAM); echo '</pre>';
 //}
 ?>
-<div class="container">
+<div class="container mt-3">
+
+	<h5>Ticket Change Requests</h5>
 	<div class="row">
 		<div class="col">
-            <table class="table">
+            <table class="table text-center">
               <thead>
                 <tr>
                   <th scope="col">Team</th>
@@ -92,8 +93,8 @@ function deleteChange(teamId) {
 //	    	        } else {
 //	    	            //handle error
 //	    	        }
-	    	       // alert("Error Requesting ticket price change");
-	    	   
+	    	        alert("Error Deleting ticket price request");
+
 	    	        return;
 	    	       
 	    	    }

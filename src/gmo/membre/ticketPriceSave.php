@@ -43,7 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       
         $teamID = $_SESSION['int'];
         
-        $sql = "UPDATE `$db_table` SET `TICKETS_REQ`='$newTicketPrice' WHERE `INT`='$teamID'";
+        $sql = "UPDATE `$db_table` SET `TICKETS_REQ`= 
+             CASE
+             WHEN '$newTicketPrice' = TICKETS THEN NULL
+             ELSE '$newTicketPrice' 
+             END
+        WHERE `INT`='$teamID'";
         //$query = mysqli_query($con, $sql) or die(mysqli_error($con));
         $query = mysqli_query($con, $sql);
         

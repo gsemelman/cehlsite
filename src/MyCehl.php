@@ -195,6 +195,8 @@ include 'nav.php';
 								    if($db_lang) $league_langue = $db_lang;
 								    include FS_ROOT.'gmo/membre/lang.php';
 								    include FS_ROOT.'gmo/membre/index.php';
+								    
+								    echo'<div class="pt-3 text-center">*NOTE: LINES MUST BE SAVED FOR ROSTER CHANGES TO TAKE EFFECT*</div>';
 								}else{
 								    echo '<h3>Error loading Page</h3>';
 								}

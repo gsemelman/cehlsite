@@ -9,7 +9,33 @@ $bad = "#ae654c";
 function selectPlayer() {
 	var playerName = document.getElementById('selectPlayer').value;
 	
-	var posAfter = document.querySelector('input[name="radio"]:checked');
+	var posAfter = document.querySelector('input[name="optradio"]:checked');
+	if(posAfter) posAfter.checked = false;
+	
+	if(playerName == "#") {
+		document.getElementById('selectedPlayerWindow').style.display = "none";
+		return;
+	}
+	document.getElementById('selectedPlayerWindow').style.display = "block";
+	var playerPosition = document.getElementById('selectPlayer').querySelector(':checked').getAttribute('data-pos');
+	var html = '';
+	document.getElementById('selectPos0').style.display = "block";
+	document.getElementById('selectPos1').style.display = "block";
+	document.getElementById('selectPos2').style.display = "block";
+	document.getElementById('selectPos3').style.display = "block";
+	document.getElementById('selectPos4').style.display = "block";
+	if(playerPosition == "00") document.getElementById('selectPos0').style.display = "none";
+	if(playerPosition == "01") document.getElementById('selectPos1').style.display = "none";
+	if(playerPosition == "02") document.getElementById('selectPos2').style.display = "none";
+	if(playerPosition == "03") document.getElementById('selectPos3').style.display = "none";
+	if(playerPosition == "04") document.getElementById('selectPos4').style.display = "none";
+	
+}
+
+function selectPlayer2() {
+	var playerName = document.getElementById('selectPlayer').value;
+	
+	var posAfter = document.querySelector('input[name="optradio"]:checked');
 	if(posAfter) posAfter.checked = false;
 	
 	if(playerName == "#") {
@@ -59,7 +85,7 @@ function deleteChangeTeam(playerID) {
 }
 
 function save() {
-	var verify = document.querySelector('input[name="radio"]:checked');
+	var verify = document.querySelector('input[name="optradio"]:checked');
 	if(!verify) {
 		popupAlert("<?php echo $db_membre_Position[7]; ?>", "<?php echo $bad; ?>");
 		return;
@@ -116,6 +142,14 @@ function save() {
 //-->
 </script>
 
+<style>
+
+.btn-outline-primary option {
+    color: #212529;
+    background-color: white;
+}
+</style>
+
 <?php
 
 //only init if not already set
@@ -155,52 +189,85 @@ if(!isset($teamRank)){
         <div class="card mt-2">
             <div class="card-header text-center"><?php echo $db_membre_Position[5]; ?></div>
             <div class="card-body ">
+            	<div class ="row">
             
-            	<div class = "col border pb-2 pt-2">
-                <select id="selectPlayer" style="width:20em; text-align:center;" onchange="javascript:selectPlayer();">
-                <option value="#"><?php echo $db_membre_Position[6]; ?></option>
-                <?php
-                for($i=0;$i<count($playerName);$i++) {
-                	?>
-                	<option data-pos="<?php echo $playerPosi[$i]; ?>" value="<?php echo $playerName[$i]; ?>"><?php echo $playerName[$i].' - '.$playerPosT[$i]; ?></option>
-                	<?php
-                }
-                ?>
-                </select>
-                
-                <div style="width:50%;  margin-top:20px;" id="selectedPlayerWindow">
-                	<label id="selectPos0" class="labelContainer"><?php echo $db_membre_Position[8]; ?>
-                		<input type="radio" name="radio" value="00">
-                		<span class="customRadio"></span>
-                	</label>
-                	<label id="selectPos1" class="labelContainer"><?php echo $db_membre_Position[9]; ?>
-                		<input type="radio" name="radio" value="01">
-                		<span class="customRadio"></span>
-                	</label>
-                	<label id="selectPos2" class="labelContainer"><?php echo $db_membre_Position[10]; ?>
-                		<input type="radio" name="radio" value="02">
-                		<span class="customRadio"></span>
-                	</label>
-                	<label id="selectPos3" class="labelContainer"><?php echo $db_membre_Position[11]; ?>
-                		<input type="radio" name="radio" value="03">
-                		<span class="customRadio"></span>
-                	</label>
-                	<label id="selectPos4" class="labelContainer"><?php echo $db_membre_Position[12]; ?>
-                		<input type="radio" name="radio" value="04">
-                		<span class="customRadio"></span>
-                	</label>
-                	<br>
-                	
-                	<div style = "width:13em"><input class="button" type = "button" value="Submit" onclick="javascript:save();"></div>
-                	
+                	<div class = "col flex border rounded pb-2 pt-2">
+                        <select id="selectPlayer" class = "form-control btn-outline-primary" style="width:20em; text-align:center;" onchange="javascript:selectPlayer();">
+                        <option value="#"><?php echo $db_membre_Position[6]; ?></option>
+                        <?php
+                        for($i=0;$i<count($playerName);$i++) {
+                        	?>
+                        	<option  data-pos="<?php echo $playerPosi[$i]; ?>" value="<?php echo $playerName[$i]; ?>"><?php echo $playerName[$i].' - '.$playerPosT[$i]; ?></option>
+                        	<?php
+                        }
+                        ?>
+                        </select>
+                    
+                        <div style="width:50%;  margin-top:20px;" id="selectedPlayerWindow">
+                        
+                        	<div id="selectPos0" class="form-check">
+                              <label class="form-check-label labelContainer">
+                                <input type="radio" class="form-check-input" name="optradio" value="00"><?php echo $db_membre_Position[8]; ?>
+                              <!--                                 <span class="customRadio"></span> -->
+                              </label>
+                            </div>
+                            <div id="selectPos1" class="form-check">
+                              <label class="form-check-label labelContainer">
+                                <input type="radio" class="form-check-input" name="optradio" value="01"><?php echo $db_membre_Position[9]; ?>
+                             <!--                                 <span class="customRadio"></span> -->
+                              </label>
+                            </div>
+                            <div  id="selectPos2"class="form-check">
+                              <label class="form-check-label labelContainer">
+                                <input type="radio" class="form-check-input" name="optradio" value="02"></span><?php echo $db_membre_Position[10]; ?>
+                              	<!--                                 <span class="customRadio"></span> -->
+                              </label>
+                            </div>
+                       	    <div id="selectPos3" class="form-check">
+                              <label class="form-check-label labelContainer">
+                                <input type="radio" class="form-check-input customRadio" name="optradio" value="03"><?php echo $db_membre_Position[11]; ?>
+                              <!--                                 <span class="customRadio"></span> -->
+                              </label>
+                            </div>
+                          	<div id="selectPos4" class="form-check">
+                              <label class="form-check-label labelContainer">
+                                <input type="radio" class="form-check-input " name="optradio" value="04"><?php echo $db_membre_Position[12]; ?>
+<!--                                 <span class="customRadio"></span> -->
+                              </label>
+                            </div>
+                            
+                           <!--
+                        	<label id="selectPos0" class="labelContainer"><?php// echo $db_membre_Position[8]; ?>
+                        		<input class="form-check-input" type="radio" name="radio" value="00">
+                        		<span class="customRadio"></span>
+                        	</label>
+                        	<label id="selectPos1" class="labelContainer"><?php //echo $db_membre_Position[9]; ?>
+                        		<input class="form-check-input" type="radio" name="radio" value="01">
+                        		<span class="customRadio"></span>
+                        	</label>
+                        	<label id="selectPos2" class="labelContainer"><?php //echo $db_membre_Position[10]; ?>
+                        		<input class="form-check-input" type="radio" name="radio" value="02">
+                        		<span class="customRadio"></span>
+                        	</label>
+                        	<label id="selectPos3" class="labelContainer"><?php //echo $db_membre_Position[11]; ?>
+                        		<input class="form-check-input" type="radio" name="radio" value="03">
+                        		<span class="customRadio"></span>
+                        	</label>
+                        	<label id="selectPos4" class="labelContainer"><?php //echo $db_membre_Position[12]; ?>
+                        		<input class="form-check-input" type="radio" name="radio" value="04">
+                        		<span class="customRadio"></span>
+                        	</label>
+                        	<br>   -->
+                        	
+                        	<div style = "width:13em"><input class="btn btn-outline-primary" type = "button" value="Submit" onclick="javascript:save();"></div>
+                        	
+                        </div>
+                    </div>
+   
                 </div>
-                
-                </div>
-                <!-- <div style="text-align:center; width:100%;">
-                	<a class="tooltip" href="<?php //echo BASE_URL?>gmo/membre/position.php"><img class="menu2" src="<?php //echo BASE_URL?>gmo/images/design/position.png" alt="<?php //$db_membre_Position[14]; ?>"><span class="tooltiptext"><?php //echo $db_membre_Position[14]; ?></span></a>
-                </div> -->
-       		</div>
-    	</div>
+          
+       		</div> <!-- end card-body -->
+    	</div> <!-- end card -->
 
 	</div> <!-- end col -->
 	
@@ -348,8 +415,9 @@ mysqli_close($con);
             </table>
 			</div>
 		</div><!-- card end -->
+
 	</div><!-- col end -->
-	
+
 </div> <!-- row end -->
 
 

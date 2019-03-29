@@ -3,10 +3,12 @@ error_reporting(E_ALL);
 ini_set("display_errors", "On");
 
 include '../../config.php';
+include FS_ROOT.'common.php';
 include FS_ROOT.'gmo/config4.php';
 include FS_ROOT.'gmo/login/mysqli.php';
 
-
+session_name('GMO');
+session_start();
 
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
@@ -27,11 +29,14 @@ if($query){
 session_name($SessionName);
 session_start();
 
-if(isset($_SESSION['equipesim']) && $_SESSION['equipesim'] == "") {
-	echo 'You need to be logged to access this page!';
-	mysqli_close($con);
-	exit();
+//must be logged in with admin privaleges
+if(!isAuthenticated() || !isAdmin()){
+    error_log('HTTP/1.1 403 Forbidden', 0);
+    header( 'HTTP/1.1 403 Forbidden' );
+    exit;
 }
+
+
 $teamFHLSimName = $_SESSION['equipesim'];
 
 date_default_timezone_set($TimeZone);
@@ -40,6 +45,12 @@ $date_time = date("Y-m-d H:i:s");
 $playerName = $_POST['playerName'];
 $playerPosBf = $_POST['playerPosBf'];
 $playerPosAf = $_POST['playerPosAf'];
+
+if(!$playerName || !$playerName || !$playerPosAf){
+    error_log('Caught exception: invalid params', 0);
+    header( 'HTTP/1.1 400 internal error' );
+    exit;
+}
 
 // Add new position change
 $playerName = mysqli_real_escape_string($con, $playerName);

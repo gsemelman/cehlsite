@@ -283,14 +283,14 @@ function calcOv(&$arr){
 		scrollY:        true,
         scrollX:        true,
         scrollCollapse: true,
-        order: [[ 18, "desc" ]],
+        order: [[ 19, "desc" ]],
         fixedColumns:   {
             leftColumns: 1,
             rightColumns: 1
         },
         paging:         true,
         pagingType: "simple_numbers",
-        lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+        lengthMenu: [[ 50, 100, 200, -1], [50, 100, 200, "All"]],
         language: {
             "lengthMenu": "Display _MENU_ records"
         },   
