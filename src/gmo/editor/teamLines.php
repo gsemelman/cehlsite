@@ -153,7 +153,7 @@
 	<div class="row">
 	<div class="col-sm-6 mb-2 px-1">
 	<div class="card ">
-	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlESL1');">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" onclick="javascript:tlLineAverage('tlESL1');">
 		<?php echo $db_membre_gmo_langue[30]; ?>
 	</div>
 	<table style="border-collapse: collapse; float:left;">
@@ -281,11 +281,14 @@
 </div>
 
 <div id="tlDivLinesPP" style="float:left; display:none;">
+	<div class="container pt-1">
+	<div class="row">
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card ">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" onclick="javascript:tlLineAverage('tlPPL1');">
+		<?php echo $db_membre_gmo_langue[38]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPPL1');"><?php echo $db_membre_gmo_langue[38]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPPL1CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPPL1CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL1CT) != 0) echo $tlPPL1CT; ?>" data-assigned-id="P1C" class="lines" value="<?php if(strlen($tlPPL1CT) != 0) echo $playerName[$tlPPL1CT]; ?>" readonly></td>
@@ -307,12 +310,15 @@
 			<td><input id="tlPPL1D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL1D2) != 0) echo $tlPPL1D2; ?>" data-assigned-id="P1D2" class="lines" value="<?php if(strlen($tlPPL1D2) != 0) echo $playerName[$tlPPL1D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlPPL2');">
+		<?php echo $db_membre_gmo_langue[41]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPPL2');"><?php echo $db_membre_gmo_langue[41]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPPL2CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPPL2CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL2CT) != 0) echo $tlPPL2CT; ?>" data-assigned-id="P2C" class="lines" value="<?php if(strlen($tlPPL2CT) != 0) echo $playerName[$tlPPL2CT]; ?>" readonly></td>
@@ -334,12 +340,15 @@
 			<td><input id="tlPPL2D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL2D2) != 0) echo $tlPPL2D2; ?>" data-assigned-id="P2D2" class="lines" value="<?php if(strlen($tlPPL2D2) != 0) echo $playerName[$tlPPL2D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlPPL3');">
+		<?php echo $db_membre_gmo_langue[39]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPPL3');"><?php echo $db_membre_gmo_langue[39]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPPL3CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPPL3CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL3CT) != 0) echo $tlPPL3CT; ?>" data-assigned-id="P3C" class="lines" value="<?php if(strlen($tlPPL3CT) != 0) echo $playerName[$tlPPL3CT]; ?>" readonly></td>
@@ -357,12 +366,15 @@
 			<td><input id="tlPPL3D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL3D2) != 0) echo $tlPPL3D2; ?>" data-assigned-id="P3D2" class="lines" value="<?php if(strlen($tlPPL3D2) != 0) echo $playerName[$tlPPL3D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlPPL4');">
+		<?php echo $db_membre_gmo_langue[42]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPPL4');"><?php echo $db_membre_gmo_langue[42]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPPL4CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPPL4CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL4CT) != 0) echo $tlPPL4CT; ?>" data-assigned-id="P4C" class="lines" value="<?php if(strlen($tlPPL4CT) != 0) echo $playerName[$tlPPL4CT]; ?>" readonly></td>
@@ -380,15 +392,25 @@
 			<td><input id="tlPPL4D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPPL4D2) != 0) echo $tlPPL4D2; ?>" data-assigned-id="P4D2" class="lines" value="<?php if(strlen($tlPPL4D2) != 0) echo $playerName[$tlPPL4D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
+	
+	</div>
+	
+	</div>
 </div>
 
 
 <div id="tlDivLinesPK" style="float:left; display:none;">
+
+	<div class="container pt-1">
+	<div class="row">
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card ">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" onclick="javascript:tlLineAverage('tlPKL1');">
+		<?php echo $db_membre_gmo_langue[43]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPKL1');"><?php echo $db_membre_gmo_langue[43]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPKL1CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPKL1CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL1CT) != 0) echo $tlPKL1CT; ?>" data-assigned-id="K1C" class="lines" value="<?php if(strlen($tlPKL1CT) != 0) echo $playerName[$tlPKL1CT]; ?>" readonly></td>
@@ -406,12 +428,15 @@
 			<td><input id="tlPKL1D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL1D2) != 0) echo $tlPKL1D2; ?>" data-assigned-id="K1D2" class="lines" value="<?php if(strlen($tlPKL1D2) != 0) echo $playerName[$tlPKL1D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlPKL2');">
+		<?php echo $db_membre_gmo_langue[45]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPKL2');"><?php echo $db_membre_gmo_langue[45]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPKL2CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPKL2CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL2CT) != 0) echo $tlPKL2CT; ?>" data-assigned-id="K2C" class="lines" value="<?php if(strlen($tlPKL2CT) != 0) echo $playerName[$tlPKL2CT]; ?>" readonly></td>
@@ -429,12 +454,15 @@
 			<td><input id="tlPKL2D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL2D2) != 0) echo $tlPKL2D2; ?>" data-assigned-id="K2D2" class="lines" value="<?php if(strlen($tlPKL2D2) != 0) echo $playerName[$tlPKL2D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlPKL3');">
+		<?php echo $db_membre_gmo_langue[44]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPKL3');"><?php echo $db_membre_gmo_langue[44]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPKL3CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPKL3CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL3CT) != 0) echo $tlPKL3CT; ?>" data-assigned-id="K3C" class="lines" value="<?php if(strlen($tlPKL3CT) != 0) echo $playerName[$tlPKL3CT]; ?>" readonly></td>
@@ -448,12 +476,15 @@
 			<td><input id="tlPKL3D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL3D2) != 0) echo $tlPKL3D2; ?>" data-assigned-id="K3D2" class="lines" value="<?php if(strlen($tlPKL3D2) != 0) echo $playerName[$tlPKL3D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 	
+	<div class="col-sm-6 mb-2 px-1">
+	<div class="card">
+	<div class="card-header p-0 text-center" style="cursor:pointer;" span onclick="javascript:tlLineAverage('tlPKL4');">
+		<?php echo $db_membre_gmo_langue[46]; ?>
+	</div>
 	<table style="border-collapse: collapse; float:left;">
-		<tr>
-			<td style="width:20px;"></td>
-			<td style="font-weight:bold; cursor:pointer;" onclick="javascript:tlLineAverage('tlPKL4');"><?php echo $db_membre_gmo_langue[46]; ?></td>
-		</tr>
 		<tr>
 			<td><label for="tlPKL4CT" class="linesPos"><?php echo $db_membre_gmo_langue[31]; ?></label></td>
 			<td><input id="tlPKL4CT" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL4CT) != 0) echo $tlPKL4CT; ?>" data-assigned-id="K4C" class="lines" value="<?php if(strlen($tlPKL4CT) != 0) echo $playerName[$tlPKL4CT]; ?>" readonly></td>
@@ -467,6 +498,12 @@
 			<td><input id="tlPKL4D2" onclick="javascript:tlInputClicked(this.id);" data-player-id="<?php if(strlen($tlPKL4D2) != 0) echo $tlPKL4D2; ?>" data-assigned-id="K4D2" class="lines" value="<?php if(strlen($tlPKL4D2) != 0) echo $playerName[$tlPKL4D2]; ?>" readonly></td>
 		</tr>
 	</table>
+	</div>
+	</div>
+	
+	</div>
+	
+	</div>
 </div>
 
 <div style="float:right;">
