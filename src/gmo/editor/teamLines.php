@@ -33,7 +33,7 @@
 /*     height:200px; */
 }
 
-#tlDivLinesEV label{
+#tlDivLinesEV label, #tlDivLinesPP label, #tlDivLinesPK label{
    margin-bottom: 0px;
    padding: 1px 0px;
 }
@@ -512,7 +512,7 @@
 	<button id="tlImgLinePK" class="lineButton" style="background-image:url('<?php echo BASE_URL?>gmo/images/ligne/pk.png'); border-style:outset;" onclick="javascript:tlShowLines(this.id);"></button>
 </div>
 
-<div style="float:right; margin-top:15px;">
+<div style="float:left; margin-top:15px;">
 	<button class="gmoActiveButton" id="tlImgAuto" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/auto.png');" onclick="tlAutoLine();"></button>
 	<button class="gmoActiveButton" id="tlImgSave" style="background:url('<?php echo BASE_URL?>gmo/images/ligne/saveline.png');" onclick="tlSave();"></button>
 	<!--<button class="gmoActiveButton" id="tlImgRoster" style="background:url('<?php //echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php //echo BASE_URL?>MyCehl.php?membre=gmonline&lines=1#Lines';"></button>-->
