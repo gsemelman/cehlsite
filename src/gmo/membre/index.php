@@ -61,18 +61,17 @@ if(isset($matches) && count($matches)) {
 if(isset($file_ros) && isset($file_tms)) {
 	$file_date = date ("Y-m-d H:i:s", filemtime($file_folder.$file_ros));
 	
-	error_log("checking for new new files!!!!!");
+	error_log("checking for new new files!!!!!",0);
 	
 	$d1 = new DateTime($file_date);
 	$d2 = new DateTime($file_lastUpdate);
-	
-	error_log($d1);
-	error_log($d2);
+
 	
 	if($d1 > $d2) {
+	    error_log("loading new files!!!!!",0);
 	    include GMO_ROOT.'editor/file_to_sql.php';
 		$txtFileUpdated =  $db_membre_File_Update[1].'<br><br>';
-		error_log("loading new files!!!!!");
+		error_log("new files loaded!!!!!",0);
 	}
 }
 else {

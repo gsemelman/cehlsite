@@ -629,3 +629,8 @@ if(isset($teamID)){
 </div>
 </div>
 </div>
+<?php 
+
+unset($langPosition, $data, $query, $playerName, $playerPosi, $playerPosT);
+
+?>
