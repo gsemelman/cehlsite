@@ -16,7 +16,7 @@ if(!HTTPS_REQUIRED){
 
 
 //start session
-session_name('GMO');
+session_name(SESSION_NAME);
 session_start();
 
 

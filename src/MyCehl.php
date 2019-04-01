@@ -85,10 +85,7 @@ include 'nav.php';
 
 
 <div id="MyCEHL" class="container">
-<?php
-echo '<pre>';
 
-echo '</pre>';?>
 	<div class="row">
 		<div class="col p-1">
 			<div class="card">
@@ -105,13 +102,13 @@ echo '</pre>';?>
     					    include GMO_ROOT.'login/header.php';
     					    include GMO_ROOT.'login/index.php';
     					    $requiresLogin = false;
-    					}
+					   }else{
 					?>
 					
 					<div id="popupAlert" class="mb-2" style="display:none; height:40px; line-height:40px; text-align:center; vertical-align:middle; background-color:#ae654c; color:#ffffff; font-weight:bold; border-radius:10px; border:0px;"></div>
 					
 				
-					<div id="nav-mygm" <?php echo 'style='.(!$requiresLogin ? 'display:none' : '');  ?>>
+					<div id="nav-mygm">
 						<ul class="nav nav-tabs ">
 						
 							<li class="nav-item"><a class="nav-link" href="#Team"
@@ -203,6 +200,8 @@ echo '</pre>';?>
 						</div>
 
 					</div>
+					
+					<?php  }?>
 					
 				</div> <!-- end card body -->
 

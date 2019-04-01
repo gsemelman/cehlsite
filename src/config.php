@@ -14,6 +14,8 @@ define("BASE_URL",getBaseUrl());
 define("FS_ROOT",__DIR__.'/');
 define("GMO_ROOT",FS_ROOT.'gmo/');
 
+define("SESSION_NAME",'GMO');
+
 //Require HTTPS (1 on, 0 off)
 define("HTTPS_REQUIRED",0);
 

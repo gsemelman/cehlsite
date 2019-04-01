@@ -11,14 +11,15 @@ include_once FS_ROOT.'common.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if(!isset($_POST['user']) || !isset($_POST['pass'])){
-        error_log('HTTP/1.1 403 Forbidden', 0);
-        header('Location: ' . BASE_URL);
+       // error_log('HTTP/1.1 403 Forbidden', 0);
+        //header('Location: ' . BASE_URL);
+        http_response_code(404);
         exit();
     }
     
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-    $rememberMe = $_POST['pass'];
+    $rememberMe = $_POST['rememberMe'];
     
     
 }else if(!empty($_COOKIE['rememberMe']) && !empty($_COOKIE['login'])){
@@ -30,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if(!isset($user)){
     error_log('HTTP/1.1 403 Forbidden', 0);
-    header('Location: ' . BASE_URL);
+    http_response_code(403);
+    //header('Location: ' . BASE_URL);
     exit();
 }
 
@@ -44,9 +46,11 @@ if($query){
         $SessionName = $data['VALUE'];
     }
 }
+if(!isset($_SESSION)){
+    session_name($SessionName);
+    session_start();
+}
 
-session_name($SessionName);
-session_start();
 // remove all session variables
 session_unset();
 // destroy the session
@@ -107,13 +111,15 @@ if($query){
         $query = mysqli_query($con, $sql) or die(mysqli_error($con));
     }else{
                 
-        unset($_COOKIE['login']);
-        setcookie('login', '', time() - 3600, '/'); // empty value and old timestamp
-        unset($_COOKIE['rememberMe']);
-        setcookie('rememberMe', '', time() - 3600, '/'); // empty value and old timestamp
+//         unset($_COOKIE['login']);
+//         setcookie('login', '', time() - 3600, '/'); // empty value and old timestamp
+//         unset($_COOKIE['rememberMe']);
+//         setcookie('rememberMe', '', time() - 3600, '/'); // empty value and old timestamp
 
         error_log('HTTP/1.1 403 Forbidden', 0);
-        header('Location: ' . BASE_URL);
+        //header('Location: ' . BASE_URL);
+        //header('Location: ' . $_SERVER['HTTP_REFERER']);
+        http_response_code(400);
         exit();
     }
 }else{
@@ -123,7 +129,12 @@ mysqli_close($con);
 
 unset($user, $pass, $rememberMe);
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+if(isset($_SERVER['HTTP_REFERER'])){
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}else{
+   // header('Location:' . BASE_URL);
+}
+
 
 
 ?>

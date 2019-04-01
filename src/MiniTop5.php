@@ -1,11 +1,4 @@
 <?php
-$currentTeam = '';
-//session_start();
-if(isset($_SESSION["team"])) $currentTeam = $_SESSION["team"];
-ob_start();
-if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
-ob_end_flush();
-
 include_once 'config.php';
 include_once 'lang.php';
 include_once 'common.php';
