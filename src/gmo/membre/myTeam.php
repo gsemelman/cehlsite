@@ -492,7 +492,7 @@ if(isset($teamID)){
 		});
 	
 
-	var originalTicketPrice = <?php echo $TeamTicketPrice; ?>;
+	var originalTicketPrice = <?php echo $TeamTicketPrice; ?>
 
 	//handle change ticket button press
 	$("#btnTicketPrice").on("click", function(){

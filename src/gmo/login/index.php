@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="col-12 col-md-6 col-lg-3 text-center mx-auto">
-    	<form method="post" action="gmo/login/validation.php">
+<!--     	<form method="post" action="gmo/login/validation.php"> -->
+		<form method="post" action="<?php echo BASE_URL?>gmo/login/authenticate.php">
     		<div class="form-group">
         		<label for="usernameControl">Username:</label>	
         		<input class="form-control text-center"  type="text" name="user" id="usernameControl" required>	

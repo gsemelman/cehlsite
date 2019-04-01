@@ -11,6 +11,7 @@ if($query){
 }
 
 // Search for .LNS on the server
+$teamFHLSimName = $_SESSION['equipesim'];
 $name_lines = $teamFHLSimName.'.lns';
 $server_file = $file_folder_lines.$name_lines;
 $loadlinesDisplay = "none";

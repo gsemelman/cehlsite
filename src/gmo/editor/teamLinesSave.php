@@ -28,7 +28,7 @@ if($query){
 
 session_name($SessionName);
 session_start();
-$teamID = $_SESSION['int'];
+$teamID = $_SESSION['teamId'];
 $teamFHLSimName = $_SESSION['equipesim'];
 if($teamFHLSimName == '') {
 	echo 'No Filename detected! File not saved!';

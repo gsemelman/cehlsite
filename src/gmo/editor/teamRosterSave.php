@@ -13,7 +13,7 @@ if($query){
 
 session_name($SessionName);
 session_start();
-$teamID = $_SESSION['int'];
+$teamID = $_SESSION['teamId'];
 
 $sql = "SELECT `RANK` FROM `$db_table` WHERE `INT` = '$teamID' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));

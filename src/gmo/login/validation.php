@@ -1,8 +1,9 @@
 <?php
 extract($_POST,EXTR_OVERWRITE); // NAME = PHP VARIABLE
 
-include '../config4.php';
-include 'mysqli.php';
+include '../../config.php';
+include GMO_ROOT.'config4.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -21,15 +22,15 @@ mysqli_close($con);
 session_name($SessionName);
 session_start();
 // remove all session variables
-//session_unset();
+session_unset();
 		
 // destroy the session
-//session_destroy(); 
+session_destroy(); 
 
 //include '../config4.php';
 
 // Connexion local
-if($login) {
+//if($login) {
 	$user = strtoupper($user);
 	include 'mysqli.php';
 	$user = mysqli_real_escape_string($con, $user);
@@ -42,11 +43,12 @@ if($login) {
 				session_name($SessionName);
 				session_start();
 				
+				$teamID = $data['INT'];
 				$_SESSION['authenticated'] = true;
   				$_SESSION['login'] = $user;
 				$_SESSION['equipe'] = $data['EQUIPE'];
 				$_SESSION['equipesim'] = $data['EQUIPESIM'];
-				$_SESSION['int'] = $data['INT'];
+				//$_SESSION['int'] = $data['INT'];
 				if(1==$data['ADMIN']){
 				   // $_SESSION['admin'] = $data['ADMIN'];
 				    $_SESSION['isAdmin'] = true;
@@ -65,7 +67,7 @@ if($login) {
 		}
 	}
 	mysqli_close($con);
-}
+//}
 
 if(isset($_SESSION['login'])){
 	date_default_timezone_set($TimeZone);

@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         include GMO_ROOT.'login/mysqli.php';
         $newTicketPrice = mysqli_real_escape_string($con, $newTicketPrice);
       
-        $teamID = $_SESSION['int'];
+        $teamID = $_SESSION['teamId'];
         
         $sql = "UPDATE `$db_table` SET `TICKETS_REQ`= 
              CASE

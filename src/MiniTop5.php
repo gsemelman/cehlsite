@@ -46,7 +46,7 @@ if(isset($spj)) unset($spj);
 
 if (file_exists($Fnm)) {
 	$tableau = file($Fnm);
-	while(list($cle,$val) = each($tableau)) {
+	while(list($cle,$val) = myEach($tableau)) {
 		$val = utf8_encode($val);
 		if(substr_count($val, '<BR>') && !substr_count($val, '(') && !substr_count($val, '<BR><BR>')) {
 			$a++;
@@ -186,50 +186,40 @@ if (file_exists($Fnm)) {
 	<td>'.$top5Pts.'</td>
 	</tr>';
 	    
-	    $bold = '';
-	    if(isset($TSabbr) && $cee[$i] == $TSabbr) $bold = 'font-weight:bold;';
 	    echo '
 	<tr class="hover2">
-	<td style="'.$bold.'">C</td>
-	<td style="'.$bold.'">'.$cej[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$cee[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$ceg[0].'</td>
+	<td>C</td>
+	<td>'.$cej[0].'</td>
+	<td style="text-align:right;">'.$cee[0].'</td>
+	<td style="text-align:right;">'.$ceg[0].'</td>
 	</tr>';
-	    $bold = '';
-	    if(isset($TSabbr) && $age[$i] == $TSabbr) $bold = 'font-weight:bold;';
 	    echo '
 	<tr class="hover1">
-	<td style="'.$bold.'">'.$top5LW.'</td>
-	<td style="'.$bold.'">'.$agj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$age[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$agg[0].'</td>
+	<td>'.$top5LW.'</td>
+	<td>'.$agj[0].'</td>
+	<td style="text-align:right;">'.$age[0].'</td>
+	<td style="text-align:right;">'.$agg[0].'</td>
 	</tr>';
-	    $bold = '';
-	    if(isset($TSabbr) && $ade[$i] == $TSabbr) $bold = 'font-weight:bold;';
 	    echo '
 	<tr class="hover2">
-	<td style="'.$bold.'">'.$top5RW.'</td>
-	<td style="'.$bold.'">'.$adj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$ade[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$adg[0].'</td>
+	<td>'.$top5RW.'</td>
+	<td>'.$adj[0].'</td>
+	<td style="text-align:right;">'.$ade[0].'</td>
+	<td style="text-align:right;">'.$adg[0].'</td>
 	</tr>';
-	    $bold = '';
-	    if(isset($TSabbr) && $dfe[$i] == $TSabbr) $bold = 'font-weight:bold;';
 	    echo '
 	<tr class="hover1">
-	<td style="'.$bold.'">D</td>
-	<td style="'.$bold.'">'.$dfj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$dfe[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$dfg[0].'</td>
+	<td>D</td>
+	<td>'.$dfj[0].'</td>
+	<td style="text-align:right;">'.$dfe[0].'</td>
+	<td style="text-align:right;">'.$dfg[0].'</td>
 	</tr>';
-	    $bold = '';
-	    if(isset($TSabbr) && $rke[$i] == $TSabbr) $bold = 'font-weight:bold;';
 	    echo '
 	<tr class="hover2">
-	<td style="'.$bold.'">*</td>
-	<td style="'.$bold.'">'.$rkj[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rke[0].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rkg[0].'</td>
+	<td>*</td>
+	<td>'.$rkj[0].'</td>
+	<td style="text-align:right;">'.$rke[0].'</td>
+	<td style="text-align:right;">'.$rkg[0].'</td>
 	</tr>';
 	    
 	    echo '</table></div>';

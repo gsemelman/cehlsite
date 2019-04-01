@@ -78,31 +78,6 @@ $date_time = date("Y-m-d H:i:s"); // Global variable!
 
 $a = '';
 
-
-if(isset($_SESSION['int'])) {
-    
-    $teamID = $_SESSION['int'];
-    $teamFullName = $_SESSION['equipe'];
-    $teamFHLSimName = $_SESSION['equipesim'];
-    if(isset($_SESSION['int']) && isset($_SESSION['equipe'])) {
-        if (isset($_SESSION['int']) AND $_SESSION['equipe'] =="ADMIN"){
-            $_SESSION['admin'] = 1;
-        }
-        include GMO_ROOT.'login/mysqli.php';
-        $sql = "UPDATE `".$db_table."` SET `LAST`='".$date_time."' WHERE `INT`='".$teamID."'";
-        $query = mysqli_query($con, $sql) or die(mysqli_error($con));
-        mysqli_close($con);
-    }
-    else {
-        // remove all session variables
-       // session_unset();
-        
-        // destroy the session
-        //session_destroy();
-    }
-}
-
-
 //include 'head.php';
 include 'nav.php';
 //echo '<div class="header-content top-container"></div>';
@@ -110,6 +85,10 @@ include 'nav.php';
 
 
 <div id="MyCEHL" class="container">
+<?php
+echo '<pre>';
+
+echo '</pre>';?>
 	<div class="row">
 		<div class="col p-1">
 			<div class="card">
@@ -121,7 +100,7 @@ include 'nav.php';
 					<?php 
 					$requiresLogin = true;
 					
-    					if ( !isset($_SESSION['int']) ) {
+					   if ( !isAuthenticated() ) {
     					    // LIGUE NAME
     					    include GMO_ROOT.'login/header.php';
     					    include GMO_ROOT.'login/index.php';

@@ -3,15 +3,22 @@ include 'config.php';
 include 'lang.php';
 include 'common.php';
 
+$CurrentHTML = 'index.php';
+$CurrentTitle = 'Home';
+$CurrentPage = 'Home';
+
 if(!HTTPS_REQUIRED){
     //checkHttps();
 }
 
-session_name('GMO');
-session_start();
+// session_name('GMO');
+// session_start();
 
-include 'auth.php';
-include 'nav.php';
+//include GMO_ROOT.'login/authenticate.php';
+//$skipNav = false;
+include 'head.php';
+
+//include 'nav.php';
 
 ?>
 
@@ -96,7 +103,6 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 									for($j=0;$j<count($matches);$j++) {
 										$teamImage = $matches[$j];
 										$teamImage = LOGO_DIR.basename($teamImage);
-										error_log('team image = '.$teamImage);
 										break 1;
 									}
 

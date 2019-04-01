@@ -59,7 +59,7 @@ $stop = 0;
 if(isset($nextGames)) unset($nextGames);
 if (file_exists($Fnm)) {
 	$tableau = file($Fnm);
-	while(list($cle,$val) = each($tableau)) {
+	while(list($cle,$val) = myEach($tableau)) {
 		$val = utf8_encode($val);
 		
 		if(substr_count($val, 'mailto:alexdumont@lchv.biz')) {

@@ -37,7 +37,7 @@ if(isset($_SESSION['equipesim']) && $_SESSION['equipesim'] == "") {
 	mysqli_close($con);
 	exit();
 }
-$teamID = $_SESSION['int'];
+$teamID = $_SESSION['teamId'];
 $teamFHLSimName = $_SESSION['equipesim'];
 
 date_default_timezone_set($TimeZone);

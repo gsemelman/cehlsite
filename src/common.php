@@ -11,10 +11,7 @@ function checkHttps(){
 
 function isAuthenticated(){
     
-    if(isset($authenticated) && $authenticated) {
-        return true;
-    }
-    else if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']){
+    if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']){
         return true;
     }
     
