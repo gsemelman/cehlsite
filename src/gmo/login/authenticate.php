@@ -19,9 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-    $rememberMe = $_POST['rememberMe'];
-    
-    
+    if(isset($_POST['rememberMe'])){
+        $rememberMe = $_POST['rememberMe'];
+    }
+ 
 }else if(!empty($_COOKIE['rememberMe']) && !empty($_COOKIE['login'])){
     
     $user = $_COOKIE['login'];
@@ -116,10 +117,11 @@ if($query){
 //         unset($_COOKIE['rememberMe']);
 //         setcookie('rememberMe', '', time() - 3600, '/'); // empty value and old timestamp
 
-        error_log('HTTP/1.1 403 Forbidden', 0);
+        error_log('Access denied', 0);
         //header('Location: ' . BASE_URL);
-        //header('Location: ' . $_SERVER['HTTP_REFERER']);
         http_response_code(400);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        //http_response_code(400);
         exit();
     }
 }else{
