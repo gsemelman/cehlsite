@@ -21,10 +21,7 @@ include 'head.php';
 	<div class="row no-gutters">
 		<div class="col">
 			<div class="card">
-				<div class="card-header wow fadeIn"
-					style="padding-bottom: 0px; padding-top: 2px;">
-					<h3><?php echo $CurrentTitle; ?></h3>
-				</div>
+					<?php include 'SectionHeader.php';?>
 				<div class="card-body wow fadeIn">
 					<div id="rulesTabs">
 						<ul class="nav nav-tabs nav-fill">

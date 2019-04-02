@@ -3,9 +3,9 @@
 include 'config.php';
 include 'lang.php';
 
-$CurrentHTML = 'MyTeam.php';
-$CurrentTitle = 'MyTeam';
-$CurrentPage = 'MyTeam';
+$CurrentHTML = 'MyCehl.php';
+$CurrentTitle = 'My CEHL';
+$CurrentPage = 'MyCEHL';
 
 //error_reporting(E_ALL);
 //ini_set("display_errors", "On");
@@ -83,15 +83,12 @@ include 'nav.php';
 //echo '<div class="header-content top-container"></div>';
 ?>
 
-
 <div id="MyCEHL" class="container">
 
 	<div class="row">
 		<div class="col p-1">
 			<div class="card">
-				<div class="card-header">
-					<h4>My CEHL</h4>
-				</div>
+				<?php include 'SectionHeader.php';?>
 
 				<div class="card-body p-2">
 					<?php 

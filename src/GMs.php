@@ -10,9 +10,7 @@ include 'head.php';
 <div class="container">
 
 <div class="card">
-	<div class="card-header wow fadeIn">
-		<h3><?php echo $CurrentTitle; ?></h3>
-	</div>
+	<?php include 'SectionHeader.php';?>
 	<div class="card-body">
 
 <?php
@@ -30,6 +28,7 @@ $Fnm = $folder.$folderLeagueURL.'GMs.html';
 
 $c = 1;
 $i = 0;
+$lastUpdated = '';
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = myEach($tableau)) {
@@ -38,8 +37,9 @@ if(file_exists($Fnm)) {
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
+			$lastUpdated=$val;
 
-			echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
+			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 			
 			echo '<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
 			echo '<div class="table-responsive wow fadeIn">';
@@ -101,7 +101,9 @@ if(file_exists($Fnm)) {
 	}
 }
 else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
-echo '</table></div></div></div></div></div>';
+echo '</table></div>';
+ echo '<h6 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h6>';
+echo '</div></div></div></div>';
 ?>
 
 <?php include 'footer.php'; ?>

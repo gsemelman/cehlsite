@@ -22,8 +22,7 @@ session_start();
 
 //must be logged in with admin privaleges
 if(!isAuthenticated()){
-    error_log('Cannot save ticket price. User not authenticated', 0);
-    header( 'HTTP/1.1 403 Forbidden' );
+    http_response_code(401);
     exit;
 }
 

@@ -21,9 +21,9 @@ if($currentPLF == 1){
 <div class="container wow fadeIn">
 
 	<div class="card">
-		<div class="card-header">
-			<h3><?php echo $CurrentTitle; ?></h3>
-		</div>
+	
+		<?php include 'SectionHeader.php';?>
+		
 		<div class="card-body px-2 px-md-3">
 
 			<div class ="col-sm-3" style="display: flex;">

@@ -329,19 +329,12 @@ if(isset($teamID)){
     
 	<style>
     .alert-fixed {
-/*         position:fixed;  */
-/*         top: 60px;  */
-/*         left: 0px;  */
-/*         width: 100%; */
-/*         z-index:9999;  */
-/*         border-radius:0px */
         top: 60px;     
         width: 75%;
         position: fixed;
         left: 50%;
         margin-left: -37.5%;
         z-index:9999; 
-
     }
 	
 	</style>
@@ -411,6 +404,11 @@ if(isset($teamID)){
 	    	            return;
 	    	        }
 
+				    if(xhr.status==401){
+					   location.reload();
+					   return;
+				    }
+
 	    	        $('#ticketError').text("Error submitting position");
 	    	        return;
 	    	       
@@ -473,6 +471,11 @@ if(isset($teamID)){
 	    	  },
 	    	    error : function(xhr, textStatus, errorThrown ) {
 	    	    	document.body.style.cursor = "default";
+
+				    if(xhr.status==401){
+						   location.reload();
+						   return;
+					}
 		    	    
 	    	        if (textStatus == 'timeout') {
 	    	            this.tryCount++;
@@ -483,6 +486,7 @@ if(isset($teamID)){
 	    	            }            
 	    	            return;
 	    	        }
+
 	    	       // $('#ticketError').text("Error submitting position");
 	    	       alert('Error!', 'Unable to cancel position change', 'alert-danger');
 	    	       return;
@@ -577,6 +581,12 @@ if(isset($teamID)){
  	   
 	    	  },
 	    	    error : function(xhr, textStatus, errorThrown ) {
+
+				    if(xhr.status==401){
+					   location.reload();
+					   return;
+				    }
+		    	    
 	    	        if (textStatus == 'timeout') {
 	    	            this.tryCount++;
 	    	            if (this.tryCount <= this.retryLimit) {

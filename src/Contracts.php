@@ -10,9 +10,7 @@ include 'head.php';
 	<div class = "container">
 	
     	<div class = "card">
-		    <div class = "card-header">
-    			<h3>CEHL Transactions</h3>
-    		</div>
+		    <?php include 'SectionHeader.php';?>
     		
     		<div class = "card-body">
     			<div class="row">

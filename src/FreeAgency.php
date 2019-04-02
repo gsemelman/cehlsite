@@ -12,9 +12,7 @@ include 'head.php';
 	<div class = "container">
 	
 		<div class = "card">
-		    <div class = "card-header">
-    			<h3>Free Agency</h3>
-    		</div>
+		    <?php include 'SectionHeader.php';?>
     		
     		<div class = "card-body">
     			<div class="loaderImage"><img src="assets/img/loader.gif"></div>

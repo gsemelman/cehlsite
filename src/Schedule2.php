@@ -92,25 +92,18 @@ if($currentPLF){
 $CurrentHTML = $linkSchedule;
 $CurrentTitle = $schedTitle;
 
+if($currentPLF){
+    $CurrentTitle = 'Playoff '.$CurrentTitle.' '.$schedTitlePlayoff;
+}
+
 ?>
 
 <div class = "container">
 
 
 	<div class="card">
-
-		<div class="card-header wow fadeIn" style="padding-bottom: 0px; padding-top: 2px;">
-			<div class = "row d-flex align-items-center justify-content-center">
-				<h3><?php 
-				if($currentPLF){
-				    echo 'Playoff '.$CurrentTitle.' '.$schedTitlePlayoff;
-				}else{
-				    echo $CurrentTitle; 
-				}
 				
-				?></h3>
-			</div>
-		</div>
+		<?php include 'SectionHeader.php';?>
 		<div class="card-body">
 		
         	<?php 

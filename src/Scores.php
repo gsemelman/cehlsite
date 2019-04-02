@@ -13,7 +13,7 @@ include_once 'classes/ScheduleHolder.php';
 include_once 'classes/ScheduleObj.php';
 
 $CurrentHTML = 'Scores';
-$CurrentTitle = $todayTitle;
+$CurrentTitle = 'Scores';
 $CurrentPage = 'Scores';
 include 'head.php';
 
@@ -257,18 +257,23 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 	
 	<div id="scores" class = "container">
 	<div class="card">
-	<div class="card-header" style="text-align: center;">
+
 	<?php 
 	if($scheduleHolder->isSeasonStarted()){
-	    //echo '<h3>Scores Day - '.$selectedDay.'</h3>';
-	echo '<span style="display: inline-block;"><h3 class="m-0">Scores</h3></span>';
-    echo '<span style="display: inline-block; margin-left:5px; ">(Day - '.$selectedDay.')</span>';
-	}else{
-	    echo '<h3>Scores</h3>';
+	    
+	    $CurrentTitle = $CurrentTitle . ' (Day - '.$selectedDay.')';
 	}
-	?>
 	
-	</div>
+	include 'SectionHeader.php';
+	    
+	    //echo '<h3>Scores Day - '.$selectedDay.'</h3>';
+// 	echo '<span style="display: inline-block;"><h3 class="m-0">Scores</h3></span>';
+//     echo '<span style="display: inline-block; margin-left:5px; ">(Day - '.$selectedDay.')</span>';
+// 	}else{
+// 	    echo '<h3>Scores</h3>';
+// 	}
+	?>
+
 	<div class = "card-body pt-2">
 	
 	<div class="row align-items-center justify-content-center"> 

@@ -86,9 +86,8 @@ if($query){
             if(1==$data['ADMIN']){
                 // $_SESSION['admin'] = $data['ADMIN'];
                 $_SESSION['isAdmin'] = true;
-            }else{
-                $_SESSION['isAdmin'] = false;
             }
+            
             $_SESSION['authenticated'] = true;
             
             setcookie('login', $user, time() + (86400 * 30), "/");
@@ -119,7 +118,7 @@ if($query){
 
         error_log('Access denied', 0);
         //header('Location: ' . BASE_URL);
-        http_response_code(400);
+        http_response_code(401);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         //http_response_code(400);
         exit();

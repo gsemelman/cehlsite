@@ -11,9 +11,9 @@ include 'head.php';
 <div class="container">
 
 <div class="card">
-	<div class="card-header wow fadeIn">
-		<h3><?php echo $CurrentTitle; ?></h3>
-	</div>
+
+	<?php include 'SectionHeader.php';?>
+	
 	<div class="card-body">
 
 <?php

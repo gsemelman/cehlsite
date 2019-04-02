@@ -1605,9 +1605,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class = "container-fluid">
 
     <div class = "card">
-		<div class = "card-header">
-			<h3><?php echo $CurrentTitle; ?></h3>
-		</div>
+		<?php include 'SectionHeader.php';?>
 		<div class = "card-body p-2">
 			<div class="container">
 			

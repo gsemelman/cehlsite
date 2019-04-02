@@ -22,9 +22,7 @@ include_once 'common.php';
 	<div class = "container-fluid" style = "width: 100%; height: 100%;">
 		
     	<div class = "card">
-    		<div class = "card-header">
-    			<h3><?php echo $CurrentTitle; ?></h3>
-    		</div>
+    		<?php include 'SectionHeader.php';?>
     		<div class = "card-body p-2">
     			<div class="container">
         			<div class = "row justify-content-center" style="padding-top:10px;"> 

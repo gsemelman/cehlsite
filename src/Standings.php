@@ -21,9 +21,7 @@ if($currentFarm == 1) {
 <div class = "container">
 
 <div class="card wow fadeIn">
-	<div class="card-header">
-		<h3><?php echo $CurrentTitle; ?></h3>
-	</div>
+	<?php include 'SectionHeader.php';?>
 	<div class="card-body">
 
 
