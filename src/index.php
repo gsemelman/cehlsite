@@ -191,7 +191,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 						<h3>Leaders</h3>
 					</div>
 					<div class="card-body">
-						<?php //include 'MiniTop5.php'; ?>
+						<?php include 'MiniTop5.php'; ?>
 					</div>
 				</div>
 
