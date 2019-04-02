@@ -1,18 +1,16 @@
 ﻿<?php
 
-
-
 function getBaseUrl(){
     $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
     $url = str_replace("\\",'/',$protocol.'://'.$_SERVER['HTTP_HOST'].substr(getcwd(),strlen($_SERVER['DOCUMENT_ROOT'])));  
     
-   // $url = rtrim($url, '/') . '/';
+    $url = rtrim($url, '/') . '/';
     
     return $url;
 }
 
-define("BASE_URL",'/cehlsite/');
-//define("BASE_URL",getBaseUrl());
+//define("BASE_URL",'/cehlsite/');
+define("BASE_URL",getBaseUrl());
 define("FS_ROOT",__DIR__.'/');
 define("GMO_ROOT",FS_ROOT.'gmo/');
 

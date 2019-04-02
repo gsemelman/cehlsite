@@ -42,9 +42,10 @@ if(isset($_GET['team']) || isset($_POST['team'])) {
 else {
     if(isset($_SESSION["team"])){
         $currentTeam = $_SESSION["team"];
-    }else if(isset($_SESSION["login"])){
-        $currentTeam = $_SESSION["login"];
     }
+//     else if(isset($_SESSION["login"])){
+//         $currentTeam = $_SESSION["login"];
+//     }
   //  ob_start();
  //   if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
    // ob_end_flush();

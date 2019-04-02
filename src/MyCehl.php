@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", "On");
 
 include 'config.php';
 include 'lang.php';
@@ -10,15 +12,15 @@ $CurrentPage = 'MyCEHL';
 //error_reporting(E_ALL);
 //ini_set("display_errors", "On");
 
-mb_internal_encoding('UTF-8');
-mb_http_output('UTF-8');
-mb_http_input('UTF-8');
-mb_language('uni');
-mb_regex_encoding('UTF-8');
-ob_start('mb_output_handler');
+// mb_internal_encoding('UTF-8');
+// mb_http_output('UTF-8');
+// mb_http_input('UTF-8');
+// mb_language('uni');
+// mb_regex_encoding('UTF-8');
+// ob_start('mb_output_handler');
 
 $version = '4.01';
-ini_set('arg_separator.output', '&amp;'); // MODE DANS LE URL
+//ini_set('arg_separator.output', '&amp;'); // MODE DANS LE URL
 
 
 $skipNav = false;
@@ -29,13 +31,13 @@ include GMO_ROOT.'login/mysqli.php';
 
 
 // Get Infos from database
-$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if($query){
-    while($data = mysqli_fetch_array($query)) {
-        $SessionName = $data['VALUE'];
-    }
-}
+// $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
+// $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+// if($query){
+//     while($data = mysqli_fetch_array($query)) {
+//         $SessionName = $data['VALUE'];
+//     }
+// }
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'league_langue' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -73,10 +75,10 @@ if($query){
 
 mysqli_close($con);
 
-date_default_timezone_set($TimeZone);
-$date_time = date("Y-m-d H:i:s"); // Global variable!
+//date_default_timezone_set($TimeZone);
+// $date_time = date("Y-m-d H:i:s"); // Global variable!
 
-$a = '';
+// $a = '';
 
 //include 'head.php';
 include 'nav.php';
