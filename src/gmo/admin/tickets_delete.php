@@ -2,7 +2,11 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "On");
 
-session_name('GMO');
+require_once __DIR__ .'/../../config.php';
+require_once FS_ROOT.'common.php';
+
+
+session_name(SESSION_NAME);
 session_start();
 
 

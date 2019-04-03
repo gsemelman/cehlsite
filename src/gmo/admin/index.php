@@ -82,6 +82,7 @@ if ( isset($_GET['admin']) || isset($_POST['admin']) ) {
 	if ( $mode == 'position' ) include GMO_ROOT.'admin/position.php';
 	if ( $mode == 'poll' ) include GMO_ROOT.'admin/poll.php';
 	if ( $mode == 'tickets' ) include GMO_ROOT.'admin/tickets.php';
+	if ( $mode == 'playerRelease' ) include GMO_ROOT.'admin/player_release.php';
 }
 else {
 	//echo $league_name.'<br>';	

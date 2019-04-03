@@ -142,7 +142,7 @@
 		</tr>
 		<tr>
 			<!-- <td colspan="2" style="text-align:center;"><input type="button" style="height: 25px; width: 97px; background-image:url('<?php //echo BASE_URL?>gmo/images/ligne/reset.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:tlButtonReset();"></td>-->
-			<td colspan="2" style="text-align:center;"><button class="gmoActiveButton" id="tlImgRoster" style="border-width:2px; display:block; background:url('<?php echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php echo BASE_URL?>MyCehl.php?membre=gmonline&lines=1#Lines';"></button></td>
+			<td colspan="2" style="text-align:center;"><button class="gmoActiveButton" id="tlImgRoster" style="border-width:2px; display:block; background:url('<?php echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php echo BASE_URL?>MyCehl.php#Lines';"></button></td>
 		
 		</tr>
 	</table>
