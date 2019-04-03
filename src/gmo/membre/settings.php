@@ -3,6 +3,7 @@ extract($_POST,EXTR_OVERWRITE);
 
 require_once __DIR__ .'/../../config.php';
 include_once FS_ROOT.'common.php';
+include_once GMO_ROOT.'membre/lang.php';
 
 if(!isset($_SESSION)){
     session_name(SESSION_NAME);
@@ -90,6 +91,7 @@ if(isset($_POST['sortPlayer']) ) {
 	$sql = "UPDATE `".$db_table."` SET `SORT_PLAYER`='$inputSortPlayer' WHERE `INT`='$teamID'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
+
 }
 
 $languageEN = "";
@@ -231,12 +233,12 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
      		<form method="post" action="">
           		<div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="inputSortPlayer" <?php echo $sortPlayerFirst; ?> name="inputSortPlayer" class="custom-control-input">
-                      <label class="custom-control-label" for="inputSortPlayer"><?php echo $db_membre_pass_langue[17]; ?></label>
+                      <input type="radio" id="inputSortPlayerFirst" value="0" <?php echo $sortPlayerFirst; ?> name="inputSortPlayer" class="custom-control-input">
+                      <label class="custom-control-label" for="inputSortPlayerFirst"><?php echo $db_membre_pass_langue[17]; ?></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="inputSortPlayer" <?php echo $sortPlayerLast; ?> name="inputSortPlayer" class="custom-control-input">
-                      <label class="custom-control-label" for="inputSortPlayer"><?php echo $db_membre_pass_langue[18]; ?></label>
+                      <input type="radio" id="inputSortPlayerLast" value="1" <?php echo $sortPlayerLast; ?> name="inputSortPlayer" class="custom-control-input">
+                      <label class="custom-control-label" for="inputSortPlayerLast"><?php echo $db_membre_pass_langue[18]; ?></label>
                     </div>
                 </div>
                 
