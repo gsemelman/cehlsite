@@ -189,28 +189,29 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
        
     </div> <!-- end email notification row -->
     
+    <!--  
     <div class="row">
 
 		<div class="my-1 p-2 bg-white rounded box-shadow border-bottom ">
-            <h6 class="border-bottom border-gray mb-3"><?php echo $db_membre_pass_langue[10]; ?></h6>
+            <h6 class="border-bottom border-gray mb-3"><?php// echo $db_membre_pass_langue[10]; ?></h6>
 
      		<form method="post" action="">
      
      			<div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="languageFR" <?php echo $languageFR; ?> name="inputLanguage" class="custom-control-input">
-                      <label class="custom-control-label" for="languageFR"><?php echo $db_membre_pass_langue[11]; ?></label>
+                      <input type="radio" id="languageFR" <?php //echo $languageFR; ?> name="inputLanguage" class="custom-control-input">
+                      <label class="custom-control-label" for="languageFR"><?php //echo $db_membre_pass_langue[11]; ?></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="languageEN" <?php echo $languageEN; ?> name="inputLanguage" class="custom-control-input">
-                      <label class="custom-control-label" for="languageEN"><?php echo $db_membre_pass_langue[12]; ?></label>
+                      <input type="radio" id="languageEN" <?php //echo $languageEN; ?> name="inputLanguage" class="custom-control-input">
+                      <label class="custom-control-label" for="languageEN"><?php //echo $db_membre_pass_langue[12]; ?></label>
                     </div>
                  </div>
              
    
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <input class="btn btn-outline-primary" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="language">
+                      <input class="btn btn-outline-primary" type="submit" value="<?php //echo $db_membre_all_langue[1]; ?>" name="language">
                     </div>
                 </div>
             </form>
@@ -219,7 +220,7 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
         </div>
         
        
-    </div> <!-- end languae row -->
+    </div>--> <!-- end languae row -->
     
         
     <div class="row">
