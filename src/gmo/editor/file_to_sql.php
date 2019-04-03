@@ -62,7 +62,9 @@ $hex = bin2hex($contents);
 $sql = "TRUNCATE `".$db_table."_players`";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 
-$sql = "UPDATE `".$db_table."_parameters` SET `VALUE`='$date_time' WHERE `PARAM`='file_last_update'";
+//$date_time = date("Y-m-d H:i:s"); // Global variable!
+
+$sql = "UPDATE `".$db_table."_parameters` SET `VALUE`='".date("Y-m-d H:i:s")."' WHERE `PARAM`='file_last_update'";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 
 for($t=0;$t<$teamNumber;$t++) {
@@ -176,7 +178,8 @@ for($t=0;$t<$teamNumber;$t++) {
 			}
 			if($fileROSPMGA > 255) $fileROSPMGA = 255;
 			
-			$fileROSOver = 'NA';
+			//$fileROSOver = 'NA';
+			$fileROSOver = 0;
 			// Forward
 			if($fileROSPosi == '00' || $fileROSPosi == '01' || $fileROSPosi == '02') {
 				$fileROStmp = 
@@ -216,7 +219,8 @@ for($t=0;$t<$teamNumber;$t++) {
 			}
 			
 			// D Offensive
-			if($fileROSPosi == '03' && $fileROSOver == 'NA') {
+			//if($fileROSPosi == '03' && $fileROSOver == 'NA') {
+			if($fileROSPosi == '03' && $fileROSOver == 0) {
 				$fileROStmp = 
 				($fileROSInte*8) + 
 				($fileROSSpee*5) + 

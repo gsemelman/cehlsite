@@ -37,18 +37,12 @@ if(!isset($user)){
     exit();
 }
 
-include GMO_ROOT. 'config4.php';
+//include GMO_ROOT. 'config4.php';
 include GMO_ROOT.'login/mysqli.php';
 
-$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if($query){
-    while($data = mysqli_fetch_array($query)) {
-        $SessionName = $data['VALUE'];
-    }
-}
+
 if(!isset($_SESSION)){
-    session_name($SessionName);
+    session_name(SESSION_NAME);
     session_start();
 }
 
@@ -75,7 +69,7 @@ if($query){
     while($data = mysqli_fetch_array($query)) {
         
         if(!empty($_COOKIE['rememberMe']) || md5($pass) == $data['PASS']) {
-            session_name($SessionName);
+            session_name(SESSION_NAME);
             session_start();
 
             $_SESSION['teamId'] = $data['INT'];

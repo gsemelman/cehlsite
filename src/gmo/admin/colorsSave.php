@@ -5,8 +5,8 @@ ini_set("display_errors", "On");
 $colorsID = json_decode($_POST['ID']);
 $colorsValue = json_decode($_POST['VALUE']);
 
-include '../../config.php';
-include GMO_ROOT.'config4.php';
+require_once __DIR__ .'/../../config.php';
+//include GMO_ROOT.'config4.php';
 include GMO_ROOT.'login/mysqli.php';
 
 for($i=0;$i<count($colorsID);$i++) {

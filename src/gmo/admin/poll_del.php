@@ -4,7 +4,8 @@ ini_set("display_errors", "On");
 
 $id = $_POST['id'];
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
+//include '../config4.php';
 include '../login/mysqli.php';
 
 $id = mysqli_real_escape_string($con, $id);

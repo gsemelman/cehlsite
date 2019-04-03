@@ -19,6 +19,17 @@ define("SESSION_NAME",'GMO');
 //Require HTTPS (1 on, 0 off)
 define("HTTPS_REQUIRED",0);
 
+//DB params
+$db_server = 'localhost';
+$db_name = 'cehldbtest';
+$db_table = 'gmo';
+$db_username = 'cehlgmo';
+$db_password = 'cehlgmo';
+
+//gmo from email address
+$email_from_address = 'no-reply@canadianelitehockeyleague.ca';
+
+
 // Language | Français: 'FR' | English: 'EN'
 define("LEAGUE_LANG","EN");
 $leagueLang = LEAGUE_LANG;

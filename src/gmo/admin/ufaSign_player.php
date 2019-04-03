@@ -13,7 +13,7 @@ $playerID = $_POST['playerID'];
 $contract = $_POST['contract'];
 $salary = $_POST['salary'];
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 
 // Datetime

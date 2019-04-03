@@ -1,85 +1,72 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", "On");
+//error_reporting(E_ALL);
+//ini_set("display_errors", "On");
 
-include GMO_ROOT.'login/mysqli.php';
+// include GMO_ROOT.'login/mysqli.php';
 
-$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_folder' LIMIT 1";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if($query){
-	while($data = mysqli_fetch_array($query)) {
-	    $file_folder = GMO_ROOT.$data['VALUE'];
-	}
-}
+// $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_folder' LIMIT 1";
+// $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+// if($query){
+// 	while($data = mysqli_fetch_array($query)) {
+// 	    $file_folder = GMO_ROOT.$data['VALUE'];
+// 	}
+// }
 
-$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_last_update' LIMIT 1";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if($query){
-	while($data = mysqli_fetch_array($query)) {
-		$file_lastUpdate = $data['VALUE'];
-	}
-}
+// $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_last_update' LIMIT 1";
+// $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+// if($query){
+// 	while($data = mysqli_fetch_array($query)) {
+// 		$file_lastUpdate = $data['VALUE'];
+// 	}
+// }
 
-mysqli_close($con);
+// mysqli_close($con);
 
-// Find the .ros and .tms
-$matches = glob($file_folder.'*.ros');
-if(isset($matches) && count($matches)) {
-	$matchesDate = array_map('filemtime', $matches);
-	arsort($matchesDate);
-	foreach ($matchesDate as $j => $val) {
-		break 1;
-	}
-	if(substr_count($matches[$j],"/")) $file_ros = substr($matches[$j],strrpos($matches[$j],"/")+1);
-	else $file_ros = $matches[$j];
-}
-$matches = glob($file_folder.'*.tms');
-if(isset($matches) && count($matches)) {
-	$matchesDate = array_map('filemtime', $matches);
-	arsort($matchesDate);
-	foreach ($matchesDate as $j => $val) {
-		break 1;
-	}
-	if(substr_count($matches[$j],"/")) $file_tms = substr($matches[$j],strrpos($matches[$j],"/")+1);
-	else $file_tms = $matches[$j];
-}
+// // Find the .ros and .tms
+// $matches = glob($file_folder.'*.ros');
+// if(isset($matches) && count($matches)) {
+// 	$matchesDate = array_map('filemtime', $matches);
+// 	arsort($matchesDate);
+// 	foreach ($matchesDate as $j => $val) {
+// 		break 1;
+// 	}
+// 	if(substr_count($matches[$j],"/")) $file_ros = substr($matches[$j],strrpos($matches[$j],"/")+1);
+// 	else $file_ros = $matches[$j];
+// }
+// $matches = glob($file_folder.'*.tms');
+// if(isset($matches) && count($matches)) {
+// 	$matchesDate = array_map('filemtime', $matches);
+// 	arsort($matchesDate);
+// 	foreach ($matchesDate as $j => $val) {
+// 		break 1;
+// 	}
+// 	if(substr_count($matches[$j],"/")) $file_tms = substr($matches[$j],strrpos($matches[$j],"/")+1);
+// 	else $file_tms = $matches[$j];
+// }
 
-// Update the .ros if new
-if(isset($file_ros) && isset($file_tms)) {
-	$file_date = date ("Y-m-d H:i:s", filemtime($file_folder.$file_ros));
+// // Update the .ros if new
+// if(isset($file_ros) && isset($file_tms)) {
+// 	$file_date = date ("Y-m-d H:i:s", filemtime($file_folder.$file_ros));
 	
-	error_log("checking for new new files!!!!!",0);
+// 	error_log("checking for new new files!!!!!",0);
 	
-	$d1 = new DateTime($file_date);
-	$d2 = new DateTime($file_lastUpdate);
+// 	$d1 = new DateTime($file_date);
+// 	$d2 = new DateTime($file_lastUpdate);
 
 	
-	if($d1 > $d2) {
-	    error_log("loading new files!!!!!",0);
-	    include GMO_ROOT.'editor/file_to_sql.php';
-		$txtFileUpdated =  $db_membre_File_Update[1].'<br><br>';
-		error_log("new files loaded!!!!!",0);
-	}
-}
-else {
-	$error = '<br>'.$db_membre_File_Update[0].'<br>';
-	die($error);
-}
+// 	if($d1 > $d2) {
+// 	    error_log("loading new files!!!!!",0);
+// 	    include GMO_ROOT.'editor/file_to_sql.php';
+// 		$txtFileUpdated =  $db_membre_File_Update[1].'<br><br>';
+// 		error_log("new files loaded!!!!!",0);
+// 	}
+// }
+// else {
+// 	$error = '<br>'.$db_membre_File_Update[0].'<br>';
+// 	die($error);
+// }
 
 
-
-if(!isset($_GET['membre']) && !isset($_POST['membre'])) {
-	$mode = 'gmonline';
-}
-else {
-	$mode = ( isset($_GET['membre']) ) ? $_GET['membre'] : $_POST['membre'];
-	$mode = htmlspecialchars($mode);
-}
-
-
-$title = 0;
-
-if ( $mode == 'gmonline' ) $title = 1;
 ?>
 
 
@@ -264,22 +251,21 @@ include GMO_ROOT.'css.php'; // Styling Pages
 include GMO_ROOT.'membre/js.php';
 
 $divMaxWidth = "width:100%";
-if ( $mode == 'gmonline' ) {
-	$modeGMO = 1;
-	if(isset($_GET['lines']) || isset($_POST['lines'])) {
-		$modeGMO = ( isset($_GET['lines']) ) ? $_GET['lines'] : $_POST['lines'];
-		$modeGMO = htmlspecialchars($modeGMO);
-	}
 
-	include GMO_ROOT.'editor/lang.php';
-	if($modeGMO == 1) {
-	    include GMO_ROOT.'editor/teamRoster_js.php';
-		$divMaxWidth = "max-width:530px";
-	}
-	if($modeGMO == 2) {
-	    include GMO_ROOT.'editor/teamLines_js.php';
-		$divMaxWidth = "max-width:530px";
-	}
+$modeGMO = 1;
+if(isset($_GET['lines']) || isset($_POST['lines'])) {
+    $modeGMO = ( isset($_GET['lines']) ) ? $_GET['lines'] : $_POST['lines'];
+    $modeGMO = htmlspecialchars($modeGMO);
+}
+
+include GMO_ROOT.'editor/lang.php';
+if($modeGMO == 1) {
+    include GMO_ROOT.'editor/teamRoster_js.php';
+    $divMaxWidth = "max-width:530px";
+}
+if($modeGMO == 2) {
+    include GMO_ROOT.'editor/teamLines_js.php';
+    $divMaxWidth = "max-width:530px";
 }
 
 ?>
@@ -304,7 +290,8 @@ else $chg_lang = "en";
 
 if(isset($txtFileUpdated)) echo $txtFileUpdated;
 
-if ( $mode == 'gmonline' ) include GMO_ROOT.'editor/index.php';
+//if ( $mode == 'gmonline' ) include GMO_ROOT.'editor/index.php';
+include GMO_ROOT.'editor/index.php';
 
 echo '</div>';
 ?>

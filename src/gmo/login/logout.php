@@ -4,19 +4,11 @@
 //include GMO_ROOT.'mysqli.php';
 //include FS_ROOT.'config.php';
 
-include '../../config.php';
-include GMO_ROOT.'config4.php';
-include GMO_ROOT.'login/mysqli.php';
+require_once __DIR__ .'/../../config.php';
+//include GMO_ROOT.'config4.php';
+//include GMO_ROOT.'login/mysqli.php';
 
-$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if($query){
-	while($data = mysqli_fetch_array($query)) {
-		$SessionName = $data['VALUE'];
-	}
-}
-mysqli_close($con);
-session_name($SessionName);
+session_name(SESSION_NAME);
 session_start();
 
 // unset($_SESSION['login']);

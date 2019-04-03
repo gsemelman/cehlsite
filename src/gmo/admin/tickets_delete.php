@@ -10,9 +10,9 @@ $teamId = $_POST['teamId'];
 
 //include '../config4.php';
 //include '../login/mysqli.php';
-include '../../config.php';
+require_once __DIR__ .'/../../config.php';
 include FS_ROOT.'common.php';
-include GMO_ROOT.'config4.php';
+//include GMO_ROOT.'config4.php';
 
 
 if(isAuthenticated() && isAdmin()){

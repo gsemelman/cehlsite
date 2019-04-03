@@ -1,6 +1,20 @@
 <?php
 extract($_POST,EXTR_OVERWRITE);
 
+require_once __DIR__ .'/../../config.php';
+include_once FS_ROOT.'common.php';
+
+if(!isset($_SESSION)){
+    session_name(SESSION_NAME);
+    session_start();
+}
+
+if(!isAuthenticated()){
+    http_response_code(401);
+    exit;
+}
+
+
 $e = "";
 $f = "#ae654c"; // Green : #4caf50 | Red : #ae654c
 
@@ -10,7 +24,7 @@ if (isset($_POST['changer']) && isset($_POST['actpass']) && isset($_POST['new1']
 	$new2 = $_POST['new2'];
 	if($new1 == $new2) {
 		$actpass = $_POST['actpass'];
-		include 'login/mysqli.php';
+		include GMO_ROOT.'login/mysqli.php';
 		$sql = "SELECT `PASS` FROM `".$db_table."` WHERE `INT` = '$teamID'";
 		$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 		while($data = mysqli_fetch_array($query)) {
@@ -44,7 +58,7 @@ if(isset($_POST['notification']) ) {
 		$e = $db_membre_pass_langue[8];
 	}
 	
-	include 'login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	$sql = "UPDATE `".$db_table."` SET `NOTIFICATION`='$checkboxNotification' WHERE `INT`='$teamID'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
@@ -57,9 +71,8 @@ if(isset($_POST['language']) ) {
 	$e = $db_membre_pass_langue[13]." (".$text.")";
 	$f = "#4caf50";
 	$league_langue = $inputLanguage;
-	include 'membre/lang.php';
-	
-	include 'login/mysqli.php';
+
+	include GMO_ROOT.'login/mysqli.php';
 	$sql = "UPDATE `".$db_table."` SET `LANGUE`='$inputLanguage' WHERE `INT`='$teamID'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
@@ -73,7 +86,7 @@ if(isset($_POST['sortPlayer']) ) {
 	$f = "#4caf50";
 	$gm_sortPlayer = $inputSortPlayer;
 	
-	include 'login/mysqli.php';
+	include GMO_ROOT.'login/mysqli.php';
 	$sql = "UPDATE `".$db_table."` SET `SORT_PLAYER`='$inputSortPlayer' WHERE `INT`='$teamID'";
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	mysqli_close($con);
@@ -83,7 +96,7 @@ $languageEN = "";
 $languageFR = "";
 $sortPlayerFirst = "";
 $sortPlayerLast = "";
-include 'login/mysqli.php';
+include GMO_ROOT.'login/mysqli.php';
 $sql = "SELECT `NOTIFICATION`, `LANGUE`, `EMAIL`, `SORT_PLAYER` FROM `".$db_table."` WHERE `INT` = '$teamID' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 while($data = mysqli_fetch_array($query)) {
@@ -107,7 +120,7 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
 }
 
 ?>
-<form method="post" action="?membre=settings">
+<form method="post" action="">
 <div style="font-weight:bold; margin-bottom:10px;"><?php echo $db_membre_pass_langue[0]; ?></div>
 <div style="float:left;"><?php echo $db_membre_pass_langue[1]; ?></div>
 <div style="float:right;"><input class="inputText" type="password" name="actpass" size="20" required></div>
@@ -123,7 +136,7 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
 
 <hr style="margin-top:25px; margin-bottom:25px;">
 
-<form method="post" action="?membre=settings">
+<form method="post" action="">
 <label for="checkboxNotification" style="font-weight:bold;"><?php echo $db_membre_pass_langue[7]; ?></label><input id="checkboxNotification" name="checkboxNotification" type="checkbox" value="" style="padding_left:25px;"<?php echo $notification; ?>><br>
 <br><?php echo $db_membre_pass_langue[15]; ?><br>
 <br><?php echo $db_membre_pass_langue[14]; ?>: <?php echo $teamEmail; ?><br>
@@ -132,7 +145,7 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
 
 <hr style="margin-top:25px; margin-bottom:25px;">
 
-<form method="post" action="?membre=settings">
+<form method="post" action="">
 <div style="font-weight:bold; margin-bottom:10px;"><?php echo $db_membre_pass_langue[10]; ?></div>
 <label for="languageFR"><?php echo $db_membre_pass_langue[11]; ?></label>
 <input id="languageFR" name="inputLanguage" type="radio" value="fr" style="padding_left:25px;"<?php echo $languageFR; ?>>
@@ -143,7 +156,7 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
 
 <hr style="margin-top:25px; margin-bottom:25px;">
 
-<form method="post" action="?membre=settings">
+<form method="post" action="">
 <div style="font-weight:bold; margin-bottom:10px;"><?php echo $db_membre_pass_langue[16]; ?></div>
 <label for="inputSortPlayerFirst"><?php echo $db_membre_pass_langue[17]; ?></label>
 <input id="inputSortPlayerFirst" name="inputSortPlayer" type="radio" value="0" style="padding_left:25px;"<?php echo $sortPlayerFirst; ?>>

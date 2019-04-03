@@ -4,7 +4,7 @@ ini_set("display_errors", "On");
 
 $playerID = $_POST['playerID'];
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 
 // Datetime

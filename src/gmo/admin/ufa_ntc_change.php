@@ -5,7 +5,7 @@ ini_set("display_errors", "On");
 $id = $_POST['id'];
 $ntc = $_POST['ntc'];
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 
 $sql = "UPDATE `".$db_table."_ufalist` SET `NTC`='$ntc' WHERE `INT`='$id';";

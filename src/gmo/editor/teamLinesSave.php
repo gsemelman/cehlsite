@@ -1,16 +1,9 @@
 <?php
 
-include '../config4.php';
-include '../login/mysqli.php';
-include '../../config.php';
+require_once __DIR__ .'/../../config.php';
+//include '../config4.php';
+include GMO_ROOT.'login/mysqli.php';
 
-$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if($query){
-	while($data = mysqli_fetch_array($query)) {
-		$SessionName = $data['VALUE'];
-	}
-}
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'TimeZone' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -26,7 +19,7 @@ if($query){
 	}
 }
 
-session_name($SessionName);
+session_name(SESSION_NAME);
 session_start();
 $teamID = $_SESSION['teamId'];
 $teamFHLSimName = $_SESSION['equipesim'];

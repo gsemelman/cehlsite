@@ -23,9 +23,9 @@ jQuery(document).ready(function() {
 //	});
 	
 	// toggle "navbar-no-bg" class for main page
-	$('.top-content .text').waypoint(function() {
-		$('nav').toggleClass('navbar-no-bg');
-	});
+//	$('.top-content .text').waypoint(function() {
+//		$('nav').toggleClass('navbar-no-bg');
+//	});
 	
     /*
         Background slideshow

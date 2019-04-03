@@ -7,7 +7,7 @@ $ntc = $_POST['ntc']; // 0: Delete - 1: Add
 $team = $_POST['team'];
 $teamList = '';
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 
 $sql = "SELECT `PROTECTED` FROM `".$db_table."_ufalist` WHERE `INT` = '$id' LIMIT 1";

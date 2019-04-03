@@ -1,16 +1,10 @@
 <?php
 extract($_POST,EXTR_OVERWRITE); // NAME = PHP VARIABLE
 
-include '../../config.php';
-include GMO_ROOT.'config4.php';
+require_once __DIR__ .'/../../config.php';
+//include GMO_ROOT.'config4.php';
 include GMO_ROOT.'login/mysqli.php';
-$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'SessionName' LIMIT 1";
-$query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if($query){
-	while($data = mysqli_fetch_array($query)) {
-		$SessionName = $data['VALUE'];
-	}
-}
+
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'TimeZone' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -19,7 +13,7 @@ if($query){
 	}
 }
 mysqli_close($con);
-session_name($SessionName);
+session_name(SESSION_NAME);
 session_start();
 // remove all session variables
 session_unset();
@@ -40,7 +34,7 @@ session_destroy();
 		while($data = mysqli_fetch_array($query)) {
     		$user = $data['USER'];
 			if(md5($pass) == $data['PASS']) {
-				session_name($SessionName);
+			    session_name(SESSION_NAME);
 				session_start();
 				
 				$teamID = $data['INT'];

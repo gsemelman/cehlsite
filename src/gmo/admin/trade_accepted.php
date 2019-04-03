@@ -10,7 +10,7 @@ function moneyFormat($money,$lang) {
 
 $id = $_POST['id'];
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'TimeZone' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));

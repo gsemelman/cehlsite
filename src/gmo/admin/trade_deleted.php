@@ -10,7 +10,7 @@ function moneyFormat($money,$lang) {
 
 $id = $_POST['id'];
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 
 $id = mysqli_real_escape_string($con, $id);

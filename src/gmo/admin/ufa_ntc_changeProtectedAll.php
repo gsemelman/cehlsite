@@ -4,7 +4,7 @@ ini_set("display_errors", "On");
 
 $protect = $_POST['protect']; // 0: Enable - 1: Disable
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 
 $sql = "SELECT `LEAGUE` from `".$db_table."_ufalist` ORDER BY `INT` desc LIMIT 1";

@@ -6,7 +6,7 @@ $id = $_POST['id'];
 $ntc = '';
 $ntcTeam = '';
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
 include '../login/mysqli.php';
 $sql = "SELECT `NTC`, `PROTECTED`, `DISABLED` FROM `".$db_table."_ufalist` WHERE `INT` = '$id' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));

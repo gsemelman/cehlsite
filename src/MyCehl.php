@@ -26,7 +26,9 @@ $version = '4.01';
 $skipNav = false;
 include 'head.php';
 
-include GMO_ROOT.'config4.php';
+
+
+//include GMO_ROOT.'config4.php';
 include GMO_ROOT.'login/mysqli.php';
 
 
@@ -75,6 +77,9 @@ if($query){
 
 mysqli_close($con);
 
+//init gmo
+require_once GMO_ROOT.'membre/init.php';
+
 //date_default_timezone_set($TimeZone);
 // $date_time = date("Y-m-d H:i:s"); // Global variable!
 
@@ -116,12 +121,17 @@ include 'nav.php';
 							<li class="nav-item"><a class="nav-link" href="#Lines"
 								data-toggle="tab">Line Editor</a></li>
 								
+							<li class="nav-item"><a class="nav-link" href="#Settings"
+								data-toggle="tab">Settings</a></li>
+								
 							<?php 
 							if(isAdmin()){
 							    echo '<li class="nav-item"><a class="nav-link" href="#Admin"
 								data-toggle="tab">Admin</a></li>';
 							}
 							?>
+							
+							
 						</ul>
 						<div class="tab-content">
 							
@@ -164,13 +174,23 @@ include 'nav.php';
 								        mysqli_close($con);
 								    }
 								    if($db_lang) $league_langue = $db_lang;
-								    include GMO_ROOT.'membre/lang.php';
-								    include GMO_ROOT.'membre/index.php';
+								    
+								    error_log("loading line editor", 0);
+								    require GMO_ROOT.'membre/lang.php';
+								    require GMO_ROOT.'membre/lineEditor.php';
 								    
 								    echo'<div class="pt-3 text-center">*NOTE: LINES MUST BE SAVED FOR ROSTER CHANGES TO TAKE EFFECT*</div>';
 								}else{
 								    echo '<h3>Error loading Page</h3>';
 								}
+								
+                                ?>
+							</div>
+							
+							<div class="tab-pane" id="Settings">
+								<?php 
+								
+								include GMO_ROOT.'membre/settings.php';
 								
                                 ?>
 							</div>

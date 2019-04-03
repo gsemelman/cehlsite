@@ -11,7 +11,8 @@ $optionsSeperated = implode("|$|", $options);
 $optionsCountSeperator = count($options)-1;
 $optionSeperator = str_repeat("|$|", $optionsCountSeperator);
 
-include '../config4.php';
+require_once __DIR__ .'/../../config.php';
+//include '../config4.php';
 include '../login/mysqli.php';
 
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'TimeZone' LIMIT 1";
