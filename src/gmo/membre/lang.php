@@ -262,12 +262,12 @@ if($league_langue == "en") {
 	$db_membre_menu_langue[18] = 'Polls Result';
 
 	$db_membre_pass_langue[0] = 'Change password';
-	$db_membre_pass_langue[1] = 'Your password';
-	$db_membre_pass_langue[2] = 'New password';
-	$db_membre_pass_langue[3] = 'Confirm your new password';
+	$db_membre_pass_langue[1] = 'Current password';
+	$db_membre_pass_langue[2] = 'New Password';
+	$db_membre_pass_langue[3] = 'Confirm Password';
 	$db_membre_pass_langue[4] = 'Password changed!';
-	$db_membre_pass_langue[5] = 'Current password isn\'t good.';
-	$db_membre_pass_langue[6] = 'New passwords aren\'t the same.';
+	$db_membre_pass_langue[5] = 'Current password is not correct';
+	$db_membre_pass_langue[6] = 'New passwords do not match.';
 	$db_membre_pass_langue[7] = 'Email Notification';
 	$db_membre_pass_langue[8] = 'Email Notification Disabled!';
 	$db_membre_pass_langue[9] = 'Email Notification Enabled!';
@@ -276,7 +276,7 @@ if($league_langue == "en") {
 	$db_membre_pass_langue[12] = 'English';
 	$db_membre_pass_langue[13] = 'Your language is saved!';
 	$db_membre_pass_langue[14] = 'Your email';
-	$db_membre_pass_langue[15] = 'The email notification works only with the Trade Tool & the UFA Tool.';
+	$db_membre_pass_langue[15] = 'Receive notification emails';
 	$db_membre_pass_langue[16] = 'Sorting Player Option in editor.';
 	$db_membre_pass_langue[17] = 'First Name';
 	$db_membre_pass_langue[18] = 'Last Name';

@@ -120,50 +120,142 @@ if($sortPlayerFirst == "" & $sortPlayerLast == "") {
 }
 
 ?>
-<form method="post" action="">
-<div style="font-weight:bold; margin-bottom:10px;"><?php echo $db_membre_pass_langue[0]; ?></div>
-<div style="float:left;"><?php echo $db_membre_pass_langue[1]; ?></div>
-<div style="float:right;"><input class="inputText" type="password" name="actpass" size="20" required></div>
+<div class="container">
+<div class="col">
+    <div class="row">
 
-<div style="clear:both; float:left;"><?php echo $db_membre_pass_langue[2]; ?></div>
-<div style="float:right;"><input class="inputText" type="password" name="new1" size="20" required></div>
+		<div class="my-1 p-2 bg-white rounded box-shadow border-bottom ">
+            <h6 class="border-bottom border-gray mb-3"><?php echo $db_membre_pass_langue[0]; ?></h6>
 
-<div style="clear:both; float:left;"><?php echo $db_membre_pass_langue[3]; ?></div>
-<div style="float:right;"><input class="inputText" type="password" name="new2" size="20" required></div>
+     		<form method="post" action="">
+ 
+              <div class="form-group row">
+                <label for="currentPass" class="col-sm-5 col-form-label"><?php echo $db_membre_pass_langue[1]; ?></label>
+                <div class="col-sm-7">
+                  <input type="password" name="actpass" class="form-control text-center" id="currentPass" placeholder="********">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="newPass" class="col-sm-5 col-form-label"><?php echo $db_membre_pass_langue[2]; ?></label>
+                <div class="col-sm-7">
+                  <input type="password" name="new1" class="form-control text-center" id="newPass" placeholder="********">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="confirmPass" class="col-sm-5 col-form-label"><?php echo $db_membre_pass_langue[3]; ?></label>
+                <div class="col-sm-7">
+                  <input type="password" name="new2" class="form-control text-center" id="confirmPass" placeholder="********">
+                </div>
+              </div>
+    
+     
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <input class="btn btn-outline-primary" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="changer">
+                </div>
+              </div>
+            </form>
 
-<div style="clear:both; padding-top:25px;"><input class="button" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="changer"></div>
-</form>
+        </div>
+        
+       
+    </div> <!-- end pass change row -->
+    
+    <div class="row">
 
-<hr style="margin-top:25px; margin-bottom:25px;">
+		<div class="my-1 p-2 bg-white rounded box-shadow border-bottom ">
+            <h6 class="border-bottom border-gray mb-3"><?php echo $db_membre_pass_langue[7]; ?></h6>
 
-<form method="post" action="">
-<label for="checkboxNotification" style="font-weight:bold;"><?php echo $db_membre_pass_langue[7]; ?></label><input id="checkboxNotification" name="checkboxNotification" type="checkbox" value="" style="padding_left:25px;"<?php echo $notification; ?>><br>
-<br><?php echo $db_membre_pass_langue[15]; ?><br>
-<br><?php echo $db_membre_pass_langue[14]; ?>: <?php echo $teamEmail; ?><br>
-<br><input class="button" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="notification">
-</form>
+     		<form method="post" action="">
+                
+             <div class="form-group">
+                <div class="col-sm-12 custom-control custom-checkbox">
+                  <input id="checkboxNotification" name="checkboxNotification" type="checkbox" <?php echo $notification; ?> value="" class="custom-control-input">
+                  <label class="custom-control-label" for="checkboxNotification"><?php echo $db_membre_pass_langue[15];?></label>
+                </div>
+             </div>
+             
+   
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <input class="btn btn-outline-primary" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="notification">
+                </div>
+              </div>
+            </form>
+    
 
-<hr style="margin-top:25px; margin-bottom:25px;">
+        </div>
+        
+       
+    </div> <!-- end email notification row -->
+    
+    <div class="row">
 
-<form method="post" action="">
-<div style="font-weight:bold; margin-bottom:10px;"><?php echo $db_membre_pass_langue[10]; ?></div>
-<label for="languageFR"><?php echo $db_membre_pass_langue[11]; ?></label>
-<input id="languageFR" name="inputLanguage" type="radio" value="fr" style="padding_left:25px;"<?php echo $languageFR; ?>>
-<label for="languageEN"><?php echo $db_membre_pass_langue[12]; ?></label>
-<input id="languageEN" name="inputLanguage" type="radio" value="en" style="padding_left:25px;"<?php echo $languageEN; ?>><br>
-<br><input class="button" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="language">
-</form>
+		<div class="my-1 p-2 bg-white rounded box-shadow border-bottom ">
+            <h6 class="border-bottom border-gray mb-3"><?php echo $db_membre_pass_langue[10]; ?></h6>
 
-<hr style="margin-top:25px; margin-bottom:25px;">
+     		<form method="post" action="">
+     
+     			<div class="form-group">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="languageFR" <?php echo $languageFR; ?> name="inputLanguage" class="custom-control-input">
+                      <label class="custom-control-label" for="languageFR"><?php echo $db_membre_pass_langue[11]; ?></label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="languageEN" <?php echo $languageEN; ?> name="inputLanguage" class="custom-control-input">
+                      <label class="custom-control-label" for="languageEN"><?php echo $db_membre_pass_langue[12]; ?></label>
+                    </div>
+                 </div>
+             
+   
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                      <input class="btn btn-outline-primary" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="language">
+                    </div>
+                </div>
+            </form>
+      
 
-<form method="post" action="">
-<div style="font-weight:bold; margin-bottom:10px;"><?php echo $db_membre_pass_langue[16]; ?></div>
-<label for="inputSortPlayerFirst"><?php echo $db_membre_pass_langue[17]; ?></label>
-<input id="inputSortPlayerFirst" name="inputSortPlayer" type="radio" value="0" style="padding_left:25px;"<?php echo $sortPlayerFirst; ?>>
-<label for="inputSortPlayerLast"><?php echo $db_membre_pass_langue[18]; ?></label>
-<input id="inputSortPlayerLast" name="inputSortPlayer" type="radio" value="1" style="padding_left:25px;"<?php echo $sortPlayerLast; ?>><br>
-<br><input class="button" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="sortPlayer">
-</form>
+        </div>
+        
+       
+    </div> <!-- end languae row -->
+    
+        
+    <div class="row">
+
+		<div class="my-1 p-2 bg-white rounded box-shadow border-bottom ">
+            <h6 class="border-bottom border-gray mb-3"><?php echo $db_membre_pass_langue[16]; ?></h6>
+
+     		<form method="post" action="">
+          		<div class="form-group">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="inputSortPlayer" <?php echo $sortPlayerFirst; ?> name="inputSortPlayer" class="custom-control-input">
+                      <label class="custom-control-label" for="inputSortPlayer"><?php echo $db_membre_pass_langue[17]; ?></label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="inputSortPlayer" <?php echo $sortPlayerLast; ?> name="inputSortPlayer" class="custom-control-input">
+                      <label class="custom-control-label" for="inputSortPlayer"><?php echo $db_membre_pass_langue[18]; ?></label>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                      <input class="btn btn-outline-primary" type="submit" value="<?php echo $db_membre_all_langue[1]; ?>" name="sortPlayer">
+                    </div>
+                </div>
+            </form>
+      
+
+        </div>
+        
+       
+    </div> <!-- end sort row -->
+
+
+
+</div><!-- end col -->
+</div><!-- end container -->
 
 <script type="text/javascript">
 <!--
