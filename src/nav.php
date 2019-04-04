@@ -75,20 +75,20 @@
               overflow-y:auto;
            }
         } */
-        body {
-          background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
-          background-image: linear-gradient(to top, #ffffff, #fcfcff, #f9f9ff, #f5f7ff, #f1f4ff, #ecf1fc, #e7edf9, #e2eaf6, #dce4ef, #d5dee9, #cfd9e2, #c9d3dc);   
-          }
+/*         body { */
+/*           background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed; */
+/*           background-image: linear-gradient(to top, #ffffff, #fcfcff, #f9f9ff, #f5f7ff, #f1f4ff, #ecf1fc, #e7edf9, #e2eaf6, #dce4ef, #d5dee9, #cfd9e2, #c9d3dc);    */
+/*           } */
           
-       .navbar-nav ul{
-        line-height:1.5;
-       }
+/*        .navbar-nav ul{ */
+/*         line-height:1.5; */
+/*        } */
        
 	</style>
 	
 	
 
-	<?php include FS_ROOT.'style.php' ?>
+	<?php //include FS_ROOT.'style.php' ?>
 </head>
 
 <body>

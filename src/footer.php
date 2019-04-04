@@ -1,5 +1,5 @@
 
-<style>
+<!--<style>
 
 html, body { height:100%; }
 
@@ -19,7 +19,7 @@ body{
     color:white;
 }
 
-</style>
+</style>  -->
 
 </div> <!-- end site container -->
 

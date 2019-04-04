@@ -13,7 +13,7 @@
 border-bottom:1px solid blue;
 }
 
-.active {
+#header-nav .active {
     font-weight: 1000;
 	font-size: large;
 }

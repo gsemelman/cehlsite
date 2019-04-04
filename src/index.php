@@ -79,15 +79,12 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 			
 		</div>
 		
-		<!-- team logo roster links (img-rounded makes corner rounded) -->
-<!-- 		<div class="section-1-container section-container section-container-gray-bg"> -->
-        <div class="section-1-container section-container">
+        <div class="section-container">
 			<div class="container">
 				<div class="row">
 	                <div class="col section-1 section-1-description team-header-content">
@@ -123,7 +120,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 			<?php include 'ScoreCarousel.php'; ?>
 		</div>
 		
-		<div class="container-responsive section-2 mx-md-3 mx-lg-5">
+		<div class="container-responsive mx-md-3 mx-lg-5">
 			<div class="card-columns">
 
 				<div class="card wow fadeIn">

@@ -187,29 +187,40 @@ if(file_exists($Fnm)) {
 	
 	echo '<div class = "row">';
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">';
-			echo '<table class="table table-sm">';
+			echo '<table class="table table-sm table-striped">';
+			echo '<thead>';
 			echo '<tr class="tableau-top"><td colspan="2" ><h5 class="m-0">'.$financeOrganization.'</h5></td></tr>';
+			echo '</thead>';
+			echo '<tbody>';
 			echo '<tr class="hover2"><td class="text-left">'.$financeArena.'</td><td class="text-right">'.$valArena.'</td></tr>';
 			echo '<tr class="hover1"><td class="text-left">'.$financeCapacity.'</td><td class="text-right">'.$valCapacity.'</td></tr>';
 			echo '<tr class="hover2"><td class="text-left">'.$financeTicket.'</td><td class="text-right">'.$valTicket.'$</td></tr>';
+			echo '</tbody>';
 			echo '</table>';
 		echo '</div>';
 
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">';
-			echo '<table class="table table-sm">
+			echo '<table class="table table-sm table-striped">
+                <thead>
 				<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$financeSalaryCommitment.'</h5></td></tr>
+                </thead>
+                <tbody>
 				<tr class="hover2"><td class="text-left">'.$financeYear.' '.$year[0].'</td><td class="text-right">'.$year[1].'$</td></tr>
 				<tr class="hover1"><td class="text-left">'.$financeYear.' '.$year[2].'</td><td class="text-right">'.$year[3].'$</td></tr>
 				<tr class="hover2"><td class="text-left">'.$financeYear.' '.$year[4].'</td><td class="text-right">'.$year[5].'$</td></tr>
 				<tr class="hover1"><td class="text-left">'.$financeYear.' '.$year[6].'</td><td class="text-right">'.$year[7].'$</td></tr>
-				</table>';
+                </tbody>    				
+                </table>';
 		echo '</div>';
 	echo '</div>';
 
 	echo '<div class = "row">';	
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
-			<table class="table table-sm">
+			<table class="table table-sm table-striped">
+            <thead>
 			<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$financeExpenses.'</h5></td></tr>
+            </thead>
+            <tbody>
 			<tr class="hover2"><td class="text-left">'.$financeProPayroll.'</td><td style="text-align:right;">'.$propayroll.'$</td></tr>
 			<tr class="hover1"><td class="text-left">'.$financeFarmPayroll.'</td><td style="text-align:right;">'.$farmpayroll.'$</td></tr>
 			<tr class="hover2"><td class="text-left">'.$financeProspectFees.'</td><td style="text-align:right;">'.$prospectfees.'$</td></tr>
@@ -217,19 +228,26 @@ if(file_exists($Fnm)) {
 			<tr class="hover2"><td class="text-left">'.$financeGamesRemaining.'</td><td style="text-align:right;">'.$gamesremaining.'</td></tr>
 			<tr class="hover1"><td class="text-left">'.$financeTotalGameExpenses.'</td><td style="text-align:right;">'.$totalgameexpenses.'$</td></tr>
 			<tr class="hover2"><td class="text-left">'.$financeProjectExpenses.'</td><td style="text-align:right;">'.$projectedexpenses.'$</td></tr>
+            </tbody> 
+            <tfoot class="tableau-top">
 			<tr class="tableau-top"><td class="text-left">'.$financeProjectedBalance.'</td><td style="text-align:right;">'.$projectedbalance.'$</td></tr>
-			</table>';
+			</tfoot>
+            </table>';
 		echo '</div>';
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">
-			<table class="table table-sm">
+			<table class="table table-sm table-striped">
+            <thead>
 			<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$financeIncome.'</h5></td></tr>
+        	</thead>
+            <tbody>
 			<tr class="hover2"><td class="text-left">'.$financeCurrentFunds.'</td><td style="text-align:right;">'.$currentfunds.'$</td></tr>';
 			if($currentPLF == 0) echo '<tr class="hover1"><td class="text-left">'.$financeHomeGameRemaining.'</td><td style="text-align:right;">'.$homeGamesRemaining.'</td></tr>
 			<tr class="hover2"><td class="text-left">'.$financeAVGAttendance.'</td><td style="text-align:right;">'.$avgAttendance.'</td></tr>
 			<tr class="hover1"><td class="text-left">'.$financeAVGRevenueParGame.'</td><td style="text-align:right;">'.$avgRevenueGame.'$</td></tr>
-			<tr class="hover2"><td class="text-left">'.$financeProjectedRevenue.'</td><td style="text-align:right;">'.$projectedRevenue.'$</td></tr>';
-			echo '</table>
-		</div>';
+			<tr class="hover2"><td class="text-left">'.$financeProjectedRevenue.'</td><td style="text-align:right;">'.$projectedRevenue.'$</td></tr>
+			</tbody>
+			</table>';
+	echo '</div>';
 	echo '</div>';
 
 
@@ -263,12 +281,14 @@ if(file_exists($Fnm)) {
 
 	echo '<div class = "row">';	
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
-		<table class="table table-sm">
+		<table class="table table-sm table-striped">
+        <thead>
 		<tr class="tableau-top titre"><td colspan="3" class="text-blanc bold-blanc"><h5 class="m-0">'.$financeProPayroll2.'</h5></td></tr>
 		<tr class="tableau-top">
 		<td><a class="lien-blanc" style="font-size:8pt;'.$s1.'" href="'.$lienmem.$sortmemj.'">'.$financePlayers.'</a></td>
 		<td style="text-align:center;"><a class="lien-blanc" style="font-size:8pt;'.$s2.'" href="'.$lienmem.$sortmema.'">'.$financeYear2.'</a></td>
 		<td style="text-align:right;"><a class="lien-blanc" style="font-size:8pt;'.$s3.'" href="'.$lienmem.$sortmems.'">'.$financeContract.'</a></td></tr>';
+		echo '</thead><tbody>';
 		$c = 1;
 
 		if($sort == 'ja' || $sort == 'aa' || $sort == 'sa') asort($tableaut);
@@ -280,7 +300,7 @@ if(file_exists($Fnm)) {
 			else $c = 1;
 			echo '<tr class="hover'.$c.'"><td class="text-left" style="'.$s1.'">'.$joueurs[$key].'</td><td style="text-align:center;'.$s2.'">'.$annee[$key].'</td><td style="text-align:right;'.$s3.'">'.$salaires[$key].'$</td></tr>';
 		}
-		echo '</table></div>';
+		echo '</tbody></table></div>';
 
 		$ss = 'font-weight: bold;';
 		$sortmemj = 'ja';
@@ -294,12 +314,14 @@ if(file_exists($Fnm)) {
 		if($sort == 'sd' || !$sort) $sortmems = 'sa';
 		$lienmem = '?sort=';
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">
-		<table class="table table-sm">
-		<tr class="tableau-top titre"><td colspan="3" class="text-blanc bold-blanc"><h5 class="m-0">'.$financeFarmPayroll2.'</h5></td></tr>
+		<table class="table table-sm table-striped">
+        <thead>
+		<tr class="tableau-top"><td colspan="3" class="text-blanc bold-blanc"><h5 class="m-0">'.$financeFarmPayroll2.'</h5></td></tr>
 		<tr class="tableau-top">
 		<td><a class="lien-blanc" style="font-size:8pt;'.$s1.'" href="'.$lienmem.$sortmemj.'">'.$financePlayers.'</a></td>
 		<td style="text-align:center;"><a class="lien-blanc" style="font-size:8pt;'.$s2.'" href="'.$lienmem.$sortmema.'">'.$financeYear2.'</a></td>
 		<td style="text-align:right;"><a class="lien-blanc" style="font-size:8pt;'.$s3.'" href="'.$lienmem.$sortmems.'">'.$financeContract.'</a></td></tr>';
+		echo '<thead><tbody>';
 		if($joueursf) {
 			$c = 1;
 			if($sort == 'ja' || $sort == 'jd') $tableauf = $joueursf;
@@ -317,7 +339,7 @@ if(file_exists($Fnm)) {
 		}
 		}
 		else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
-		echo '</table></div>';
+		echo '</tbody></table></div>';
 		
 		echo '</div>';
 	echo '</div>';

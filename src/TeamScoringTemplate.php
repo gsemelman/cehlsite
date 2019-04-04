@@ -248,7 +248,7 @@ if(file_exists($Fnm)) {
 			$e = 1;
 			echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">'.$scoringScoring.'</h5>';
 			echo '<div class = "table-responsive">
-			<table id="ForwardScoring" class="table table-sm">
+			<table id="ForwardScoring" class="table table-sm table-striped">
                 <thead>
                     <tr class="tableau-top">
             			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>

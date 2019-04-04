@@ -11,8 +11,6 @@
 	.navbar-expand-md .navbar-nav .nav-link { padding-left: 0.6rem; padding-right: 0.6rem; }
 	
 	.inner-bg { padding: 180px 0; }
-
-	.section-description p { padding: 0; }
 	
 }
 
@@ -24,12 +22,9 @@
 	.navbar-expand-md .navbar-nav .nav-link { padding-top: 0.3rem; padding-bottom: 0.3rem; }
 
 	.inner-bg { padding: 100px 0 80px 0; }
-	
-	.section-description p { padding: 0; }
 
 	.table{	line-height: 30px;}
-	
-/* 	.section-1-container { padding-bottom: 5px; } */
+
 	
 }
 

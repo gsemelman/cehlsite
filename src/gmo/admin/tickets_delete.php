@@ -3,21 +3,12 @@ error_reporting(E_ALL);
 ini_set("display_errors", "On");
 
 require_once __DIR__ .'/../../config.php';
-require_once FS_ROOT.'common.php';
-
+include_once FS_ROOT.'common.php';
 
 session_name(SESSION_NAME);
 session_start();
 
-
 $teamId = $_POST['teamId'];
-
-//include '../config4.php';
-//include '../login/mysqli.php';
-require_once __DIR__ .'/../../config.php';
-include FS_ROOT.'common.php';
-//include GMO_ROOT.'config4.php';
-
 
 if(isAuthenticated() && isAdmin()){
     include GMO_ROOT.'login/mysqli.php';

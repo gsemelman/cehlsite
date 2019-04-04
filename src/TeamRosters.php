@@ -21,46 +21,46 @@ include_once 'classes/PlayerVitalsHolder.php';
 
 <style>
 
-.table.fixed-column-striped, .table.fixed-column {
-	border-collapse: collapse;
-	width: 100%;
-}
+/* .table.fixed-column-striped, .table.fixed-column { */
+/* 	border-collapse: collapse; */
+/* 	width: 100%; */
+/* } */
 
-.table.fixed-column td, th, .table.fixed-column-striped td, th {
-	/*border: 1px solid #dddddd;*/
-	text-align: left;
-	padding: 3px;
-}
+/* .table.fixed-column td, th, .table.fixed-column-striped td, th { */
+/* 	/*border: 1px solid #dddddd;*/ */
+/* 	text-align: left; */
+/* 	padding: 3px; */
+/* } */
 
-.table.fixed-column-striped th:first-child, td:first-child, .table.fixed-column th:first-child,
-	td:first-child {
-	position: sticky;
-	left: 0px;
-}
+/* .table.fixed-column-striped th:first-child, td:first-child, .table.fixed-column th:first-child, */
+/* 	td:first-child { */
+/* 	position: sticky; */
+/* 	left: 0px; */
+/* } */
 
-.table.fixed-column-striped tr:nth-child(even) td:first-child {
-	background-color: rgba(176, 214, 255, 1.0);
-}
+/* .table.fixed-column-striped tr:nth-child(even) td:first-child { */
+/* 	background-color: rgba(176, 214, 255, 1.0); */
+/* } */
 
-.table.fixed-column-striped tr:nth-child(odd) td:first-child {
-	background-color: rgba(225, 239, 255, 1.0);
-}
+/* .table.fixed-column-striped tr:nth-child(odd) td:first-child { */
+/* 	background-color: rgba(225, 239, 255, 1.0); */
+/* } */
 
-.table tfoot th, .table thead th {
-	background-color: rgba(23, 145, 202, 1.0);
-}
+/* .table tfoot th, .table thead th { */
+/* 	background-color: rgba(23, 145, 202, 1.0); */
+/* } */
 
-.table.fixed-column-striped th a, .table.fixed-column th a {
-	color: #ffffff;
-}
+/* .table.fixed-column-striped th a, .table.fixed-column th a { */
+/* 	color: #ffffff; */
+/* } */
 
-.table-striped>tbody>tr:nth-child(even) {
-	background-color: rgba(176, 214, 255, 1.0);
-}
+/* .table-striped>tbody>tr:nth-child(even) { */
+/* 	background-color: rgba(176, 214, 255, 1.0); */
+/* } */
 
-.table-striped>tbody>tr:nth-child(odd) {
-	background-color: rgba(225, 239, 255, 1.0);
-}
+/* .table-striped>tbody>tr:nth-child(odd) { */
+/* 	background-color: rgba(225, 239, 255, 1.0); */
+/* } */
 </style>
 
 <div class="container">
@@ -114,7 +114,7 @@ include_once 'classes/PlayerVitalsHolder.php';
              
                                 //create table header
                                 echo '<div class="table-responsive">';
-                                echo '<table id="'.$tableId.'" class="table table-sm table-striped fixed-column-striped">';
+                                echo '<table id="'.$tableId.'" class="table table-sm table-striped fixed-column">';
                                 
                                     echo '<thead>
                                         <tr class="tableau-top">
