@@ -189,7 +189,7 @@ if(file_exists($Fnm)) {
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">';
 			echo '<table class="table table-sm table-striped">';
 			echo '<thead>';
-			echo '<tr class="tableau-top"><td colspan="2" ><h5 class="m-0">'.$financeOrganization.'</h5></td></tr>';
+			echo '<tr class="tableau-top"><th colspan="2" ><h5 class="m-0">'.$financeOrganization.'</h5></th></tr>';
 			echo '</thead>';
 			echo '<tbody>';
 			echo '<tr class="hover2"><td class="text-left">'.$financeArena.'</td><td class="text-right">'.$valArena.'</td></tr>';
@@ -202,7 +202,7 @@ if(file_exists($Fnm)) {
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">';
 			echo '<table class="table table-sm table-striped">
                 <thead>
-				<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$financeSalaryCommitment.'</h5></td></tr>
+				<tr class="tableau-top"><th colspan="2"><h5 class="m-0">'.$financeSalaryCommitment.'</h5></th></tr>
                 </thead>
                 <tbody>
 				<tr class="hover2"><td class="text-left">'.$financeYear.' '.$year[0].'</td><td class="text-right">'.$year[1].'$</td></tr>
@@ -218,7 +218,7 @@ if(file_exists($Fnm)) {
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
 			<table class="table table-sm table-striped">
             <thead>
-			<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$financeExpenses.'</h5></td></tr>
+			<tr class="tableau-top"><th colspan="2"><h5 class="m-0">'.$financeExpenses.'</h5></th></tr>
             </thead>
             <tbody>
 			<tr class="hover2"><td class="text-left">'.$financeProPayroll.'</td><td style="text-align:right;">'.$propayroll.'$</td></tr>
@@ -237,7 +237,7 @@ if(file_exists($Fnm)) {
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">
 			<table class="table table-sm table-striped">
             <thead>
-			<tr class="tableau-top"><td colspan="2"><h5 class="m-0">'.$financeIncome.'</h5></td></tr>
+			<tr class="tableau-top"><th colspan="2"><h5 class="m-0">'.$financeIncome.'</h5></th></tr>
         	</thead>
             <tbody>
 			<tr class="hover2"><td class="text-left">'.$financeCurrentFunds.'</td><td style="text-align:right;">'.$currentfunds.'$</td></tr>';

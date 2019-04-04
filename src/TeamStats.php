@@ -185,7 +185,8 @@ if(file_exists($Fnm)) {
 			
 			echo '<div class="col-sm-12 col-md-10 offset-md-1">';
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm">';
+			echo '<table class="table table-sm table-striped">';
+			echo '<thead>';
 		}
 		if(substr_count($val, '</PRE>')){
 			$a++;
@@ -331,6 +332,8 @@ if(file_exists($Fnm)) {
 			<td style="text-align:right;"><a style="'.$s7.'" href="'.$lienmem.$sortmemtp.'" class="info">'.$teamStatsSFGm.'<span>'.$teamStatsSFG.'</span></a></td>
 			<td style="text-align:right;"><a style="'.$s8.'" href="'.$lienmem.$sortmemtc.'" class="info">'.$teamStatsSAGm.'<span>'.$teamStatsSAG.'</span></a></td>
 			</tr>';
+		echo '</thead>';
+		echo '<tbody>';
 		if($sort) natsort($tableaut);
 		if($sort == 'pja' || $sort == 'ana' || $sort == 'dna' || $sort == 'ppa' || $sort == 'bpa' || $sort == 'bca' || $sort == 'tpa' || $sort == 'tca' || $sort == 'ppga' || $sort == 'ppoa' || $sort == 'pkga' || $sort == 'pkoa') $tableaut = array_reverse ($tableaut, TRUE);
 		$key = key($tableaut);
@@ -376,7 +379,7 @@ if(file_exists($Fnm)) {
 else{
     echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 }
-echo '</table></div>';
+echo '</tbody></table></div>';
 
 if(isset($lastUpdated)){
     echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';

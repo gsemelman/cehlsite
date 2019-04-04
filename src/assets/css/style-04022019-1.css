@@ -3,20 +3,22 @@
   --table-bg-color-2: rgba(225, 239, 255, 1.0);
 }
 
-/* body { font-family: 'Open Sans', sans-serif; font-size: 15px; font-weight: 400; color: #888; line-height: 30px; text-align: center; background-color: #; } */
+/* :root { */
+/*   --table-bg-color-1: rgba(200, 203, 219, 1.0); */
+/*   --table-bg-color-2: rgba(155, 170, 249, 1.0); */
+/* } */
+
+
+
 body {  
 	font-size: 15px; 
-/* 	font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";  */
 	font-family: 'Open Sans', sans-serif; 	
 	font-weight: 400; 
 	color: #888;
-/* 	 text-align: center;  */
-	}
-	
-body {
- background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
- background-image: linear-gradient(to top, #ffffff, #fcfcff, #f9f9ff, #f5f7ff, #f1f4ff, #ecf1fc, #e7edf9, #e2eaf6, #dce4ef, #d5dee9, #cfd9e2, #c9d3dc);   
- }
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
+ 	background-image: linear-gradient(to top, #ffffff, #fcfcff, #f9f9ff, #f5f7ff, #f1f4ff, #ecf1fc, #e7edf9, #e2eaf6, #dce4ef, #d5dee9, #cfd9e2, #c9d3dc);   
+
+}
 
 strong { font-weight: 700; }
 
@@ -197,14 +199,6 @@ body{
     color:white;
 }
 
-
-/***** Other *****/
-.center {
-    margin: 0 auto;
-    width: 80%;
-}
-
-
 /***** iFrame embeds *****/
 .iframe-container {
   padding-top: 0%;
@@ -344,6 +338,10 @@ a:hover.info span {
 	width:100%;
 }
 .tableau-top {
+	background-color:#1791CA;
+	color:white;
+}
+.table-striped .tableau-top {
 	background-color:#1791CA;
 	color:white;
 }

@@ -7,7 +7,7 @@ include_once 'common.php';
 
 <!-- <div class="col"> -->
 <div class = "table-responsive scrollable-table">
-<table class="table table-sm table-fixed">
+<table class="table table-sm table-striped">
 
 <?php
 
@@ -91,11 +91,14 @@ if(file_exists($Fnm)) {
 			$d++;
 		}
 	}
+	echo '<thead>';
 	echo '<tr class="tableau-top">';
-	echo '<td>'.$standingTeam.'</td>';
-	echo '<td><a href="javascript:return;" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></td>';
-	echo '<td><a href="javascript:return;" class="info">'.$standingPTS.'<span>'.$standingPTSFull.'</span></a></td>';
+	echo '<th>'.$standingTeam.'</th>';
+	echo '<th><a href="javascript:return;" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
+	echo '<th><a href="javascript:return;" class="info">'.$standingPTS.'<span>'.$standingPTSFull.'</span></a></th>';
 	echo '</tr>';
+	echo '</thead>';
+	echo '<tbody>';
 	
 	function array_orderby() {
 		$args = func_get_args();
@@ -135,6 +138,7 @@ else {
 }
 
 ?>
+</tbody>
 </table>
 </div>
 <!-- </div> -->

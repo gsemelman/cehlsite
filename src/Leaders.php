@@ -56,7 +56,8 @@ if(file_exists($Fnm)) {
 			
 			echo '<div class="col-sm-12 col-md-8 col-lg-8 offset-md-2 offset-lg-2">';
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm">';
+			echo '<table class="table table-sm table-striped">';
+		
 		}
 		if(substr_count($val, '</PRE>')) {
 			$a = 0;
@@ -165,7 +166,8 @@ if(file_exists($Fnm)) {
 		}
 	}
 	$i = 0;
-	echo '<tr><td style="text-align:center; font-weight:bold;" colspan="'.$tableColScoring.'">'.$leaderScoring.'</td></tr><tr class="tableau-top">';
+	echo '<thead>';
+	echo '<tr class="tableau-top"><td style="text-align:center; font-weight:bold;" colspan="'.$tableColScoring.'">'.$leaderScoring.'</td></tr><tr class="tableau-top">';
 	echo '<td></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderTeam.'<span>'.$leaderTeamF.'</span></a></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderGP.'<span>'.$leaderGPF.'</span></a></td>';
@@ -181,6 +183,8 @@ if(file_exists($Fnm)) {
 		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderShotsAcc.'<span>'.$leaderShotsAccF.'</span></a></td>';
 	}
 	echo '</tr>';
+	echo '</thead>';
+	echo '<tbody>';
 	if(isset($joueur)) {
 		for($i=0;$i<count($joueur);$i++) {
 			if($c == 1) $c = 2;
@@ -205,10 +209,10 @@ if(file_exists($Fnm)) {
 			echo '</tr>';
 		}
 	}
-	echo '</table></div><br>';
+	echo '</tbody></table></div><br>';
 	/* echo '<table class="tableau"><tr><td style="text-align:center; font-weight:bold;" colspan="'.$tableColGoaltending.'">'.$leaderGoalies.'</td></tr>'; */
 	echo '<div class="table-responsive wow fadeIn">';
-	echo '<table class="table table-sm"><tr><td style="text-align:center; font-weight:bold;" colspan="'.$tableColGoaltending.'">'.$leaderGoalies.'</td></tr>';
+	echo '<table class="table table-sm table-striped"><tr><td style="text-align:center; font-weight:bold;" colspan="'.$tableColGoaltending.'">'.$leaderGoalies.'</td></tr>';
 	echo '<tr><td style="text-align:center;" colspan="'.$tableColGoaltending.'">'.$leaderminGames.' '.$games.' '.$leaderminGames2.'.</td></tr><tr class="tableau-top">';
 	echo '<td></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderTeam.'<span>'.$leaderTeamF.'</span></a></td>';
@@ -229,6 +233,8 @@ if(file_exists($Fnm)) {
 		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderAssist.'<span>'.$leaderAssistF.'</span></a></td>';
 	}
 	echo '</tr>';
+	echo '</thead>';
+	echo '<tbody>';
 	$i = 0;
 	$c =  1;
 	if(isset($joueur2)) {
@@ -265,7 +271,7 @@ if(file_exists($Fnm)) {
 else{
     echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 }
-echo '</table></div>';
+echo '</tbody></table></div>';
 
     if(isset($lastUpdated)){
         echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';

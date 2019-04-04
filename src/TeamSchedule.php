@@ -114,7 +114,8 @@ include 'TeamHeader.php';
 			<div class = "row wow fadeIn">
 				<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
 				<div class = "table-responsive">
-					<table class="table table-sm">
+					<table class="table table-sm table-striped">
+					
 
 					<?php
 					echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">Team Schedule</h5>';
@@ -272,18 +273,21 @@ include 'TeamHeader.php';
 							$a = $a - 1;
 							for($i=0;$i<count($status);$i++) {
 								if($a == $i){
+								    echo '<thead>';
 								    echo '<tr class="tableau-top">';
 								    //echo '<td>'.$ScheldGameNum.'</td>';
-								    echo '<td>Day</td>';
-								    echo '<td>'.$ScheldVisitor.'</td>';
-								    echo '<td>VS</td>';
-								    echo '<td>'.$ScheldHome.'</td>';
-								    echo '<td>HS</td>';
-								    echo '<td style="text-align:center;">'.$schedOT.'</td>';
-								    echo '<td style="text-align:center;">'.$ScheldRes.'</td>';
-								    echo '<td style="text-align:right;">'.$ScheldRecord.'</td>';
-								    echo '<td style="text-align:right;">'.$ScheldGAGF.'</td>';
+								    echo '<th class="text-center">Day</th>';
+								    echo '<th>'.$ScheldVisitor.'</th>';
+								    echo '<th>VS</td>';
+								    echo '<th>'.$ScheldHome.'</th>';
+								    echo '<th>HS</th>';
+								    echo '<th>'.$schedOT.'</th>';
+								    echo '<th>'.$ScheldRes.'</th>';
+								    echo '<th>'.$ScheldRecord.'</th>';
+								    echo '<th>'.$ScheldGAGF.'</th>';
 								    echo '</tr>';
+								    echo '</thead>';
+								    echo '<tbody>';
 								}
 // 								if($status[$i] == 'Jour' && $checked != ''){
 // 									echo '<tr class="tableau-top"><td colspan="9" style="text-align:center;">'.$schedDay.' '.$day[$i].'</td></tr>';
@@ -344,6 +348,7 @@ include 'TeamHeader.php';
 						}
 					}
 					?>
+					</tbody>
 					</table>
 				</div>
 
@@ -352,16 +357,18 @@ include 'TeamHeader.php';
 				//echo '<div><span>'.$ScheldMatchups.'</span></div>';
 				echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">'.$ScheldMatchups.'</h5>';
 				echo '<div class="table-responsive">';
-				echo '<table class="table table-sm">';
+				echo '<table class="table table-sm table-striped">';
+				echo '<thead>';
 				echo '<tr class="tableau-top">';
-				echo '<td>'.$ScheldTeam.'</td>';
-				echo '<td>'.$ScheldGP.'</td>';
-				echo '<td>'.$ScheldW.'</td>';
-				echo '<td>'.$ScheldL.'</td>';
-				echo '<td>'.$ScheldT.'</td>';
-				echo '<td>'.$ScheldLeft.'</td>';
-				echo '<td>'.$ScheldGAGF.'</td>';
+				echo '<th>'.$ScheldTeam.'</th>';
+				echo '<th>'.$ScheldGP.'</th>';
+				echo '<th>'.$ScheldW.'</th>';
+				echo '<th>'.$ScheldL.'</th>';
+				echo '<th>'.$ScheldT.'</th>';
+				echo '<th>'.$ScheldLeft.'</th>';
+				echo '<th>'.$ScheldGAGF.'</th>';
 				echo '</tr>';
+				echo '</thead>';
 				$c = 1;
 				for($j=0;$j<count($gmequipe);$j++) {
 				    if($gmequipe[$j] != $currentTeam) {
@@ -380,6 +387,7 @@ include 'TeamHeader.php';
 				        echo '</tr>';
 				    }
 				}
+				echo '</tbody>';
 				echo '</table>';
 				echo '</div>';
 				?>

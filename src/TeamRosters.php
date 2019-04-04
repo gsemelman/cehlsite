@@ -195,30 +195,30 @@ include_once 'classes/PlayerVitalsHolder.php';
                                     //display averages in table footer
                                     echo ' <tfoot>
                                         <tr class="tableau-top">
-                              		       	<th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th>'.$rosterAvgs->getAvgIt().'</th>
-                                            <th>'.$rosterAvgs->getAvgSp().'</th>
-                                            <th>'.$rosterAvgs->getAvgSt().'</th>
-                                            <th>'.$rosterAvgs->getAvgEn().'</th>
-                                            <th>'.$rosterAvgs->getAvgDu().'</th>
-                                            <th>'.$rosterAvgs->getAvgDi().'</th>
-                                            <th>'.$rosterAvgs->getAvgSk().'</th>
-                                            <th>'.$rosterAvgs->getAvgPa().'</th>
-                                            <th>'.$rosterAvgs->getAvgPc().'</th>
-                                            <th>'.$rosterAvgs->getAvgDf().'</th>
-                                            <th>'.$rosterAvgs->getAvgSc().'</th>
-                                            <th>'.$rosterAvgs->getAvgEx().'</th>
-                                            <th>'.$rosterAvgs->getAvgLd().'</th>
-                                            <th>'.$rosterAvgs->getAvgOv().'</th>
-                                            <th>'.$playerVitals->getAvgAge().'</th>
-                                            <th class="text-right">$'.$playerVitals->getAvgSalary().'</th>
-                                            <th></th>
-                                            <th>'.$playerVitals->getAvgHeight().'</th>
-                                            <th>'.$playerVitals->getAvgWeight().'</th>
+                              		       	<td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>'.$rosterAvgs->getAvgIt().'</td>
+                                            <td>'.$rosterAvgs->getAvgSp().'</td>
+                                            <td>'.$rosterAvgs->getAvgSt().'</td>
+                                            <td>'.$rosterAvgs->getAvgEn().'</td>
+                                            <td>'.$rosterAvgs->getAvgDu().'</td>
+                                            <td>'.$rosterAvgs->getAvgDi().'</td>
+                                            <td>'.$rosterAvgs->getAvgSk().'</td>
+                                            <td>'.$rosterAvgs->getAvgPa().'</td>
+                                            <td>'.$rosterAvgs->getAvgPc().'</td>
+                                            <td>'.$rosterAvgs->getAvgDf().'</td>
+                                            <td>'.$rosterAvgs->getAvgSc().'</td>
+                                            <td>'.$rosterAvgs->getAvgEx().'</td>
+                                            <td>'.$rosterAvgs->getAvgLd().'</td>
+                                            <td>'.$rosterAvgs->getAvgOv().'</td>
+                                            <td>'.$playerVitals->getAvgAge().'</td>
+                                            <td class="text-right">$'.$playerVitals->getAvgSalary().'</td>
+                                            <td></td>
+                                            <td>'.$playerVitals->getAvgHeight().'</td>
+                                            <td>'.$playerVitals->getAvgWeight().'</td>
                                                 
                             			</tr>
                                     </tfoot>'; 

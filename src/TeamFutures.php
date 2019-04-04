@@ -115,7 +115,7 @@ if(file_exists($Fnm)) {
     				<table class="table table-sm table-striped">
     					<thead>
     						<tr class="tableau-top">
-    							<td colspan=2 class="text-center">Name</td>
+    							<th colspan=2 class="text-center">Name</th>
     						</tr>
     					</thead>
     					<tbody>
@@ -169,8 +169,8 @@ if(file_exists($Fnm)) {
     				<table class="table table-sm table-striped" style="white-space:normal;">
     					<thead>
     						<tr class="tableau-top">
-    							<td class="text-center">Year</td>
-    							<td class="text-left">Picks</td>
+    							<th class="text-center">Year</th>
+    							<th class="text-left">Picks</th>
     						</tr>
     					</thead>
     					<tbody>

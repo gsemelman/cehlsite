@@ -251,24 +251,24 @@ if(file_exists($Fnm)) {
 			<table id="ForwardScoring" class="table table-sm table-striped">
                 <thead>
                     <tr class="tableau-top">
-            			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
-            			<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
-            			<td>'.$scoringName.'</td>
-            			<td><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringGm.'<span>'.$scoringG.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">A<span>'.$scoringAssits.'</span></a></td>
-            			<td style="text-align:right; font-weight:bold;"><a class="info" href="javascript:return;">P<span>Points</span></a></td>
-            			<td><a class="info" href="javascript:return;">+/-<span>'.$scoringDiff.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringPPm.'<span>'.$scoringPP.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringSHm.'<span>'.$scoringSH.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringGWm.'<span>'.$scoringGW.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringGTm.'<span>'.$scoringGT.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringHTm.'<span>'.$scoringHT.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringSm.'<span>'.$scoringS.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringPCTGm.'<span>'.$scoringPCTG.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringGSm.'<span>'.$scoringGS.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringPSm.'<span>'.$scoringPS.'</span></a></td>
+            			<th style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></th>
+            			<th><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></th>
+            			<th>'.$scoringName.'</th>
+            			<th><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringGm.'<span>'.$scoringG.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">A<span>'.$scoringAssits.'</span></a></th>
+            			<th style="text-align:right; font-weight:bold;"><a class="info" href="javascript:return;">P<span>Points</span></a></th>
+            			<th><a class="info" href="javascript:return;">+/-<span>'.$scoringDiff.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringPPm.'<span>'.$scoringPP.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringSHm.'<span>'.$scoringSH.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringGWm.'<span>'.$scoringGW.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringGTm.'<span>'.$scoringGT.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringHTm.'<span>'.$scoringHT.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringSm.'<span>'.$scoringS.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringPCTGm.'<span>'.$scoringPCTG.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringGSm.'<span>'.$scoringGS.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringPSm.'<span>'.$scoringPS.'</span></a></th>
         			</tr>
                 </thead>
                 <tbody style="font-weight:normal">';
@@ -278,24 +278,24 @@ if(file_exists($Fnm)) {
 			echo '</tbody></table></div>
             <h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">'.$scoringGoalie.'</h5>
 			<div class = "table-responsive">
-			<table id="GoalieStats" class="table table-sm">
+			<table id="GoalieStats" class="table table-sm table-striped">
                 <thead>
                     <tr class="tableau-top">
-            			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
-            			<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
-            			<td>'.$scoringName.'</td>
-            			<td><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">MIN<span>'.$scoringMIN.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringAVGm.'<span>'.$scoringAVG.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringWm.'<span>'.$scoringW.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringLm.'<span>'.$scoringL.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringTm.'<span>'.$scoringT.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringSOm.'<span>'.$scoringSO.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringGAm.'<span>'.$scoringGA.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringSAm.'<span>'.$scoringSA.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">PCT<span>'.$scoringPCT.'</span></a></td>
-            			<td><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></td>
-            			<td>AS</td>
+            			<th style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></th>
+            			<th><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></th>
+            			<th>'.$scoringName.'</th>
+            			<th><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">MIN<span>'.$scoringMIN.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringAVGm.'<span>'.$scoringAVG.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringWm.'<span>'.$scoringW.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringLm.'<span>'.$scoringL.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringTm.'<span>'.$scoringT.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringSOm.'<span>'.$scoringSO.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringGAm.'<span>'.$scoringGA.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringSAm.'<span>'.$scoringSA.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">PCT<span>'.$scoringPCT.'</span></a></th>
+            			<th><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></th>
+            			<th>AS</th>
         			</tr>
     			<thead>
                 <tbody style="font-weight:normal">';

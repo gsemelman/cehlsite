@@ -178,7 +178,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 						<h3>Waivers</h3>
 					</div>
 					<div class="card-body">
-						<?php include 'MiniWaivers2.php'; ?>
+						<?php include 'MiniWaivers.php'; ?>
 					</div>
 				</div>
 

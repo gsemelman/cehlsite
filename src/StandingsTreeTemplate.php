@@ -211,7 +211,7 @@ for($j=1;$j<=$existRnd;$j++) {
 			if($TeamNumber != 0) {
 			    //echo '<table style="width:25%" class="table table-sm" >';
 			    //echo '<div class="col-3">';
-			    echo '<table class="table table-sm" >';
+			    echo '<table class="table table-sm table-striped" >';
 			    echo '<thead>';
 			    echo '<tr class="tableau-top">';
 			    echo '<td class="col-3"></td>';
