@@ -11,19 +11,15 @@
                 <label for="passControl">Password</label>
                 <input class="form-control text-center" type="password" name="pass"  id="passControl" >
             </div>
-            
-<!--             <button type="submit" name="login" class="btn btn-primary">Submit</button> -->
 
-            <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" name="rememberMe" type="checkbox" id="rememberMe">
-                  <label class="form-check-label" for="rememberMe">
-                    Remember Me
-                  </label>
+  			<div class="form-group">
+                <div class="col-sm-12 custom-control custom-checkbox">
+                  <input id="rememberMe" name="rememberMe" type="checkbox" class="custom-control-input">
+                  <label class="custom-control-label" for="rememberMe">Remember Me</label>
                 </div>
-              </div>
+             </div>
 
-			<input class="btn btn-primary" type="submit" value="<?php echo $db_login_langue[3]; ?>" name="login">
+			<input class="btn btn-outline-primary" type="submit" value="<?php echo $db_login_langue[3]; ?>" name="login">
     		
     	</form>
 	</div>

@@ -112,7 +112,18 @@ include 'TeamHeader.php';
 </div>
 
 
-<script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	if($("#ForwardScoring").length){
+    	makeTableSortable('ForwardScoring');
+    	
+    }
+	if($("#GoalieStats").length){
+		makeTableSortable('GoalieStats');
+    }
+});
+
 
 
 var currentTeam = '<?php echo $currentTeam?>';
@@ -145,7 +156,7 @@ $("#typeMenu").on('change', function() {
 
 function handleSelection(season, type){
 
-	var hash = generateHash(season, type);;
+	var hash = generateHash(season, type);
 	
 	if(season == 'Current'){
 		season = '';

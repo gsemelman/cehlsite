@@ -736,16 +736,18 @@ echo '<div class="card-body wow fadeIn">';
 
 echo '<div class = "row wow fadeIn">';
 	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
-		echo '<table class="table table-sm table-striped">';
-		echo '<thead>';
-		echo '<tr class="tableau-top"><th colspan="4"><h5 class="m-0">Team Info</h5></th></tr>';
-		echo '</thead>';
-		echo '<tbody>';
-		echo '<tr><td style="width:90px; font-weight:bold;">'.$teamCardGM.'</td><td style="width:175px;">'.$gm.'</td><td style="width:90px; font-weight:bold;">'.$teamCardArena.'</td><td>'.$arena.'</td></tr>';
-		echo '<tr><td style="font-weight:bold;">'.$teamCardCoach.'</td><td>'.$entraineur.'</td><td style="font-weight:bold;">'.$teamCardSeats.'</td><td>'.$sieges.'</td></tr>';
-		echo '<tr><td style="font-weight:bold;">'.$teamCardFarm.'</td><td>'.ucwords(strtolower($farmName)).'</td><td style="font-weight:bold;">'.$teamCardTicket.'</td><td>'.$billets.'</td></tr>';
-		echo '</tbody>';
-		echo '</table>';
+    	echo '<div class = "table-responsive">';
+    		echo '<table class="table table-sm table-striped">';
+    		echo '<thead>';
+    		echo '<tr class="tableau-top"><th colspan="4"><h5 class="m-0">Team Info</h5></th></tr>';
+    		echo '</thead>';
+    		echo '<tbody>';
+    		echo '<tr><td style="width:90px; font-weight:bold;">'.$teamCardGM.'</td><td style="width:175px;">'.$gm.'</td><td style="width:90px; font-weight:bold;">'.$teamCardArena.'</td><td>'.$arena.'</td></tr>';
+    		echo '<tr><td style="font-weight:bold;">'.$teamCardCoach.'</td><td>'.$entraineur.'</td><td style="font-weight:bold;">'.$teamCardSeats.'</td><td>'.$sieges.'</td></tr>';
+    		echo '<tr><td style="font-weight:bold;">'.$teamCardFarm.'</td><td>'.ucwords(strtolower($farmName)).'</td><td style="font-weight:bold;">'.$teamCardTicket.'</td><td>'.$billets.'</td></tr>';
+    		echo '</tbody>';
+    		echo '</table>';
+    	echo '</div>';
 	echo '</div>';
 echo '</div>';
 

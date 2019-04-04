@@ -688,7 +688,7 @@ function result(tmpSearch) {
 	var result = document.getElementById("windowResult");
 	var tbl = document.createElement('table');
 		tbl.style.width='100%';
-		tbl.className = "table table-sm";
+		tbl.className = "table table-sm table-striped";
 	var tbdy = document.createElement('tbody');
 	// Entête - Header
 	if(currentType == 0) {
