@@ -549,7 +549,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <div style="display:none; margin-left:auto; margin-right:auto; width:480px;" id="windowSearch">
 <div id="windowSearchResult" style="display:none;"></div>
 <form method="post">
-	<table class="tableau" style="width:480px;">
+	<table class="table table-sm table-striped" style="width:480px;">
+	<tbody>
 		<tr class="hover2">
 			<td><?php echo $rostersName; ?></td>
 			<td><input style="width:300px;" name="csName" type="text" value="<?php echo $csName; ?>"></td>
@@ -782,6 +783,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		<tr class="tableau-top">
 			<td colspan="2" style="text-align:right;"><input type="submit" value="Search"><input onclick="javascript:window.open('SearchPlayers.php','_self');" type="button" value="<?php echo $careerStatsReset; ?>"></td>
 		</tr>
+	</tbody>
 	</table>
 </form>
 </div>
@@ -815,7 +817,7 @@ if(isset($vital_name) && isset($rosters_name)) {
 	?>
 	<div class="titre"><span class="bold-blanc"><?php echo $searchPlayerFound; ?>&nbsp;(<?php if(isset($rosters_vital_age)) echo count($rosters_vital_age); ?>)</span></div>
 	<div class = "table-responsive">
-	<table class="table table-sm">
+	<table class="table table-sm table-striped">
 	<?php
 	
 	if($csSortBy == '0') {
@@ -915,35 +917,38 @@ if(isset($vital_name) && isset($rosters_name)) {
 	if($csSortWay == '0') $sortVar = array_reverse ($sortVar, TRUE);
 	
 	echo '
+    <thead>
 	<tr class="tableau-top">
-	<td style="width:20px;'.$s1.'"><a href="javascript:return;" class="info">#<span>'.$rostersNumber.'</span></a></td>
-	<td style="'.$s2.'"><a href="javascript:return;" class="info">'.$rostersName.'</a></td>
-	<td style="'.$s26.'"><a href="javascript:return;" class="info">TEAM</a></td>
-	<td style="width:20px;"><a href="javascript:return;" class="info">R<span>'.$joueursRookie.'</span></a></td>
-	<td style="width:22px;'.$s3.'"><a class="info">PO<span>'.$rostersPosition.'</span></a></td>
-	<td style="width:15px;'.$s4.'"><a class="info">'.$rostersHD.'<span>'.$rostersHDF.'</span></a></td>
-	<td style="width:22px;'.$s5.'"><a class="info">CD<span>Condition</span></a></td>
-	<td style="width:20px; text-align:center;'.$s6.'"><a href="javascript:return;" class="info">'.$rostersIJ.'<span>'.$rostersIJF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s7.'"><a href="javascript:return;" class="info">'.$rostersIT.'<span>'.$rostersITF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s8.'"><a href="javascript:return;" class="info">'.$rostersSP.'<span>'.$rostersSPF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s9.'"><a href="javascript:return;" class="info">'.$rostersST.'<span>'.$rostersSTF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s10.'"><a href="javascript:return;" class="info">'.$rostersEN.'<span>'.$rostersENF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s11.'"><a href="javascript:return;" class="info">'.$rostersDU.'<span>'.$rostersDUF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s12.'"><a href="javascript:return;" class="info">'.$rostersDI.'<span>'.$rostersDIF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s13.'"><a href="javascript:return;" class="info">'.$rostersSK.'<span>'.$rostersSKF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s14.'"><a href="javascript:return;" class="info">'.$rostersPA.'<span>'.$rostersPAF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s15.'"><a href="javascript:return;" class="info">'.$rostersPC.'<span>'.$rostersPCF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s16.'"><a href="javascript:return;" class="info">'.$rostersDF.'<span>'.$rostersDFF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s17.'"><a href="javascript:return;" class="info">'.$rostersOF.'<span>'.$rostersOFF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s18.'"><a href="javascript:return;" class="info">'.$rostersEX.'<span>'.$rostersEXF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s19.'"><a href="javascript:return;" class="info">'.$rostersLD.'<span>'.$rostersLDF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s20.'"><a href="javascript:return;" class="info">'.$rostersOV.'<span>'.$rostersOVF.'</span></a></td>
-	<td style="width:20px; text-align:center;'.$s21.'"><a href="javascript:return;" class="info">AGE</a></td>
-	<td style="width:70px; text-align:right;'.$s23.'"><a href="javascript:return;" class="info">'.$joueursSalary.'</a></td>
-	<td style="width:20px; text-align:center;'.$s22.'"><a href="javascript:return;" class="info">'.$linkedYear.'<span>'.$linkedYearF.'</span></a></td>
-	<td style="width:40px; text-align:center;'.$s25.'"><a href="javascript:return;" class="info">'.$linkedHeightm.'<span>'.$joueursHeightF.'</span></a></td>
-	<td style="width:50px; text-align:center;'.$s24.'"><a href="javascript:return;" class="info">'.$linkedWeightm.'<span>'.$joueursWeight.'</span></a></td>
-	</tr>';
+	<th style="width:20px;'.$s1.'"><a href="javascript:return;" class="info">#<span>'.$rostersNumber.'</span></a></th>
+	<th style="'.$s2.'"><a href="javascript:return;" class="info">'.$rostersName.'</a></th>
+	<th style="'.$s26.'"><a href="javascript:return;" class="info">TEAM</a></th>
+	<th style="width:20px;"><a href="javascript:return;" class="info">R<span>'.$joueursRookie.'</span></a></th>
+	<th style="width:22px;'.$s3.'"><a class="info">PO<span>'.$rostersPosition.'</span></a></th>
+	<th style="width:15px;'.$s4.'"><a class="info">'.$rostersHD.'<span>'.$rostersHDF.'</span></a></th>
+	<th style="width:22px;'.$s5.'"><a class="info">CD<span>Condition</span></a></th>
+	<th style="width:20px; text-align:center;'.$s6.'"><a href="javascript:return;" class="info">'.$rostersIJ.'<span>'.$rostersIJF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s7.'"><a href="javascript:return;" class="info">'.$rostersIT.'<span>'.$rostersITF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s8.'"><a href="javascript:return;" class="info">'.$rostersSP.'<span>'.$rostersSPF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s9.'"><a href="javascript:return;" class="info">'.$rostersST.'<span>'.$rostersSTF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s10.'"><a href="javascript:return;" class="info">'.$rostersEN.'<span>'.$rostersENF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s11.'"><a href="javascript:return;" class="info">'.$rostersDU.'<span>'.$rostersDUF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s12.'"><a href="javascript:return;" class="info">'.$rostersDI.'<span>'.$rostersDIF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s13.'"><a href="javascript:return;" class="info">'.$rostersSK.'<span>'.$rostersSKF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s14.'"><a href="javascript:return;" class="info">'.$rostersPA.'<span>'.$rostersPAF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s15.'"><a href="javascript:return;" class="info">'.$rostersPC.'<span>'.$rostersPCF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s16.'"><a href="javascript:return;" class="info">'.$rostersDF.'<span>'.$rostersDFF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s17.'"><a href="javascript:return;" class="info">'.$rostersOF.'<span>'.$rostersOFF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s18.'"><a href="javascript:return;" class="info">'.$rostersEX.'<span>'.$rostersEXF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s19.'"><a href="javascript:return;" class="info">'.$rostersLD.'<span>'.$rostersLDF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s20.'"><a href="javascript:return;" class="info">'.$rostersOV.'<span>'.$rostersOVF.'</span></a></th>
+	<th style="width:20px; text-align:center;'.$s21.'"><a href="javascript:return;" class="info">AGE</a></th>
+	<th style="width:70px; text-align:right;'.$s23.'"><a href="javascript:return;" class="info">'.$joueursSalary.'</a></th>
+	<th style="width:20px; text-align:center;'.$s22.'"><a href="javascript:return;" class="info">'.$linkedYear.'<span>'.$linkedYearF.'</span></a></th>
+	<th style="width:40px; text-align:center;'.$s25.'"><a href="javascript:return;" class="info">'.$linkedHeightm.'<span>'.$joueursHeightF.'</span></a></th>
+	<th style="width:50px; text-align:center;'.$s24.'"><a href="javascript:return;" class="info">'.$linkedWeightm.'<span>'.$joueursWeight.'</span></a></th>
+	</tr>
+	</thead>
+    <tbody>';
 	
 	$c = 1;
 	while(list ($key, $val) = each($sortVar)) {
@@ -993,6 +998,7 @@ else {
 }
 
 ?>
+</tbody>
 </table>
 </div>
 </div>

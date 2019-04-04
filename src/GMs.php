@@ -43,7 +43,7 @@ if(file_exists($Fnm)) {
 			
 			echo '<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm">';
+			echo '<table class="table table-sm table-striped">';
 		}
 		if(substr_count($val, 'HREF') && !substr_count($val, '<BR>')) {
 			$gmequipe[$i] = trim(substr($val, 0, 10));
@@ -58,10 +58,13 @@ if(file_exists($Fnm)) {
 	$z = 0;
 	$sendAll = '';
 	$sendAllFirst = 0;
+	echo '<thead>';
 	echo '<tr class="tableau-top">
 		<td>'.$GMsTeam.'</td>
 		<td>'.$GMsName.'</td>
 		</tr>';
+	echo '</thead>';
+	echo '<tbody>';
 	for($i=0;$i<count($gmequipe);$i++) {
 		if($libre[$i]) {
 			$free[$z] = $gmequipe[$i];
@@ -101,7 +104,7 @@ if(file_exists($Fnm)) {
 	}
 }
 else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
-echo '</table></div>';
+echo '</tbody></table></div>';
  echo '<h6 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h6>';
 echo '</div></div></div></div>';
 ?>

@@ -35,7 +35,7 @@ $TICKET_TEAM_INT = array();
 	<h5>Ticket Change Requests</h5>
 	<div class="row">
 		<div class="col">
-            <table class="table text-center">
+            <table class="table table-sm table-striped text-center">
               <thead>
                 <tr>
                   <th scope="col">Team</th>

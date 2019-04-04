@@ -59,8 +59,10 @@ if ( isset($_GET['admin']) || isset($_POST['admin']) ) {
 	$mode = htmlspecialchars($mode);
 	
 	if( $mode != 'gmo' && $mode != 'first' ) {
-	    echo '<a href="'.BASE_URL.'MyCehl.php?#Admin">'.$db_admin_all_langue[0].'</a><br>';
-		echo $league_name.'<br>';
+	   // echo '<a href="'.BASE_URL.'MyCehl.php?#Admin">'.$db_admin_all_langue[0].'</a><br>';
+	    echo '<a class="btn btn-outline-primary" href="'.BASE_URL.'MyCehl.php?#Admin">'.$db_admin_all_langue[0].'</a><br>';
+	  
+		//echo $league_name.'<br>';
 	}
 
 	if ( $mode == 'user' ) include GMO_ROOT.'admin/user.php';

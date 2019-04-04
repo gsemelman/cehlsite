@@ -131,19 +131,23 @@ xmlhttp.send(parameters)
 <form method="post" action="<?php echo BASE_URL?>MyCehl.php?<?php echo $link; ?>#Admin">
 <br><b><?php echo $db_admin_userpass_langue[0]; ?></b><br><?php echo $db_admin_userpass_langue[1]; ?><br><?php echo $db_admin_userpass_langue[18]; ?><br>
 <br><input class="button" onclick="generatePassword('all');" type="button" value="<?php echo $db_admin_userpass_langue[9]; ?>"><br>
-<table style="margin-top:25px;">
+<div class="table-responsive">
+<table class="table table-sm table-striped" style="margin-top:25px;">
+<thead>
 <tr>
-<td><?php echo $db_admin_userpass_langue[2]; ?></td>
-<td><?php echo $db_admin_userpass_langue[3]; ?></td>
-<td><?php echo $db_admin_userpass_langue[4]; ?></td>
-<td><?php echo $db_admin_userpass_langue[8]; ?></td>
-<td><?php echo $db_admin_userpass_langue[7]; ?></td>
-<td><?php echo $db_admin_userpass_langue[13]; ?></td>
-<td><?php echo $db_admin_userpass_langue[15]; ?></td>
-<td><?php echo $db_admin_userpass_langue[14]; ?></td>
-<td><?php echo $db_admin_userpass_langue[16]; ?></td>
-<td><?php echo $db_admin_userpass_langue[17]; ?></td>
+<th><?php echo $db_admin_userpass_langue[2]; ?></th>
+<th><?php echo $db_admin_userpass_langue[3]; ?></th>
+<th><?php echo $db_admin_userpass_langue[4]; ?></th>
+<th><?php echo $db_admin_userpass_langue[8]; ?></th>
+<th><?php echo $db_admin_userpass_langue[7]; ?></th>
+<th><?php echo $db_admin_userpass_langue[13]; ?></th>
+<th><?php echo $db_admin_userpass_langue[15]; ?></th>
+<th><?php echo $db_admin_userpass_langue[14]; ?></th>
+<th><?php echo $db_admin_userpass_langue[16]; ?></th>
+<th><?php echo $db_admin_userpass_langue[17]; ?></th>
 </tr>
+</thead>
+<tbody>
 <?php
 
 for($i=0;$i<count($bd_int);$i++){
@@ -162,7 +166,7 @@ for($i=0;$i<count($bd_int);$i++){
 }
 
 ?>
-</table>
+</tbody></table></div>
 <br><?php echo $db_admin_userpass_langue[11]; ?><br>
 <input class="inputText" type="email" id="email" value="" style="width:200px;"><input class="button" style="width:100px;" onclick="sendEmail();" type="button" value="<?php echo $db_admin_userpass_langue[10]; ?>" name="userpasssend">
 <br><br>

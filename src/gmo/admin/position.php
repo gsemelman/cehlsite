@@ -148,15 +148,18 @@ if(isset($DB_LSTM)) {
 </select>
 </form>
 <br>
-<table class="table">
+<table class="table table-sm table-striped text-center">
+	<thead>
 	<tr class="tr">
-		<td><?php echo $db_admin_position[6]; ?></td>
-		<td><?php echo $db_admin_position[7]; ?></td>
-		<td><?php echo $db_admin_position[8]; ?></td>
-		<td><?php echo $db_admin_position[9]; ?></td>
-		<td><?php echo $db_admin_position[10]; ?></td>
-		<td><?php echo $db_admin_position[11]; ?></td>
+		<th><?php echo $db_admin_position[6]; ?></th>
+		<th><?php echo $db_admin_position[7]; ?></th>
+		<th><?php echo $db_admin_position[8]; ?></th>
+		<th><?php echo $db_admin_position[9]; ?></th>
+		<th><?php echo $db_admin_position[10]; ?></th>
+		<th><?php echo $db_admin_position[11]; ?></th>
 	</tr>
+	</thead>
+	<tbody>
 <?php
 $colorRow = 2;
 if(isset($ADMIN_DB_ID)) {
@@ -176,4 +179,4 @@ for($i=0; $i<count($ADMIN_DB_ID);$i++){
 }
 }
 ?>
-</table>
+</tbody></table>

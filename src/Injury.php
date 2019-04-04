@@ -7,11 +7,14 @@ $CurrentPage = 'Injury';
 include 'head.php';
 ?>
 
-<h3><?php echo $CurrentTitle; ?></h3>
-
 <div class = "container">
 <div class = "row">
 <div class = "col-sm-12 col-md-8 offset-md-2">
+<div class="card">
+<?php include 'SectionHeader.php' ?>
+<div class ="card-body">
+
+
 
 
 <?php
@@ -29,6 +32,7 @@ $Fnm = $folder.$folderLeagueURL.'Injury.html';
 $b = 0;
 $c = 1;
 $d = 0;
+$lastUpdated = '';
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = myEach($tableau)) {
@@ -37,9 +41,10 @@ if(file_exists($Fnm)) {
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
-			echo '<h5>'.$allLastUpdate.' '.$val.'</h5>';
+			$lastUpdated = $val;
 			
-			echo '<table class="table table-sm">';
+			echo '<table class="table table-sm table-striped">';
+			echo '<tbody>';
 		}
 		if(substr_count($val, 'NAME=')){
 			$pos = strpos($val, '</A>');
@@ -88,7 +93,10 @@ if(file_exists($Fnm)) {
 }
 else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 if(!$d)echo '<tr><td>'.$injuryNoInjury.'</td></tr>';
-echo '</table></div></div></div>';
+echo '</tbody></table>';
+echo '<h5>'.$allLastUpdate.' '.$lastUpdated.'</h5>';
 ?>
+
+</div></div></div></div></div>
 
 <?php include 'footer.php'; ?>

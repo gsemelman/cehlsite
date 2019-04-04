@@ -1159,7 +1159,7 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 		<div class="card-body">
 		<div class = "row">
 		<div class = "col-sm-12 col-md-12 col-lg-8 offset-lg-2">
-		<div class="table-responsive"><table class="table table-sm">';
+		<div class="table-responsive"><table class="table table-sm table-striped">';
 	}
 	
 	// Season TeamScoring
@@ -1411,7 +1411,7 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 				</tr>';
 			}
 		}
-		if(!isset($statsPLFNumber)) echo '</table></div>';
+		if(!isset($statsPLFNumber)) echo '</tbody></table></div>';
 		else echo '<tr><td colspan="20" style="height:20px;"></td></tr>';
 	}
 	// Playoff TeamScoring
@@ -1661,7 +1661,7 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 				</tr>';
 			}
 		}
-		echo '</table>';
+		echo '</tbody></table>';
 	}
 	
 	// Last 10 Games
@@ -1671,7 +1671,8 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 		// echo '<div style="margin-top:20px;" class="titre"><span class="bold-blanc">'.$careerStatsGameLog.'</span></div>';
 		echo '<h3><span>'.$careerStatsGameLog.'</span></h3>';
 		// echo '<table class="tableau">';
-		echo '<div class="table-responsive"><table class="table table-sm">';
+		echo '<div class="table-responsive"><table class="table table-sm table-striped">';
+		echo '<thead>';
 		echo '<tr class="tableau-top">
 		<td>#</td>
 		<td>OPP.</td>
@@ -1693,6 +1694,8 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 			<td style="text-align:right;">'.$careerStatsRECORD.'</td>';
 		}
 		echo '</tr>';
+		echo '</thead>';
+		echo '<tbody>';
 		for($i=0;$i<count($scheduleNumber);$i++) {
 			if($matchPlayed[$i] == 1 || $matchPlayedFirst == 1) {
 				if($c == 1) $c = 2;
@@ -1733,17 +1736,23 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 				echo '</tr>';
 			}
 		}
-		echo '</table></div>';
+		echo '</tbody></table></div>';
 	}
 	echo '</div>';
-	echo '</div>';
-	echo '</div>';
-	echo '</div>';
-	echo '</div>';
+// 	echo '</div>';
+// 	echo '</div>';
+// 	echo '</div>';
+// 	echo '</div>';
 }
 else {
 	echo '<div style="display:block; clear:both; margin-left:auto; margin-right:auto; width:555px; text-align:center;">'.$careerStatsNoStatsFoundFor.' '.$csName.'</div>';
 }
+
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+
 ?>
 
 <?php include 'footer.php'; ?>

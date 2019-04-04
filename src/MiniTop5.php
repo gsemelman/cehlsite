@@ -148,13 +148,16 @@ if (file_exists($Fnm)) {
 	
     $i = 0;
     echo '<div class = "col">
-	<table class="table table-sm">
-	<tr class="titre"><td colspan="4">'.$top5Goals.'</td></tr>
+	<table class="table table-sm table-striped">
+    <thead>
+	<tr class="titre text-center"><th colspan="4">'.$top5Goals.'</th></tr>
 	<tr class="tableau-top">
-	<td>NAME</td>
-	<td>'.$individualTM.'</td>
-	<td>'.$individualG.'</td>
-	</tr>';
+	<th>NAME</th>
+	<th>'.$individualTM.'</th>
+	<th>'.$individualG.'</th>
+	</tr>
+    </thead>
+    <tbody>';
 	    for($i=0;$i<count($goalj);$i++){
 	        if($c == 1) $c = 2;
 	        else $c = 1;
@@ -167,17 +170,21 @@ if (file_exists($Fnm)) {
 		<td style="text-align:right;'.$bold.'">'.$goalg[$i].'</td>
 		</tr>';
 	    }
-	    echo '</table></div>';
+	    echo '</tbody></table></div>';
 	    
 	    echo '<div class = "col">
-	<table class="table table-sm">
-	<tr class="titre"><td colspan="4">'.$top5Points.'</td></tr>
+	<table class="table table-sm table-striped">
+    <thead>
+	<tr class="titre text-center"><th colspan="4">'.$top5Points.'</th></tr>
 	<tr class="tableau-top">
 	<td>P</td>
 	<td>NAME</td>
 	<td>'.$individualTM.'</td>
 	<td>'.$top5Pts.'</td>
-	</tr>';
+	</tr>
+    <thead>
+	<tbody>';
+	    
 	    
 	    echo '
 	<tr class="hover2">
@@ -215,18 +222,21 @@ if (file_exists($Fnm)) {
 	<td style="text-align:right;">'.$rkg[0].'</td>
 	</tr>';
 	    
-	    echo '</table></div>';
+	    echo '</tbody></table></div>';
 	    
 	    $c = 1;
 	    $i = 0;
 	    echo '<div class = "col">
-	<table class="table table-sm">
-	<tr class="titre"><td colspan="4">'.$top5SavePct.'</td></tr>
+	<table class="table table-sm table-striped">
+    <thead>
+	<tr class="titre text-center"><th colspan="4">'.$top5SavePct.'</th></tr>
 	<tr class="tableau-top">
-	<td>NAME</td>
-	<td text-align:right;">'.$individualTM.'</td>
-	<td text-align:right;">%</td>
-	</tr>';
+	<th>NAME</th>
+	<th>'.$individualTM.'</th>
+	<th>%</th>
+	</tr>
+    </thead>
+    <tbody>';
     for($i=0;$i<count($spj);$i++){
         if($c == 1) $c = 2;
         else $c = 1;
@@ -239,7 +249,7 @@ if (file_exists($Fnm)) {
 	<td style="'.$bold.'">'.$spg[$i].'</td>
 	</tr>';
     }
-    echo '</table></div>';
+    echo '</tbody></table></div>';
 	
 	
 }

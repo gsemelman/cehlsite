@@ -46,6 +46,7 @@ foreach ($matchesDate as $j => $val) {
 $Fnm = $folder.$folderLeagueURL.'Coaches.html';
 $a = 0;
 $c = 1;
+$lastUpdated = '';
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = myEach($tableau)) {
@@ -54,12 +55,11 @@ if(file_exists($Fnm)) {
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
-			
-			echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
+			$lastUpdated = $val;
 			
 			echo '<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm">';
+			echo '<table class="table table-sm table-striped">';
 		}
 		if($a == 1 && substr_count($val, '(')) {
 			$reste = trim($val);
@@ -106,6 +106,7 @@ if(file_exists($Fnm)) {
 		}
 		if(substr_count($val, '                                   ')) {
 			echo '
+            <thead>
 			<tr class="tableau-top">
 			<td>'.$CoachesName.'</td>
 			<td>'.$CoachesTeam.'</td>
@@ -115,14 +116,20 @@ if(file_exists($Fnm)) {
 			<td style="text-align:center;"><a href="javascript:return;" class="info">LD<span>'.$CoachesLead.'</span></a></td>
 			<td style="text-align:right;">'.$CoachesSalary.'</td>
             <td>Term</td>
-			</tr>';
+			</tr>
+            </thead>
+			<tbody>';
 			$a = 1;
 		}
 	}
 }
 else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 
-echo '</table></div></div></div></div>';
+echo '</tbody></table>
+
+<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>
+			    
+</div></div></div></div>';
 ?>
 
 </body>

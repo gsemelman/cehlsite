@@ -208,7 +208,7 @@ if(isset($succesUpdate)) {
 
 <span style="display:block; font-weight:bold; padding-top:25px;"><?php echo $db_admin_param_langue[0]; ?></span>
 <form method="post" enctype="multipart/form-data" action="?<?php echo $link; ?>">
-<table class="table" style="width:550px;">
+<table class="table table-striped" style = "white-space:normal;">
 
 <?php
 

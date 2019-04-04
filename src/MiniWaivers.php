@@ -13,7 +13,7 @@ include_once 'classes/WaiverObj.php';
 	<div class="row">
 		<div class="col">
 			<div class="table-responsive">
-				<table class="table table-sm table-striped">
+				
 
                 <?php
                 $playoff = isPlayoffs($folder, $playoffMode);
@@ -24,11 +24,13 @@ include_once 'classes/WaiverObj.php';
                 $fileName = getLeagueFile($folder, $playoff, 'Waivers.html', 'Waivers');
                 
                 if (file_exists($fileName)) {
+                    
                     //get waivers from file
                     $waivers = new WaiversHolder($fileName);
                     $results = $waivers->get_waivers();
                     
                     if (isset($results) && !empty($results)) {
+                        echo '<table class="table table-sm table-striped">';
                         //create table header
                         echo '<tr class="tableau-top">
             			<th>'.$waiversPlayer.'</th>
@@ -47,18 +49,20 @@ include_once 'classes/WaiverObj.php';
                                 echo '<td>'.$waiver->claimedBy.'</td>';
                             echo '</tr>';
                         }
+                        
+                        echo '</table>';
                     }else{
                         //no waivers
-                        echo '<tr><td colspan="4" style="font-weight:bold;">'.$waiversNothing.'</td></tr>';
+                        echo '<h5>' . $waiversNothing. '</h5>';
                     }
                     
 
                 } else
-                    echo '<tr><td>' . $allFileNotFound . ' - ' . $fileName . '</td></tr>';
+                    echo '<h5>' . $allFileNotFound . ' - ' . $fileName . '</h5>';
                 
                 ?>
                 
-                </table>
+             
 			</div>
 		</div>
 	</div>

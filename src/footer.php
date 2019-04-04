@@ -1,26 +1,4 @@
 
-<!--<style>
-
-html, body { height:100%; }
-
-body{
-    display:flex;
-    flex-direction:column;
-}
-
-.site-content{
-    flex: 1 0 auto;
-}
-
-.footer{
-    flex-shrink: 0;
-    background-color: #444;
-    margin-top: 15px;
-    color:white;
-}
-
-</style>  -->
-
 </div> <!-- end site container -->
 
 <footer class="footer">

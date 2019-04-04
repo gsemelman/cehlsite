@@ -126,7 +126,7 @@ if($currentPLF){
 			<div class = "row wow fadeIn">
 				<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
 				<div class = "table-responsive">
-					<table class="table table-sm">
+					<table class="table table-sm table-striped">
 
 					<?php
 					$a = 0;
@@ -201,14 +201,17 @@ if($currentPLF){
 					    $a = $a - 1;
 					    for($i=0;$i<count($status);$i++) {
 					        if($a == $i){
+					            echo '<thead>';
 					            echo '<tr class="tableau-top">';
-					            echo '<td>'.$ScheldGameNum.'</td>';
-					            echo '<td>'.$ScheldVisitor.'</td>';
-					            echo '<td style="text-align:center;">'.$ScheldScore.'</td>';
+					            echo '<th>'.$ScheldGameNum.'</th>';
+					            echo '<th>'.$ScheldVisitor.'</th>';
+					            echo '<th style="text-align:center;">'.$ScheldScore.'</th>';
 					            echo '<td>'.$ScheldHome.'</td>';
-					            echo '<td style="text-align:center;">'.$ScheldScore.'</td>';
-					            echo '<td style="text-align:center;">'.$schedOT.'</td>';
+					            echo '<th style="text-align:center;">'.$ScheldScore.'</th>';
+					            echo '<th style="text-align:center;">'.$schedOT.'</th>';
 					            echo '</tr>';
+					            echo '</thead>';
+					            echo '<tbody>';
 					        }
 					        if($status[$i] == 'Jour'){
 					            echo '<tr class="tableau-top"><td colspan="6" style="text-align:center;">'.$schedDay.' '.$day[$i].'</td></tr>';
@@ -254,6 +257,7 @@ if($currentPLF){
 					}
 					
 					?>
+					</tbody>
 					</table>
 				</div>
 

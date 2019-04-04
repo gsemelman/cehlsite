@@ -181,7 +181,7 @@ $j = $existRnd;
 				}
 			}
 			if($TeamNumber != 0) {
-				echo '<table class="table table-sm" >';
+				echo '<table class="table table-sm table-striped" >';
 				echo '<thead>';
 				echo '<tr class="tableau-top">';
 				echo '<td></td>';
@@ -189,12 +189,13 @@ $j = $existRnd;
 				for($w=1;$w<=8;$w++) {
 					if(isset($day[$w]) && isset($score1[$w])) echo '<td class = "col-xs-1"><a class="lien-blanc" href="games.php?num='.$day[$w].'&rnd='.$j.'" >'.$w.'</a></td>';
 					//else echo '<td>'.$w.'</td>';
-					elseif($w == 8) echo '<td><a class="lien-blanc" href="Schedule2.php">Series</a></td>';
-					else echo '<td></td>';
+					elseif($w == 8) echo '<th><a class="lien-blanc" href="Schedule2.php">Series</a></th>';
+					else echo '<th></th>';
 				}
 				//echo '<td></td>';
 				echo '</tr>';
 				echo '</thead>';
+				echo '<tbody>';
 				$bold = '';
 				if($currentTeam == $equipe2) $bold = 'font-weight:bold;';
 				echo '<tr class="hover2"><td style="'.$bold.'">'.$equipe2.'</td>';
@@ -215,6 +216,7 @@ $j = $existRnd;
 				}
 				echo '<td style="font-weight:bold;">'.$tmpTot1.'</td>';
 				echo '</tr>';
+				echo '</tbody>';
 				echo '</table>';
 			}
 			else echo "Errors!";

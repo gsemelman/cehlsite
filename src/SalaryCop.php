@@ -18,7 +18,7 @@ $dr = 'background-color:#8B0000;'; // Under Floor Salary Cap
 <!--<div class="titre"><span class="bold-blanc"><?php echo $salaryCopTitle; ?></span></div>-->
 <h3 class = "text-center wow fadeIn"><?php echo $salaryCopTitle; ?></h3>
 <div class = "col-sm-12 col-md-8 offset-md-2">
-<table class="table table-sm">
+<table class="table table-sm table-striped">
 
 <?php
 $i = 0;
@@ -162,7 +162,7 @@ if(file_exists($Fnm)) {
 	$rouge = number_format($rouge, 0, '', ',');
 	$rougeFloor = number_format($rougeFloor, 0, '', ',');
 	echo '</table><br>
-	<table class="tableau">
+	<table class="table table-sm table-striped">
 	<tr class="tableau-top"><td>'.$salaryCopStatus.'</td><td style="text-align:left;">'.$salaryCopDesc.'</td><td>'.$salaryCopNumber.'</td><td style="text-align:right;">'.$salaryCopRemaining.'</td></tr>
 	<tr class="hover2"><td><div style="'.$v.'"><br></div></td><td style="text-align:left;">'.$salaryCopGoodSalaryCap.'</td><td>'.$nv.'</td><td style="text-align:right;">'.$vert.'$</td></tr>
 	<tr class="hover1"><td><div style="'.$o.'"><br></div></td><td style="text-align:left;">'.$salaryCapNearSalaryCap.'</td><td>'.$no.'</td><td style="text-align:right;">'.$jaune.'$</td></tr>
