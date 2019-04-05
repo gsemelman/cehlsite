@@ -108,7 +108,7 @@ include_once 'common.php';
                 		        
                 		        echo '<div class="table-responsive">';
                 		        //echo '<table id="freeAgents" class="table table-sm table-striped fixed-column-striped">';
-                		        echo '<table id="faTable" class="table table-sm table-striped nowrap" style="width:100%">';
+                		        echo '<table id="faTable" class="table table-sm table-striped nowrap show" style="width:100%">';
                 		          echo '<thead>
                                             <tr>
                                                 <th>'.$rostersName.'</th>
