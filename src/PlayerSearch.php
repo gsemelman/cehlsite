@@ -60,16 +60,16 @@ $teams = new TeamHolder($gmFile);
                     		   </select>
 							</div>
 						</div>
-						<div class="accordion" id="accordionExample">
+						<div class="accordion" id="searchAccordion">
                           <div class="card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header" id="advancedSearch">
                               <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                   Advanced Search
                                 </button>
                               </h5>
                             </div>
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapseOne" class="collapse" aria-labelledby="advancedSearch" data-parent="#searchAccordion">
                               <div class="card-body">
                               	<div class="row">
         							<div class="input-group col-6 col-lg-3">
@@ -234,7 +234,7 @@ $teams = new TeamHolder($gmFile);
 
 
 	<script>
-
+	https://www.canadianelitehockeyleague.ca/CareerStatsPlayer.php?csName=A.J.+Greer
 
         $(document).ready(function() {
         	var table = $('#tblPlayerSearch').DataTable( {
@@ -248,7 +248,12 @@ $teams = new TeamHolder($gmFile);
                 },
                 "ajax": "<?php echo BASE_URL?>PlayerSearchAjax.php",
                 "columns": [
-                    { "data": "name" },
+                    //{ "data": "name" },
+                    { "data": "name",
+                        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                            $(nTd).html("<a href='<?php echo BASE_URL?>CareerStatsPlayer.php?csName="+ encodeURIComponent(oData.name)+"'>"+oData.name+"</a>");
+                        }
+                    },
                 	{ "data": "team" },
                     { "data": "position" },
                     { "data": "it" },
@@ -290,6 +295,10 @@ $teams = new TeamHolder($gmFile);
             $( "#btnSearch" ).click(function() {
             	 table.draw();
             	});
+
+            $("#collapseOne").on("hide.bs.collapse", function(){
+            	 table.draw();
+              });
 
             
         } );
@@ -340,20 +349,23 @@ $teams = new TeamHolder($gmFile);
 
                     //attribs
                     
-                    if(!attribBetween('it', data[3])) return false;
-                   if(!attribBetween('sp', data[4])) return false;
-                   if(!attribBetween('st', data[5])) return false;
-                   if(!attribBetween('en', data[6])) return false;
-                   if(!attribBetween('du', data[7])) return false;
-                   if(!attribBetween('di', data[8])) return false;
-                   if(!attribBetween('sk', data[9])) return false;
-                   if(!attribBetween('pa', data[10])) return false;
-                   if(!attribBetween('pc', data[11])) return false;
-                   if(!attribBetween('df', data[12])) return false;
-                   if(!attribBetween('sc', data[13])) return false;
-                   if(!attribBetween('en', data[14])) return false;
-                   if(!attribBetween('ld', data[15])) return false;
-                   if(!attribBetween('ov', data[16])) return false;
+                    if ( $( '#collapseOne' ).hasClass( "show" ) ) {
+                    	if(!attribBetween('it', data[3])) return false;
+                        if(!attribBetween('sp', data[4])) return false;
+                        if(!attribBetween('st', data[5])) return false;
+                        if(!attribBetween('en', data[6])) return false;
+                        if(!attribBetween('du', data[7])) return false;
+                        if(!attribBetween('di', data[8])) return false;
+                        if(!attribBetween('sk', data[9])) return false;
+                        if(!attribBetween('pa', data[10])) return false;
+                        if(!attribBetween('pc', data[11])) return false;
+                        if(!attribBetween('df', data[12])) return false;
+                        if(!attribBetween('sc', data[13])) return false;
+                        if(!attribBetween('en', data[14])) return false;
+                        if(!attribBetween('ld', data[15])) return false;
+                        if(!attribBetween('ov', data[16])) return false;
+                    }
+                    
                    
 
         	       return display;

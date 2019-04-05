@@ -153,6 +153,7 @@
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Schedule2.php">Schedule</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Transactions.php">Transactions</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Unassigned.php">Unassigned</a></li>
+							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>PlayerSearch.php">Player Search</a></li>
 
 						</ul>
 					  </li>
@@ -168,7 +169,7 @@
 							<!--<li class="nav-item"><a class="nav-link-inner" href="https://docs.google.com/spreadsheets/d/1kgeW0jwgRH3NXLOJCjDxX1XIG7DKzAHTlP08jpNc1VU/edit?usp=sharing">Drafts</a></li>-->
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Drafts.php">Drafts</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>GMs.php">General&nbsp;Managers</a></li>
-							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>SearchPlayers.php">Player Search</a></li>
+							<!--<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>SearchPlayers.php">Player Search</a></li>-->
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Rules.php">Rules</a></li>
 							<li class="dropdown-divider"></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>SalaryCop.php">Salary&nbsp;Cop</a></li>
