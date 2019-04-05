@@ -214,7 +214,7 @@ if($currentPLF){
 					            echo '<tbody>';
 					        }
 					        if($status[$i] == 'Jour'){
-					            echo '<tr class="tableau-top"><td colspan="6" style="text-align:center;">'.$schedDay.' '.$day[$i].'</td></tr>';
+					            echo '<tr class="tableau-top"><td colspan="6">'.$schedDay.' '.$day[$i].'</td></tr>';
 					            $c = 1;
 					        }
 					        if($status[$i] == 'Trade'){

@@ -1,6 +1,6 @@
 <?php
 
-class RosterObj
+class RosterObj implements \JsonSerializable
 {
     private $team;
     private $number;
@@ -361,7 +361,10 @@ class RosterObj
         $this->ov = $ov;
     }
 
-
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
     
     
 }

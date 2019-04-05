@@ -244,7 +244,7 @@ body{
 	border-color:#ffffff;
 }
 
-.table>tbody>tr td {background-color: var(--table-bg-color-1); } 
+/* .table>tbody>tr td {background-color: var(--table-bg-color-1); }  */
 
 .table-striped>tbody>tr:nth-child(odd) td {background-color: var(--table-bg-color-1); } 
 .table-striped>tbody>tr:nth-child(even) td {background-color: var(--table-bg-color-2); }
@@ -345,6 +345,9 @@ a:hover.info span {
 	background-color:#1791CA;
 	color:white;
 }
+
+.tableau-top:tr td {background-color: black; } 
+
 
 /* .table-striped .tableau-top { */
 /* 	background-color:#1791CA; */
