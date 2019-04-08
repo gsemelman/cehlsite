@@ -50,6 +50,7 @@ if (file_exists($Fnm)) {
             $pos = strpos($val, 'Conference</H3>');
             $pos2 = strpos($val, '<H3>');
             $val2 = substr($val, $pos2 + 4, $pos - $pos2 - 5);
+            
             echo '<tr><td colspan="' . $tableCol . '"></td></tr><tr class="titre"><td colspan="' . $tableCol . '"><h5 class="tableau-top"  style = "padding-top:5px; padding-bottom:5px">' . $val2 . ' ' . $standingConference . '</h5></td></tr>';
             $d = 1;
             $b = 0;

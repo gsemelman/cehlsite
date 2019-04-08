@@ -116,19 +116,24 @@ if(file_exists($Fnm)) {
 			$leagueSalaryCap_ca = number_format($leagueSalaryCap, 0, ' ', ',');
 			$leagueSalaryCap_ca2 = number_format($leagueSalaryCapFloor, 0, ' ', ',');
 			$leagueSalaryClose_ca = number_format($leagueSalaryClose, 0, ' ', ',');
-			echo '<tr><td colspan="'.$colspan.'">'.$allLastUpdate.' '.$val.'<br>';
+			echo '<thead>';
+			echo '<tr><th colspan="'.$colspan.'">'.$allLastUpdate.' '.$val.'<br>';
 			echo $salaryCopSalaryCap.' '.$leagueSalaryCap_ca.'$<br>';
 			echo $salaryCopFloor.' '.$leagueSalaryCap_ca2.'$<br>';
-			echo $salaryCopNear.' '.$leagueSalaryClose_ca.'$ '.$salaryCopNearTo.' '.$leagueSalaryCap_ca.'$</td></tr>';
-			echo '<tr class="tableau-top"><td style="text-align:left;">'.$salaryCopTeam.'</td>
-			<td style="text-align:right;">'.$salaryCopProPayroll.'</td>';
-			if($leagueSalaryIncFarm == 1) echo '<td style="text-align:right;">'.$salaryCopFarmPayroll.'</td>';
-			echo '<td style="text-align:right;">'.$salaryCopRemaining.'</td>
-			<td style="text-align:center;">'.$salaryCopStatus.'</td>
-			<td style="text-align:center;">'.$salaryCopInjured.'</td>
-			<td style="text-align:center;">'.$salaryCopSuspended.'</td>
-			<td style="text-align:center;">Active</td>
-			<td style="text-align:center;">Sim Valid</td></tr>';
+			echo $salaryCopNear.' '.$leagueSalaryClose_ca.'$ '.$salaryCopNearTo.' '.$leagueSalaryCap_ca.'$<br>';
+			echo 'Minimum Active Players: '.MIN_ACTIVE_PLAYERS.'';
+            echo '</th></tr>';
+			echo '<tr class="tableau-top">
+            <td style="text-align:left;">'.$salaryCopTeam.'</th>
+			<th style="text-align:right;">'.$salaryCopProPayroll.'</th>';
+			if($leagueSalaryIncFarm == 1) echo '<td style="text-align:right;">'.$salaryCopFarmPayroll.'</th>';
+			echo '<th style="text-align:right;">'.$salaryCopRemaining.'</th>
+			<th style="text-align:center;">'.$salaryCopStatus.'</th>
+			<th style="text-align:center;">'.$salaryCopInjured.'</th>
+			<th style="text-align:center;">'.$salaryCopSuspended.'</th>
+			<th style="text-align:center;">Active</th>
+			<th style="text-align:center;">Sim Valid</th></tr>';
+			echo '</thead>';
 		}
 		if(substr_count($val, 'A NAME')) {
 			$pos = strpos($val, '</A>');
@@ -205,7 +210,14 @@ if(file_exists($Fnm)) {
 	$rougeFloor = number_format($rougeFloor, 0, '', ',');
 	echo '</table><br>
 	<table class="table table-sm table-striped">
-	<tr class="tableau-top"><td>'.$salaryCopStatus.'</td><td style="text-align:left;">'.$salaryCopDesc.'</td><td>'.$salaryCopNumber.'</td><td style="text-align:right;">'.$salaryCopRemaining.'</td></tr>
+    <thead>
+        <tr class="tableau-top">
+            <td>'.$salaryCopStatus.'</td>
+            <td style="text-align:left;">'.$salaryCopDesc.'</td>
+            <td>'.$salaryCopNumber.'</td>
+            <td style="text-align:right;">'.$salaryCopRemaining.'</td>
+        </tr>
+    </thead>
 	<tr class="hover2"><td><div style="'.$v.'"><br></div></td><td style="text-align:left;">'.$salaryCopGoodSalaryCap.'</td><td>'.$nv.'</td><td style="text-align:right;">'.$vert.'$</td></tr>
 	<tr class="hover1"><td><div style="'.$o.'"><br></div></td><td style="text-align:left;">'.$salaryCapNearSalaryCap.'</td><td>'.$no.'</td><td style="text-align:right;">'.$jaune.'$</td></tr>
 	<tr class="hover2"><td><div style="'.$r.'"><br></div></td><td style="text-align:left;">'.$salaryCapOverSalaryCap.'</td><td>'.$nr.'</td><td style="text-align:right;">'.$rouge.'$</td></tr>';

@@ -26,13 +26,19 @@ if($currentPLF == 1){
 		
 		<div class="card-body px-2 px-md-3">
 
-			<div class ="col-sm-3" style="display: flex;">
-			    <label for="seasonMenu" style="flex: 1;">Season:</label>
-				<select style="flex: 1;" name="seasonMenu" class="form-control mb-3" id="seasonMenu">
+			<div class ="col-sm-4" style="display: flex;">
+	
+				<div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="seasonMenuHeader">Season</span>
+                  </div>
+             
+                  <select class="form-control" aria-label="Select Season" id="seasonMenu" aria-describedby="seasonMenuHeader">
 					<option value="Current">Current</option>
 					<option value=26>Season	26</option>
 					<option value=25>Season	25</option>
-				</select>
+				  </select>
+                </div>
 			</div>
 
 			<div id="standingsTabs">
@@ -50,7 +56,7 @@ if($currentPLF == 1){
 				<div class="tab-content">
     				<div class="tab-pane  <?php echo $seasonActive?>" id="Season">
     					<div id="SeasonInner" >
-    						<?php include 'StandingsTemplate.php'; ?>
+    						<?php include 'StandingsTemplate2.php'; ?>
     					</div>
     				</div>
     
@@ -81,7 +87,9 @@ if($currentPLF == 1){
     	
     	$.ajax({
     	    type: "GET",
-    	    url: './StandingsTemplate.php',
+    	    cache:false,
+    	    dataType: "html",
+    	    url: './StandingsTemplate2.php',
     	    data: {seasonId: selection},
     	    success: function(data){
     	    	$('#SeasonInner').html(data);
@@ -90,6 +98,8 @@ if($currentPLF == 1){
 
     	$.ajax({
     	    type: "GET",
+    	    cache:false,
+    	    dataType: "html",
     	    url: './StandingsTreeTemplate.php',
     	    data: {seasonId: selection},
     	    success: function(data){
@@ -111,7 +121,8 @@ if($currentPLF == 1){
             
         	$.ajax({
         	    type: "GET",
-        	    url: './StandingsTemplate.php',
+        	    dataType: "html",
+        	    url: './StandingsTemplate2.php',
         	    data: {seasonId: selection},
         	    success: function(data){
         	    	$('#SeasonInner').html(data);
@@ -123,6 +134,7 @@ if($currentPLF == 1){
 
         	$.ajax({
         	    type: "GET",
+        	    dataType: "html",
         	    url: './StandingsTreeTemplate.php',
         	    data: {seasonId: selection},
         	    success: function(data){

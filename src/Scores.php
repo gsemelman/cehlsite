@@ -493,7 +493,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
                     echo '</table>'; //end score-main table
                 echo '</div>'; //end score-main
                 
-                echo '<div class = "row game-score-footer" style="margin-top: -10px;">'; //goals scoring details
+                echo '<div class = "row game-score-footer" style="margin-top: -15px;">'; //goals scoring details
                     //echo '<span class = "footer-header">Goals</span>';
                     echo '<div class = "footer-header text-left" style="width: 100%;">Goals</div>';
                     
