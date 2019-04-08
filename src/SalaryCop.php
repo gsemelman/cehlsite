@@ -6,6 +6,10 @@ $CurrentTitle = $salaryCopTitle;
 $CurrentPage = 'SalaryCop';
 include 'head.php';
 
+include_once 'classes/TeamHolder.php';
+include_once 'classes/RostersHolder.php';
+include_once 'classes/RosterObj.php';
+//include_once 'classes/RosterAvgObj.php';
 
 $v = 'background-color:green;'; // Good Salary Cap
 $o = 'background-color:orange;'; // Close Salary Cap
@@ -15,12 +19,43 @@ $dr = 'background-color:#8B0000;'; // Under Floor Salary Cap
 
 <!--<div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border:solid 1px<?php echo $couleur_contour; ?>">-->
 <div class = "container">
-<!--<div class="titre"><span class="bold-blanc"><?php echo $salaryCopTitle; ?></span></div>-->
-<h3 class = "text-center wow fadeIn"><?php echo $salaryCopTitle; ?></h3>
+<!--<div class="titre"><span class="bold-blanc"><?php echo $salaryCopTitle; ?></span></div>
+<h3 class = "text-center wow fadeIn"><?php echo $salaryCopTitle; ?></h3>-->
 <div class = "col-sm-12 col-md-8 offset-md-2">
+
+<div class="card">
+	<?php include 'SectionHeader.php'?>
+	<div class="card-body">
+
 <table class="table table-sm table-striped">
 
 <?php
+
+$gmFile = getLeagueFile($folder, $playoff, 'GMs.html', 'GMs');
+
+
+if (file_exists($gmFile)) {
+    
+    $teams = new TeamHolder($gmFile);
+    $rostersFile = getLeagueFile($folder, $playoff, 'Rosters.html', 'Rosters');
+    
+    $length = count($teams->get_teams());
+    for ($i = 0; $i < $length; $i++) {
+        $rosters = new RostersHolder($rostersFile, $teams->get_teams()[$i], false);
+
+        $activePro[$i+1] = $rosters->getActivePro();
+        $rosterValid[$i+1] = $rosters->isValidRoster() ? 'YES' : 'NO';
+    }
+    
+    //get rosters from file
+    
+}else{
+    die("Unable to find GM files");
+}
+
+
+
+
 $i = 0;
 $matches = glob($folder.'*'.$playoff.'Injury.html');
 $folderLeagueURL = '';
@@ -66,7 +101,7 @@ $nv = 0;
 $nr = 0;
 $nrFloor = 0;
 $Fnm = $folder.$folderLeagueURL.'Finance.html';
-$colspan = 6;
+$colspan = 8;
 if($leagueSalaryIncFarm == 1) $colspan = 7;
 
 if(file_exists($Fnm)) {
@@ -91,7 +126,9 @@ if(file_exists($Fnm)) {
 			echo '<td style="text-align:right;">'.$salaryCopRemaining.'</td>
 			<td style="text-align:center;">'.$salaryCopStatus.'</td>
 			<td style="text-align:center;">'.$salaryCopInjured.'</td>
-			<td style="text-align:center;">'.$salaryCopSuspended.'</td></tr>';
+			<td style="text-align:center;">'.$salaryCopSuspended.'</td>
+			<td style="text-align:center;">Active</td>
+			<td style="text-align:center;">Sim Valid</td></tr>';
 		}
 		if(substr_count($val, 'A NAME')) {
 			$pos = strpos($val, '</A>');
@@ -143,18 +180,23 @@ if(file_exists($Fnm)) {
 			$restant = number_format($restant, 0, ' ', ',');
 			
 			$z = '';
-			if(substr_count($equipe, $currentTeam)) $z = ' font-weight:bold;';
+			//if(substr_count($equipe, $currentTeam)) $z = ' font-weight:bold;';
+			
+			$activeStyle = (MIN_ACTIVE_PLAYERS > 0 && $activePro[$i] < MIN_ACTIVE_PLAYERS ) ? $r : '';
+			$rosterValidStyle = $rosterValid[$i] == 'NO' ? $r : '';
 			
 			if($c == 1) $c = 2;
 			else $c = 1;
 			echo '
-			<tr class="hover'.$c.'"><td style="text-align:left;'.$z.'">'.$equipe.'</td>
-			<td style="text-align:right;'.$z.'">'.$propayroll.'$</td>';
-			if($leagueSalaryIncFarm == 1) echo '<td style="text-align:right;'.$z.'">'.$farmpayroll.'$</td>';
-			echo '<td style="text-align:right;'.$z.'">'.$restant.'$</td>
+			<tr class="hover'.$c.'"><td style="text-align:left;">'.$equipe.'</td>
+			<td style="text-align:right;">'.$propayroll.'$</td>';
+			if($leagueSalaryIncFarm == 1) echo '<td style="text-align:right;">'.$farmpayroll.'$</td>';
+			echo '<td style="text-align:right;">'.$restant.'$</td>
 			<td><div style="'.$b.'"><br></div></td>
-			<td style="text-align:center;'.$z.'">'.$blessure[$i].'</td>
-			<td style="text-align:center;'.$z.'">'.$suspension[$i].'</td></tr>';
+			<td style="text-align:center;">'.$blessure[$i].'</td>
+			<td style="text-align:center;">'.$suspension[$i].'</td>
+		    <td style="text-align:center; '.$activeStyle.'">'.$activePro[$i].'</td>
+		    <td style="text-align:center; '.$rosterValidStyle.'">'.$rosterValid[$i].'</td></tr>';
 		}
 	}
 	$vert = number_format($vert, 0, '', ',');
@@ -172,6 +214,9 @@ if(file_exists($Fnm)) {
 }
 else echo '</table>'.$allFileNotFound.' - '.$Fnm;
 ?>
-</div></div>
+</div>
+</div>
+</div>
+</div>
 
 <?php include 'footer.php'; ?>

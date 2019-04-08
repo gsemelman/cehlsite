@@ -180,7 +180,7 @@ class RostersHolder{
     /**
      * @return string
      */
-    public function getLastUpdated()
+    public function getLastUpdated() : string
     {
         return $this->lastUpdated;
     }
@@ -188,7 +188,7 @@ class RostersHolder{
     /**
      * @return multitype:
      */
-    public function getProRosters()
+    public function getProRosters() : array
     {
         return $this->proRosters;
     }
@@ -196,7 +196,7 @@ class RostersHolder{
     /**
      * @return multitype:
      */
-    public function getFarmRosters()
+    public function getFarmRosters() : array
     {
         return $this->farmRosters;
     }
@@ -218,7 +218,42 @@ class RostersHolder{
     }
 
 
+    public function getActivePro() : int{
+        
+        $count = 0;
+        
+        foreach($this->getProRosters() as $roster){
+            if(empty($roster->getInjStatus())){
+                $count++;
+            }
+        }
+        
+        return $count;
+    }
     
+    public function isValidRoster(): bool{
+        
+        $center = 0;
+        $lw = 0;
+        $rw = 0;
+        $defense = 0;
+        $goalie = 0;
+
+        foreach($this->getProRosters() as $roster){
+            if(empty($roster->getInjStatus())){
+                if($roster->getPosition() == 'C') $center++;
+                if($roster->getPosition() == 'RW') $rw++;
+                if($roster->getPosition() == 'LW') $lw++;
+                if($roster->getPosition() == 'D') $defense++;
+                if($roster->getPosition() == 'G') $goalie++;
+            }
+        }
+        
+        
+        return $center >= 3 && $rw >= 3 && $lw >= 3 && $defense >= 4 && $goalie >= 2 ;
+        
+        //return $center >= 3 && $rw >= 3 && $lw >= 3 && $defense >= 4 && $goalie >= 2 ;
+    }
 
     
 

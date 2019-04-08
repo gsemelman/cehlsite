@@ -68,6 +68,9 @@ $leagueSalaryCapFloor = SALARY_CAP_FLOOR;
 define("OVERTIME_POINT_MODE",1);
 $leagueOvertimePoint = OVERTIME_POINT_MODE;
 
+//Min Active Players | Min required active players on roster. (Not injured or suspended) 0:Off
+define("MIN_ACTIVE_PLAYERS",19);
+
 # CAREER STATS
 // Needed Files in each season folders : GMs, PlayerVitals, TeamScoring, PLFTeamScoring, Standings, Schedule
 
