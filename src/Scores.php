@@ -435,7 +435,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 				
 				   // echo '<div class="row tableau-top"><span style="color:#ffffff">'.$lastEquipe1.' @ '.$lastEquipe2.' Final'.$gameOvertime[$i].'</span></div>';
 				echo '</div>';
-				echo '<div class="card-body">';
+				echo '<div class="card-body p-3">';
 				
 				echo '<div class = "row" style=" margin-top: -15px;">';
 				    echo '<table class = "table table-sm table-bordered" >';

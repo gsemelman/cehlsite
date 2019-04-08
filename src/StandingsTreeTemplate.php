@@ -211,37 +211,39 @@ for($j=1;$j<=$existRnd;$j++) {
 			if($TeamNumber != 0) {
 			    //echo '<table style="width:25%" class="table table-sm" >';
 			    //echo '<div class="col-3">';
-			    echo '<table class="table table-sm table-striped" >';
+			    echo '<table class="table table-sm table-striped text-center" >';
 			    echo '<thead>';
 			    echo '<tr class="tableau-top">';
-			    echo '<td class="col-3"></td>';
+			    echo '<th style="width:20%"></th>';
 			    
 			    //for($w=1;$w<=$m;$w++) {
 			    for($w=1;$w<=8;$w++) {
-			        if(isset($day[$w]) && isset($score1[$w])) echo '<td class="col-1"><a class="lien-blanc" href="games.php?seasonId='.$seasonId.'&num='.$day[$w].'&rnd='.$j.'" >'.$w.'</a></td>';
+			        if(isset($day[$w]) && isset($score1[$w])) echo '<th style="width:5%"><a class="lien-blanc" href="games.php?seasonId='.$seasonId.'&num='.$day[$w].'&rnd='.$j.'" >'.$w.'</a></th>';
 			        //else echo '<td>'.$w.'</td>';
-			        elseif($w == 8) echo '<td class="col-2"><a class="lien-blanc" href="Schedule2.php?seasonId='.$seasonId.'&rnd='.$j.'">Series</a></td>';
-			        else echo '<td class="col-1"></td>';
+			        elseif($w == 8) echo '<th style="width:5%"><a class="lien-blanc" href="Schedule2.php?seasonId='.$seasonId.'&rnd='.$j.'">Series</a></th>';
+			        else echo '<th style="width:5%"></th>';
 			    }
 			   
 			    echo '</tr>';
 			    echo '</thead>';
-			    echo '<tr class="hover2"><td class="col-3">'.$equipe2.'</td>';
+			    echo '<tbody>';
+			    echo '<tr class="hover2"><td class="text-left">'.$equipe2.'</td>';
 			    for($w=1;$w<=$m;$w++) {
 			        if(!isset($score2[$w])) $score2[$w] = '';
 			        else if($score2[$w] > $score1[$w]) $tmpTot2++;
-			        echo '<td class="col-1">'.$score2[$w].'</td>';
+			        echo '<td>'.$score2[$w].'</td>';
 			    }
-			    echo '<td class="col-2" style="font-weight:bold;">'.$tmpTot2.'</td>';
+			    echo '<td style="font-weight:bold;">'.$tmpTot2.'</td>';
 			    echo '</tr>';
-			    echo '<tr class="hover1"><td class="col-3">'.$equipe1.'</td>';
+			    echo '<tr class="hover1"><td class="text-left">'.$equipe1.'</td>';
 			    for($w=1;$w<=$m;$w++) {
 			        if(!isset($score1[$w])) $score1[$w] = '';
 			        else if($score2[$w] < $score1[$w]) $tmpTot1++;
-			        echo '<td class="col-1">'.$score1[$w].'</td>';
+			        echo '<td>'.$score1[$w].'</td>';
 			    }
-			    echo '<td class="col-2" style="font-weight:bold;">'.$tmpTot1.'</td>';
+			    echo '<td style="font-weight:bold;">'.$tmpTot1.'</td>';
 			    echo '</tr>';
+			    echo '</tbody>';
 			    echo '</table>';
 			    //echo '</div>';
 			}
