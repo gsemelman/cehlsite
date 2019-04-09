@@ -9,10 +9,11 @@ include 'head.php';
 ?>
 
 <div class="container">
-
+<div class="row no-gutters">
+<div class="col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3"> 	
 <div class="card">
 	<?php include 'SectionHeader.php';?>
-	<div class="card-body">
+	<div class="card-body p-2 px-lg-4">
 
 <?php
 
@@ -56,8 +57,7 @@ if(file_exists($Fnm)) {
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
 			$lastUpdated = $val;
-			
-			echo '<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
+	
 			echo '<div class="table-responsive wow fadeIn">';
 			echo '<table class="table table-sm table-striped">';
 		}
@@ -125,12 +125,12 @@ if(file_exists($Fnm)) {
 }
 else echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 
-echo '</tbody></table>
+echo '</tbody></table></div>
 
 <h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>
 			    
-</div></div></div></div>';
+';
 ?>
+</div></div></div></div></div>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

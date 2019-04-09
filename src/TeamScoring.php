@@ -114,15 +114,15 @@ include 'TeamHeader.php';
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-	if($("#ForwardScoring").length){
-    	makeTableSortable('ForwardScoring');
+// $(document).ready(function(){
+// 	if($("#ForwardScoring").length){
+//     	makeTableSortable('ForwardScoring');
     	
-    }
-	if($("#GoalieStats").length){
-		makeTableSortable('GoalieStats');
-    }
-});
+//     }
+// 	if($("#GoalieStats").length){
+// 		makeTableSortable('GoalieStats');
+//     }
+// });
 
 
 

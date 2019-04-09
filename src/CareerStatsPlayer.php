@@ -1159,15 +1159,16 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 		<div class="card-body">
 		<div class = "row">
 		<div class = "col-sm-12 col-md-12 col-lg-8 offset-lg-2">
-		<div class="table-responsive"><table class="table table-sm table-striped">';
+        <h3 class = "tableau-top text-center">'.$careerStatsTitle.'</h3>
+		<div class="table-responsive">
+        <table class="table table-sm table-striped">';
 	}
 	
 	// Season TeamScoring
 	if(isset($statsNumber)){
 		$c = 1;
 		if(isset($statsP)) {
-			echo '<h3 class = "text-center wow fadeIn">'.$careerStatsTitle.'</h3>';
-
+            echo '<thead>';
 			echo '<tr class="tableau-top">
 			<td><a class="info" href="javascript:return;">S<span>'.$careerStatsSeason.'</span></a></td>
 			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
@@ -1190,6 +1191,7 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGSm.'<span>'.$scoringGS.'</span></a></td>
 			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPSm.'<span>'.$scoringPS.'</span></a></td>
 			</tr>';
+			echo '</thead>';
 			for($i=0;$i<count($statsTeam)+1;$i++) {
 				$tmpTeamCount[$i] = $statsTGP[$i]= $statsTG[$i]= $statsTA[$i]= $statsTP[$i]= $statsTDiff[$i]= $statsTPIM[$i]= $statsTPPG[$i]= $statsTSHG[$i]= $statsTGW[$i]= $statsTGT[$i]= $statsTHT[$i]= $statsTS[$i]= $statsTPCTG[$i]= $statsTGS[$i]= $statsTPS[$i] = 0;
 			}
@@ -1274,7 +1276,7 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 				else $c = 1;
 				if($i == 0) echo '<tr class="tableau-top">';
 				else echo '<tr class="hover'.$c.'">';
-				if($i == 0) echo '<td style="" colspan="5">'.$careerStatsSeasonCareer.'</td>';
+				if($i == 0) echo '<td colspan="5">'.$careerStatsSeasonCareer.'</td>';
 				else echo '<td>'.$tmpTeamCount[$i].'</td><td style="" colspan="4">'.$tmpTeamName[$i].'</td>';
 				echo '<td style="text-align:right;">'.$statsTGP[$i].'</td>
 				<td style="text-align:right;">'.$statsTG[$i].'</td>
@@ -1669,7 +1671,7 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 		$c = 1;
 		$matchPlayedFirst = 0;
 		// echo '<div style="margin-top:20px;" class="titre"><span class="bold-blanc">'.$careerStatsGameLog.'</span></div>';
-		echo '<h3><span>'.$careerStatsGameLog.'</span></h3>';
+		echo '<h3>'.$careerStatsGameLog.'</h3>';
 		// echo '<table class="tableau">';
 		echo '<div class="table-responsive"><table class="table table-sm table-striped">';
 		echo '<thead>';

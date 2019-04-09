@@ -8,10 +8,11 @@ include 'head.php';
 ?>
 
 <div class="container">
-
-<div class="card">
+<div class="row no-gutters">
+<div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2"> 	
+<div class="card p-1">
 	<?php include 'SectionHeader.php';?>
-	<div class="card-body">
+	<div class="card-body p-2 px-lg-4">
 
 
 <?php
@@ -53,8 +54,7 @@ if(file_exists($Fnm)) {
 			$lastUpdated = $val;
 			
 			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
-			
-			echo '<div class="col-sm-12 col-md-8 col-lg-8 offset-md-2 offset-lg-2">';
+
 			echo '<div class="table-responsive wow fadeIn">';
 			echo '<table class="table table-sm table-striped">';
 		
@@ -166,8 +166,10 @@ if(file_exists($Fnm)) {
 		}
 	}
 	$i = 0;
+	echo '<div class="tableau-top text-center">'.$leaderScoring.'</div>';
+	
 	echo '<thead>';
-	echo '<tr class="tableau-top"><td style="text-align:center; font-weight:bold;" colspan="'.$tableColScoring.'">'.$leaderScoring.'</td></tr><tr class="tableau-top">';
+    echo '<tr class="tableau-top">';
 	echo '<td></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderTeam.'<span>'.$leaderTeamF.'</span></a></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderGP.'<span>'.$leaderGPF.'</span></a></td>';
@@ -211,9 +213,14 @@ if(file_exists($Fnm)) {
 	}
 	echo '</tbody></table></div><br>';
 	/* echo '<table class="tableau"><tr><td style="text-align:center; font-weight:bold;" colspan="'.$tableColGoaltending.'">'.$leaderGoalies.'</td></tr>'; */
+	
+	echo '<div class="tableau-top text-center">'.$leaderGoalies.'</div>';
+	echo '<div class="tableau-top text-center">'.$leaderminGames.' '.$games.' '.$leaderminGames2.'.</div>';
+	
 	echo '<div class="table-responsive wow fadeIn">';
-	echo '<table class="table table-sm table-striped"><tr><td style="text-align:center; font-weight:bold;" colspan="'.$tableColGoaltending.'">'.$leaderGoalies.'</td></tr>';
-	echo '<tr><td style="text-align:center;" colspan="'.$tableColGoaltending.'">'.$leaderminGames.' '.$games.' '.$leaderminGames2.'.</td></tr><tr class="tableau-top">';
+	echo '<table class="table table-sm table-striped">';
+    echo '<thead>'; 
+    echo '<tr class="tableau-top">';
 	echo '<td></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderTeam.'<span>'.$leaderTeamF.'</span></a></td>';
 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderGP.'<span>'.$leaderGP.'</span></a></td>';
@@ -277,7 +284,7 @@ echo '</tbody></table></div>';
         echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
     }
 
-echo'</div></div></div></div>';
+echo'</div></div></div></div></div>';
 ?>
 
 <?php include 'footer.php'; ?>

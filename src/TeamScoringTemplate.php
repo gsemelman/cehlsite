@@ -341,20 +341,14 @@ echo '</div>';
 
 <script>
 
-// window.onload = function () {
+    $("#ForwardScoring").tablesorter({ 
+        sortInitialOrder: 'desc'
+    }); 
+    $("#GoalieStats").tablesorter({ 
+        sortInitialOrder: 'desc'
+    }); 
 
-// 	if(document.getElementById("ForwardScoring")){
-// 		makeTableSortable('ForwardScoring');
-// 		makeTableSortable('GoalieStats');
-// 	}
 
-
-//     };
-
-	if(document.getElementById("ForwardScoring")){
-		//makeTableSortable('ForwardScoring');
-		//makeTableSortable('GoalieStats');
-	}
 
 </script>
 

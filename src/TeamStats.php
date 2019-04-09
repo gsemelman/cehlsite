@@ -8,10 +8,11 @@ include 'head.php';
 ?>
 
 <div class="container">
-
-<div class="card">
+<div class="row no-gutters">
+<div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2"> 	
+<div class="card p-1">
 	<?php include 'SectionHeader.php';?>
-	<div class="card-body">
+	<div class="card-body p-2 px-lg-4">
 
 <?php
 
@@ -183,7 +184,7 @@ if(file_exists($Fnm)) {
 			$lastUpdated = $val;
 			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 			
-			echo '<div class="col-sm-12 col-md-10 offset-md-1">';
+	
 			echo '<div class="table-responsive wow fadeIn">';
 			echo '<table class="table table-sm table-striped">';
 			echo '<thead>';
@@ -385,7 +386,7 @@ if(isset($lastUpdated)){
     echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
 }
 
-echo '</div></div></div></div>';
+echo '</div></div></div></div></div>';
 ?>
 
 
