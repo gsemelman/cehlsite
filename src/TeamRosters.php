@@ -100,8 +100,8 @@ include_once 'classes/PlayerVitalsHolder.php';
                                             <th>Age</th>
                                             <th class="text-right">Salary</th>
                                             <th data-toggle="tooltip" data-placement="top" title="'.$linkedYearF.'">CT</th>
-                                            <th data-toggle="tooltip" data-placement="top" title="'.$joueursWeight.'">HT</th>
-                                            <th data-toggle="tooltip" data-placement="top" title="'.$joueursHeightF.'">WT</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$joueursHeightF.'">HT</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$joueursWeight.'">WT</th>
                             			</tr>    
                                     </thead>';
                                     

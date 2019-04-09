@@ -112,7 +112,7 @@ if (file_exists($Fnm)) {
             
             echo '<div class = "tableau-top"><h5 class="m-0">' . $val2 . ' ' . $standingConference . '</h5></div>';
             echo '<div class="table-responsive">';
-            echo '<table class="table table-sm table-striped">';
+            echo '<table class="table table-sm table-striped text-center">';
            
      
             $d = 1;
@@ -135,7 +135,7 @@ if (file_exists($Fnm)) {
             
             echo '<div class = "tableau-top"><h5 class="m-0">' . $val2 . ' ' . $standingDivision . '</h5></div>';
             echo '<div class="table-responsive">';
-            echo '<table class="table table-sm table-striped">';
+            echo '<table class="table table-sm table-striped text-center">';
             
             
             $d = 1;
@@ -153,23 +153,23 @@ if (file_exists($Fnm)) {
             if ($d == 1) {
                 echo '<thead>';
                 echo '<tr class="tableau-top">';
-                echo '<td></td>';
-                echo '<td></td>';
-                echo '<td class="text-left">' . $standingTeam . '</td>';
-                echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingGP . '<span>' . $standingGPFull . '</span></a></td>';
-                echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingW . '<span>' . $standingWFull . '</span></a></td>';
-                echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingL . '<span>' . $standingLFull . '</span></a></td>';
-                echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingE . '<span>' . $standingEFull . '</span></a></td>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '<th class="text-left">' . $standingTeam . '</th>';
+                echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'. $standingGP .'</th>';
+                echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingWFull.'">' . $standingW . '</th>';
+                echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingLFull.'">' . $standingL . '</th>';
+                echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingEFull.'">' . $standingE . '</th>';
                 if ($e == 1){
 
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingOT . '<span>' . $standingOTFull . '</span></a></td>';
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info"><b>' . $standingPTS . '</b><span>' . $standingPTSFull . '</span></a></td>';
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingGF . '<span>' . $standingGFFull . '</span></a></td>';
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingGA . '<span>' . $standingGAFull . '</span></a></td>';
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingDiff . '<span>' . $standingDiffFull . '</span></a></td>';
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingPCT . '<span>' . $standingPCTFull . '</span></a></td>';
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingL10 . '<span>' . $standingL10Full . '</span></a></td>';
-                    echo '<td style="text-align:right;"><a href="javascript:return;" class="info">' . $standingSTRK . '<span>' . $standingSTRKFull . '</span></a></td>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingOTFull.'">' . $standingOT . '</th>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPTSFull.'">' . $standingPTS . '</th>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGFFull.'">' . $standingGF . '</th>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGAFull.'">' . $standingGA . '</th>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingDiffFull.'">' . $standingDiff . '</th>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPCTFull.'">' . $standingPCT . '</th>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingL10Full.'">' . $standingL10 . '</th>';
+                    echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingSTRKFull.'">' . $standingSTRK . '</th>';
                     echo '</tr>';
                 }
                 echo '</thead>';
@@ -219,18 +219,18 @@ if (file_exists($Fnm)) {
                 $reste = trim(substr($reste, strpos($reste, ' ')));
                 $standingsSTK = $reste;
                 
-                if ($serie != '') {
-                    if ($serie == 'z')
-                        $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingZ . '<span>' . $standingZFull . '</span></a>';
-                        if ($serie == 'y')
-                            $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingY . '<span>' . $standingYFull . '</span></a>';
-                            if ($serie == 'x')
-                                $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingX . '<span>' . $standingXFull . '</span></a>';
-                                if ($d == 3)
-                                    $final = 1;
-                                    if ($d == 8)
-                                        $b = 1;
-                }
+//                 if ($serie != '') {
+//                     if ($serie == 'z')
+//                         $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingZ . '<span>' . $standingZFull . '</span></a>';
+//                         if ($serie == 'y')
+//                             $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingY . '<span>' . $standingYFull . '</span></a>';
+//                             if ($serie == 'x')
+//                                 $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingX . '<span>' . $standingXFull . '</span></a>';
+//                                 if ($d == 3)
+//                                     $final = 1;
+//                                     if ($d == 8)
+//                                         $b = 1;
+//                 }
 
                 if ($b && $d > 8 && $final)
                     $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingN . '<span>' . $standingNFull . '</span></a>';
@@ -243,24 +243,24 @@ if (file_exists($Fnm)) {
                             echo '<td>' . $d . '</td>';
                             echo '<td>' . $serie . '</td>';
                             //echo '<td>' . $equipe . '</td>';
-                            echo '<td><a class="text-left" style="display:block; width:100%;" href="TeamRosters.php?team=' . $equipe . '">' . $equipe . '</a></td>';
+                            echo '<td class="text-left"><a style="display:block; width:100%;" href="TeamRosters.php?team=' . $equipe . '">' . $equipe . '</a></td>';
                             
-                            echo '<td style="text-align:right;">' . $pj . '</td>';
-                            echo '<td style="text-align:right;">' . $standingsW . '</td>';
-                            echo '<td style="text-align:right;">' . $standingsL . '</td>';
-                            echo '<td style="text-align:right;">' . $standingsT . '</td>';
+                            echo '<td>' . $pj . '</td>';
+                            echo '<td>' . $standingsW . '</td>';
+                            echo '<td>' . $standingsL . '</td>';
+                            echo '<td>' . $standingsT . '</td>';
              
                             if ($e == 1){
 
-                                echo '<td style="text-align:right;">' . $standingsOL . '</td>';
-                                echo '<td style="text-align:right;"><b>' . $standingsPts . '</b></td>';
-                                echo '<td style="text-align:right;">' . $standingsGF . '</td>';
-                                echo '<td style="text-align:right;">' . $standingsGA . '</td>';
-                                echo '<td style="text-align:right;">' . $standingsDiff . '</td>';
-                                echo '<td style="text-align:right;">' . $standingsPCT . '</td>';
+                                echo '<td>' . $standingsOL . '</td>';
+                                echo '<td>' . $standingsPts . '</td>';
+                                echo '<td>' . $standingsGF . '</td>';
+                                echo '<td>' . $standingsGA . '</td>';
+                                echo '<td>' . $standingsDiff . '</td>';
+                                echo '<td>' . $standingsPCT . '</td>';
                             }
-                            echo '<td style="text-align:right;">' . $standingsL10 . '</td>';
-                            echo '<td style="text-align:right;">' . $standingsSTK . '</td>';
+                            echo '<td>' . $standingsL10 . '</td>';
+                            echo '<td>' . $standingsSTK . '</td>';
                             echo '</tr>';
                             
                             $d ++;
