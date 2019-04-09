@@ -238,8 +238,23 @@ body{
 
 /* .table>tbody>tr td {background-color: var(--table-bg-color-1); }  */
 
-.table-striped>tbody>tr:nth-child(odd) td {background-color: var(--table-bg-color-1); } 
-.table-striped>tbody>tr:nth-child(even) td {background-color: var(--table-bg-color-2); }
+/* .table-striped>tbody>tr:nth-child(odd) td {background-color: var(--table-bg-color-1); }  */
+/* .table-striped>tbody>tr:nth-child(even) td {background-color: var(--table-bg-color-2); } */
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: var(--table-bg-color-1);
+ }
+ 
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: var(--table-bg-color-2);  
+ }
+ 
+.table-hover>tbody>tr:hover td{
+	  background-color: rgba(23, 145, 202, 0.5); 
+}
+
 
 
 .table.fixed-column th:first-child,
@@ -252,6 +267,7 @@ body{
 {
   color:#ffffff;
 }
+
 
 /*table sorter*/
 .tablesorter th[aria-sort="descending"]{
@@ -299,11 +315,17 @@ a:hover.info span {
 	border-collapse: collapse;
 	width:100%;
 }
+
 .tableau-top,
 .tableau-top td {
 	background-color:#1791CA;
 	color:white;
 }
+
+/* .tableau-top td { */
+/* 	background-color:#1791CA; */
+/* 	color:white; */
+/* } */
 
 .tableau-top td {
 	font-weight: bold;

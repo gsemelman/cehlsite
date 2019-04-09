@@ -16,7 +16,7 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"/>
-	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04082019-3.css"/>
+	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04082019-4.css"/>
 	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/media-queries.css"/>
      
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

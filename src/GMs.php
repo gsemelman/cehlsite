@@ -59,9 +59,9 @@ if(file_exists($Fnm)) {
 	$sendAll = '';
 	$sendAllFirst = 0;
 	echo '<thead>';
-	echo '<tr class="tableau-top">
-		<td>'.$GMsTeam.'</td>
-		<td>'.$GMsName.'</td>
+	echo '<tr>
+		<th>'.$GMsTeam.'</th>
+		<th>'.$GMsName.'</th>
 		</tr>';
 	echo '</thead>';
 	echo '<tbody>';
@@ -71,13 +71,10 @@ if(file_exists($Fnm)) {
 			$z++;
 		}
 		else {
-			if($c == 1) $c = 2;
-			else $c = 1;
-			if($gmequipe[$i] == $currentTeam) $bold = 'font-weight:bold;';
-			else $bold = '';
-			echo '<tr class="hover'.$c.'">
-			<td style="'.$bold.'">'.$gmequipe[$i].'</td>
-			<td style="'.$bold.'"><a style="display:block; width:100%;" href="mailto:'.$gmEmail[$i].'">'.$gm[$i].'</a></td>
+
+			echo '<tr>
+			<td>'.$gmequipe[$i].'</td>
+			<td><a style="display:block; width:100%;" href="mailto:'.$gmEmail[$i].'">'.$gm[$i].'</a></td>
 			</tr>';
 			if($sendAllFirst == 0) {
 				$sendAll .= $gmEmail[$i];
@@ -94,7 +91,7 @@ if(file_exists($Fnm)) {
 	$z = 0;
 	$c = 1;
 	if(isset($free[$z])) {
-		echo '<tr><td colspan="2"><br></td></tr><tr class="tableau-top"><td colspan="2">'.$GMsFreeTeam.'</td></tr>';
+		echo '<tr><td colspan="2"><br></td></tr><tr class="tableau-top"><td colspan="2" >'.$GMsFreeTeam.'</td></tr>';
 		for($z=0;$z<count($free);$z++) {
 			if($c == 1) $c = 2;
 			else $c = 1;

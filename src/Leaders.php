@@ -56,7 +56,7 @@ if(file_exists($Fnm)) {
 			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm table-striped">';
+			echo '<table id = "leadersScTable" class="table table-sm table-striped text-center">';
 		
 		}
 		if(substr_count($val, '</PRE>')) {
@@ -169,44 +169,40 @@ if(file_exists($Fnm)) {
 	echo '<div class="tableau-top text-center">'.$leaderScoring.'</div>';
 	
 	echo '<thead>';
-    echo '<tr class="tableau-top">';
-	echo '<td></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderTeam.'<span>'.$leaderTeamF.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderGP.'<span>'.$leaderGPF.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderGoal.'<span>'.$leaderGoalF.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderAssist.'<span>'.$leaderAssistF.'</span></a></td>';
-	echo '<td style="text-align:right; font-weight:bold;"><a href="javascript:return;" class="info">'.$leaderPoints.'<span>'.$leaderPointsF.'</span></a></td>';
-	if($currentFarm == 0) echo '<td style="text-align:right;"><a href="javascript:return;" class="info">+/-<span>'.$leaderDiff.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderPIM.'<span>'.$leaderPIMF.'</span></a></td>';
+    echo '<tr>';
+    echo '<th class="text-left">Name</th>';
+	echo '<th>'.$leaderTeam.'</th>';
+	echo '<th>'.$leaderGP.'</th>';
+	echo '<th>'.$leaderGoal.'</th>';
+	echo '<th>'.$leaderAssist.'</th>';
+	echo '<th>'.$leaderPoints.'</th>';
+	if($currentFarm == 0) echo '<th>+/-</th>';
+	echo '<th>'.$leaderPIM.'</th>';
 	if($currentFarm == 0) {
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderPP.'<span>'.$leaderPPF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderSH.'<span>'.$leaderSHF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderShots.'<span>'.$leaderShotsF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderShotsAcc.'<span>'.$leaderShotsAccF.'</span></a></td>';
+		echo '<th>'.$leaderPP.'</th>';
+		echo '<th>'.$leaderSH.'</th>';
+		echo '<th>'.$leaderShots.'</th>';
+		echo '<th>'.$leaderShotsAcc.'</th>';
 	}
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
 	if(isset($joueur)) {
 		for($i=0;$i<count($joueur);$i++) {
-			if($c == 1) $c = 2;
-			else $c =  1;
-			if(isset($TSabbr) && substr_count($equipes[$i], $TSabbr)) $bold = 'font-weight:bold;';
-			else $bold = '';
-			echo '<tr class="hover'.$c.'">';
-			echo '<td style="'.$bold.'">'.$joueur[$i].'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$equipes[$i].'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$gp[$i].'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$goal[$i].'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$ass[$i].'</td>';
-			echo '<td style="text-align:right; font-weight:bold;">'.$points[$i].'</td>';
-			if($currentFarm == 0) echo '<td style="text-align:right;'.$bold.'">'.$diff[$i].'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$pun[$i].'</td>';
+			echo '<tr>';
+			echo '<td class="text-left">'.$joueur[$i].'</td>';
+			echo '<td >'.$equipes[$i].'</td>';
+			echo '<td>'.$gp[$i].'</td>';
+			echo '<td>'.$goal[$i].'</td>';
+			echo '<td>'.$ass[$i].'</td>';
+			echo '<td>'.$points[$i].'</td>';
+			if($currentFarm == 0) echo '<td>'.$diff[$i].'</td>';
+			echo '<td>'.$pun[$i].'</td>';
 			if($currentFarm == 0) {
-				echo '<td style="text-align:right;'.$bold.'">'.$pp[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$sh[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$shots[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$shp[$i].'</td>';
+				echo '<td>'.$pp[$i].'</td>';
+				echo '<td>'.$sh[$i].'</td>';
+				echo '<td>'.$shots[$i].'</td>';
+				echo '<td>'.$shp[$i].'</td>';
 			}
 			echo '</tr>';
 		}
@@ -218,56 +214,52 @@ if(file_exists($Fnm)) {
 	echo '<div class="tableau-top text-center">'.$leaderminGames.' '.$games.' '.$leaderminGames2.'.</div>';
 	
 	echo '<div class="table-responsive wow fadeIn">';
-	echo '<table class="table table-sm table-striped">';
+	echo '<table id ="leadersGoalieTable" class="table table-sm table-striped text-center">';
     echo '<thead>'; 
-    echo '<tr class="tableau-top">';
-	echo '<td></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderTeam.'<span>'.$leaderTeamF.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderGP.'<span>'.$leaderGP.'</span></a></td>';
+    echo '<tr>';
+	echo '<th class="text-left">Name</th>';
+	echo '<th>'.$leaderTeam.'</th>';
+	echo '<th>'.$leaderGP.'</th>';
 	if($currentFarm == 0) {
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderWin.'<span>'.$leaderWinF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderLost.'<span>'.$leaderLostF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderTie.'<span>'.$leaderTieF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderMin.'<span>'.$leaderMinF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderGA.'<span>'.$leaderGAF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderSO.'<span>'.$leaderSOF.'</span></a></td>';
+		echo '<th>'.$leaderWin.'</th>';
+		echo '<th>'.$leaderLost.'</th>';
+		echo '<th>'.$leaderTie.'</th>';
+		echo '<th>'.$leaderMin.'</th>';
+		echo '<th>'.$leaderGA.'</th>';
+		echo '<th>'.$leaderSO.'</th>';
 	}
-	echo '<td style="text-align:right; font-weight:bold;"><a href="javascript:return;" class="info">'.$leaderAVG.'<span>'.$leaderAVGF.'</span></a></td>';
+	echo '<th>'.$leaderAVG.'</th>';
 	if($currentFarm == 0) {
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderPIM.'<span>'.$leaderPIMF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderShots.'<span>'.$leaderShotsF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderPct.'<span>'.$leaderPctF.'</span></a></td>';
-		echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$leaderAssist.'<span>'.$leaderAssistF.'</span></a></td>';
+		echo '<th>'.$leaderPIM.'</th>';
+		echo '<th>'.$leaderShots.'</th>';
+		echo '<th>'.$leaderPct.'</th>';
+		echo '<th>'.$leaderAssist.'</th>';
 	}
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	$i = 0;
-	$c =  1;
+
 	if(isset($joueur2)) {
 		for($i=0;$i<count($joueur2);$i++) {
-			if($c == 1) $c = 2;
-			else $c = 1;
-			if(isset($TSabbr) && substr_count($equipes2[$i], $TSabbr)) $bold = 'font-weight:bold;';
-			else $bold = '';
-			echo '<tr class="hover'.$c.'">';
-			echo '<td style="'.$bold.'">'.$joueur2[$i].'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$equipes2[$i].'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$gp2[$i].'</td>';
+
+			echo '<tr>';
+			echo '<td>'.$joueur2[$i].'</td>';
+			echo '<td>'.$equipes2[$i].'</td>';
+			echo '<td>'.$gp2[$i].'</td>';
 			if($currentFarm == 0) {
-				echo '<td style="text-align:right;'.$bold.'">'.$win[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$loose[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$tie[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$min[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$ga[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$so[$i].'</td>';
+				echo '<td>'.$win[$i].'</td>';
+				echo '<td>'.$loose[$i].'</td>';
+				echo '<td>'.$tie[$i].'</td>';
+				echo '<td>'.$min[$i].'</td>';
+				echo '<td>'.$ga[$i].'</td>';
+				echo '<td>'.$so[$i].'</td>';
 			}
-			echo '<td style="text-align:right; font-weight:bold;">'.$avg[$i].'</td>';
+			echo '<td>'.$avg[$i].'</td>';
 			if($currentFarm == 0) {
-				echo '<td style="text-align:right;'.$bold.'">'.$pun2[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$sh2[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$pct[$i].'</td>';
-				echo '<td style="text-align:right;'.$bold.'">'.$ass2[$i].'</td>';
+				echo '<td>'.$pun2[$i].'</td>';
+				echo '<td>'.$sh2[$i].'</td>';
+				echo '<td>'.$pct[$i].'</td>';
+				echo '<td>'.$ass2[$i].'</td>';
 			}
 			echo '</tr>';
 		}
@@ -281,10 +273,25 @@ else{
 echo '</tbody></table></div>';
 
     if(isset($lastUpdated)){
-        echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
+        echo '<h6 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h6>';
     }
 
 echo'</div></div></div></div></div>';
 ?>
+
+<script>
+$(document).ready(function() 
+    { 
+        $("#leadersGoalieTable").tablesorter({ 
+            sortInitialOrder: 'desc'
+    	}); 
+        $("#leadersScTable").tablesorter({ 
+            sortInitialOrder: 'desc'
+    	}); 
+    } 
+); 
+
+</script>
+
 
 <?php include 'footer.php'; ?>

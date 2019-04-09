@@ -11,7 +11,7 @@ include 'head.php';
 <div class="container">
 <div class="row no-gutters">
 <div class="col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3"> 	
-<div class="card">
+<div class="card wow fadeIn">
 	<?php include 'SectionHeader.php';?>
 	<div class="card-body p-2 px-lg-4">
 
@@ -58,8 +58,8 @@ if(file_exists($Fnm)) {
 			$val = substr($val, 10, $pos);
 			$lastUpdated = $val;
 	
-			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm table-striped">';
+			echo '<div class="table-responsive">';
+			echo '<table id ="coachTable" class="table table-sm table-striped table-hover text-center">';
 		}
 		if($a == 1 && substr_count($val, '(')) {
 			$reste = trim($val);
@@ -86,36 +86,33 @@ if(file_exists($Fnm)) {
 			}
 		
 			if($coachTeam == 'Available') $coachTeam = str_replace('Available', $CoachesAvailable, $coachTeam);
-			
-			$b = '';
-			//if(substr_count($val, $currentTeam)) $b = ' font-weight:bold;'; //remove references to $b
-			
+
 			if($c == 1) $c = 2;
 			else $c =  1; 
 			echo '
-			<tr class="hover'.$c.'">
-			<td style="'.$b.'">'.$coachName.'</td>
-			<td style="'.$b.'">'.$coachTeam.'</td>
-			<td style="text-align:center;'.$b.'">'.$coachOf.'</td>
-			<td style="text-align:center;'.$b.'">'.$coachDf.'</td>
-			<td style="text-align:center;'.$b.'">'.$coachEx.'</td>
-			<td style="text-align:center;'.$b.'">'.$coachLd.'</td>
-			<td style="text-align:right;'.$b.'">$'.$coachSalary.'</td>
-            <td style="text-align:right;'.$b.'">'.$coachTerm.'</td>
+			<tr>
+    			<td class="text-left">'.$coachName.'</td>
+    			<td class="text-left">'.$coachTeam.'</td>
+    			<td>'.$coachOf.'</td>
+    			<td>'.$coachDf.'</td>
+    			<td>'.$coachEx.'</td>
+    			<td>'.$coachLd.'</td>
+    			<td>$'.$coachSalary.'</td>
+                <td>'.$coachTerm.'</td>
 			</tr>';
 		}
 		if(substr_count($val, '                                   ')) {
 			echo '
             <thead>
-			<tr class="tableau-top">
-			<td>'.$CoachesName.'</td>
-			<td>'.$CoachesTeam.'</td>
-			<td style="text-align:center;"><a href="javascript:return;" class="info">OF<span>'.$CoachesOff.'</span></a></td>
-			<td style="text-align:center;"><a href="javascript:return;" class="info">DF<span>'.$CoachesDef.'</span></a></td>
-			<td style="text-align:center;"><a href="javascript:return;" class="info">EX<span>'.$CoachesExp.'</span></a></td>
-			<td style="text-align:center;"><a href="javascript:return;" class="info">LD<span>'.$CoachesLead.'</span></a></td>
-			<td style="text-align:right;">'.$CoachesSalary.'</td>
-            <td>Term</td>
+			<tr>
+			<th class="text-left">'.$CoachesName.'</th>
+			<th class="text-left">'.$CoachesTeam.'</th>
+			<th>OF</th>
+			<th>DF</th>
+			<th>EX</th>
+			<th>LD</th>
+			<th>'.$CoachesSalary.'</th>
+            <th>Term</th>
 			</tr>
             </thead>
 			<tbody>';
@@ -132,5 +129,18 @@ echo '</tbody></table></div>
 ';
 ?>
 </div></div></div></div></div>
+
+<script>
+
+$(document).ready(function() 
+	    { 
+	        $("#coachTable").tablesorter({ 
+	            sortInitialOrder: 'desc'
+	    	}); 
+
+	    } 
+	); 
+
+</script>
 
 <?php include 'footer.php'; ?>

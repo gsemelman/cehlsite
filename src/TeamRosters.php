@@ -21,7 +21,6 @@ include_once 'classes/PlayerVitalsHolder.php';
 
 <style>
 
-
 </style>
 
 <div class="container">
@@ -75,7 +74,7 @@ include_once 'classes/PlayerVitalsHolder.php';
              
                                 //create table header
                                 echo '<div class="table-responsive">';
-                                echo '<table id="'.$tableId.'" class="table table-sm table-striped fixed-column text-center">';
+                                echo '<table id="'.$tableId.'" class="table table-sm table-striped table-hover fixed-column text-center">';
                                 
                                     echo '<thead>
                                         <tr>

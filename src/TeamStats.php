@@ -186,7 +186,7 @@ if(file_exists($Fnm)) {
 			
 	
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm table-striped">';
+			echo '<table id="teamStatsTable" class="table table-sm table-striped text-center">';
 			echo '<thead>';
 		}
 		if(substr_count($val, '</PRE>')){
@@ -223,115 +223,23 @@ if(file_exists($Fnm)) {
 	}
 	
 	if(isset($teamStatsFileGP)) {
-		$ss = 'font-weight: bold;';
-		$sortmempj = 'pja';
-		$sortmeman = 'ana';
-		$sortmemdn = 'dna';
-		$sortmempp = 'ppa';
-		$sortmembp = 'bpa';
-		$sortmembc = 'bca';
-		$sortmemtp = 'tpa';
-		$sortmemtc = 'tca';
-		$sortmemppg = 'ppga';
-		$sortmemppo = 'ppoa';
-		$sortmempkg = 'pkga';
-		$sortmempko = 'pkoa';
+	    $tableaut = $teamStatsFileGP;
 		
-		if(!$sort) $sort = 'ana';
-		
-		if($sort == 'pja') $sortmempj = 'pjd';
-		if($sort == 'pjd') $sortmempj = 'pja';
-		if($sort == 'ana') $sortmeman = 'and';
-		if($sort == 'and') $sortmeman = 'ana';
-		if($sort == 'dna') $sortmemdn = 'dnd';
-		if($sort == 'dnd') $sortmemdn = 'dna';
-		if($sort == 'ppa') $sortmempp = 'ppd';
-		if($sort == 'ppd') $sortmempp = 'ppa';
-		if($sort == 'bpa') $sortmembp = 'bpd';
-		if($sort == 'bpd') $sortmembp = 'bpa';
-		if($sort == 'bca') $sortmembc = 'bcd';
-		if($sort == 'bcd') $sortmembc = 'bca';
-		if($sort == 'tpa') $sortmemtp = 'tpd';
-		if($sort == 'tpd') $sortmemtp = 'tpa';
-		if($sort == 'tca') $sortmemtc = 'tcd';
-		if($sort == 'tcd') $sortmemtc = 'tca';
-		if($sort == 'ppga') $sortmemppg = 'ppgd';
-		if($sort == 'ppgd') $sortmemppg = 'ppga';
-		if($sort == 'ppoa') $sortmemppo = 'ppod';
-		if($sort == 'ppod') $sortmemppo = 'ppoa';
-		if($sort == 'pkga') $sortmempkg = 'pkgd';
-		if($sort == 'pkgd') $sortmempkg = 'pkga';
-		if($sort == 'pkoa') $sortmempko = 'pkod';
-		if($sort == 'pkod') $sortmempko = 'pkoa';
-		
-		$lienmem = '?sort=';
-		if($playoff == 'PLF') $lienmem = '?plf=1&sort=';
-		
-		$s1 = $s2 = $s3 = $s4 = $s5 = $s6 = $s7 = $s8 = $s9 = $s10 = $s11 = $s12 = '';
-		if($sort == 'pja' || $sort == 'pjd') {
-			$tableaut = $teamStatsFileGP;
-			$s1 = $ss;
-		}
-		if($sort == 'ana' || $sort == 'and' || !$sort) {
-			$tableaut = $teamStatsFilePP;
-			$s2 = $ss;
-		}
-		if($sort == 'dna' || $sort == 'dnd') {
-			$tableaut = $teamStatsFilePK;
-			$s3 = $ss;
-		}
-		if($sort == 'ppa' || $sort == 'ppd') {
-			$tableaut = $teamStatsFilePIMP;
-			$s4 = $ss;
-		}
-		if($sort == 'bpa' || $sort == 'bpd') {
-			$tableaut = $teamStatsFileGFG;
-			$s5 = $ss;
-		}
-		if($sort == 'bca' || $sort == 'bcd') {
-			$tableaut = $teamStatsFileGAG;
-			$s6 = $ss;
-		}
-		if($sort == 'tpa' || $sort == 'tpd') {
-			$tableaut = $teamStatsFileSFG;
-			$s7 = $ss;
-		}
-		if($sort == 'tca' || $sort == 'tcd') {
-			$tableaut = $teamStatsFileSAG;
-			$s8 = $ss;
-		}
-		if($sort == 'ppga' || $sort == 'ppgd' || !$sort) {
-			$tableaut = $gameStatsFilePPG;
-			$s9 = $ss;
-		}
-		if($sort == 'ppoa' || $sort == 'ppod' || !$sort) {
-			$tableaut = $gameStatsFilePPGO;
-			$s10 = $ss;
-		}
-		if($sort == 'pkga' || $sort == 'pkgd' || !$sort) {
-			$tableaut = $gameStatsFilePKGA;
-			$s11 = $ss;
-		}
-		if($sort == 'pkoa' || $sort == 'pkod' || !$sort) {
-			$tableaut = $gameStatsFilePKOA;
-			$s12 = $ss;
-		}
-		
-		echo '<tr class="tableau-top">
-			<td></td>
-			<td>'.$teamStatsTEAM.'</td>
-			<td style="text-align:right;"><a style="'.$s1.'" href="'.$lienmem.$sortmempj.'" class="info">'.$teamStatsGPm.'<span>'.$teamStatsGP.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s9.'" href="'.$lienmem.$sortmemppg.'" class="info">'.$teamStatsPPGm.'<span>'.$teamStatsPPG.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s10.'" href="'.$lienmem.$sortmemppo.'" class="info">'.$teamStatsPPOm.'<span>'.$teamStatsPPO.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s2.'" href="'.$lienmem.$sortmeman.'" class="info">'.$teamStatsPPm.'<span>'.$teamStatsPP.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s11.'" href="'.$lienmem.$sortmempkg.'" class="info">'.$teamStatsPKGAm.'<span>'.$teamStatsPKGA.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s12.'" href="'.$lienmem.$sortmempko.'" class="info">'.$teamStatsPKOm.'<span>'.$teamStatsPKO.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s3.'" href="'.$lienmem.$sortmemdn.'" class="info">'.$teamStatsPKm.'<span>'.$teamStatsPK.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s4.'" href="'.$lienmem.$sortmempp.'" class="info">'.$teamStatsPIMGm.'<span>'.$teamStatsPIMG.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s5.'" href="'.$lienmem.$sortmembp.'" class="info">'.$teamStatsGFGm.'<span>'.$teamStatsGFG.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s6.'" href="'.$lienmem.$sortmembc.'" class="info">'.$teamStatsGAGm.'<span>'.$teamStatsGAG.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s7.'" href="'.$lienmem.$sortmemtp.'" class="info">'.$teamStatsSFGm.'<span>'.$teamStatsSFG.'</span></a></td>
-			<td style="text-align:right;"><a style="'.$s8.'" href="'.$lienmem.$sortmemtc.'" class="info">'.$teamStatsSAGm.'<span>'.$teamStatsSAG.'</span></a></td>
+		echo '<tr>
+			
+			<th class="text-left">'.$teamStatsTEAM.'</th>
+			<th>'.$teamStatsGPm.'</th>
+			<th>'.$teamStatsPPGm.'</th>
+			<th>'.$teamStatsPPOm.'</th>
+			<th>'.$teamStatsPPm.'</th>
+			<th>'.$teamStatsPKGAm.'</th>
+			<th>'.$teamStatsPKOm.'</th>
+			<th>'.$teamStatsPKm.'</th>
+			<th>'.$teamStatsPIMGm.'</th>
+			<th>'.$teamStatsGFGm.'</th>
+			<th>'.$teamStatsGAGm.'</th>
+			<th>'.$teamStatsSFGm.'</th>
+			<th>'.$teamStatsSAGm.'</th>
 			</tr>';
 		echo '</thead>';
 		echo '<tbody>';
@@ -345,32 +253,31 @@ if(file_exists($Fnm)) {
 			if($c == 1) $c = 2;
 			else $c = 1;
 			$equipe = $gmequipe[$key];
-			if($equipe == $currentTeam) $bold = 'font-weight:bold;';
-			else $bold = '';
+
 			$position = $i + 1;
-			echo '<tr class="hover'.$c.'">
-			<td>'.$position.'</td>
-			<td style="'.$bold.'">'.$equipe.'</td>
-			<td style="text-align:right;'.$s1.$bold.'">'.$teamStatsFileGP[$key].'</td>';
+			echo '<tr>
+			
+			<td class="text-left">'.$equipe.'</td>
+			<td>'.$teamStatsFileGP[$key].'</td>';
 			if($teamStatsFilePP[$key] == 'N/A') {
 				$gameStatsFilePPG[$key] = 0;
 				$gameStatsFilePPGO[$key] = 0;
 			}
-			echo '<td style="text-align:right;'.$s9.$bold.'">'.$gameStatsFilePPG[$key].'</td>';
-			echo '<td style="text-align:right;'.$s10.$bold.'">'.$gameStatsFilePPGO[$key].'</td>';
-			echo '<td style="text-align:right;'.$s2.$bold.'">'.$teamStatsFilePP[$key].'</td>';
+			echo '<td>'.$gameStatsFilePPG[$key].'</td>';
+			echo '<td>'.$gameStatsFilePPGO[$key].'</td>';
+			echo '<td>'.$teamStatsFilePP[$key].'</td>';
 			if($teamStatsFilePK[$key] == 'N/A') {
 				$gameStatsFilePKGA[$key] = 0;
 				$gameStatsFilePKOA[$key] = 0;
 			}
-			echo '<td style="text-align:right;'.$s11.$bold.'">'.$gameStatsFilePKGA[$key].'</td>';
-			echo '<td style="text-align:right;'.$s12.$bold.'">'.$gameStatsFilePKOA[$key].'</td>';
-			echo '<td style="text-align:right;'.$s3.$bold.'">'.$teamStatsFilePK[$key].'</td>
-			<td style="text-align:right;'.$s4.$bold.'">'.$teamStatsFilePIMP[$key].'</td>
-			<td style="text-align:right;'.$s5.$bold.'">'.$teamStatsFileGFG[$key].'</td>
-			<td style="text-align:right;'.$s6.$bold.'">'.$teamStatsFileGAG[$key].'</td>
-			<td style="text-align:right;'.$s7.$bold.'">'.$teamStatsFileSFG[$key].'</td>
-			<td style="text-align:right;'.$s8.$bold.'">'.$teamStatsFileSAG[$key].'</td>
+			echo '<td>'.$gameStatsFilePKGA[$key].'</td>';
+			echo '<td>'.$gameStatsFilePKOA[$key].'</td>';
+			echo '<td>'.$teamStatsFilePK[$key].'</td>
+			<td >'.$teamStatsFilePIMP[$key].'</td>
+			<td>'.$teamStatsFileGFG[$key].'</td>
+			<td>'.$teamStatsFileGAG[$key].'</td>
+			<td>'.$teamStatsFileSFG[$key].'</td>
+			<td>'.$teamStatsFileSAG[$key].'</td>
 			</tr>';
 			$i++;
 		}
@@ -383,12 +290,25 @@ else{
 echo '</tbody></table></div>';
 
 if(isset($lastUpdated)){
-    echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
+    echo '<h6 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h6>';
 }
 
 echo '</div></div></div></div></div>';
 ?>
 
+<script>
+$(document).ready(function() 
+    { 
+        $("#teamStatsTable").tablesorter({ 
+            sortInitialOrder: 'desc'
+    	}); 
+
+    } 
+); 
+
+
+
+</script>
 
 
 <?php include 'footer.php'; ?>
