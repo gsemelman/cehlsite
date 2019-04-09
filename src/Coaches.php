@@ -107,10 +107,10 @@ if(file_exists($Fnm)) {
 			<tr>
 			<th class="text-left">'.$CoachesName.'</th>
 			<th class="text-left">'.$CoachesTeam.'</th>
-			<th>OF</th>
-			<th>DF</th>
-			<th>EX</th>
-			<th>LD</th>
+			<th data-toggle="tooltip" data-placement="top" title="'.$CoachesOff.'">OF</th>
+			<th data-toggle="tooltip" data-placement="top" title="'.$CoachesDef.'">DF</th>
+			<th data-toggle="tooltip" data-placement="top" title="'.$CoachesExp.'">EX</th>
+			<th data-toggle="tooltip" data-placement="top" title="'.$CoachesLead.'">LD</th>
 			<th>'.$CoachesSalary.'</th>
             <th>Term</th>
 			</tr>
@@ -140,6 +140,17 @@ $(document).ready(function()
 
 	    } 
 	); 
+
+// $(document).ready(function() {  
+//     $(function () {
+//         $("body").tooltip({
+//             selector: '[data-toggle="tooltip"]',
+//             container: 'body',
+//             trigger: 'hover focus',
+//             delay:{hide:0}
+//         });
+//     })
+// });
 
 </script>
 

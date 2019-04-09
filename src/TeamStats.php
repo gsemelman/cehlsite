@@ -186,7 +186,7 @@ if(file_exists($Fnm)) {
 			
 	
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table id="teamStatsTable" class="table table-sm table-striped text-center">';
+			echo '<table id="teamStatsTable" class="table table-sm table-striped table-hover text-center">';
 			echo '<thead>';
 		}
 		if(substr_count($val, '</PRE>')){

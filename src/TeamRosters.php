@@ -79,29 +79,29 @@ include_once 'classes/PlayerVitalsHolder.php';
                                     echo '<thead>
                                         <tr>
                                             <th class="text-left">'.$rostersName.'</th>
-                                			<th>PO</th>
-                                            <th>'.$rostersHD.'</th>
-                                            <th>CD</th>
-                                            <th>'.$rostersIJ.'</th>
-                                            <th>'.$rostersIT.'</th>
-                                            <th>'.$rostersSP.'</th>
-                                            <th>'.$rostersST.'</th>
-                                            <th>'.$rostersEN.'</th>
-                                            <th>'.$rostersDU.'</th>
-                                            <th>'.$rostersDI.'</th>
-                                            <th>'.$rostersSK.'</th>
-                                            <th>'.$rostersPA.'</th>
-                                            <th>'.$rostersPC.'</th>
-                                            <th>'.$rostersDF.'</th>
-                                            <th>'.$rostersOF.'</th>
-                                            <th>'.$rostersEX.'</th>
-                                            <th>'.$rostersLD.'</th>
-                                            <th>'.$rostersOV.'</th>
+                                			<th data-toggle="tooltip" data-placement="top" title="'.$rostersPosition.'">PO</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersHDF.'">'.$rostersHD.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="Condition">CD</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersIJF.'">'.$rostersIJ.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersITF.'">'.$rostersIT.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersSPF.'">'.$rostersSP.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersSTF.'">'.$rostersST.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersENF.'">'.$rostersEN.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersDUF.'">'.$rostersDU.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersDIF.'">'.$rostersDI.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersSKF.'">'.$rostersSK.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersPAF.'">'.$rostersPA.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersPCF.'">'.$rostersPC.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersDFF.'">'.$rostersDF.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersOFF.'">'.$rostersOF.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersEXF.'">'.$rostersEX.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersLDF.'">'.$rostersLD.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersOVF.'">'.$rostersOV.'</th>
                                             <th>Age</th>
                                             <th class="text-right">Salary</th>
-                                            <th>CT</th>
-                                            <th>HT</th>
-                                            <th>WT</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$linkedYearF.'">CT</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$joueursWeight.'">HT</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$joueursHeightF.'">WT</th>
                             			</tr>    
                                     </thead>';
                                     

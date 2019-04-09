@@ -1151,76 +1151,68 @@ if($csName != '') {
 
 if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 	if(isset($statsPLFNumber) || isset($statsNumber)){
-/* 		echo '
-		<div style="margin-left:auto; margin-right:auto; clear:both; width:555px; border:solid 1px'.$couleur_contour.'">
-		<div class="titre"><span class="bold-blanc">'.$careerStatsTitle.'</span></div>
-		<table class="tableau">'; */
+
 		echo '
 		<div class="card-body">
 		<div class = "row">
 		<div class = "col-sm-12 col-md-12 col-lg-8 offset-lg-2">
         <h3 class = "tableau-top text-center">'.$careerStatsTitle.'</h3>
 		<div class="table-responsive">
-        <table class="table table-sm table-striped">';
+        <table class="table table-sm table-striped table-hover text-center">';
 	}
 	
 	// Season TeamScoring
 	if(isset($statsNumber)){
-		$c = 1;
 		if(isset($statsP)) {
             echo '<thead>';
 			echo '<tr class="tableau-top">
-			<td><a class="info" href="javascript:return;">S<span>'.$careerStatsSeason.'</span></a></td>
-			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
-			<td><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></td>
-			<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
-			<td><a class="info" href="javascript:return;">'.$scoringTMm.'<span>'.$scoringTM.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGm.'<span>'.$scoringG.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">A<span>'.$scoringAssits.'</span></a></td>
-			<td style="text-align:right; font-weight:bold;"><a class="info" href="javascript:return;">P<span>Points</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">+/-<span>'.$scoringDiff.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPPm.'<span>'.$scoringPP.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSHm.'<span>'.$scoringSH.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGWm.'<span>'.$scoringGW.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGTm.'<span>'.$scoringGT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringHTm.'<span>'.$scoringHT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSm.'<span>'.$scoringS.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPCTGm.'<span>'.$scoringPCTG.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGSm.'<span>'.$scoringGS.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPSm.'<span>'.$scoringPS.'</span></a></td>
+			<td>S</td>
+			<td>P</td>
+			<td>#</td>
+			<td>R</td>
+			<td class="text-left">'.$scoringTMm.'</td>
+			<td>'.$scoringGPm.'</td>
+			<td>'.$scoringGm.'</td>
+			<td>A<span></td>
+			<td>P</td>
+			<td>+/-</td>
+			<td>'.$scoringPIMm.'</td>
+			<td>'.$scoringPPm.'</td>
+			<td>'.$scoringSHm.'</td>
+			<td>'.$scoringGWm.'</td>
+			<td>'.$scoringGTm.'</td>
+			<td>'.$scoringHTm.'</td>
+			<td>'.$scoringSm.'</td>
+			<td>'.$scoringPCTGm.'</td>
+			<td>'.$scoringGSm.'</td>
+			<td>'.$scoringPSm.'</td>
 			</tr>';
 			echo '</thead>';
 			for($i=0;$i<count($statsTeam)+1;$i++) {
 				$tmpTeamCount[$i] = $statsTGP[$i]= $statsTG[$i]= $statsTA[$i]= $statsTP[$i]= $statsTDiff[$i]= $statsTPIM[$i]= $statsTPPG[$i]= $statsTSHG[$i]= $statsTGW[$i]= $statsTGT[$i]= $statsTHT[$i]= $statsTS[$i]= $statsTPCTG[$i]= $statsTGS[$i]= $statsTPS[$i] = 0;
 			}
 			for($i=0;$i<count($statsTeam);$i++) {
-				if($c == 1) $c = 2;
-				else $c = 1;
-				$styleItalic = '';
-				if($statsTeam[$i] == 'TOT') $styleItalic = 'font-style: italic;';
-				echo '<tr class="hover'.$c.'">
-				<td style="text-align:right;'.$styleItalic.'">'.$statsSeason[$i].'</td>
-				<td style="text-align:center;'.$styleItalic.'">'.$statsPosition[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsNumber[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsRookie[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsTeam[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsGP[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsA[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.' font-weight:bold;">'.$statsP[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsDiff[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPIM[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPPG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsSHG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsGW[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsGT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsHT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsS[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPCTG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsGS[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPS[$i].'</td>
+				echo '<tr>
+				<td>'.$statsSeason[$i].'</td>
+				<td>'.$statsPosition[$i].'</td>
+				<td>'.$statsNumber[$i].'</td>
+				<td>'.$statsRookie[$i].'</td>
+				<td class="text-left">'.$statsTeam[$i].'</td>
+				<td>'.$statsGP[$i].'</td>
+				<td>'.$statsG[$i].'</td>
+				<td>'.$statsA[$i].'</td>
+				<td>'.$statsP[$i].'</td>
+				<td>'.$statsDiff[$i].'</td>
+				<td>'.$statsPIM[$i].'</td>
+				<td>'.$statsPPG[$i].'</td>
+				<td>'.$statsSHG[$i].'</td>
+				<td>'.$statsGW[$i].'</td>
+				<td>'.$statsGT[$i].'</td>
+				<td>'.$statsHT[$i].'</td>
+				<td>'.$statsS[$i].'</td>
+				<td>'.$statsPCTG[$i].'</td>
+				<td>'.$statsGS[$i].'</td>
+				<td>'.$statsPS[$i].'</td>
 				</tr>';
 				if($statsTeam[$i] != 'TOT') {
 					$tmpTeamName[0] = $statsTeam[$i];
@@ -1270,52 +1262,51 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 					$statsTPS[$j] += $statsPS[$i];
 				}
 			}
-			$c = 2;
+
 			for($i=0;$i<count($tmpTeamName);$i++) {
-				if($c == 1) $c = 2;
-				else $c = 1;
+
 				if($i == 0) echo '<tr class="tableau-top">';
-				else echo '<tr class="hover'.$c.'">';
-				if($i == 0) echo '<td colspan="5">'.$careerStatsSeasonCareer.'</td>';
-				else echo '<td>'.$tmpTeamCount[$i].'</td><td style="" colspan="4">'.$tmpTeamName[$i].'</td>';
-				echo '<td style="text-align:right;">'.$statsTGP[$i].'</td>
-				<td style="text-align:right;">'.$statsTG[$i].'</td>
-				<td style="text-align:right;">'.$statsTA[$i].'</td>
-				<td style="text-align:right; font-weight:bold;">'.$statsTP[$i].'</td>
-				<td style="text-align:right;">'.$statsTDiff[$i].'</td>
-				<td style="text-align:right;">'.$statsTPIM[$i].'</td>
-				<td style="text-align:right;">'.$statsTPPG[$i].'</td>
-				<td style="text-align:right;">'.$statsTSHG[$i].'</td>
-				<td style="text-align:right;">'.$statsTGW[$i].'</td>
-				<td style="text-align:right;">'.$statsTGT[$i].'</td>
-				<td style="text-align:right;">'.$statsTHT[$i].'</td>
-				<td style="text-align:right;">'.$statsTS[$i].'</td>
-				<td style="text-align:right;">'.$statsTPCTG[$i].'</td>
-				<td style="text-align:right;">'.$statsTGS[$i].'</td>
-				<td style="text-align:right;">'.$statsTPS[$i].'</td>
+				else echo '<tr>';
+				if($i == 0) echo '<td class="text-left" colspan="5">'.$careerStatsSeasonCareer.'</td>';
+				else echo '<td>'.$tmpTeamCount[$i].'</td><td class="text-left" colspan="4">'.$tmpTeamName[$i].'</td>';
+				echo '<td>'.$statsTGP[$i].'</td>
+				<td>'.$statsTG[$i].'</td>
+				<td>'.$statsTA[$i].'</td>
+				<td>'.$statsTP[$i].'</td>
+				<td>'.$statsTDiff[$i].'</td>
+				<td>'.$statsTPIM[$i].'</td>
+				<td>'.$statsTPPG[$i].'</td>
+				<td>'.$statsTSHG[$i].'</td>
+				<td>'.$statsTGW[$i].'</td>
+				<td>'.$statsTGT[$i].'</td>
+				<td>'.$statsTHT[$i].'</td>
+				<td>'.$statsTS[$i].'</td>
+				<td>'.$statsTPCTG[$i].'</td>
+				<td>'.$statsTGS[$i].'</td>
+				<td>'.$statsTPS[$i].'</td>
 				</tr>';
 			}
 		}
 		
 		if(isset($statsAVG)) {
 			echo '<tr class="tableau-top">
-			<td><a class="info" href="javascript:return;">S<span>'.$careerStatsSeason.'</span></a></td>
-			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
-			<td><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></td>
-			<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
-			<td><a class="info" href="javascript:return;">'.$scoringTMm.'<span>'.$scoringTM.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">MIN<span>'.$scoringMIN.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringAVGm.'<span>'.$scoringAVG.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringWm.'<span>'.$scoringW.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringLm.'<span>'.$scoringL.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringTm.'<span>'.$scoringT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSOm.'<span>'.$scoringSO.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGAm.'<span>'.$scoringGA.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSAm.'<span>'.$scoringSA.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">PCT<span>'.$scoringPCT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></td>
-			<td style="text-align:right;">AS</td>
+			<td>S</td>
+			<td>P</td>
+			<td>#</td>
+			<td>R</td>
+			<td class="text-left">'.$scoringTMm.'</td>
+			<td>'.$scoringGPm.'</td>
+			<td>MIN</td>
+			<td>'.$scoringAVGm.'</td>
+			<td>'.$scoringWm.'</td>
+			<td>'.$scoringLm.'</td>
+			<td>'.$scoringTm.'</td>
+			<td>'.$scoringSOm.'</td>
+			<td>'.$scoringGAm.'</td>
+			<td>'.$scoringSAm.'</td>
+			<td>PCT</td>
+			<td>'.$scoringPIMm.'</td>
+			<td>AS</td>
 			</tr>';
 			
 			for($i=0;$i<count($statsTeam)+1;$i++) {
@@ -1323,28 +1314,24 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 			}
 			
 			for($i=0;$i<count($statsTeam);$i++) {
-				if($c == 1) $c = 2;
-				else $c = 1;
-				$styleItalic = '';
-				if($statsTeam[$i] == 'TOT') $styleItalic = 'font-style: italic;';
-				echo '<tr class="hover'.$c.'">
-				<td style="text-align:right;'.$styleItalic.'">'.$statsSeason[$i].'</td>
-				<td style="text-align:center;'.$styleItalic.'">G</td>
-				<td style="'.$styleItalic.'">'.$statsNumber[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsRookie[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsTeam[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsGP[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsMin[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsAVG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsW[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsL[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsSO[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsGA[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsSA[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPCT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPIM[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsAS[$i].'</td>
+				echo '<tr>
+				<td>'.$statsSeason[$i].'</td>
+				<td>G</td>
+				<td>'.$statsNumber[$i].'</td>
+				<td>'.$statsRookie[$i].'</td>
+				<td class="text-left">'.$statsTeam[$i].'</td>
+				<td>'.$statsGP[$i].'</td>
+				<td>'.$statsMin[$i].'</td>
+				<td>'.$statsAVG[$i].'</td>
+				<td>'.$statsW[$i].'</td>
+				<td>'.$statsL[$i].'</td>
+				<td>'.$statsT[$i].'</td>
+				<td>'.$statsSO[$i].'</td>
+				<td>'.$statsGA[$i].'</td>
+				<td>'.$statsSA[$i].'</td>
+				<td>'.$statsPCT[$i].'</td>
+				<td>'.$statsPIM[$i].'</td>
+				<td>'.$statsAS[$i].'</td>
 				</tr>';
 				if($statsTeam[$i] != 'TOT') {
 					$tmpTeamName[0] = $statsTeam[$i];
@@ -1395,21 +1382,21 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 				if($c == 1) $c = 2;
 				else $c = 1;
 				if($i == 0) echo '<tr class="tableau-top">';
-				else echo '<tr class="hover'.$c.'">';
+				else echo '<tr>';
 				if($i == 0) echo '<td style="" colspan="5">'.$careerStatsSeasonCareer.'</td>';
-				else echo '<td>'.$tmpTeamCount[$i].'</td><td style="" colspan="4">'.$tmpTeamName[$i].'</td>';
-				echo '<td style="text-align:right;">'.$statsTOTGP[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTMin[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTAVG[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTW[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTL[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTT[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTSO[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTGA[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTSA[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTPCT[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTPIM[$i].'</td>
-				<td style="text-align:right;">'.$statsTOTAS[$i].'</td>
+				else echo '<td>'.$tmpTeamCount[$i].'</td><td class="text-left" colspan="4">'.$tmpTeamName[$i].'</td>';
+				echo '<td>'.$statsTOTGP[$i].'</td>
+				<td>'.$statsTOTMin[$i].'</td>
+				<td>'.$statsTOTAVG[$i].'</td>
+				<td>'.$statsTOTW[$i].'</td>
+				<td>'.$statsTOTL[$i].'</td>
+				<td>'.$statsTOTT[$i].'</td>
+				<td>'.$statsTOTSO[$i].'</td>
+				<td>'.$statsTOTGA[$i].'</td>
+				<td>'.$statsTOTSA[$i].'</td>
+				<td>'.$statsTOTPCT[$i].'</td>
+				<td>'.$statsTOTPIM[$i].'</td>
+				<td>'.$statsTOTAS[$i].'</td>
 				</tr>';
 			}
 		}
@@ -1421,26 +1408,26 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 		$c = 1;
 		if(isset($statsPLFP)) {
 			echo '<tr class="tableau-top">
-			<td><a class="info" href="javascript:return;">S<span>'.$careerStatsSeason.'</span></a></td>
-			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
-			<td><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></td>
-			<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
-			<td><a class="info" href="javascript:return;">'.$scoringTMm.'<span>'.$scoringTM.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGm.'<span>'.$scoringG.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">A<span>'.$scoringAssits.'</span></a></td>
-			<td style="text-align:right; font-weight:bold;"><a class="info" href="javascript:return;">P<span>Points</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">+/-<span>'.$scoringDiff.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPPm.'<span>'.$scoringPP.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSHm.'<span>'.$scoringSH.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGWm.'<span>'.$scoringGW.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGTm.'<span>'.$scoringGT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringHTm.'<span>'.$scoringHT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSm.'<span>'.$scoringS.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPCTGm.'<span>'.$scoringPCTG.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGSm.'<span>'.$scoringGS.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPSm.'<span>'.$scoringPS.'</span></a></td>
+			<td>S</td>
+			<td>P</td>
+			<td>#</td>
+			<td>R</td>
+			<td class="text-left">'.$scoringTMm.'</td>
+			<td>'.$scoringGPm.'</td>
+			<td>'.$scoringGm.'</td>
+			<td>A</td>
+			<td>Points</td>
+			<td>+/-</td>
+			<td>'.$scoringPIMm.'</td>
+			<td>'.$scoringPPm.'</td>
+			<td>'.$scoringSHm.'</td>
+			<td>'.$scoringGWm.'</td>
+			<td>'.$scoringGTm.'</td>
+			<td>'.$scoringHTm.'</td>
+			<td>'.$scoringSm.'</td>
+			<td>'.$scoringPCTGm.'</td>
+			<td>'.$scoringGSm.'</td>
+			<td>'.$scoringPSm.'</td>
 			</tr>';
 			
 			for($i=0;$i<count($statsPLFTeam)+1;$i++) {
@@ -1450,29 +1437,27 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 			for($i=0;$i<count($statsPLFTeam);$i++) {
 				if($c == 1) $c = 2;
 				else $c = 1;
-				$styleItalic = '';
-				if($statsPLFTeam[$i] == 'TOT') $styleItalic = 'font-style: italic;';
-				echo '<tr class="hover'.$c.'">
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFSeason[$i].'</td>
-				<td style="text-align:center;'.$styleItalic.'">'.$statsPLFPosition[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsPLFNumber[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsPLFRookie[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsPLFTeam[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFGP[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFA[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.' font-weight:bold;">'.$statsPLFP[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFDiff[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFPIM[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFPPG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFSHG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFGW[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFGT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFHT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFS[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFPCTG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFGS[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFPS[$i].'</td>
+				echo '<tr>
+				<td>'.$statsPLFSeason[$i].'</td>
+				<td>'.$statsPLFPosition[$i].'</td>
+				<td>'.$statsPLFNumber[$i].'</td>
+				<td>'.$statsPLFRookie[$i].'</td>
+				<td class="text-left">'.$statsPLFTeam[$i].'</td>
+				<td>'.$statsPLFGP[$i].'</td>
+				<td>'.$statsPLFG[$i].'</td>
+				<td>'.$statsPLFA[$i].'</td>
+				<td>'.$statsPLFP[$i].'</td>
+				<td>'.$statsPLFDiff[$i].'</td>
+				<td>'.$statsPLFPIM[$i].'</td>
+				<td>'.$statsPLFPPG[$i].'</td>
+				<td>'.$statsPLFSHG[$i].'</td>
+				<td>'.$statsPLFGW[$i].'</td>
+				<td>'.$statsPLFGT[$i].'</td>
+				<td>'.$statsPLFHT[$i].'</td>
+				<td>'.$statsPLFS[$i].'</td>
+				<td>'.$statsPLFPCTG[$i].'</td>
+				<td>'.$statsPLFGS[$i].'</td>
+				<td>'.$statsPLFPS[$i].'</td>
 				</tr>';
 				if($statsPLFTeam[$i] != 'TOT') {
 					$tmpPLFTeamName[0] = $statsPLFTeam[$i];
@@ -1527,47 +1512,47 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 				if($c == 1) $c = 2;
 				else $c = 1;
 				if($i == 0) echo '<tr class="tableau-top">';
-				else echo '<tr class="hover'.$c.'">';
+				else echo '<tr>';
 				if($i == 0) echo '<td style="" colspan="5">'.$careerStatsPlayoffCareer.'</td>';
-				else echo '<td>'.$tmpPLFTeamCount[$i].'</td><td style="" colspan="4">'.$tmpPLFTeamName[$i].'</td>';
-				echo '<td style="text-align:right;">'.$statsPLFTGP[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTG[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTA[$i].'</td>
-				<td style="text-align:right; font-weight:bold;">'.$statsPLFTP[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTDiff[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTPIM[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTPPG[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTSHG[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTGW[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTGT[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTHT[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTS[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTPCTG[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTGS[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTPS[$i].'</td>
+				else echo '<td>'.$tmpPLFTeamCount[$i].'</td><td class="text-left" colspan="4">'.$tmpPLFTeamName[$i].'</td>';
+				echo '<td>'.$statsPLFTGP[$i].'</td>
+				<td>'.$statsPLFTG[$i].'</td>
+				<td>'.$statsPLFTA[$i].'</td>
+				<td>'.$statsPLFTP[$i].'</td>
+				<td>'.$statsPLFTDiff[$i].'</td>
+				<td>'.$statsPLFTPIM[$i].'</td>
+				<td>'.$statsPLFTPPG[$i].'</td>
+				<td>'.$statsPLFTSHG[$i].'</td>
+				<td>'.$statsPLFTGW[$i].'</td>
+				<td>'.$statsPLFTGT[$i].'</td>
+				<td>'.$statsPLFTHT[$i].'</td>
+				<td>'.$statsPLFTS[$i].'</td>
+				<td>'.$statsPLFTPCTG[$i].'</td>
+				<td>'.$statsPLFTGS[$i].'</td>
+				<td>'.$statsPLFTPS[$i].'</td>
 				</tr>';
 			}
 		}
 		
 		if(isset($statsPLFAVG)) {
 			echo '<tr class="tableau-top">
-			<td><a class="info" href="javascript:return;">S<span>'.$careerStatsSeason.'</span></a></td>
-			<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
-			<td><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></td>
-			<td><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></td>
-			<td><a class="info" href="javascript:return;">'.$scoringTMm.'<span>'.$scoringTM.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">MIN<span>'.$scoringMIN.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringAVGm.'<span>'.$scoringAVG.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringWm.'<span>'.$scoringW.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringLm.'<span>'.$scoringL.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringTm.'<span>'.$scoringT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSOm.'<span>'.$scoringSO.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGAm.'<span>'.$scoringGA.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSAm.'<span>'.$scoringSA.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">PCT<span>'.$scoringPCT.'</span></a></td>
-			<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></td>
-			<td style="text-align:right;">AS</td>
+			<td>S</td>
+			<td>P</td>
+			<td>#</td>
+			<td>R</td>
+			<td class="text-left">'.$scoringTMm.'</td>
+			<td>'.$scoringGPm.'</td>
+			<td>MIN</td>
+			<td>'.$scoringAVGm.'</td>
+			<td>'.$scoringWm.'</td>
+			<td>'.$scoringLm.'</td>
+			<td>'.$scoringTm.'</td>
+			<td>'.$scoringSOm.'</td>
+			<td>'.$scoringGAm.'</td>
+			<td>'.$scoringSAm.'</td>
+			<td>PCT</td>
+			<td>'.$scoringPIMm.'</td>
+			<td>AS</td>
 			</tr>';
 			
 			for($i=0;$i<count($statsPLFTeam)+1;$i++) {
@@ -1575,28 +1560,24 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 			}
 			
 			for($i=0;$i<count($statsPLFTeam);$i++) {
-				if($c == 1) $c = 2;
-				else $c = 1;
-				$styleItalic = '';
-				if($statsPLFTeam[$i] == 'TOT') $styleItalic = 'font-style: italic;';
-				echo '<tr class="hover'.$c.'">
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFSeason[$i].'</td>
-				<td style="text-align:center;'.$styleItalic.'">G</td>
-				<td style="'.$styleItalic.'">'.$statsPLFNumber[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsPLFRookie[$i].'</td>
-				<td style="'.$styleItalic.'">'.$statsPLFTeam[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFGP[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFMin[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFAVG[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFW[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFL[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFSO[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFGA[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFSA[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFPCT[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFPIM[$i].'</td>
-				<td style="text-align:right;'.$styleItalic.'">'.$statsPLFAS[$i].'</td>
+				echo '<tr>
+				<td >'.$statsPLFSeason[$i].'</td>
+				<td>G</td>
+				<td>'.$statsPLFNumber[$i].'</td>
+				<td>'.$statsPLFRookie[$i].'</td>
+				<td class="text-left">'.$statsPLFTeam[$i].'</td>
+				<td>'.$statsPLFGP[$i].'</td>
+				<td>'.$statsPLFMin[$i].'</td>
+				<td>'.$statsPLFAVG[$i].'</td>
+				<td>'.$statsPLFW[$i].'</td>
+				<td>'.$statsPLFL[$i].'</td>
+				<td>'.$statsPLFT[$i].'</td>
+				<td>'.$statsPLFSO[$i].'</td>
+				<td>'.$statsPLFGA[$i].'</td>
+				<td>'.$statsPLFSA[$i].'</td>
+				<td>'.$statsPLFPCT[$i].'</td>
+				<td>'.$statsPLFPIM[$i].'</td>
+				<td>'.$statsPLFAS[$i].'</td>
 				</tr>';
 				if($statsPLFTeam[$i] != 'TOT') {
 					$tmpPLFTeamName[0] = $statsPLFTeam[$i];
@@ -1645,55 +1626,55 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 				if($c == 1) $c = 2;
 				else $c = 1;
 				if($i == 0) echo '<tr class="tableau-top">';
-				else echo '<tr class="hover'.$c.'">';
-				if($i == 0) echo '<td style="" colspan="5">'.$careerStatsPlayoffCareer.'</td>';
-				else echo '<td>'.$tmpPLFTeamCount[$i].'</td><td style="" colspan="4">'.$tmpPLFTeamName[$i].'</td>';
-				echo '<td style="text-align:right;">'.$statsPLFTOTGP[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTMin[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTAVG[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTW[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTL[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTT[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTSO[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTGA[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTSA[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTPCT[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTPIM[$i].'</td>
-				<td style="text-align:right;">'.$statsPLFTOTAS[$i].'</td>
+				else echo '<tr>';
+				if($i == 0) echo '<td colspan="5">'.$careerStatsPlayoffCareer.'</td>';
+				else echo '<td>'.$tmpPLFTeamCount[$i].'</td><td class="text-left" colspan="4">'.$tmpPLFTeamName[$i].'</td>';
+				echo '<td>'.$statsPLFTOTGP[$i].'</td>
+				<td>'.$statsPLFTOTMin[$i].'</td>
+				<td>'.$statsPLFTOTAVG[$i].'</td>
+				<td>'.$statsPLFTOTW[$i].'</td>
+				<td>'.$statsPLFTOTL[$i].'</td>
+				<td>'.$statsPLFTOTT[$i].'</td>
+				<td>'.$statsPLFTOTSO[$i].'</td>
+				<td>'.$statsPLFTOTGA[$i].'</td>
+				<td>'.$statsPLFTOTSA[$i].'</td>
+				<td>'.$statsPLFTOTPCT[$i].'</td>
+				<td>'.$statsPLFTOTPIM[$i].'</td>
+				<td>'.$statsPLFTOTAS[$i].'</td>
 				</tr>';
 			}
 		}
-		echo '</tbody></table>';
+		echo '</tbody></table></div>';
 	}
 	
 	// Last 10 Games
 	if(isset($scheduleNumber)) {
 		$c = 1;
 		$matchPlayedFirst = 0;
-		// echo '<div style="margin-top:20px;" class="titre"><span class="bold-blanc">'.$careerStatsGameLog.'</span></div>';
-		echo '<h3>'.$careerStatsGameLog.'</h3>';
-		// echo '<table class="tableau">';
-		echo '<div class="table-responsive"><table class="table table-sm table-striped">';
+
+		echo '<h3 class="tableau-top">'.$careerStatsGameLog.'</h3>';
+
+		echo '<div class="table-responsive"><table class="table table-sm table-striped table-hover">';
 		echo '<thead>';
 		echo '<tr class="tableau-top">
-		<td>#</td>
-		<td>OPP.</td>
-		<td>SCORE</td>';
+		<th>#</th>
+		<th>OPP.</th>
+		<th>SCORE</th>';
 		if($matchType == 1) {
-			echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$gamesGoal.'<span>'.$gamesGoalF.'</span></a></td>
-			<td style="text-align:right;"><a href="javascript:return;" class="info">'.$gamesAss.'<span>'.$gamesAssF.'</span></a></td>
-			<td style="text-align:right;"><a href="javascript:return;" class="info">'.$gamesPoints.'<span>'.$gamesPointsF.'</span></a></td>
-			<td style="text-align:right;"><a href="javascript:return;" class="info">+/-<span>'.$gamesDiff.'</span></a></td>
-			<td style="text-align:right;"><a href="javascript:return;" class="info">'.$gamesPIM.'<span>'.$gamesPIMF.'</span></a></td>
-			<td style="text-align:right;"><a href="javascript:return;" class="info">'.$gamesShots.'<span>'.$gamesShotsF.'</span></a></td>
-			<td style="text-align:right;"><a href="javascript:return;" class="info">'.$gamesHT.'<span>'.$gamesHTF.'</span></a></td>
-			<td style="text-align:right;"><a href="javascript:return;" class="info">'.$gamesIceTime.'<span>'.$gamesIceTimeF.'</span></a></td>';
+			echo '<th>'.$gamesGoal.'</th>
+			<th>'.$gamesAss.'</th>
+			<th>'.$gamesPoints.'</th>
+			<th>+/-</th>
+			<th>'.$gamesPIM.'</th>
+			<th>'.$gamesShots.'</th>
+			<th>'.$gamesHT.'</th>
+			<th>'.$gamesIceTime.'</th>';
 		}
 		if($matchType == 2) {
-			echo '<td style="text-align:right;">'.$careerStatsSAVES.'</td>
-			<td style="text-align:right;">'.$careerStatsSHOTS.'</td>
-			<td style="text-align:right;">'.$careerStatsGOALS.'</td>
-			<td style="text-align:right;">'.$careerStatsRECORD.'</td>';
+			echo '<th>'.$careerStatsSAVES.'</th>
+			<th>'.$careerStatsSHOTS.'</th>
+			<th>'.$careerStatsGOALS.'</th>
+			<th>'.$careerStatsRECORD.'</th>';
 		}
 		echo '</tr>';
 		echo '</thead>';
@@ -1702,32 +1683,32 @@ if($csName != '' && (isset($statsNumber) || isset($statsPLFNumber))) {
 			if($matchPlayed[$i] == 1 || $matchPlayedFirst == 1) {
 				if($c == 1) $c = 2;
 				else $c = 1;
-				echo '<tr class="hover'.$c.'">';
+				echo '<tr>';
 				$tmpLink = '';
 				if($matchRnd[$i] != 0) $tmpLink = '&rnd='.$matchRnd[$i];
-				echo '<td style="width:40px;"><a class="lien-noir" style="display:block; width:100%;" href="games.php?num='.$scheduleNumber[$i].$tmpLink.'">'.$scheduleNumber[$i].'</a></td>';
-				if($equipe1[$i] == $lastTeam) echo '<td style="">@'.$equipe2[$i].'</td>';
-				if($equipe2[$i] == $lastTeam) echo '<td style="">'.$equipe1[$i].'</td>';
+				echo '<td style="width:40px;"><a href="games.php?num='.$scheduleNumber[$i].$tmpLink.'">'.$scheduleNumber[$i].'</a></td>';
+				if($equipe1[$i] == $lastTeam) echo '<td>@'.$equipe2[$i].'</td>';
+				if($equipe2[$i] == $lastTeam) echo '<td>'.$equipe1[$i].'</td>';
 				$tmpScore = 'L';
 				if($equipe1[$i] == $lastTeam && $score1[$i] > $score2[$i]) $tmpScore = 'W';
 				if($equipe2[$i] == $lastTeam && $score1[$i] < $score2[$i]) $tmpScore = 'W';
 				echo '<td>'.$tmpScore.' '.$score1[$i].'-'.$score2[$i].'</td>';
 				if($matchPlayed[$i] == 1) {
 					if(isset($matchG[$i])) {
-						echo '<td style="text-align:right;">'.$matchG[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchA[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchP[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchDiff[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchPIM[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchS[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchHT[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchIT[$i].'</td>';
+						echo '<td>'.$matchG[$i].'</td>';
+						echo '<td>'.$matchA[$i].'</td>';
+						echo '<td>'.$matchP[$i].'</td>';
+						echo '<td>'.$matchDiff[$i].'</td>';
+						echo '<td>'.$matchPIM[$i].'</td>';
+						echo '<td>'.$matchS[$i].'</td>';
+						echo '<td>'.$matchHT[$i].'</td>';
+						echo '<td>'.$matchIT[$i].'</td>';
 					}
 					else {
-						echo '<td style="text-align:right;">'.$matchSave[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchShots[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchResult[$i].'</td>';
-						echo '<td style="text-align:right;">'.$matchFiche[$i].'</td>';
+						echo '<td>'.$matchSave[$i].'</td>';
+						echo '<td>'.$matchShots[$i].'</td>';
+						echo '<td>'.$matchResult[$i].'</td>';
+						echo '<td>'.$matchFiche[$i].'</td>';
 					}
 					$matchPlayedFirst = 1;
 				}

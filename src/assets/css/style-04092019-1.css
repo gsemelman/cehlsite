@@ -1,6 +1,9 @@
 :root {
   --table-bg-color-1: rgba(225, 239, 255, 1.0);
   --table-bg-color-2: rgba(176, 214, 255, 1.0); 
+  --table-header-bg:rgba(23, 145, 202, 1.0);
+  --table-header-text:color:white;
+ 
 }
 
 body {  
@@ -199,7 +202,16 @@ body{
    height: 100vh;
 }
 
-/***** Bootstrap table overrides *****/
+/***** Bootstrap overrides *****/
+
+
+.tooltip-arrow,
+.tooltip > .tooltip-inner {
+	background-color: rgba(17, 106, 149, 1.0);
+	color: white;
+	opacity: 1;
+  filter:alpha(opacity=100);
+}
 
 .table{
 	line-height:25px;
@@ -213,7 +225,7 @@ body{
 
 .table>tfoot th,
 .table>thead th{
-    background-color:rgba(23, 145, 202, 1.0);
+    background-color:var(--table-header-bg);  
     color:#ffffff
 }
 
@@ -230,12 +242,6 @@ body{
 	border-color:#ffffff;
 }
 
-.table.fixed-column td,
-.table.fixed-column th {
-/*     text-align: left; */
-    padding: 3px;
-}
-
 /* .table>tbody>tr td {background-color: var(--table-bg-color-1); }  */
 
 /* .table-striped>tbody>tr:nth-child(odd) td {background-color: var(--table-bg-color-1); }  */
@@ -245,17 +251,32 @@ body{
 .table-striped>tbody>tr:nth-child(odd)>th {
    background-color: var(--table-bg-color-1);
  }
- 
+
 .table-striped>tbody>tr:nth-child(even)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
     background-color: var(--table-bg-color-2);  
  }
  
-.table-hover>tbody>tr:hover td{
-	  background-color: rgba(23, 145, 202, 0.5); 
+.table > tbody > tr.tableau-top > td {
+    background-color:var(--table-header-bg);  
+    color:var(--table-header-text);  
 }
 
+.table > tbody > tr > td > a {
+   display:block; 
+   width:100%;
+}
 
+.table>tbody a:hover,
+.table>tbody a:focus { 
+    filter:none;
+}
+ 
+
+.table.fixed-column td,
+.table.fixed-column th {
+    padding: 3px;
+}
 
 .table.fixed-column th:first-child,
 .table.fixed-column td:first-child {
@@ -268,6 +289,12 @@ body{
   color:#ffffff;
 }
 
+/* needs to be last */
+.table-hover>tbody>tr:hover td,
+.table-hover>tbody>tr:hover td>a{
+	  background-color: rgb(51, 102, 204);
+	  color:white;
+}
 
 /*table sorter*/
 .tablesorter th[aria-sort="descending"]{
@@ -316,10 +343,11 @@ a:hover.info span {
 	width:100%;
 }
 
-.tableau-top,
-.tableau-top td {
+.tableau-top{
 	background-color:#1791CA;
 	color:white;
+	padding-top:5px; 
+	padding-bottom:5px
 }
 
 /* .tableau-top td { */

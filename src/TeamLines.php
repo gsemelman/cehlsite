@@ -68,7 +68,7 @@ if(file_exists($Fnm)) {
 					
 					$y++;
 				}
-				if(substr_count($val, 'None')) echo '<tr class="hover2"><td colspan="4" style="text-align:center;">'.$linesNoPlayer.'</td></tr>';
+				if(substr_count($val, 'None')) echo '<tr><td colspan="4" style="text-align:center;">'.$linesNoPlayer.'</td></tr>';
 				else {
 					if($y == 1) {
 						echo '<tr class="tableau-top"><th colspan="2">'.$linesPlayers.'</th><th colspan="2">'.$linesCondition.'</th></tr>';
@@ -88,7 +88,7 @@ if(file_exists($Fnm)) {
 					$goal2 = str_replace($aremplacer, $remplace, $goal2);
 					if($c == 1) $c = 2;
 					else $c = 1;
-					echo '<tr class="hover'.$c.'"><td colspan="2">'.$goal.'</td><td colspan="2">'.$goal2.'</td></tr>';
+					echo '<tr><td colspan="2">'.$goal.'</td><td colspan="2">'.$goal2.'</td></tr>';
 				}
 			}
 		}
@@ -99,7 +99,7 @@ if(file_exists($Fnm)) {
 		}
 		if($a == 7 && $b && $d) {
 			$goal = substr($val, 4, 22);
-			echo '<tr class="hover2"><td colspan="4" style="text-align:center;">'.$goal.'</td></tr>';
+			echo '<tr><td colspan="4" style="text-align:center;">'.$goal.'</td></tr>';
 		}
 		if(substr_count($val, 'STARTING') && $b && $d) {
 		    echo '</tbody>';
@@ -125,25 +125,25 @@ if(file_exists($Fnm)) {
 		}
 		if($a == 6 && $b && $d) {
 			echo '
-			<tr class="hover2">
+			<tr>
 			<td>C</td>
 			<td>'.$c1.'</td>
 			<td>C</td>
 			<td>'.$c2.'</td>
 			</tr>
-			<tr class="hover1">
+			<tr>
 			<td>'.$linesWings.'</td>
 			<td>'.$g1.'</td>
 			<td>'.$linesWings.'</td>
 			<td>'.$g2.'</td>
 			</tr>
-			<tr class="hover2">
+			<tr>
 			<td>D</td>
 			<td>'.$d1.'</td>
 			<td>D</td>
 			<td>'.$d2.'</td>
 			</tr>
-			<tr class="hover1">
+			<tr>
 			<td>D</td>
 			<td>'.$def1.'</td>
 			<td>D</td>
@@ -153,7 +153,7 @@ if(file_exists($Fnm)) {
 		}
 		if($a == 4 && $b && $d) {
 			if($i == 1) {
-				echo '
+				echo '<tr class="tableau-top">
 				<td>POS</td>
 				<td>'.$linesL3.'</td>
 				<td>POS</td>
@@ -161,31 +161,31 @@ if(file_exists($Fnm)) {
 				</tr>';
 			}
 			echo '
-			<tr class="hover2">
+			<tr>
 			<td>C</td>
 			<td>'.$c1.'</td>
 			<td>C</td>
 			<td>'.$c2.'</td>
 			</tr>
-			<tr class="hover1">
+			<tr>
 			<td>'.$linesLW.'</td>
 			<td>'.$g1.'</td>
 			<td>'.$linesLW.'</td>
 			<td>'.$g2.'</td>
 			</tr>
-			<tr class="hover2">
+			<tr>
 			<td>'.$linesRW.'</td>
 			<td>'.$d1.'</td>
 			<td>'.$linesRW.'</td>
 			<td>'.$d2.'</td>
 			</tr>
-			<tr class="hover1">
+			<tr>
 			<td>D</td>
 			<td>'.$def1.'</td>
 			<td>D</td>
 			<td>'.$def3.'</td>
 			</tr>
-			<tr class="hover2">
+			<tr>
 			<td>D</td>
 			<td>'.$def2.'</td>
 			<td>D</td>

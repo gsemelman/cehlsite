@@ -118,7 +118,7 @@ include 'TeamHeader.php';
 					
 
 					<?php
-					echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">Team Schedule</h5>';
+					echo '<h5 class="tableau-top">Team Schedule</h5>';
 					$a = 0;
 					$c = 1;
 					$i = 0;
@@ -274,7 +274,7 @@ include 'TeamHeader.php';
 							for($i=0;$i<count($status);$i++) {
 								if($a == $i){
 								    echo '<thead>';
-								    echo '<tr class="tableau-top">';
+								    echo '<tr>';
 								    //echo '<td>'.$ScheldGameNum.'</td>';
 								    echo '<th class="text-center" style="width:5%">Day</th>';
 								    echo '<th class="text-center" style="width:10%">'.$ScheldVisitor.'</th>';
@@ -289,17 +289,11 @@ include 'TeamHeader.php';
 								    echo '</thead>';
 								    echo '<tbody>';
 								}
-// 								if($status[$i] == 'Jour' && $checked != ''){
-// 									echo '<tr class="tableau-top"><td colspan="9" style="text-align:center;">'.$schedDay.' '.$day[$i].'</td></tr>';
-// 									$c = 1;
-// 								}
+
 								if($status[$i] == 'Trade'){
 									$tmpColSpan = 9;
-									echo '<tr><td colspan="'.$tmpColSpan.'" style="padding-top:15px; padding-bottom:15px; text-align:center; font-weight:bold;">'.$schedTradeDeadline.'</td></tr>';
+									echo '<tr class="tableau-top text-center"><td class="py-3" colspan="'.$tmpColSpan.'">'.$schedTradeDeadline.'</td></tr>';
 								}
-								//if(isset($equipe1[$i]) && ( $equipe1[$i] == $currentTeam || $equipe2[$i] == $currentTeam ) && $checked == '') $bold = 'font-weight:bold;';
-								//else $bold = '';
-								$bold = '';
 								if($status[$i] == 'game'){
 								    if($equipe1[$i] == $currentTeam || $equipe2[$i] == $currentTeam) {
 										if($c == 1) $c = 2;
@@ -312,11 +306,10 @@ include 'TeamHeader.php';
 										
 										echo '<td class="text-center"><a href="games.php?num='.$number[$i].$linkRnd.'">'.$dayArray[$i].'</a></td>';
 										echo '<td class="text-center">'.$equipe1[$i].'</td>';
-										//echo '<td class="text-center" '.$bold.'">'.$score1[$i].'</td>';
 										echo '<td class="text-center">@</td>';
 										echo '<td class="text-center">'.$equipe2[$i].'</td>';
 										echo '<td class="text-center">'.$score1[$i].'-'.$score2[$i].'</td>';
-										if(isset($prol[$i]) && $prol[$i] == 'PROL') echo '<td class="text-center" style="'.$bold.'">'.$schedOT.'</td>';
+										if(isset($prol[$i]) && $prol[$i] == 'PROL') echo '<td class="text-center">'.$schedOT.'</td>';
 										else echo '<td></td>';
 										$replaceOrigin = array('W', 'L', 'T');
 										$replaceBy = array($ScheldW, $ScheldL, $ScheldT);
@@ -337,8 +330,6 @@ include 'TeamHeader.php';
 										echo '<td class="text-center">@</td>';
 										echo '<td class="text-center">'.$equipe2[$i].'</td>';
 										echo '<td colspan="5"></td>';
-										//if($checked != '') echo '<td colspan="6">'.$equipe2[$i].'</td>';
-										//else echo '<td style="'.$bold.'" colspan="3">'.$equipe2[$i].'</td>';
 										echo '</tr>';
 									}
 								}
@@ -356,11 +347,11 @@ include 'TeamHeader.php';
 				<?php
 				/* echo '<div class="titre"><span class="bold-blanc">'.$ScheldMatchups.'</span></div>'; */
 				//echo '<div><span>'.$ScheldMatchups.'</span></div>';
-				echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">'.$ScheldMatchups.'</h5>';
+				echo '<h5 class="tableau-top" style = "padding-top:5px; padding-bottom:5px">'.$ScheldMatchups.'</h5>';
 				echo '<div class="table-responsive">';
 				echo '<table class="table table-sm table-striped">';
 				echo '<thead>';
-				echo '<tr class="tableau-top">';
+				echo '<tr>';
 				echo '<th>'.$ScheldTeam.'</th>';
 				echo '<th class="text-center">'.$ScheldGP.'</th>';
 				echo '<th class="text-center">'.$ScheldW.'</th>';
