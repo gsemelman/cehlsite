@@ -1009,7 +1009,7 @@ if(isset($standingFileDivisionSerie)) {
 	echo '</tbody></table></a>';
 }
 if(isset($standingFarmFilePJ)) {
-	echo '<a href="Standings.php?s=1">';
+	echo '<a href="FarmStandings.php?s=1">';
 	echo '<div class="table-responsive">';
 	echo '<table class="table table-sm table-striped">';
 	echo '<thead>';
@@ -1019,11 +1019,11 @@ if(isset($standingFarmFilePJ)) {
 	echo '<tr class="tableau-top">';
 	echo '<th></th>';
 	echo '<th><a href="Standings.php" class="info">'.$standingTeam.'</a></th>';
-	echo '<th><a href="Standings.php?s=1" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
-	echo '<th><a href="Standings.php?s=1" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></th>';
-	echo '<th><a href="Standings.php?s=1" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></th>';
-	echo '<th><a href="Standings.php?s=1" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></th>';
-	echo '<th><a href="Standings.php?s=1" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></th>';
+	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
+	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></th>';
+	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></th>';
+	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></th>';
+	echo '<th><a href="FarmStandings.php?s=1" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
@@ -1069,11 +1069,11 @@ if($recordConferenceGP != 0 || $recordDivisionGP != 0 || $recordHomeGP != 0 || $
 	</tr>';
 	echo '<tr class="tableau-top">';
 	echo '<th>'.$teamCardRecord.'</th>';
-	echo '<th style="text-align:right;"><a href="Standings.php?s=1" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="Standings.php?s=1" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="Standings.php?s=1" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="Standings.php?s=1" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="Standings.php?s=1" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></th>';
+	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
+	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></th>';
+	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></th>';
+	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></th>';
+	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';

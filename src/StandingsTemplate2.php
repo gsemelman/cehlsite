@@ -152,7 +152,7 @@ if (file_exists($Fnm)) {
         if (substr_count($val, 'HREF=')) {
             if ($d == 1) {
                 echo '<thead>';
-                echo '<tr class="tableau-top">';
+                echo '<tr>';
                 echo '<th></th>';
                 echo '<th></th>';
                 echo '<th class="text-left">' . $standingTeam . '</th>';
@@ -170,8 +170,9 @@ if (file_exists($Fnm)) {
                     echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPCTFull.'">' . $standingPCT . '</th>';
                     echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingL10Full.'">' . $standingL10 . '</th>';
                     echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingSTRKFull.'">' . $standingSTRK . '</th>';
-                    echo '</tr>';
+                    
                 }
+                echo '</tr>';
                 echo '</thead>';
                 echo '<tbody>';
 
@@ -219,18 +220,6 @@ if (file_exists($Fnm)) {
                 $reste = trim(substr($reste, strpos($reste, ' ')));
                 $standingsSTK = $reste;
                 
-//                 if ($serie != '') {
-//                     if ($serie == 'z')
-//                         $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingZ . '<span>' . $standingZFull . '</span></a>';
-//                         if ($serie == 'y')
-//                             $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingY . '<span>' . $standingYFull . '</span></a>';
-//                             if ($serie == 'x')
-//                                 $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingX . '<span>' . $standingXFull . '</span></a>';
-//                                 if ($d == 3)
-//                                     $final = 1;
-//                                     if ($d == 8)
-//                                         $b = 1;
-//                 }
 
                 if ($b && $d > 8 && $final)
                     $serie = '<a href="javascript:return;" class="info" style="color:#000000">' . $standingN . '<span>' . $standingNFull . '</span></a>';
@@ -239,7 +228,7 @@ if (file_exists($Fnm)) {
                         else
                             $c = 1;
                          
-                            echo '<tr class="hover' . $c . '">';
+                            echo '<tr>';
                             echo '<td>' . $d . '</td>';
                             echo '<td>' . $serie . '</td>';
                             //echo '<td>' . $equipe . '</td>';

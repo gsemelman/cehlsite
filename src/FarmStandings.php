@@ -38,6 +38,8 @@ if( isset($farm) && $farm != ''){
 $c = 1;
 $d = 0;
 $e = 0;
+$confProcessed = 0;
+$lastUpdated='';
 
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
@@ -46,14 +48,15 @@ if(file_exists($Fnm)) {
 		if(substr_count($val, '<P>(As of')){
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
-			$val2 = substr($val, 10, $pos);
+			//$val2 = substr($val, 10, $pos);
+			$lastUpdated= substr($val, 10, $pos);
 			
-			echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val2.'</h5>';
+			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val2.'</h5>';
 			
 			echo '<div class="row wow fadeIn">';
 			echo '<div class="col-sm-12 col-md-8 offset-md-2">';
-			echo '<div class="table-responsive">';
-			echo '<table class="table table-sm table-striped">';
+			//echo '<div class="table-responsive">';
+			//echo '<table class="table table-sm table-striped text-center">';
 		}
 		if(substr_count($val, 'STK') && (substr_count($val, 'OL') || substr_count($val, 'OTL'))) {
 			$e = 1;
@@ -62,44 +65,56 @@ if(file_exists($Fnm)) {
 			$pos = strpos($val, 'Conference</H3>');
 			$pos2 = strpos($val, '<H3>');
 			$val2 = substr($val, $pos2+4, $pos-$pos2-5);
-			echo '<tr><td colspan="'.$tableCol.'" style="height:20px;"></td></tr><tr class="titre"><td colspan="'.$tableCol.'">'.$val2.' '.$standingConference.'</td></tr>';
+// 			echo '<tr><td colspan="'.$tableCol.'" style="height:20px;"></td></tr><tr class="tableau-top"><td colspan="'.$tableCol.'">'.$val2.' '.$standingConference.'</td></tr>';
+// 			$d = 1;
+// 			$b = 0;
+// 			$final = 0;
+			
+			
+			if($confProcessed > 0){
+			    echo '</tbody>';
+			    echo '</table>';
+			    echo '</div>';
+			}
+			
+			echo '<div class = "tableau-top"><h5 class="m-0">' . $val2 . ' ' . $standingConference . '</h5></div>';
+			echo '<div class="table-responsive">';
+			echo '<table class="table table-sm table-striped text-center">';
+			
+			
 			$d = 1;
 			$b = 0;
 			$final = 0;
+			
+			$confProcessed++;
+			
 		}
-		if(substr_count($val, '<H3>By Division</H3>')) {
-			echo '<tr><td colspan="'.$tableCol.'"><br></td></tr><tr><td colspan="'.$tableCol.'" style="font-weight:bold;">'.$standingByDivision.'</td></tr>';
-		}
-		if(substr_count($val, 'Division</H3>') && !substr_count($val, '<H3>By Division</H3>')) {
-			$pos = strpos($val, 'Division</H3>');
-			$pos2 = strpos($val, '<H3>');
-			$val2 = substr($val, $pos2+4, $pos-$pos2-5);
-			echo '<tr><td colspan="'.$tableCol.'"><br></td></tr><tr class="titre"><td colspan="'.$tableCol.'">'.$val2.' '.$standingDivision.'</td></tr>';
-			$d = 1;
-			$b = 0;
-		}
+
 		if($d == 1 && substr_count($val, '</H3>')) {
 			$c = 1;
 		}
 		if(substr_count($val, 'HREF=') || ($currentFarm == 1 && substr_count($val, '<') == false)) {
 			if($d == 1) {
-				echo '<tr class="tableau-top">';
-				echo '<td></td>';
-				if($currentFarm == 0) echo '<td></td>';
-				echo '<td>'.$standingTeam.'</td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></td>';
-				if($currentFarm == 0 && $e == 1) echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingOT.'<span>'.$standingOTFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGF.'<span>'.$standingGFFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGA.'<span>'.$standingGAFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingDiff.'<span>'.$standingDiffFull.'</span></a></td>';
-				echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingPCT.'<span>'.$standingPCTFull.'</span></a></td>';
-				if($currentFarm == 0) echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingL10.'<span>'.$standingL10Full.'</span></a></td>'; 
-				if($currentFarm == 0) echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingSTRK.'<span>'.$standingSTRKFull.'</span></a></td>';
-				echo '</tr>';	
+	
+				
+				echo '<thead>';
+				echo '<tr>';
+				echo '<th></th>';
+				echo '<th class="text-left">' . $standingTeam . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'. $standingGP .'</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingWFull.'">' . $standingW . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingLFull.'">' . $standingL . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingEFull.'">' . $standingE . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPTSFull.'">' . $standingPTS . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGFFull.'">' . $standingGF . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGAFull.'">' . $standingGA . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingDiffFull.'">' . $standingDiff . '</th>';
+				echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPCTFull.'">' . $standingPCT . '</th>';
+				
+				
+				echo '</tr>';
+				echo '</thead>';
+				echo '<tbody>';
 			}
 			$reste = trim($val);
 			if(substr_count($reste, 'WIDTH')) {
@@ -172,39 +187,59 @@ if(file_exists($Fnm)) {
 			if($c == 1) $c = 2;
 			else $c = 1;
 			
-			echo '<tr class="hover'.$c.'">';
+// 			echo '<tr class="hover'.$c.'">';
+// 			echo '<td style="'.$bold.'">'.$d.'</td>';
+// 			if($currentFarm == 0) echo '<td style="'.$bold.'">'.$serie.'</td>';
+// 			if($currentFarm == 0) echo '<td style="'.$bold.'"><a style="display:block; width:100%;" href="TeamRosters.php?team='.$equipe.'">'.$equipe.'</a></td>';
+// 			if($currentFarm == 1) echo '<td style="'.$bold.'">'.$equipe.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$pj.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$standingsW.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$standingsL.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$standingsT.'</td>';
+// 			if($currentFarm == 0 && $e == 1) echo '<td style="text-align:right;'.$bold.'">'.$standingsOL.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'"><b>'.$standingsPts.'</b></td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$standingsGF.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$standingsGA.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$standingsDiff.'</td>';
+// 			echo '<td style="text-align:right;'.$bold.'">'.$standingsPCT.'</td>';
+// 			if($currentFarm == 0) echo '<td style="text-align:right;'.$bold.'">'.$standingsL10.'</td>'; 
+// 			if($currentFarm == 0) echo '<td style="text-align:right;'.$bold.'">'.$standingsSTK.'</td>';
+// 			echo '</tr>';
+			
 			echo '<td style="'.$bold.'">'.$d.'</td>';
-			if($currentFarm == 0) echo '<td style="'.$bold.'">'.$serie.'</td>';
-			if($currentFarm == 0) echo '<td style="'.$bold.'"><a style="display:block; width:100%;" href="TeamRosters.php?team='.$equipe.'">'.$equipe.'</a></td>';
-			if($currentFarm == 1) echo '<td style="'.$bold.'">'.$equipe.'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$pj.'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$standingsW.'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$standingsL.'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$standingsT.'</td>';
-			if($currentFarm == 0 && $e == 1) echo '<td style="text-align:right;'.$bold.'">'.$standingsOL.'</td>';
-			echo '<td style="text-align:right;'.$bold.'"><b>'.$standingsPts.'</b></td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$standingsGF.'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$standingsGA.'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$standingsDiff.'</td>';
-			echo '<td style="text-align:right;'.$bold.'">'.$standingsPCT.'</td>';
-			if($currentFarm == 0) echo '<td style="text-align:right;'.$bold.'">'.$standingsL10.'</td>'; 
-			if($currentFarm == 0) echo '<td style="text-align:right;'.$bold.'">'.$standingsSTK.'</td>';
+			echo '<td class="text-left">'.$equipe.'</td>';
+			echo '<td>' . $pj . '</td>';
+			echo '<td>' . $standingsW . '</td>';
+			echo '<td>' . $standingsL . '</td>';
+			echo '<td>' . $standingsT . '</td>';
+			
+			echo '<td>' . $standingsPts . '</td>';
+			echo '<td>' . $standingsGF . '</td>';
+			echo '<td>' . $standingsGA . '</td>';
+			echo '<td>' . $standingsDiff . '</td>';
+			echo '<td>' . $standingsPCT . '</td>';
+
 			echo '</tr>';
 			
 			$d++;
 		}
 	}
+	
 }
 else { 
 	echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
 }
 ?>
+</tbody>
 </table>
 </div>
 </div>
 </div>
+<?php echo '<h6 class = "text-center">' . $allLastUpdate . ' ' . $lastUpdated . '</h56>';?>
 </div>
 </div>
 </div>
+
+
 
 <?php include 'footer.php'; ?>

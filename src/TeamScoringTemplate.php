@@ -278,24 +278,24 @@ if(file_exists($Fnm)) {
 			echo '</tbody></table></div>
             <h5 class="tableau-top">'.$scoringGoalie.'</h5>
 			<div class = "table-responsive">
-			<table id="GoalieStats" class="table table-sm table-striped">
+			<table id="GoalieStats" class="table table-sm table-striped table-hover ">
                 <thead>
                     <tr>
-            			<th>PO</th>
-            			<th>R</th>
-            			<th class="text-left">'.$scoringName.'</th>
-            			<th>'.$scoringGPm.'</th>
-            			<th>MIN</th>
-            			<th>'.$scoringAVGm.'</th>
-            			<th>'.$scoringWm.'</th>
-            			<th>'.$scoringLm.'</th>
-            			<th>'.$scoringTm.'</th>
-            			<th>'.$scoringSOm.'</th>
-            			<th>'.$scoringGAm.'</th>
-            			<th>'.$scoringSAm.'</th>
-            			<th>PCT</th>
-            			<th>'.$scoringPIMm.'</th>
-            			<th>AS</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$rostersPosition.'">PO</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringRookie.'"R</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringName.'" class="text-left">'.$scoringName.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringGP.'">'.$scoringGPm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringMIN.'">MIN</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringAVG.'">'.$scoringAVGm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringW.'">'.$scoringWm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringL.'">'.$scoringLm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringT.'">'.$scoringTm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringSO.'">'.$scoringSOm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringGA.'">'.$scoringGAm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringSA.'">'.$scoringSAm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringPCT.'">PCT</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringPIM.'">'.$scoringPIMm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringAssits.'">AS</th>
         			</tr>
     			<thead>
                 <tbody style="font-weight:normal">';

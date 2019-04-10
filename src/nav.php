@@ -16,7 +16,7 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"/>
-	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04092019-1.css"/>
+	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04092019-3.css"/>
 	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/media-queries.css"/>
      
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -173,7 +173,7 @@
 						<ul class="dropdown-menu">
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Coaches.php">Coaches</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Contracts.php">Contracts</a></li>
-							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Standings.php?s=1">Farm&nbsp;Standings</a></li>
+							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>FarmStandings.php?s=1">Farm&nbsp;Standings</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>FreeAgents.php">Free&nbsp;Agents</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>FreeAgency.php">Free&nbsp;Agent&nbsp;Offers</a></li>
 							<li class="nav-item"><a class="nav-link-inner" href="<?php echo BASE_URL?>Injury.php">Injuries</a></li>

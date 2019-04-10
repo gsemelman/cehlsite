@@ -2,7 +2,11 @@
   --table-bg-color-1: rgba(225, 239, 255, 1.0);
   --table-bg-color-2: rgba(176, 214, 255, 1.0); 
   --table-header-bg:rgba(23, 145, 202, 1.0);
-  --table-header-text:color:white;
+  --table-header-text:white;
+  --table-highlight:rgb(18, 114, 160);
+  --table-sort-asc:rgba(64, 104, 224, 1.0);
+  --table-sort-desc:rgba(0, 55, 111, 1.0);;
+  --selection-border:rgb(0, 0, 102);
  
 }
 
@@ -65,6 +69,12 @@ text-decoration: none;
 .bold-blanc {
 font-weight: bold;
 color:#ffffff;
+}
+
+th:focus,
+a:focus,
+a:hover {
+  outline-color: var(--selection-border); 
 }
 
 /*default Section header with gradient*/
@@ -204,7 +214,6 @@ body{
 
 /***** Bootstrap overrides *****/
 
-
 .tooltip-arrow,
 .tooltip > .tooltip-inner {
 	background-color: rgba(17, 106, 149, 1.0);
@@ -223,7 +232,7 @@ body{
 .table>tbody a { color: #09367c; font-weight: bold;}
 
 
-.table>tfoot th,
+.table>tfoot td,
 .table>thead th{
     background-color:var(--table-header-bg);  
     color:#ffffff
@@ -253,7 +262,7 @@ body{
  }
 
 .table-striped>tbody>tr:nth-child(even)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
+.table-striped>tbody>tr:nth-child(even)>th {
     background-color: var(--table-bg-color-2);  
  }
  
@@ -265,13 +274,15 @@ body{
 .table > tbody > tr > td > a {
    display:block; 
    width:100%;
+   transition: none;
 }
 
 .table>tbody a:hover,
 .table>tbody a:focus { 
     filter:none;
+    text-decoration: underline;
 }
- 
+
 
 .table.fixed-column td,
 .table.fixed-column th {
@@ -292,17 +303,17 @@ body{
 /* needs to be last */
 .table-hover>tbody>tr:hover td,
 .table-hover>tbody>tr:hover td>a{
-	  background-color: rgb(51, 102, 204);
+	  background-color: rgb(18, 114, 160);
 	  color:white;
 }
 
 /*table sorter*/
 .tablesorter th[aria-sort="descending"]{
-  background-color:rgba(0, 55, 111, 1.0);
+  background-color:var(--table-sort-desc);  
 }
 
 .tablesorter th[aria-sort="ascending"]{
-  background-color:rgba(64, 104, 224, 1.0);
+  background-color:var(--table-sort-asc);  
 }
 
 .tablesorter th{
@@ -358,6 +369,7 @@ a:hover.info span {
 .tableau-top td {
 	font-weight: bold;
 }
+
 
 
 

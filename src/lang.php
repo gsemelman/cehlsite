@@ -1047,8 +1047,8 @@ if($leagueLang == 'EN') {
 	$scoringGAm = 'GA';
 	$scoringGA = 'Goals Against';
 	$scoringSAm = 'SA';
-	$scoringSA = 'Shots Block/In';
-	$scoringPCT = 'Save Percentage: (S-GA) / S';
+	$scoringSA = 'Saves';
+	$scoringPCT = 'Save Percentage';
 	$scoringError = 'This team did not make the playoffs or the season has not started';
 	
 	// Stats d'équipe
