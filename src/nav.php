@@ -33,7 +33,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL?>assets/js/scripts.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL?>assets/js/scripts-04102019-1.js"></script>
 
 	
 

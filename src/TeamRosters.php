@@ -78,7 +78,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                                 
                                     echo '<thead>
                                         <tr>
-                                            <th class="text-left">'.$rostersName.'</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="'.$rostersName.'" class="text-left">'.$rostersName.'</th>
                                 			<th data-toggle="tooltip" data-placement="top" title="'.$rostersPosition.'">PO</th>
                                             <th data-toggle="tooltip" data-placement="top" title="'.$rostersHDF.'">'.$rostersHD.'</th>
                                             <th data-toggle="tooltip" data-placement="top" title="Condition">CD</th>
@@ -97,8 +97,8 @@ include_once 'classes/PlayerVitalsHolder.php';
                                             <th data-toggle="tooltip" data-placement="top" title="'.$rostersEXF.'">'.$rostersEX.'</th>
                                             <th data-toggle="tooltip" data-placement="top" title="'.$rostersLDF.'">'.$rostersLD.'</th>
                                             <th data-toggle="tooltip" data-placement="top" title="'.$rostersOVF.'">'.$rostersOV.'</th>
-                                            <th>Age</th>
-                                            <th class="text-right">Salary</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="Age">Age</th>
+                                            <th data-toggle="tooltip" data-placement="top" title="Salary" class="text-right">Salary</th>
                                             <th data-toggle="tooltip" data-placement="top" title="'.$linkedYearF.'">CT</th>
                                             <th data-toggle="tooltip" data-placement="top" title="'.$joueursHeightF.'">HT</th>
                                             <th data-toggle="tooltip" data-placement="top" title="'.$joueursWeight.'">WT</th>

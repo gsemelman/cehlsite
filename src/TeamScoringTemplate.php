@@ -251,24 +251,24 @@ if(file_exists($Fnm)) {
 			<table id="ForwardScoring" class="table table-sm table-striped table-hover text-center">
                 <thead>
                     <tr>
-            			<th>PO</th>
-            			<th>R</th>
-            			<th class="text-left">'.$scoringName.'</th>
-			            <th>'.$scoringGPm.'</th>
-            			<th>'.$scoringGm.'</th>
-            			<th>A</th>
-            			<th>P</th>
-            			<th>+/-</th>
-            			<th>'.$scoringPIMm.'</th>
-            			<th>'.$scoringPPm.'</th>
-            			<th>'.$scoringSHm.'</th>
-            			<th>'.$scoringGWm.'</th>
-            			<th>'.$scoringGTm.'</th>
-            			<th>'.$scoringHTm.'</th>
-            			<th>'.$scoringSm.'</th>
-            			<th>'.$scoringPCTGm.'</th>
-            			<th>'.$scoringGSm.'</th>
-            			<th>'.$scoringPSm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$rostersPosition.'">PO</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringRookie.'">R</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringName.'" class="text-left">'.$scoringName.'</th>
+			            <th data-toggle="tooltip" data-placement="top" title="'.$scoringGP.'">'.$scoringGPm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringG.'">'.$scoringGm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringAssits.'">A</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$rostersPosition.'">P</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringDiff.'">+/-</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringPIM.'">'.$scoringPIMm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringPP.'">'.$scoringPPm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringSH.'">'.$scoringSHm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringGW.'">'.$scoringGWm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringGT.'">'.$scoringGTm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringHT.'">'.$scoringHTm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringS.'">'.$scoringSm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringPCTG.'">'.$scoringPCTGm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringGS.'">'.$scoringGSm.'</th>
+            			<th data-toggle="tooltip" data-placement="top" title="'.$scoringPS.'">'.$scoringPSm.'</th>
         			</tr>
                 </thead>
                 <tbody style="font-weight:normal">';
