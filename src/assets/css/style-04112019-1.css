@@ -1,11 +1,12 @@
 :root {
-  --table-bg-color-1: rgba(225, 239, 255, 1.0);
-  --table-bg-color-2: rgba(176, 214, 255, 1.0); 
-  --table-header-bg:rgba(23, 145, 202, 1.0);
+	
+  --table-bg-color-1: rgb(225, 239, 255);
+  --table-bg-color-2: rgb(176, 214, 255); 
+  --table-header-bg:rgb(23, 145, 202);
   --table-header-text:white;
   --table-highlight:rgb(18, 114, 160);
-  --table-sort-asc:rgba(64, 104, 224, 1.0);
-  --table-sort-desc:rgba(0, 55, 111, 1.0);;
+  --table-sort-asc:rgb(64, 104, 224);
+  --table-sort-desc:rgb(0, 55, 111);;
   --selection-border:rgb(0, 0, 102);
  
 }
@@ -216,6 +217,7 @@ body{
 
 .tooltip-arrow,
 .tooltip > .tooltip-inner {
+	background-color: rgba(17, 106, 149, 1.0);
 	background-color: rgba(17, 106, 149, 1.0);
 	color: white;
 	opacity: 1;

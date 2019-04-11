@@ -9,7 +9,8 @@ class UnassignedHolder{
     public function __construct(string $file) {
         
         if(!file_exists($file)) {
-            throw new InvalidArgumentException('File does not exist');
+            //throw new InvalidArgumentException('File does not exist');
+            return false;
         }
 
         $contents = file($file);

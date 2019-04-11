@@ -33,9 +33,22 @@ $teams = new TeamHolder($gmFile);
    background-color:var(--table-sort-asc);  
 }
 
-.dataTable th{
-width:10px;
+table.dataTable.table-sm>thead>tr>th{
+padding-right: 3px;
 }
+
+.input-group>.input-group-prepend{
+    flex: 0 0 25%;
+}
+
+#searchFields .input-group .input-group-text{
+    width:100%
+}
+
+#advancedSearch .input-group>.input-group-prepend{
+    flex: 0 0 30%;
+}
+
 
 
 </style>
@@ -46,7 +59,7 @@ width:10px;
     		<?php include 'SectionHeader.php';?>
     		<div class="card-body p-2">
 			<div class="container">
-				<div class="row py-2">
+				<div class="row py-2" id="searchFields">
 					<div class="col">
 
 						<!-- position -->
@@ -74,6 +87,7 @@ width:10px;
 								</div>
 								<select class="custom-select" id="teamInputField">
 									<option value="">All Teams</option>
+									<option value="Unassigned">Unassigned</option>
                       				<?php
                                         foreach ($teams->get_teams() as $team) {
                                             echo '<option value="' . $team . '">' . $team . '</option>';
@@ -93,26 +107,24 @@ width:10px;
 								</div>
 								<select class="custom-select" id="typeInputField">
 									<option value="">All Types</option>
+									<option value="ProFarm" selected="selected">Pro/Farm</option>
 									<option value="Pro">Pro</option>
 									<option value="Farm">Farm</option>
-									<option value="ProFarm" selected="selected">Pro/Farm</option>
-									<option value="ProFarmProspect">Pro/Farm/Prosepct</option>
-									<option value="Prospect">Prospect</option>
-                     				<option value="Prospect">Unassigned</option>
+									<option value="Prospect">Prospect</option>			
                     		   </select>
 							</div>
 						</div>
 						
 						<div class="accordion" id="searchAccordion">
-                          <div class="card">
-                            <div class="card-header" id="advancedSearch">
+                          <div class="card" id="advancedSearch">
+                            <div class="card-header" id="advancedSearchHeader">
                               <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
                                   Advanced Filter
                                 </button>
                               </h5>
                             </div>
-                            <div id="collapseOne" class="collapse" aria-labelledby="advancedSearch" data-parent="#searchAccordion">
+                            <div id="collapseSearch" class="collapse" aria-labelledby="advancedSearchHeader" data-parent="#searchAccordion">
                               <div class="card-body">
                               	<div class="row">
         							<div class="input-group col-6 col-lg-3">
@@ -243,10 +255,10 @@ width:10px;
 				<div class="row ">
 					<div class="table-responsive">
 						
-						<table id="tblPlayerSearch" class="table table-sm table-striped display" style="width:100%">
+						<table id="tblPlayerSearch" class="table table-sm table-striped display text-center" style="width:100%">
                             <thead>
                                 <tr>
-                                	<th><?php echo $rostersName ?></th>
+                                	<th class="text-left"><?php echo $rostersName ?></th>
                                	    <th>Team</th>
                                	    <th>Type</th>
 									<th>PO</th>
@@ -317,6 +329,9 @@ width:10px;
                     { "data": "ld" },
                     { "data": "ov" }
                 ],
+                "columnDefs": [
+                    { className: "text-left", "targets": [ 0,1,2 ] }
+                  ],
                 lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
                 language: {
                     "lengthMenu": "Display _MENU_ records"
@@ -342,8 +357,24 @@ width:10px;
             	 table.draw();
             	});
 
-            $("#collapseOne").on("hide.bs.collapse", function(){
-            	 //table.draw();
+            $("#collapseSearch").on("hide.bs.collapse", function(){
+
+            	resetSimAttrib('it');
+            	resetSimAttrib('sp');
+            	resetSimAttrib('st');
+            	resetSimAttrib('en');
+            	resetSimAttrib('du');
+            	resetSimAttrib('di');
+            	resetSimAttrib('sk');
+            	resetSimAttrib('pa');
+            	resetSimAttrib('pc');
+            	resetSimAttrib('df');
+            	resetSimAttrib('sc');
+            	resetSimAttrib('en');
+            	resetSimAttrib('ld');
+            	resetSimAttrib('ov');
+                
+            	table.draw();
               });
 
             
@@ -404,29 +435,27 @@ width:10px;
         	    		display = true;
                     }else if(typeSelection === 'ProFarm' && ('Pro' === type || 'Farm' === type)){
         	    		display = true;
-                    }else if(typeSelection === 'ProFarmProspect' && ('Pro' === type || 'Farm' === type  || 'Prospect' === type)){
-        	    		display = true;
                     }else{
                         return false; 
                     }
             		
                     //attribs
                     
-                    if ( $( '#collapseOne' ).hasClass( "show" ) ) {
-                    	if(!attribBetween('it', data[3])) return false;
-                        if(!attribBetween('sp', data[4])) return false;
-                        if(!attribBetween('st', data[5])) return false;
-                        if(!attribBetween('en', data[6])) return false;
-                        if(!attribBetween('du', data[7])) return false;
-                        if(!attribBetween('di', data[8])) return false;
-                        if(!attribBetween('sk', data[9])) return false;
-                        if(!attribBetween('pa', data[10])) return false;
-                        if(!attribBetween('pc', data[11])) return false;
-                        if(!attribBetween('df', data[12])) return false;
-                        if(!attribBetween('sc', data[13])) return false;
-                        if(!attribBetween('en', data[14])) return false;
-                        if(!attribBetween('ld', data[15])) return false;
-                        if(!attribBetween('ov', data[16])) return false;
+                    if ( $( '#collapseSearch' ).hasClass( "show" ) ) {
+                    	if(!attribBetween('it', data[4])) return false;
+                        if(!attribBetween('sp', data[5])) return false;
+                        if(!attribBetween('st', data[6])) return false;
+                        if(!attribBetween('en', data[7])) return false;
+                        if(!attribBetween('du', data[8])) return false;
+                        if(!attribBetween('di', data[9])) return false;
+                        if(!attribBetween('sk', data[10])) return false;
+                        if(!attribBetween('pa', data[11])) return false;
+                        if(!attribBetween('pc', data[12])) return false;
+                        if(!attribBetween('df', data[13])) return false;
+                        if(!attribBetween('sc', data[14])) return false;
+                        if(!attribBetween('en', data[15])) return false;
+                        if(!attribBetween('ld', data[16])) return false;
+                        if(!attribBetween('ov', data[17])) return false;
                     }
                     
                    
@@ -435,7 +464,10 @@ width:10px;
         	    }
         	);
 
-    	
+        function resetSimAttrib(attrib){
+        	$('#' + attrib + 'Min').val(0);
+			$('#' + attrib + 'Max').val(99);
+        }
 
     	function attribBetween(attrib, val){
 

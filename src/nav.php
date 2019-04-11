@@ -16,11 +16,11 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"/>
-	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04092019-3.css"/>
+	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04112019-1.css"/>
 	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/media-queries.css"/>
      
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
     
 <!--     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -34,9 +34,16 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 	<script type="text/javascript" src="<?php echo BASE_URL?>assets/js/scripts-04102019-1.js"></script>
-
 	
-
+	<!-- css legacy browser (IE 9+ support) polyfill for unsupported css vars -->
+	<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@1"></script>
+	<script type="text/javascript">
+	
+	cssVars({
+	  onlyLegacy: true,
+      rootElement: document // default
+    });
+	</script>
 
 	<?php
 	   //Only import datatables resources as required
