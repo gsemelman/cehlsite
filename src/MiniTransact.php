@@ -6,7 +6,7 @@ ob_start();
 if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
 ob_end_flush();
 
-include 'config.php';
+require_once 'config.php';
 include 'lang.php';
 ?>
 

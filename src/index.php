@@ -1,5 +1,5 @@
 <?php 
-include 'config.php';
+require_once 'config.php';
 include 'lang.php';
 include 'common.php';
 
@@ -7,18 +7,7 @@ $CurrentHTML = 'index.php';
 $CurrentTitle = 'Home';
 $CurrentPage = 'Home';
 
-if(!HTTPS_REQUIRED){
-    //checkHttps();
-}
-
-// session_name('GMO');
-// session_start();
-
-//include GMO_ROOT.'login/authenticate.php';
-//$skipNav = false;
 include 'head.php';
-
-//include 'nav.php';
 
 ?>
 

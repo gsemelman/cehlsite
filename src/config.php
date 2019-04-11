@@ -16,8 +16,8 @@ define("GMO_ROOT",FS_ROOT.'gmo/');
 
 define("SESSION_NAME",'GMO');
 
-//Require HTTPS (1 on, 0 off)
-define("HTTPS_REQUIRED",0);
+//Fallback support for css/js assets
+define("ASSET_FALLBACK",0);
 
 //DB params
 $db_server = 'localhost';

@@ -239,7 +239,7 @@ $tableau_soustitre = "#1791CA"; // #1791CA
 $tableau_titre1 = "#1B9DD4"; // #1B9DD4
 $tableau_titre2 = "#014A92"; // #014A92
 
-// include_once 'config.php';
+// require_once 'config.php';
 // include_once 'lang.php';
 // include_once 'common.php';
 // include_once 'nav.php';

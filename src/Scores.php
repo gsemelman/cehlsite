@@ -7,7 +7,7 @@ if(isset($_GET['dayNum']) || isset($_POST['dayNum'])) {
     $dayNum = ( isset($_GET['dayNum']) ) ? $_GET['dayNum'] : $_POST['dayNum'];
 }
 
-include 'config.php';
+require_once 'config.php';
 include 'lang.php';
 include_once 'classes/ScheduleHolder.php';
 include_once 'classes/ScheduleObj.php';

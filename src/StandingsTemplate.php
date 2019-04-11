@@ -1,6 +1,6 @@
 ﻿
 <?php
-include_once 'config.php';
+require_once 'config.php';
 include_once 'lang.php';
 include_once 'common.php';
 

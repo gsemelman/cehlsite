@@ -7,7 +7,7 @@ ob_start();
 if(isset($_COOKIE['team'])) $currentTeam = $_COOKIE['team'];
 ob_end_flush();
 
-include_once 'config.php';
+require_once 'config.php';
 include_once 'lang.php';
 include_once 'common.php';
 include_once 'classes/ScheduleHolder.php';

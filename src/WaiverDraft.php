@@ -1,7 +1,7 @@
 <?php
 $dataTablesRequired = 1; //require datatables import
 
-include 'config.php';
+require_once 'config.php';
 include 'lang.php';
 $CurrentHTML = 'WaiverDraft.php';
 $CurrentTitle = 'WaiverDraft';
