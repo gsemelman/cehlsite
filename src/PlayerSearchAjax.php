@@ -34,7 +34,7 @@ $prospectHolder = new ProspectHolder($futuresFile, '');
 
 $allPlayers = array();
 
-//add roster players
+//add roster players for each team
 foreach($teams->get_teams() as $team){
     $rosterHolder = new RostersHolder($rosterFile, $team, false);
     
