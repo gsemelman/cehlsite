@@ -15,7 +15,7 @@ $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_fol
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
 	while($data = mysqli_fetch_array($query)) {
-	    $file_folder_lines = FS_ROOT.'gmo/'.$data['VALUE'];
+	    $file_folder_lines = GMO_ROOT.$data['VALUE'];
 	}
 }
 
