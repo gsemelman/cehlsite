@@ -95,7 +95,8 @@ width:10px;
 									<option value="">All Types</option>
 									<option value="Pro">Pro</option>
 									<option value="Farm">Farm</option>
-									<option value="ProFarm">Pro/Farm</option>
+									<option value="ProFarm" selected="selected">Pro/Farm</option>
+									<option value="ProFarmProspect">Pro/Farm/Prosepct</option>
 									<option value="Prospect">Prospect</option>
                      				<option value="Prospect">Unassigned</option>
                     		   </select>
@@ -402,6 +403,8 @@ width:10px;
         	    	}else if(typeSelection === type){
         	    		display = true;
                     }else if(typeSelection === 'ProFarm' && ('Pro' === type || 'Farm' === type)){
+        	    		display = true;
+                    }else if(typeSelection === 'ProFarmProspect' && ('Pro' === type || 'Farm' === type  || 'Prospect' === type)){
         	    		display = true;
                     }else{
                         return false; 
