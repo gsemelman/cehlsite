@@ -27,7 +27,7 @@ include_once 'common.php';
     			<div class="container">
                 	
                 	<div class="row py-2" id="searchFields">
-    					<div class="col px-1 px-md-2 px-lg-3">
+    					<div class="col px-0 px-md-2 px-lg-3">
     						<!-- position -->
     						 <div class="row">
     							<div class="input-group mb-3 col-sm-6">
@@ -106,9 +106,7 @@ include_once 'common.php';
                 		    }
                 		    if(isset($unassignedPL)) {
                 		        
-                		        echo '<div class="col px-1 px-md-2 px-lg-3">';
-                		        echo '<div class="table-responsive">';
-                		        //echo '<table id="freeAgents" class="table table-sm table-striped fixed-column-striped">';
+                		        echo '<div class="col px-0 px-md-2 px-lg-3">';
                 		        echo '<table id="faTable" class="table table-sm table-striped nowrap show" style="width:100%">';
                 		          echo '<thead>
                                             <tr>
@@ -162,7 +160,6 @@ include_once 'common.php';
                 		        } 
                 		        echo '</tbody>';
                 		        echo '</table>';
-                		        echo '</div>';
                 		        echo '</div>';
                 		        
                 		    }else {

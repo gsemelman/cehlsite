@@ -40,7 +40,7 @@ $teams = new TeamHolder($gmFile);
     		<div class="card-body p-2">
 			<div class="container">
 				<div class="row py-2" id="searchFields">
-					<div class="col px-1 px-md-2 px-lg-3">
+					<div class="col px-0 px-md-2 px-lg-3">
 
 						<!-- position -->
 						<div class="row">
@@ -233,9 +233,8 @@ $teams = new TeamHolder($gmFile);
 				</div>
 
 				<div class="row ">
-					<div class="col px-1 px-md-2 px-lg-3">
-					<div class="table-responsive">
-						
+					<div class="col px-0 px-md-2 px-lg-3">
+	
 						<table id="tblPlayerSearch" class="table table-sm table-striped display text-center" style="width:100%">
                             <thead>
                                 <tr>
@@ -258,12 +257,10 @@ $teams = new TeamHolder($gmFile);
 									<th><?php echo $rostersLD ?> </th>
 									<th><?php echo $rostersOV ?> </th>	 	
                                 </tr>
-                            </thead>
-                         
+                            </thead>             
                         </table>
 
-					</div>
-				 </div>	
+					 </div>	
 				 </div>
 			</div>
 		</div>
