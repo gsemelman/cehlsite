@@ -9,11 +9,11 @@ class ScheduleHolder{
     private $tradeDeadline;
     private $lastDayPlayed;
     
-    public function __construct(string $file) {
+    public function __construct(string $file, string $filterTeam = '') {
         if(!file_exists($file)) {
             throw new InvalidArgumentException('File does not exist');
         }
-            
+
         $a = 0;
         $i = 0;
         $lastDay = 0;
@@ -105,7 +105,13 @@ class ScheduleHolder{
                     continue;
                 }
                 
-
+                //filter team
+                if(!empty($filterTeam)){
+                    if($team1 != $filterTeam && $team2 != $filterTeam) {
+                        continue;
+                    }
+                }
+             
                 
                 if($isPlayed){
                     $lastGame = $gameNumber;

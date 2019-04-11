@@ -19,35 +19,36 @@ include_once 'common.php';
 
 </style>
 
-	<div class = "container-fluid" style = "width: 100%; height: 100%;">
+	<div class = "container"">
 		
     	<div class = "card">
     		<?php include 'SectionHeader.php';?>
     		<div class = "card-body p-2">
     			<div class="container">
-        			<div class = "row justify-content-center" style="padding-top:10px;"> 
-    
-                		<div class="col-*-*">
-                    		<label style="padding-right:10px;" class="text-center" for="positionInputField">Position: </label> 
-                    	</div>
-                    	<div class="col-*-*">
-                    		<select
-                			name="positionInputField" class="form-control mb-3"
-                			id="positionInputField">
-                			<option value="">All Players</option>
-                			<option value="Skaters">All Skaters</option>
-                			<option value="Forwards">All Forwards</option>
-                			<option value="C">Center</option>
-                			<option value="RW">Right Wing</option>
-                			<option value="LW">Left Wing</option>
-                			<option value="D">Defense</option>
-                			<option value="G">Goalie</option>
-                			</select>
-                    	</div>
-                
-                		
+                	
+                	<div class="row py-2" id="searchFields">
+    					<div class="col px-1 px-md-2 px-lg-3">
+    						<!-- position -->
+    						 <div class="row">
+    							<div class="input-group mb-3 col-sm-6">
+    								<div class="input-group-prepend">
+    									<label class="input-group-text" for="positionInputField">Position</label>
+    								</div>
+    								<select class="custom-select" id="positionInputField">
+    									<option value="">All Players</option>
+    									<option value="Skaters">All Skaters</option>
+    									<option value="Forwards">All Forwards</option>
+    									<option value="C">Center</option>
+    									<option value="RW">Right Wing</option>
+    									<option value="LW">Left Wing</option>
+    									<option value="D">Defense</option>
+    									<option value="G">Goalie</option>
+    								</select>
+    							</div>
+    						</div>
+    					</div>
                 	</div>
-                
+                	
                 	<div class = "row"> 
                 	<?php
                 
@@ -105,7 +106,7 @@ include_once 'common.php';
                 		    }
                 		    if(isset($unassignedPL)) {
                 		        
-                		        
+                		        echo '<div class="col px-1 px-md-2 px-lg-3">';
                 		        echo '<div class="table-responsive">';
                 		        //echo '<table id="freeAgents" class="table table-sm table-striped fixed-column-striped">';
                 		        echo '<table id="faTable" class="table table-sm table-striped nowrap show" style="width:100%">';
@@ -161,6 +162,7 @@ include_once 'common.php';
                 		        } 
                 		        echo '</tbody>';
                 		        echo '</table>';
+                		        echo '</div>';
                 		        echo '</div>';
                 		        
                 		    }else {

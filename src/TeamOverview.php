@@ -248,11 +248,11 @@ for($j=0;$j<=$round;$j++) {
 				$nextEquipe1 = substr($reste, 0, strpos($reste, ' at'));
 				$reste = trim(substr($reste, strpos($reste, 'at')+2));
 				$nextEquipe2 = $reste;
-				if($j == 0) $nextGameFile = 'Schedule.php';
-				if($j == 1) $nextGameFile = 'Schedule.php&plf=1&rnd=1';
-				if($j == 2) $nextGameFile = 'Schedule.php&plf=1&rnd=2';
-				if($j == 3) $nextGameFile = 'Schedule.php&plf=1&rnd=3';
-				if($j == 4) $nextGameFile = 'Schedule.php&plf=1&rnd=4';
+				if($j == 0) $nextGameFile = 'Schedule2.php';
+				if($j == 1) $nextGameFile = 'Schedule2.php&plf=1&rnd=1';
+				if($j == 2) $nextGameFile = 'Schedule2.php&plf=1&rnd=2';
+				if($j == 3) $nextGameFile = 'Schedule2.php&plf=1&rnd=3';
+				if($j == 4) $nextGameFile = 'Schedule2.php&plf=1&rnd=4';
 				break 2;
 			}
 			if(substr_count($val, $currentTeam) && substr_count($val, 'A HREF=')){

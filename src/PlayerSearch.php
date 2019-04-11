@@ -40,7 +40,7 @@ $teams = new TeamHolder($gmFile);
     		<div class="card-body p-2">
 			<div class="container">
 				<div class="row py-2" id="searchFields">
-					<div class="col">
+					<div class="col px-1 px-md-2 px-lg-3">
 
 						<!-- position -->
 						<div class="row">
@@ -233,6 +233,7 @@ $teams = new TeamHolder($gmFile);
 				</div>
 
 				<div class="row ">
+					<div class="col px-1 px-md-2 px-lg-3">
 					<div class="table-responsive">
 						
 						<table id="tblPlayerSearch" class="table table-sm table-striped display text-center" style="width:100%">
@@ -262,7 +263,8 @@ $teams = new TeamHolder($gmFile);
                         </table>
 
 					</div>
-				</div>
+				 </div>	
+				 </div>
 			</div>
 		</div>
 	</div>

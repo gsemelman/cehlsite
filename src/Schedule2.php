@@ -104,7 +104,7 @@ if($currentPLF){
 	<div class="card">
 				
 		<?php include 'SectionHeader.php';?>
-		<div class="card-body">
+		<div class="card-body wow fadeIn">
 		
         	<?php 
         	if($currentPLF == 1 && isset($existRnd)) {
@@ -123,7 +123,7 @@ if($currentPLF){
         	}
         	?>
 
-			<div class = "row wow fadeIn">
+			<div class = "row">
 				<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
 				<div class = "table-responsive">
 					<table class="table table-sm table-striped">
