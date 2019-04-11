@@ -16,26 +16,6 @@ $teams = new TeamHolder($gmFile);
 ?>
 
 <style>
-.dataTable > thead > tr > th[class*="sort"]:after{
-    content: "" !important;
-    background-color:var(--table-sort-desc);  
-}
-.dataTable > thead > tr > th[class*="sort"]:before{
-    content: "" !important;
-    background-color:var(--table-sort-desc);  
-}
-
-.dataTable th.sorting_desc{
-  background-color:var(--table-sort-desc);  
-}
-
-.dataTable th.sorting_asc{
-   background-color:var(--table-sort-asc);  
-}
-
-table.dataTable.table-sm>thead>tr>th{
-padding-right: 3px;
-}
 
 .input-group>.input-group-prepend{
     flex: 0 0 25%;

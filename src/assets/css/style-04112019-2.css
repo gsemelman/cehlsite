@@ -288,7 +288,8 @@ body{
 
 .table.fixed-column td,
 .table.fixed-column th {
-    padding: 3px;
+    padding-left: 0.2rem;
+	padding-right: 0.2rem;
 }
 
 .table.fixed-column th:first-child,
@@ -300,6 +301,11 @@ body{
 .table.fixed-column th a
 {
   color:#ffffff;
+}
+
+table.table-sm>thead>tr>th{
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
 }
 
 /* needs to be last */
@@ -320,6 +326,29 @@ body{
 
 .tablesorter th{
 	cursor:pointer;
+}
+
+/*Datatables overrides*/
+.dataTable > thead > tr > th[class*="sort"]:after{
+    content: "" !important;
+    background-color:var(--table-sort-desc);  
+}
+.dataTable > thead > tr > th[class*="sort"]:before{
+    content: "" !important;
+    background-color:var(--table-sort-desc);  
+}
+
+.dataTable th.sorting_desc{
+  background-color:var(--table-sort-desc);  
+}
+
+.dataTable th.sorting_asc{
+   background-color:var(--table-sort-asc);  
+}
+
+table.dataTable.table-sm>thead>tr>th{
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
 }
 
 /* Table hover */
