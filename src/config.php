@@ -17,7 +17,7 @@ define("GMO_ROOT",FS_ROOT.'gmo/');
 define("SESSION_NAME",'GMO');
 
 //Fallback support for css/js assets
-define("CDN_SUPPORT", false);
+define("CDN_SUPPORT", true);
 
 //DB params
 $db_server = 'localhost';

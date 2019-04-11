@@ -269,7 +269,6 @@ $teams = new TeamHolder($gmFile);
 
 
 	<script>
-	https://www.canadianelitehockeyleague.ca/CareerStatsPlayer.php?csName=A.J.+Greer
 
         $(document).ready(function() {
         	var table = $('#tblPlayerSearch').DataTable( {
@@ -319,11 +318,11 @@ $teams = new TeamHolder($gmFile);
                 	'copyHtml5',
                     {
                         extend: 'excelHtml5',
-                        title: 'FreeAgencyExport'
+                        title: 'PlayerSearchExport'
                     },
                     {
                         extend: 'csvHtml5',
-                        title: 'FreeAgencyExport'
+                        title: 'PlayerSearchExport'
                     }
                 ]
             } );
