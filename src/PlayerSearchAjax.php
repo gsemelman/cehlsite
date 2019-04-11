@@ -14,14 +14,14 @@ include_once 'classes/ProspectHolder.php';
 include_once 'classes/PlayerSearchWrapper.php';
 
 $playoffs='';
-if(isPlayoffs($folder, LEAGUE_MODE)){
+if(isPlayoffs(TRANSFER_DIR, LEAGUE_MODE)){
     $playoffs = 'PLF';
 }
 
-$gmFile = getLeagueFile($folder, $playoffs, 'GMs.html', 'GMs');
-$rosterFile = getLeagueFile($folder, $playoffs, 'Rosters.html', 'Rosters');
-$unassignedFile = getLeagueFile($folder, $playoffs, 'Unassigned.html', 'Unassigned');
-$futuresFile = getLeagueFile($folder, $playoffs, 'Futures.html', 'Futures');
+$gmFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'GMs.html', 'GMs');
+$rosterFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'Rosters.html', 'Rosters');
+$unassignedFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'Unassigned.html', 'Unassigned');
+$futuresFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'Futures.html', 'Futures');
 
 if (!file_exists($rosterFile) || !file_exists($gmFile)) {
     http_response_code(400);
@@ -34,15 +34,7 @@ $prospectHolder = new ProspectHolder($futuresFile, '');
 
 $allPlayers = array();
 
-
-
-// foreach($teams->get_teams() as $team){
-//     $rosterHolder = new RostersHolder($rosterFile, $team, false);
-    
-//     $allPlayers = array_merge($allPlayers, $rosterHolder->getProRosters(), $rosterHolder->getFarmRosters());
-// }
-
-
+//add roster players
 foreach($teams->get_teams() as $team){
     $rosterHolder = new RostersHolder($rosterFile, $team, false);
     
@@ -106,7 +98,7 @@ foreach($teams->get_teams() as $team){
 
 }
 
-
+//add unassigned players
 foreach($unassignedHolder->getUnassigned() as $roster){
     $wrapper = new PlayerSearchWrapper();
     
@@ -136,6 +128,7 @@ foreach($unassignedHolder->getUnassigned() as $roster){
     array_push($allPlayers, $wrapper);
 }
 
+//add prospects
 foreach($prospectHolder->getProspects() as $prospect){
     $wrapper = new PlayerSearchWrapper();
     

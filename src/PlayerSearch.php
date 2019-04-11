@@ -108,7 +108,7 @@ width:10px;
                             <div class="card-header" id="advancedSearch">
                               <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                  Advanced Search
+                                  Advanced Filter
                                 </button>
                               </h5>
                             </div>
@@ -227,7 +227,7 @@ width:10px;
         							</div>
         						</div>
         						
-        						<button id="btnSearch" class="btn btn-sm btn-outline-primary my-2">Search</button>
+        						<button id="btnSearch" class="btn btn-sm btn-outline-primary my-2">Filter</button>
                               
                               
                               </div>
@@ -343,7 +343,7 @@ width:10px;
             	});
 
             $("#collapseOne").on("hide.bs.collapse", function(){
-            	 table.draw();
+            	 //table.draw();
               });
 
             
@@ -412,28 +412,30 @@ width:10px;
             		
                     //attribs
                     
-//                     if ( $( '#collapseOne' ).hasClass( "show" ) ) {
-//                     	if(!attribBetween('it', data[3])) return false;
-//                         if(!attribBetween('sp', data[4])) return false;
-//                         if(!attribBetween('st', data[5])) return false;
-//                         if(!attribBetween('en', data[6])) return false;
-//                         if(!attribBetween('du', data[7])) return false;
-//                         if(!attribBetween('di', data[8])) return false;
-//                         if(!attribBetween('sk', data[9])) return false;
-//                         if(!attribBetween('pa', data[10])) return false;
-//                         if(!attribBetween('pc', data[11])) return false;
-//                         if(!attribBetween('df', data[12])) return false;
-//                         if(!attribBetween('sc', data[13])) return false;
-//                         if(!attribBetween('en', data[14])) return false;
-//                         if(!attribBetween('ld', data[15])) return false;
-//                         if(!attribBetween('ov', data[16])) return false;
-//                     }
+                    if ( $( '#collapseOne' ).hasClass( "show" ) ) {
+                    	if(!attribBetween('it', data[3])) return false;
+                        if(!attribBetween('sp', data[4])) return false;
+                        if(!attribBetween('st', data[5])) return false;
+                        if(!attribBetween('en', data[6])) return false;
+                        if(!attribBetween('du', data[7])) return false;
+                        if(!attribBetween('di', data[8])) return false;
+                        if(!attribBetween('sk', data[9])) return false;
+                        if(!attribBetween('pa', data[10])) return false;
+                        if(!attribBetween('pc', data[11])) return false;
+                        if(!attribBetween('df', data[12])) return false;
+                        if(!attribBetween('sc', data[13])) return false;
+                        if(!attribBetween('en', data[14])) return false;
+                        if(!attribBetween('ld', data[15])) return false;
+                        if(!attribBetween('ov', data[16])) return false;
+                    }
                     
                    
 
         	       return display;
         	    }
         	);
+
+    	
 
     	function attribBetween(attrib, val){
 
