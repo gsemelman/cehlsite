@@ -15,6 +15,31 @@ $teams = new TeamHolder($gmFile);
 
 ?>
 
+<style>
+.dataTable > thead > tr > th[class*="sort"]:after{
+    content: "" !important;
+    background-color:var(--table-sort-desc);  
+}
+.dataTable > thead > tr > th[class*="sort"]:before{
+    content: "" !important;
+    background-color:var(--table-sort-desc);  
+}
+
+.dataTable th.sorting_desc{
+  background-color:var(--table-sort-desc);  
+}
+
+.dataTable th.sorting_asc{
+   background-color:var(--table-sort-asc);  
+}
+
+.dataTable th{
+width:10px;
+}
+
+
+</style>
+
 <div class="container" >
 	
 	<div class="card">
@@ -48,9 +73,7 @@ $teams = new TeamHolder($gmFile);
 									<label class="input-group-text" for="teamInputField">Team</label>
 								</div>
 								<select class="custom-select" id="teamInputField">
-									<option value=""></option>
-									<option value="Unassigned">Unassigned</option>
-									<option value="Prospect">Prospect</option>
+									<option value="">All Teams</option>
                       				<?php
                                         foreach ($teams->get_teams() as $team) {
                                             echo '<option value="' . $team . '">' . $team . '</option>';
@@ -59,7 +82,26 @@ $teams = new TeamHolder($gmFile);
 
                     		   </select>
 							</div>
+			
 						</div>
+						<div class="row">
+										
+							<!-- type -->
+							<div class="input-group mb-3 col-sm-6">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="typeInputField">Type</label>
+								</div>
+								<select class="custom-select" id="typeInputField">
+									<option value="">All Types</option>
+									<option value="Pro">Pro</option>
+									<option value="Farm">Farm</option>
+									<option value="ProFarm">Pro/Farm</option>
+									<option value="Prospect">Prospect</option>
+                     				<option value="Prospect">Unassigned</option>
+                    		   </select>
+							</div>
+						</div>
+						
 						<div class="accordion" id="searchAccordion">
                           <div class="card">
                             <div class="card-header" id="advancedSearch">
@@ -205,6 +247,7 @@ $teams = new TeamHolder($gmFile);
                                 <tr>
                                 	<th><?php echo $rostersName ?></th>
                                	    <th>Team</th>
+                               	    <th>Type</th>
 									<th>PO</th>
 									<th><?php echo $rostersIT ?> </th>
 									<th><?php echo $rostersSP ?> </th>
@@ -242,6 +285,7 @@ $teams = new TeamHolder($gmFile);
         		scrollY:        true,
                 scrollX:        true,
                 scrollCollapse: true,
+                order: [[ 17, "desc" ]],
                 fixedColumns:   {
                     leftColumns: 1,
                     rightColumns: 1
@@ -255,6 +299,7 @@ $teams = new TeamHolder($gmFile);
                         }
                     },
                 	{ "data": "team" },
+                	{ "data": "type" },
                     { "data": "position" },
                     { "data": "it" },
                     { "data": "sp" },
@@ -288,7 +333,7 @@ $teams = new TeamHolder($gmFile);
                 ]
             } );
 
-            $('#positionInputField, #teamInputField').change( function() {
+            $('#positionInputField, #teamInputField, #typeInputField').change( function() {
                 table.draw();
             } );
 
@@ -299,6 +344,8 @@ $teams = new TeamHolder($gmFile);
             $("#collapseOne").on("hide.bs.collapse", function(){
             	 table.draw();
               });
+
+            
 
             
         } );
@@ -314,7 +361,7 @@ $teams = new TeamHolder($gmFile);
 
             	    //position filter
         	    	var posSelection = $('#positionInputField').val();
-        	    	var pos = data[2]; 
+        	    	var pos = data[3]; 
         	    	
         	    	if(posSelection === ''){
         	    		display = true;
@@ -347,24 +394,37 @@ $teams = new TeamHolder($gmFile);
                         return false; 
                     }
 
+                    //type filter
+                    var typeSelection = $('#typeInputField').val();
+                    var type = data[2]; 
+            		if(typeSelection === ''){
+        	    		display = true;
+        	    	}else if(typeSelection === type){
+        	    		display = true;
+                    }else if(typeSelection === 'ProFarm' && ('Pro' === type || 'Farm' === type)){
+        	    		display = true;
+                    }else{
+                        return false; 
+                    }
+            		
                     //attribs
                     
-                    if ( $( '#collapseOne' ).hasClass( "show" ) ) {
-                    	if(!attribBetween('it', data[3])) return false;
-                        if(!attribBetween('sp', data[4])) return false;
-                        if(!attribBetween('st', data[5])) return false;
-                        if(!attribBetween('en', data[6])) return false;
-                        if(!attribBetween('du', data[7])) return false;
-                        if(!attribBetween('di', data[8])) return false;
-                        if(!attribBetween('sk', data[9])) return false;
-                        if(!attribBetween('pa', data[10])) return false;
-                        if(!attribBetween('pc', data[11])) return false;
-                        if(!attribBetween('df', data[12])) return false;
-                        if(!attribBetween('sc', data[13])) return false;
-                        if(!attribBetween('en', data[14])) return false;
-                        if(!attribBetween('ld', data[15])) return false;
-                        if(!attribBetween('ov', data[16])) return false;
-                    }
+//                     if ( $( '#collapseOne' ).hasClass( "show" ) ) {
+//                     	if(!attribBetween('it', data[3])) return false;
+//                         if(!attribBetween('sp', data[4])) return false;
+//                         if(!attribBetween('st', data[5])) return false;
+//                         if(!attribBetween('en', data[6])) return false;
+//                         if(!attribBetween('du', data[7])) return false;
+//                         if(!attribBetween('di', data[8])) return false;
+//                         if(!attribBetween('sk', data[9])) return false;
+//                         if(!attribBetween('pa', data[10])) return false;
+//                         if(!attribBetween('pc', data[11])) return false;
+//                         if(!attribBetween('df', data[12])) return false;
+//                         if(!attribBetween('sc', data[13])) return false;
+//                         if(!attribBetween('en', data[14])) return false;
+//                         if(!attribBetween('ld', data[15])) return false;
+//                         if(!attribBetween('ov', data[16])) return false;
+//                     }
                     
                    
 

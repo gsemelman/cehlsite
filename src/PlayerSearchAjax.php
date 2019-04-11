@@ -9,110 +9,162 @@ include_once 'classes/RosterAvgObj.php';
 include_once 'classes/RostersHolder.php';
 include_once 'classes/UnassignedHolder.php';
 include_once 'classes/TeamHolder.php';
+include_once 'classes/ProspectObj.php';
+include_once 'classes/ProspectHolder.php';
+include_once 'classes/PlayerSearchWrapper.php';
 
+$playoffs='';
+if(isPlayoffs($folder, LEAGUE_MODE)){
+    $playoffs = 'PLF';
+}
 
-$gmFile = getLeagueFile($folder, '', 'GMs.html', 'GMs');
-$rosterFile = getLeagueFile($folder, '', 'Rosters.html', 'Rosters');
-$unassignedFile = getLeagueFile($folder, '', 'Unassigned.html', 'Unassigned');
+$gmFile = getLeagueFile($folder, $playoffs, 'GMs.html', 'GMs');
+$rosterFile = getLeagueFile($folder, $playoffs, 'Rosters.html', 'Rosters');
+$unassignedFile = getLeagueFile($folder, $playoffs, 'Unassigned.html', 'Unassigned');
+$futuresFile = getLeagueFile($folder, $playoffs, 'Futures.html', 'Futures');
 
 if (!file_exists($rosterFile) || !file_exists($gmFile)) {
     http_response_code(400);
     exit();
 }
 
+$teams = new TeamHolder($gmFile);
+$unassignedHolder = new UnassignedHolder($unassignedFile);
+$prospectHolder = new ProspectHolder($futuresFile, '');
+
 $allPlayers = array();
 
-$teams = new TeamHolder($gmFile);
+
+
+// foreach($teams->get_teams() as $team){
+//     $rosterHolder = new RostersHolder($rosterFile, $team, false);
+    
+//     $allPlayers = array_merge($allPlayers, $rosterHolder->getProRosters(), $rosterHolder->getFarmRosters());
+// }
+
 
 foreach($teams->get_teams() as $team){
     $rosterHolder = new RostersHolder($rosterFile, $team, false);
     
-    $allPlayers = array_merge($allPlayers, $rosterHolder->getProRosters(), $rosterHolder->getFarmRosters());
-}
+    foreach($rosterHolder->getProRosters() as $roster){
+        $wrapper = new PlayerSearchWrapper();
 
-$unassignedHolder = new UnassignedHolder($unassignedFile);
+        $wrapper->setType('Pro');
+        $wrapper->setTeam($roster->getTeam());
+        $wrapper->setNumber($roster->getNumber());
+        $wrapper->setName($roster->getName());
+        $wrapper->setPosition($roster->getPosition());
+        $wrapper->setHand($roster->getHand());
+        $wrapper->setCondition($roster->getCondition());
+        $wrapper->setInjStatus($roster->getInjStatus());
+        $wrapper->setIt($roster->getIt());
+        $wrapper->setSp($roster->getSp());
+        $wrapper->setSt($roster->getSt());
+        $wrapper->setEn($roster->getEn());
+        $wrapper->setDu($roster->getDu());
+        $wrapper->setDi($roster->getDi());
+        $wrapper->setSk($roster->getSk());
+        $wrapper->setPa($roster->getPa());
+        $wrapper->setPc($roster->getPc());
+        $wrapper->setDf($roster->getDf());
+        $wrapper->setSc($roster->getSc());
+        $wrapper->setEx($roster->getEx());
+        $wrapper->setLd($roster->getLd());
+        $wrapper->setOv($roster->getOv());
 
-$allPlayers = array_merge($allPlayers,$unassignedHolder->getUnassigned());
-
-
-$a = 0;
-$b = 0;
-$c = 1;
-$d = 1;
-$propects = array();
-$futuresFile = getLeagueFile($folder, '', 'Futures.html', 'Futures');
-if(file_exists($futuresFile)) {
-    $tableau = file($futuresFile);
-    while(list($cle,$val) = myEach($tableau)) {
-        $val = utf8_encode($val);
-
-        if(substr_count($val, 'A NAME=')) {
-            $d = 1;
-            $b = 1;
-            
-            $pos = strpos($val, '</A>');
-            $pos = $pos - 23;
-            $team = trim(substr($val, 23, $pos));
-      
-        }
-
-//         if($a >= 2 && $a <= 7 && substr_count($val, '<B>') && $b && $d) {
-//             if($c == 1) $c = 2;
-//             else $c = 1;
-            
-//             $a++;
-//         }
-        if($a == 1 && $b && $d) {
-            $pos = strpos($val, '<');
-            $tmpProspect = substr($val, 0, $pos).',';
-            $tmpCount = substr_count($tmpProspect, ',');
-            for($i=0;$i<$tmpCount;$i++) {
-                if($c == 1) $c = 2;
-                else $c = 1;
-                $tmp = trim(substr($tmpProspect, 0, strpos($tmpProspect, ',')));
-                $tmpProspect = substr($tmpProspect, strpos($tmpProspect, ',')+1);
-                
-                
-                $roster = new RosterObj();
-                $roster->setTeam('Prospect');
-                $roster->setNumber('N/A');
-                $roster->setName($tmp);
-                $roster->setPosition('N/A');
-                $roster->setHand('N/A');
-                $roster->setCondition('N/A');
-                $roster->setInjStatus('N/A');
-                $roster->setIt('N/A');
-                $roster->setSp('N/A');
-                $roster->setSt('N/A');
-                $roster->setEn('N/A');
-                $roster->setDu('N/A');
-                $roster->setDi('N/A');
-                $roster->setSk('N/A');
-                $roster->setPa('N/A');
-                $roster->setPc('N/A');
-                $roster->setDf('N/A');
-                $roster->setSc('N/A');
-                $roster->setEx('N/A');
-                $roster->setLd('N/A');
-                $roster->setOv('N/A');
-                
-                array_push($propects, $roster);
-              
-            }
-            
-            $a = 2;
-            $c = 1;
-        }
-        if(substr_count($val, '<H4>Prospects</H4>') && $b && $d) {
-            $a = 1;
-        }
-        
+        array_push($allPlayers, $wrapper);
     }
     
+    foreach($rosterHolder->getFarmRosters() as $roster){
+        $wrapper = new PlayerSearchWrapper();
+        
+        $wrapper->setType('Farm');
+        $wrapper->setTeam($roster->getTeam());
+        $wrapper->setNumber($roster->getNumber());
+        $wrapper->setName($roster->getName());
+        $wrapper->setPosition($roster->getPosition());
+        $wrapper->setHand($roster->getHand());
+        $wrapper->setCondition($roster->getCondition());
+        $wrapper->setInjStatus($roster->getInjStatus());
+        $wrapper->setIt($roster->getIt());
+        $wrapper->setSp($roster->getSp());
+        $wrapper->setSt($roster->getSt());
+        $wrapper->setEn($roster->getEn());
+        $wrapper->setDu($roster->getDu());
+        $wrapper->setDi($roster->getDi());
+        $wrapper->setSk($roster->getSk());
+        $wrapper->setPa($roster->getPa());
+        $wrapper->setPc($roster->getPc());
+        $wrapper->setDf($roster->getDf());
+        $wrapper->setSc($roster->getSc());
+        $wrapper->setEx($roster->getEx());
+        $wrapper->setLd($roster->getLd());
+        $wrapper->setOv($roster->getOv());
+        
+        array_push($allPlayers, $wrapper);
+    }
+
 }
 
-$allPlayers = array_merge($allPlayers,$propects);
-//$allPlayers =$propects;
+
+foreach($unassignedHolder->getUnassigned() as $roster){
+    $wrapper = new PlayerSearchWrapper();
+    
+    $wrapper->setType('Unassigned');
+    $wrapper->setTeam($roster->getTeam());
+    $wrapper->setNumber($roster->getNumber());
+    $wrapper->setName($roster->getName());
+    $wrapper->setPosition($roster->getPosition());
+    $wrapper->setHand($roster->getHand());
+    $wrapper->setCondition($roster->getCondition());
+    $wrapper->setInjStatus($roster->getInjStatus());
+    $wrapper->setIt($roster->getIt());
+    $wrapper->setSp($roster->getSp());
+    $wrapper->setSt($roster->getSt());
+    $wrapper->setEn($roster->getEn());
+    $wrapper->setDu($roster->getDu());
+    $wrapper->setDi($roster->getDi());
+    $wrapper->setSk($roster->getSk());
+    $wrapper->setPa($roster->getPa());
+    $wrapper->setPc($roster->getPc());
+    $wrapper->setDf($roster->getDf());
+    $wrapper->setSc($roster->getSc());
+    $wrapper->setEx($roster->getEx());
+    $wrapper->setLd($roster->getLd());
+    $wrapper->setOv($roster->getOv());
+    
+    array_push($allPlayers, $wrapper);
+}
+
+foreach($prospectHolder->getProspects() as $prospect){
+    $wrapper = new PlayerSearchWrapper();
+    
+    $wrapper->setType('Prospect');
+    $wrapper->setTeam($prospect->getTeam());
+    $wrapper->setNumber('N/A');
+    $wrapper->setName($prospect->getName());
+    $wrapper->setPosition('N/A');
+    $wrapper->setHand('N/A');
+    $wrapper->setCondition('N/A');
+    $wrapper->setInjStatus('N/A');
+    $wrapper->setIt('N/A');
+    $wrapper->setSp('N/A');
+    $wrapper->setSt('N/A');
+    $wrapper->setEn('N/A');
+    $wrapper->setDu('N/A');
+    $wrapper->setDi('N/A');
+    $wrapper->setSk('N/A');
+    $wrapper->setPa('N/A');
+    $wrapper->setPc('N/A');
+    $wrapper->setDf('N/A');
+    $wrapper->setSc('N/A');
+    $wrapper->setEx('N/A');
+    $wrapper->setLd('N/A');
+    $wrapper->setOv('N/A');
+    
+    array_push($allPlayers, $wrapper);
+}
+
 
 //return data
 echo '{ "data": '.json_encode($allPlayers).'}';
