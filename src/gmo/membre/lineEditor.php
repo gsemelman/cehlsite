@@ -77,7 +77,7 @@ $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_fol
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
 	while($data = mysqli_fetch_array($query)) {
-		$file_folder_lines = $data['VALUE'];
+	    $file_folder_lines = GMO_ROOT.$data['VALUE'];
 	}
 }
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'league_cap' LIMIT 1";
@@ -253,10 +253,23 @@ include GMO_ROOT.'membre/js.php';
 $divMaxWidth = "width:100%";
 
 $modeGMO = 1;
+//$linesGame = 1;
 if(isset($_GET['lines']) || isset($_POST['lines'])) {
     $modeGMO = ( isset($_GET['lines']) ) ? $_GET['lines'] : $_POST['lines'];
     $modeGMO = htmlspecialchars($modeGMO);
+    
+//     if(isset($_GET['game']) || isset($_POST['game'])) {
+//         $linesGame =( isset($_GET['game']) ) ? $_GET['game'] : $_POST['game'];
+//         $linesGame = htmlspecialchars($linesGame);
+//     }
 }
+
+$linesGame = 1;
+if(isset($_GET['game']) || isset($_POST['game'])) {
+    $linesGame =( isset($_GET['game']) ) ? $_GET['game'] : $_POST['game'];
+    $linesGame = htmlspecialchars($linesGame);
+}
+
 
 include GMO_ROOT.'editor/lang.php';
 if($modeGMO == 1) {
@@ -270,10 +283,12 @@ if($modeGMO == 2) {
 
 ?>
 
-</head>
-<body>
+<!-- </head> -->
+<!-- <body> -->
 
-<div id="popupAlert" style="display:none; position:fixed; top:60px; left:50%; transform: translateX(-50%); width:50%; z-index:20; text-align:center; padding:20px; background-color:#ae654c; color:#ffffff; font-weight:bold; border-radius:10px; border:0px;"></div>
+<!--<div id="popupAlert" style="display:none; position:fixed; top:60px; left:50%; transform: translateX(-50%); width:50%; z-index:20; text-align:center; padding:20px; background-color:#ae654c; color:#ffffff; font-weight:bold; border-radius:10px; border:0px;"></div>-->
+
+<div id="popupAlert" class="popupAlert-fixed"></div>
 
 <?php
 
@@ -282,7 +297,26 @@ else $chg_lang = "en";
 
 ?>
 
+<style>
 
+.popupAlert-fixed {
+    display:none; 
+    position:fixed; 
+    top:60px; 
+    left:50%;
+    transform: translateX(-50%); 
+    text-align:center; 
+    padding:20px; 
+    background-color:#ae654c;
+    color:#ffffff;
+    font-weight:bold; 
+    border-radius:10px; 
+    border:0px;
+/*     width: 75%; */
+    z-index:9999; 
+}
+
+</style>
 
 <div style="margin-top:10px; margin-left:auto; margin-right:auto; <?php echo $divMaxWidth; ?>;">
 
@@ -293,6 +327,5 @@ if(isset($txtFileUpdated)) echo $txtFileUpdated;
 //if ( $mode == 'gmonline' ) include GMO_ROOT.'editor/index.php';
 include GMO_ROOT.'editor/index.php';
 
-echo '</div>';
 ?>
-
+</div>

@@ -27,6 +27,17 @@ if($query){
     }
 }
 
+$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'TimeZone' LIMIT 1";
+$query = mysqli_query($con, $sql) or die(mysqli_error($con));
+if($query){
+    while($data = mysqli_fetch_array($query)) {
+        $TimeZone = $data['VALUE'];
+    }
+}
+date_default_timezone_set($TimeZone);
+
+error_log('league files last update: '.$file_lastUpdate,0);
+
 mysqli_close($con);
 
 // Find the .ros and .tms

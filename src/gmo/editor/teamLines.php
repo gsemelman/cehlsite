@@ -46,6 +46,32 @@
 }
 </style>
 
+<?php 
+$game1Active = 'active';
+$game2Active = '';
+
+error_log('Game='.$linesGame,0);
+
+if($linesGame == 2){
+    $game1Active = '';
+    $game2Active = 'active';
+}
+?>
+
+<!--
+<div class="container p-0">
+<div class="card">
+<div class="card-header p-1">
+    <ul class="nav nav-pills justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link <?php echo $game1Active?>" href="<?php echo BASE_URL?>MyCehl.php?lines=2#Lines">Game 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?php echo $game2Active?>" href="<?php echo BASE_URL?>MyCehl.php?lines=2&game=2#Lines">Game 2</a>
+      </li>
+    </ul>
+</div>  
+<div class="card-body p-0">-->
 <div id="tlDivTableStats" style="width:100%;">
 	<div id="tlDivAssignedTo" style="display:block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width:100%;"><span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[76]; ?>: </span><span id="tlSpanAssignedTo"></span></div>
 	<div id="tlDivLineAverag" style="display:none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width:100%;"><span style="font-weight:bold;"><?php echo $db_membre_gmo_langue[117]; ?>: </span><span id="tlSpanLineAverag"></span></div>
@@ -142,7 +168,7 @@
 		</tr>
 		<tr>
 			<!-- <td colspan="2" style="text-align:center;"><input type="button" style="height: 25px; width: 97px; background-image:url('<?php //echo BASE_URL?>gmo/images/ligne/reset.png'); background-repeat:no-repeat; border-style:inset; border-width:2px; display:block;" onclick="javascript:tlButtonReset();"></td>-->
-			<td colspan="2" style="text-align:center;"><button class="gmoActiveButton" id="tlImgRoster" style="border-width:2px; display:block; background:url('<?php echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php echo BASE_URL?>MyCehl.php#Lines';"></button></td>
+			<td colspan="2" style="text-align:center;"><button class="gmoActiveButton" id="tlImgRoster" style="border-width:2px; display:block; background:url('<?php echo BASE_URL?>gmo/images/ligne/teamroster.png');" onclick="window.location='<?php echo BASE_URL?>MyCehl.php?lines=1&game=<?php echo $linesGame;?>#Lines';"></button></td>
 		
 		</tr>
 	</table>
@@ -521,3 +547,8 @@
 </div>
 
 <div id="tlDivBottomSpacer" style="clear:both; width:100%;"></div>
+
+
+<!-- </div>end card-body -->
+<!-- </div>end card -->
+<!-- </div>end container -->

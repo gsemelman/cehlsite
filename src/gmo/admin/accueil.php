@@ -52,6 +52,7 @@ if($league_UFAToolStatus == 2) echo '<a href="?admin=ufasign#Admin">'.$db_admin_
 if($league_position == 1) echo '<a href="?admin=position#Admin">'.$db_admin_menu_langue[17].'</a><br>';
 echo '<a href="?admin=tickets#Admin">Ticket Changes</a><br>';
 echo '<a href="?admin=playerRelease#Admin">Player Release</a><br>';
+echo '<a href="?admin=lines#Admin">Team Lines</a><br>';
 
 echo '<br><b>'.$db_admin_menu_langue[2].'</b><br>';
 echo '<a href="?admin=noms#Admin">'.$db_admin_menu_langue[3].'</a><br>';

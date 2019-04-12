@@ -1,4 +1,4 @@
-function alert(title, text, type) {
+function alert(title, text, type, timeout = 2500) {
 
   var html = $('#alertPop');	
 	
@@ -18,7 +18,7 @@ function alert(title, text, type) {
 
   setTimeout(function() {
 	  html.remove();
-	  },2500);
+	  },timeout);
   
 }
 

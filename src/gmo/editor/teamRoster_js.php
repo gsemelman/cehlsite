@@ -15,12 +15,36 @@ $teamFHLSimName = $_SESSION['equipesim'];
 $name_lines = $teamFHLSimName.'.lns';
 $server_file = $file_folder_lines.$name_lines;
 $loadlinesDisplay = "none";
+error_log($server_file);
 if( is_readable($server_file) ) {
 	$loadlinesDisplay = "inline";
 }
 
-if($gm_sortPlayer == 0) $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY `NAME` ASC"; // Sort by First Name
-else $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY substring_index(TRIM(`NAME`), ' ', -1) ASC"; // Sort by Last Name
+if($linesGame == 1){
+    $SAVE_STAT = 'SAVE_STAT';
+    $SAVE_PROT = 'SAVE_PROT';
+}
+if($linesGame == 2){
+    $SAVE_STAT = 'SAVE_STAT2';
+    $SAVE_PROT = 'SAVE_PROT2';
+}
+
+
+$sql = "SELECT `ID`, `RANK`, `NAME`, `POSI`, `NUMB`, `PROT`, `HAND`, `HEIG`, `WEIG`, `AGES`, `STAT`, `COND`, 
+`INTE`, `SPEE`, `STRE`, `ENDU`, `DURA`, `DISC`, `SKAT`, `PASS`, `PKCT`, `DEFS`, `OFFS`, `EXPE`, `LEAD`, `SALA`, `CONT`, 
+`SUSP`, `GPGP`, `GOPM`, `ASAS`, `PLMN`, `PMGA`, `STST`, `PPSO`, `SHWN`, `GWLS`, `GTTI`, `HITS`, `BIRT`, `OVER`, `TEAM`,
+`$SAVE_STAT` AS SAVE_STAT, `$SAVE_PROT` as SAVE_PROT FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank'";
+
+if($gm_sortPlayer == 0){
+    $sql .=" ORDER BY `NAME` ASC";
+}else{
+    $sql .=" ORDER BY substring_index(TRIM(`NAME`), ' ', -1) ASC";
+}
+
+//error_log($sql);
+
+ //if($gm_sortPlayer == 0) $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY `NAME` ASC"; // Sort by First Name
+ //else $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY substring_index(TRIM(`NAME`), ' ', -1) ASC"; // Sort by Last Name
 
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -874,7 +898,7 @@ function trSave() {
 			document.body.style.cursor = "default";
 			if(response == "done") {
 				popupAlert("<?php echo $db_membre_gmo_langue[104]; ?>", "#4caf50");
-				document.location.href="?lines=2#Lines";
+				document.location.href="?lines=2&game=<?php echo $linesGame;?>#Lines";
 			}
 			else alert('Error! ' + response);
 		}
@@ -884,6 +908,7 @@ function trSave() {
 	parameters += "stat=" + encodeURIComponent(playerStatJSON);
 	parameters += "&rank=" + encodeURIComponent(playerRankJSON);
 	parameters += "&prot=" + encodeURIComponent(playerProtJSON);
+	parameters += "&game=" + encodeURIComponent(<?php echo $linesGame;?>);
 	
 	xmlhttp.open("POST", page, true)
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
@@ -909,12 +934,17 @@ function trLoadLines() {
 				//document.location.href="";
 			}
 			else alert('Error! ' + response);
+		}else{
+			var response = xmlhttp.responseText;
+			document.body.style.cursor = "default";
+			popupAlert("Error Loading Lines!", "#ae654c");
 		}
 	}
-	var page = 'editor/teamRosterLoadLines.php';
+	var page = '<?php echo BASE_URL?>gmo/editor/teamRosterLoadLines.php';
 	var parameters = "";
 	xmlhttp.open("POST", page, true)
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	
 	xmlhttp.send(parameters)
 }
 

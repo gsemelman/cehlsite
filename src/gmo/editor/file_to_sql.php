@@ -64,6 +64,8 @@ $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 
 //$date_time = date("Y-m-d H:i:s"); // Global variable!
 
+date_default_timezone_set($TimeZone);   
+
 $sql = "UPDATE `".$db_table."_parameters` SET `VALUE`='".date("Y-m-d H:i:s")."' WHERE `PARAM`='file_last_update'";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 
@@ -305,7 +307,9 @@ for($t=0;$t<$teamNumber;$t++) {
 			`OVER`, 
 			`TEAM`, 
 			`SAVE_STAT`,
-			`SAVE_PROT`) 
+			`SAVE_PROT`, 
+			`SAVE_STAT2`,
+			`SAVE_PROT2`) 
 			VALUES (
 			'$fileRosRank',
 			'$fileROSName',
@@ -348,9 +352,14 @@ for($t=0;$t<$teamNumber;$t++) {
 			'$fileROSBirt',
 			'$fileROSOver',
 			'$t',
-			'',
-			'')
+			'$fileROSStat',
+			'$fileROSProt',
+			'$fileROSStat',
+			'$fileROSProt') 
 			;";
+			// 			'',
+			// 			'')
+			// 			;";
 			$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 		}
 	

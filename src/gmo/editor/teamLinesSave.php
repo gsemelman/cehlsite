@@ -43,12 +43,32 @@ if($query){
 
 $LNSPasswd = $_POST['passwd']; // Password
 $LNSLineup = $_POST['lineup']; // Lineup
+$linesGame = $_POST['game']; // Lineup
+
+error_log('pass='.$LNSPasswd);
+
+//setting line time
+
+if($linesGame == 1){
+    $L_FILE = 'LNS_FILE';
+    $L_DATE = 'LNS_DATE';
+    $S_STAT = 'SAVE_STAT';
+    $S_PROT = 'SAVE_PROT';
+}
+if($linesGame == 2){
+    $L_FILE = 'LNS_FILE2';
+    $L_DATE = 'LNS_DATE2';
+    $S_STAT = 'SAVE_STAT2';
+    $S_PROT = 'SAVE_PROT2';
+}
 
 // Player Stats & Player Protection
 $LNSStatPl = "";
 $LNSProtec = "";
 for($i=0;$i<50;$i++) {
-	$sql = "SELECT `SAVE_STAT`, `SAVE_PROT` FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' AND `RANK` = '$i'";
+	//$sql = "SELECT `SAVE_STAT`, `SAVE_PROT` FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' AND `RANK` = '$i'";
+    $sql = "SELECT `$S_STAT` AS SAVE_STAT, `$S_PROT` AS SAVE_PROT FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' AND `RANK` = '$i'";
+    error_log($sql);
 	$query = mysqli_query($con, $sql) or die(mysqli_error($con));
 	if(mysqli_num_rows($query) != 0) {
 		while($data = mysqli_fetch_array($query)) {
@@ -72,7 +92,8 @@ $LNS_File = $LNSTMRank.$LNSPasswd.$LNSLineup.strtoupper($LNSStatPl).$LNSProtec;
 date_default_timezone_set($TimeZone);
 $date_time = date("Y-m-d H:i:s");
 
-$sql = "UPDATE `$db_table` SET `LNS_DATE` = '$date_time', `LNS_FILE` = '$LNS_File' WHERE `INT` = '$teamID' LIMIT 1";
+//$sql = "UPDATE `$db_table` SET `LNS_DATE` = '$date_time', `LNS_FILE` = '$LNS_File' WHERE `INT` = '$teamID' LIMIT 1";
+$sql = "UPDATE `$db_table` SET `$L_DATE` = '$date_time', `$L_FILE` = '$LNS_File' WHERE `INT` = '$teamID' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 
 // Update the LNS count
@@ -87,7 +108,14 @@ error_log($file_folder_lines,0);
 // Saving the LNS File to the server
 $output = pack('H*', $LNS_File);
 //$newfile = "../".$file_folder_lines.$teamFHLSimName.".lns";
-$newfile = $file_folder_lines.$teamFHLSimName.".lns";
+
+if($LNSGame == 1){
+    $newfile = $file_folder_lines.$teamFHLSimName.".lns";
+}else{
+    $newfile = $file_folder_lines.'game2/'.$teamFHLSimName.".lns";
+}
+
+//$newfile = $file_folder_lines.$teamFHLSimName.".lns";
 $file = fopen ($newfile, "w");
 fwrite($file, $output);
 fclose ($file);

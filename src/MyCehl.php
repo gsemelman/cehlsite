@@ -80,7 +80,7 @@ mysqli_close($con);
 //init gmo
 require_once GMO_ROOT.'membre/init.php';
 
-//date_default_timezone_set($TimeZone);
+date_default_timezone_set($TimeZone); //needs to be set or file_last_update may not be correct.
 // $date_time = date("Y-m-d H:i:s"); // Global variable!
 
 // $a = '';
@@ -89,6 +89,7 @@ require_once GMO_ROOT.'membre/init.php';
 include 'nav.php';
 //echo '<div class="header-content top-container"></div>';
 ?>
+
 
 <div id="MyCEHL" class="container">
 
@@ -108,8 +109,6 @@ include 'nav.php';
     					    $requiresLogin = false;
 					   }else{
 					?>
-					
-					<div id="popupAlert" class="mb-2" style="display:none; height:40px; line-height:40px; text-align:center; vertical-align:middle; background-color:#ae654c; color:#ffffff; font-weight:bold; border-radius:10px; border:0px;"></div>
 					
 				
 					<div id="nav-mygm">

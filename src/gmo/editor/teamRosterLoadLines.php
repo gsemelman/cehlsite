@@ -10,7 +10,7 @@ $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_fol
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
 	while($data = mysqli_fetch_array($query)) {
-		$file_folder_lines = $data['VALUE'];
+	    $file_folder_lines = GMO_ROOT.$data['VALUE'];
 	}
 }
 
@@ -37,8 +37,17 @@ date_default_timezone_set($TimeZone);
 $date_time = date("Y-m-d H:i:s");
 
 // Read the .lns file and open it
-$filename = "../".$file_folder_lines.$teamFHLSimName.".lns";
-$handle = fopen ($filename, "r");
+//$filename = "../".$file_folder_lines.$teamFHLSimName.".lns";
+$filename = $file_folder_lines.$teamFHLSimName.".lns";
+
+if(!is_readable($filename)){
+    error_log("file no longer exists or cannot be read. cannot load lines");
+    http_response_code(500);
+    exit();
+}
+
+
+$handle = fopen($filename, "r");
 $contents = "";
 while (!feof($handle)) {
   $contents .= fread($handle, 8192);

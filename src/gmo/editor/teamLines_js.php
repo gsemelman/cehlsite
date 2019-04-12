@@ -1,9 +1,32 @@
 <?php
 include GMO_ROOT.'login/mysqli.php';
 
-$sql = "SELECT `RANK`, `LNS_FILE`, `LNS_DATE`, `TMS_LINEUP` FROM `$db_table` WHERE `INT` = '$teamID' LIMIT 1";
+$L_FILE = 'LNS_FILE';
+$L_DATE = 'LNS_DATE';
+// if($linesGame == 2){
+//     $L_FILE = 'LNS_FILE2';
+//     $L_DATE = 'LNS_DATE2';
+// }
+
+if($linesGame == 1){
+    $L_FILE = 'LNS_FILE';
+    $L_DATE = 'LNS_DATE';
+    $SAVE_STAT = 'SAVE_STAT';
+    $SAVE_PROT = 'SAVE_PROT';
+}
+if($linesGame == 2){
+    $SAVE_STAT = 'SAVE_STAT2';
+    $SAVE_PROT = 'SAVE_PROT2';
+    $L_FILE = 'LNS_FILE2';
+    $L_DATE = 'LNS_DATE2';
+}
+
+
+$sql = "SELECT `RANK`, `$L_FILE` AS LNS_FILE, `$L_DATE` AS LNS_DATE, `TMS_LINEUP` FROM `$db_table` WHERE `INT` = '$teamID' LIMIT 1";
+//$sql = "SELECT `RANK`, `LNS_FILE`, `LNS_DATE`, `TMS_LINEUP` FROM `$db_table` WHERE `INT` = '$teamID' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 $useLNS = 0;
+
 if($query){
 	while($data = mysqli_fetch_array($query)) {
 		$teamRank = $data['RANK'];
@@ -18,8 +41,19 @@ if($query){
 	}
 }
 
-if($gm_sortPlayer == 0) $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY `NAME` ASC"; // Sort by First Name
-else $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY substring_index(TRIM(`NAME`), ' ', -1) ASC"; // Sort by Last Name
+$sql = "SELECT `ID`, `RANK`, `NAME`, `POSI`, `NUMB`, `PROT`, `HAND`, `HEIG`, `WEIG`, `AGES`, `STAT`, `COND`,
+`INTE`, `SPEE`, `STRE`, `ENDU`, `DURA`, `DISC`, `SKAT`, `PASS`, `PKCT`, `DEFS`, `OFFS`, `EXPE`, `LEAD`, `SALA`, `CONT`,
+`SUSP`, `GPGP`, `GOPM`, `ASAS`, `PLMN`, `PMGA`, `STST`, `PPSO`, `SHWN`, `GWLS`, `GTTI`, `HITS`, `BIRT`, `OVER`, `TEAM`,
+`$SAVE_STAT` AS SAVE_STAT, `$SAVE_PROT` as SAVE_PROT FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank'";
+
+if($gm_sortPlayer == 0){
+    $sql .=" ORDER BY `NAME` ASC";
+}else{
+    $sql .=" ORDER BY substring_index(TRIM(`NAME`), ' ', -1) ASC";
+}
+
+//if($gm_sortPlayer == 0) $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY `NAME` ASC"; // Sort by First Name
+//else $sql = "SELECT * FROM `".$db_table."_players` WHERE `TEAM` = '$teamRank' ORDER BY substring_index(TRIM(`NAME`), ' ', -1) ASC"; // Sort by Last Name
 
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -838,6 +872,7 @@ function tlSave() {
 	var parameters = "";
 	parameters += "lineup=" + encodeURIComponent(tlLNSLineup);
 	parameters += "&passwd=" + encodeURIComponent(tlPasswd);
+	parameters += "&game=" + encodeURIComponent(<?php echo $linesGame;?>);
 	
 	xmlhttp.open("POST", page, true)
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
