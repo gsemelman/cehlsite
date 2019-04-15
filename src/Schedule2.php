@@ -202,11 +202,11 @@ if($currentPLF){
 					    for($i=0;$i<count($status);$i++) {
 					        if($a == $i){
 					            echo '<thead>';
-					            echo '<tr class="tableau-top">';
+					            echo '<tr>';
 					            echo '<th>'.$ScheldGameNum.'</th>';
 					            echo '<th>'.$ScheldVisitor.'</th>';
 					            echo '<th style="text-align:center;">'.$ScheldScore.'</th>';
-					            echo '<td>'.$ScheldHome.'</td>';
+					            echo '<th>'.$ScheldHome.'</th>';
 					            echo '<th style="text-align:center;">'.$ScheldScore.'</th>';
 					            echo '<th style="text-align:center;">'.$schedOT.'</th>';
 					            echo '</tr>';
@@ -214,7 +214,7 @@ if($currentPLF){
 					            echo '<tbody>';
 					        }
 					        if($status[$i] == 'Jour'){
-					            echo '<tr class="tableau-top"><td colspan="6">'.$schedDay.' '.$day[$i].'</td></tr>';
+					            echo '<tr class="tableau-top text-center"><td colspan="6">'.$schedDay.' '.$day[$i].'</td></tr>';
 					            $c = 1;
 					        }
 					        if($status[$i] == 'Trade'){

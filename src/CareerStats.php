@@ -108,7 +108,7 @@ $FnmGMs = $folder.$folderLeagueURL.'GMs.html';
 $i = 0;
 if(file_exists($FnmGMs)) {
 	$tableau = file($FnmGMs);
-	while(list($cle,$val) = each($tableau)) {
+	while(list($cle,$val) = myEach($tableau)) {
 		$val = utf8_encode($val);
 		if(substr_count($val, 'HREF') && !substr_count($val, '<BR>')) {
 			$gmequipe[$i] = trim(substr($val, 0, 10));
@@ -130,7 +130,7 @@ if(file_exists($FnmGMs)) {
 		if($folderLeagueURL != '') {
 			$FnmGMs = $Fnmtmp.$folderLeagueURL.'GMs.html';
 			$tableau = file($FnmGMs);
-			while(list($cle,$val) = each($tableau)) {
+			while(list($cle,$val) = myEach($tableau)) {
 				$val = utf8_encode($val);
 				if(substr_count($val, 'HREF') && !substr_count($val, '<BR>')) {
 					$tmpGMTeam = trim(substr($val, 0, 10));
@@ -173,7 +173,7 @@ $searchName = array();
 if($csTeam != '') $d = 1;
 if(file_exists($Fnm)) {
 	$tableau = file($Fnm);
-	while(list($cle,$val) = each($tableau)) {
+	while(list($cle,$val) = myEach($tableau)) {
 		$val = utf8_encode($val);
 		if(substr_count($val, 'A NAME='.$csTeam)) {
 			$reste = substr($val, strpos($val, '='), strpos($val, '</')-strpos($val, '='));
@@ -234,7 +234,7 @@ if(file_exists($Fnm)) {
 				$lastTeam = '';
 				if(file_exists($Fnm)) {
 					$tableau = file($Fnm);
-					while(list($cle,$val) = each($tableau)) {
+					while(list($cle,$val) = myEach($tableau)) {
 						$val = utf8_encode($val);
 						if(substr_count($val, 'A NAME='.$csTeam)) {
 							$reste = substr($val, strpos($val, '='), strpos($val, '</')-strpos($val, '='));
@@ -358,7 +358,7 @@ if($csName != '' || $csLetter != '' || $csPos != '' || $csTeam != '' || $csSeaso
 echo '
 <div style="margin-left:auto; margin-right:auto; clear:both; width:555px; border:solid 1px'.$couleur_contour.'">
 <div class="titre"><span class="bold-blanc">'.$careerStatsTitle.' - '.$careerStatsPlayerList.'</span></div>
-<table class="tableau">';
+<table class="table table-sm table-striped">';
 
 if(count($searchName)) {
 	$txtLastTeam = $careerStatsLASTTEAM;
@@ -378,7 +378,7 @@ if(count($searchName)) {
 	$key = key($tableauf);
 	$val = current($tableauf);
 	$c = 1;
-	while(list ($key, $val) = each($tableauf)) {
+	while(list ($key, $val) = myEach($tableauf)) {
 		if($c == 1) $c = 2;
 		else $c = 1;
 		echo '

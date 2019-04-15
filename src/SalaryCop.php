@@ -123,8 +123,8 @@ if(file_exists($Fnm)) {
 			echo $salaryCopNear.' '.$leagueSalaryClose_ca.'$ '.$salaryCopNearTo.' '.$leagueSalaryCap_ca.'$<br>';
 			echo 'Minimum Active Players: '.MIN_ACTIVE_PLAYERS.'';
             echo '</th></tr>';
-			echo '<tr class="tableau-top">
-            <td style="text-align:left;">'.$salaryCopTeam.'</th>
+			echo '<tr>
+            <th style="text-align:left;">'.$salaryCopTeam.'</th>
 			<th style="text-align:right;">'.$salaryCopProPayroll.'</th>';
 			if($leagueSalaryIncFarm == 1) echo '<td style="text-align:right;">'.$salaryCopFarmPayroll.'</th>';
 			echo '<th style="text-align:right;">'.$salaryCopRemaining.'</th>
@@ -211,16 +211,16 @@ if(file_exists($Fnm)) {
 	echo '</table><br>
 	<table class="table table-sm table-striped">
     <thead>
-        <tr class="tableau-top">
-            <td>'.$salaryCopStatus.'</td>
-            <td style="text-align:left;">'.$salaryCopDesc.'</td>
-            <td>'.$salaryCopNumber.'</td>
-            <td style="text-align:right;">'.$salaryCopRemaining.'</td>
+        <tr>
+            <th>'.$salaryCopStatus.'</th>
+            <th style="text-align:left;">'.$salaryCopDesc.'</th>
+            <th>'.$salaryCopNumber.'</th>
+            <th style="text-align:right;">'.$salaryCopRemaining.'</th>
         </tr>
     </thead>
-	<tr class="hover2"><td><div style="'.$v.'"><br></div></td><td style="text-align:left;">'.$salaryCopGoodSalaryCap.'</td><td>'.$nv.'</td><td style="text-align:right;">'.$vert.'$</td></tr>
-	<tr class="hover1"><td><div style="'.$o.'"><br></div></td><td style="text-align:left;">'.$salaryCapNearSalaryCap.'</td><td>'.$no.'</td><td style="text-align:right;">'.$jaune.'$</td></tr>
-	<tr class="hover2"><td><div style="'.$r.'"><br></div></td><td style="text-align:left;">'.$salaryCapOverSalaryCap.'</td><td>'.$nr.'</td><td style="text-align:right;">'.$rouge.'$</td></tr>';
+	<tr><td><div style="'.$v.'"><br></div></td><td style="text-align:left;">'.$salaryCopGoodSalaryCap.'</td><td>'.$nv.'</td><td style="text-align:right;">'.$vert.'$</td></tr>
+	<tr><td><div style="'.$o.'"><br></div></td><td style="text-align:left;">'.$salaryCapNearSalaryCap.'</td><td>'.$no.'</td><td style="text-align:right;">'.$jaune.'$</td></tr>
+	<tr><td><div style="'.$r.'"><br></div></td><td style="text-align:left;">'.$salaryCapOverSalaryCap.'</td><td>'.$nr.'</td><td style="text-align:right;">'.$rouge.'$</td></tr>';
 	if($leagueSalaryCapFloor != 0) echo '<tr class="hover1"><td><div style="'.$dr.'"><br></div></td><td style="text-align:left;">'.$salaryCopFloorUnder.'</td><td>'.$nrFloor.'</td><td style="text-align:right;">'.$rougeFloor.'$</td></tr>';
 	echo '</table>';
 }

@@ -208,8 +208,7 @@ if(file_exists($Fnm)) {
 		}
 	}
 	echo '</tbody></table></div><br>';
-	/* echo '<table class="tableau"><tr><td style="text-align:center; font-weight:bold;" colspan="'.$tableColGoaltending.'">'.$leaderGoalies.'</td></tr>'; */
-	
+
 	echo '<div class="tableau-top text-center">'.$leaderGoalies.'</div>';
 	echo '<div class="tableau-top text-center">'.$leaderminGames.' '.$games.' '.$leaderminGames2.'.</div>';
 	

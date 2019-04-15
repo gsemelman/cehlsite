@@ -151,7 +151,7 @@ if (file_exists($Fnm)) {
 	<table class="table table-sm table-striped">
     <thead>
 	<tr class="titre text-center"><th colspan="4">'.$top5Goals.'</th></tr>
-	<tr class="tableau-top">
+	<tr>
 	<th>NAME</th>
 	<th>'.$individualTM.'</th>
 	<th>'.$individualG.'</th>
@@ -176,13 +176,13 @@ if (file_exists($Fnm)) {
 	<table class="table table-sm table-striped">
     <thead>
 	<tr class="titre text-center"><th colspan="4">'.$top5Points.'</th></tr>
-	<tr class="tableau-top">
-	<td>P</td>
-	<td>NAME</td>
-	<td>'.$individualTM.'</td>
-	<td>'.$top5Pts.'</td>
+	<tr>
+	<th>P</th>
+	<th>NAME</th>
+	<th>'.$individualTM.'</th>
+	<th>'.$top5Pts.'</th>
 	</tr>
-    <thead>
+    </thead>
 	<tbody>';
 	    
 	    
@@ -230,7 +230,7 @@ if (file_exists($Fnm)) {
 	<table class="table table-sm table-striped">
     <thead>
 	<tr class="titre text-center"><th colspan="4">'.$top5SavePct.'</th></tr>
-	<tr class="tableau-top">
+	<tr>
 	<th>NAME</th>
 	<th>'.$individualTM.'</th>
 	<th>%</th>

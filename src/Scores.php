@@ -255,6 +255,83 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 	?>
 	
 	
+	<style>
+
+    .footer-header{
+    
+        color: #85878c;
+        font-weight: bold;
+        display: block;
+        
+    }
+    
+    #scores .pagination {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+    
+    #scores .logo {
+        float: left;
+        vertical-align: middle;
+    /*     width: 40px; */
+    /*     height: 40px; */
+        max-width: 45px;
+        overflow:hidden;
+    /*     margin: 0 auto; */
+    /*     margin-left:3px; */
+        display: block;
+    }
+    
+    #scores .table th{
+        vertical-align: middle;
+        background-color: #dcdee0;
+        border: 0;
+        height: 20px;
+        line-height: 10px;
+    }
+    
+    #scores .table td{
+       border: 1px solid #dcdee0;
+       font-size: 25px;
+    /*    font-family: Arial,Helvetica,sans-serif; */
+       vertical-align: middle;
+       padding: .1rem;
+       line-height: 45px;
+      
+    }
+    
+    .dark-text{
+       color: #323232;
+    }
+    
+    .team-acronym {
+        color: #323232;
+        font-size: 25px;
+        font-weight: bold;
+        padding-left: 25px;
+        vertical-align: middle;
+    }
+    
+    
+    .box-score{
+/*         background-color: #7a7a7a; */
+        background-color: var(--color-primary-1);
+        color: white;
+    }
+    
+    .game-score-footer {
+        border: 1px solid #dcdee0;
+        border-top: none;
+        color: #323232;
+        background-color: #f0f1f2; 
+        padding: 5px 10px;
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+
+    </style>
+	
+	
 	<div id="scores" class = "container">
 	<div class="card">
 
@@ -575,80 +652,5 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
         
 ?>
 
-<style>
-
-.footer-header{
-
-    color: #85878c;
-    font-weight: bold;
-    display: block;
-    
-}
-
-#scores .pagination {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
-#scores .logo {
-    float: left;
-    vertical-align: middle;
-/*     width: 40px; */
-/*     height: 40px; */
-    max-width: 45px;
-    overflow:hidden;
-/*     margin: 0 auto; */
-/*     margin-left:3px; */
-    display: block;
-}
-
-#scores .table th{
-    vertical-align: middle;
-    background-color: #dcdee0;
-    border: 0;
-    height: 20px;
-    line-height: 10px;
-}
-
-#scores .table td{
-   border: 1px solid #dcdee0;
-   font-size: 25px;
-/*    font-family: Arial,Helvetica,sans-serif; */
-   vertical-align: middle;
-   padding: .1rem;
-   line-height: 45px;
-  
-}
-
-.dark-text{
-   color: #323232;
-}
-
-.team-acronym {
-    color: #323232;
-    font-size: 25px;
-    font-weight: bold;
-    padding-left: 25px;
-    vertical-align: middle;
-}
-
-
-.box-score{
-    background-color: #7a7a7a;
-    color: white;
-}
-
-.game-score-footer {
-    border: 1px solid #dcdee0;
-    border-top: none;
-    color: #323232;
-    background-color: #f0f1f2;
-    padding: 5px 10px;
-    font-size: 13px;
-    text-transform: uppercase;
-}
-
-
-</style>
 
 <?php include 'footer.php'; ?>

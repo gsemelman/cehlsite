@@ -45,6 +45,7 @@ $Fnm = $folder.$folderLeagueURL.'Individual.html';
 $a = 0;
 $c = 1;
 $i = 0;
+$lastUpdated = '';
 if (file_exists($Fnm)) {
 	$tableau = file($Fnm);
 	while(list($cle,$val) = myEach($tableau)) {
@@ -53,7 +54,7 @@ if (file_exists($Fnm)) {
 			$pos = strpos($val, ')');
 			$pos = $pos - 10;
 			$val = substr($val, 10, $pos);
-			echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
+			$lastUpdated = $val;
 
 		}
 		if(substr_count($val, '<BR>') && !substr_count($val, '(') && !substr_count($val, '<BR><BR>')) {
@@ -344,60 +345,59 @@ if (file_exists($Fnm)) {
 $i = 0;
 echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4 offset-md-2">
+	<div class="tableau-top text-center">'.$individualGoals.'</div>
 	<div class = "table-responsive">
-	<table class="table table-sm">
-	<tr class="titre"><td  colspan="4">'.$individualGoals.'</td></tr>
-	<tr class="tableau-top">
-	<td></td>
-	<td style="text-align:right;">'.$individualTM.'</td>
-	<td style="text-align:right;">'.$individualGP.'</td>
-	<td style="text-align:right;">'.$individualG.'</td>
-	</tr>';
+	<table class="table table-sm table-striped text-center">
+    <thead>
+	<tr>
+	<th></td>
+	<th>'.$individualTM.'</th>
+	<th>'.$individualGP.'</th>
+	<th>'.$individualG.'</th>
+	</tr>
+    </thead>
+    <tbody>';
+	
 	if(isset($goalj)) {
 	for($i=0;$i<count($goalj);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if(isset($TSabbr) && substr_count($goale[$i], $TSabbr)) $bold = 'font-weight:bold;';
 		echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$goalj[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$goale[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$goalm[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$goalg[$i].'</td>
+		<tr>
+		<td class="text-left">'.$goalj[$i].'</td>
+		<td>'.$goale[$i].'</td>
+		<td>'.$goalm[$i].'</td>
+		<td>'.$goalg[$i].'</td>
 		</tr>';
 	}
 	}
-	echo '</table></div></div>';
+	echo '</tbody></table></div></div>';
 
 	$c = 1;
 	$i = 0;
 	echo '<div class = "col-sm-12 col-md-4">
+    <div class="tableau-top text-center">'.$individualGSS.'</div>
 	<div class = "table-responsive">
-	<table class="table table-sm">
-	<tr class="titre"><td  colspan="4">'.$individualGSS.'</td></tr>
-	<tr class="tableau-top">
-	<td></td>
-	<td style="text-align:right;">'.$individualTM.'</td>
-	<td style="text-align:right;">'.$individualGP.'</td>
-	<td style="text-align:right;">'.$individualStreak.'</td>
-	</tr>';
+	<table class="table table-sm table-striped text-center">
+    <thead>
+	<tr>
+	<th></td>
+	<th>'.$individualTM.'</th>
+	<th>'.$individualGP.'</th>
+	<th>'.$individualStreak.'</th>
+	</tr>
+    </thead>
+    <tbody>';
 	if(isset($gsj)) {
 	for($i=0;$i<count($gsj);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if(isset($TSabbr) && substr_count($gse[$i], $TSabbr)) $bold = 'font-weight:bold;';
 		echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$gsj[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$gse[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$gsm[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$gsg[$i].'</td>
+		<tr>
+		<td class="text-left">'.$gsj[$i].'</td>
+		<td>'.$gse[$i].'</td>
+		<td>'.$gsm[$i].'</td>
+		<td>'.$gsg[$i].'</td>
 		</tr>';
 	}
 	}
-	echo '</table></div></div>';
+	echo '</tbody></table></div></div>';
 echo '</div>';
 
 $c = 1;
@@ -405,57 +405,56 @@ $i = 0;
 
 echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4 offset-md-2">
+    <div class="tableau-top text-center">'.$individualAssists.'</div>
 	<div class = "table-responsive">
-	<br><table class="table table-sm">
-	<tr class="titre"><td  colspan="4">'.$individualAssists.'</td></tr>
-	<tr class="tableau-top">
-	<td></td>
-	<td style="width:40px; text-align:right;">'.$individualTM.'</td>
-	<td style="width:30px; text-align:right;">'.$individualGP.'</td>
-	<td style="width:30px; text-align:right;">'.$individualA.'</td>
-	</tr>';
+	<table class="table table-sm table-striped text-center">
+    <thead>
+	<tr>
+	<th></td>
+	<th>'.$individualTM.'</th>
+	<th>'.$individualGP.'</th>
+	<th>'.$individualA.'</th>
+	</tr>
+    </thead>
+    <tbody>';
 	if(isset($assistj)) {
 	for($i=0;$i<count($assistj);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if(isset($TSabbr) && substr_count($assiste[$i], $TSabbr)) $bold = 'font-weight:bold;';
 		echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$assistj[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$assiste[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$assistm[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$assista[$i].'</td>
+		<tr>
+		<td class="text-left">'.$assistj[$i].'</td>
+		<td>'.$assiste[$i].'</td>
+		<td>'.$assistm[$i].'</td>
+		<td>'.$assista[$i].'</td>
 		</tr>';
 	}
 	}
-	echo '</table></div></div>';
+	echo '</tbody></table></div></div>';
 
 	$c = 1;
 	$i = 0;
 	
 	echo '<div class = "col-sm-12 col-md-4">
-	<div class = "table-responsive">
-	<br><table class="table table-sm">
-	<tr class="titre"><td  colspan="4">'.$individualPSS.'</td></tr>
-	<tr class="tableau-top">
-	<td></td>
-	<td style="width:40px; text-align:right;">'.$individualTM.'</td>
-	<td style="width:30px; text-align:right;">'.$individualGP.'</td>
-	<td style="width:30px; text-align:right;">'.$individualStreak.'</td>
-	</tr>';
+    <div class="tableau-top text-center">'.$individualPSS.'</div>
+	<div class = "table-responsive">';
+	echo '<table class="table table-sm table-striped text-center">
+	<thead>
+	<tr>
+	<th></td>
+	<th>'.$individualTM.'</th>
+	<th>'.$individualGP.'</th>
+	<th>'.$individualStreak.'</th>
+	</tr>
+	</thead>
+    <tbody>';
+	
 	if(isset($psj)) {
 	for($i=0;$i<count($psj);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if(isset($TSabbr) && substr_count($pse[$i], $TSabbr)) $bold = 'font-weight:bold;';
 		echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$psj[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$pse[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$psm[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$psg[$i].'</td>
+		<tr>
+		<td class="text-left">'.$psj[$i].'</td>
+		<td>'.$pse[$i].'</td>
+		<td>'.$psm[$i].'</td>
+		<td>'.$psg[$i].'</td>
 		</tr>';
 	}
 	}
@@ -466,118 +465,123 @@ $c = 1;
 $i = 0;
 
 echo '<div class = "row">';
+
 	echo '<div class = "col-sm-12 col-md-4 offset-md-2">
-	<div class = "table-responsive">
-	<br><table class="table table-sm">
-	<tr class="titre"><td  colspan="4">'.$individualPPG.'</td></tr>
-	<tr class="tableau-top">
-	<td></td>
-	<td style="width:40px; text-align:right;">'.$individualTM.'</td>
-	<td style="width:30px; text-align:right;">'.$individualGP.'</td>
-	<td style="width:30px; text-align:right;">'.$individualG.'</td>
-	</tr>';
+    <div class="tableau-top text-center">'.$individualPPG.'</div>
+	<div class = "table-responsive">';
+	echo '<table class="table table-sm table-striped text-center">
+	<thead>
+	<tr>
+	<th></td>
+	<th>'.$individualTM.'</th>
+	<th>'.$individualGP.'</th>
+	<th>'.$individualG.'</th>
+	</tr>
+	</thead>
+    <tbody>';
+	
 	if(isset($ppgj)) {
 	for($i=0;$i<count($ppgj);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if(isset($TSabbr) && substr_count($ppge[$i], $TSabbr)) $bold = 'font-weight:bold;';
 		echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$ppgj[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$ppge[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$ppgm[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$ppgg[$i].'</td>
+		<tr>
+		<td class="text-left">'.$ppgj[$i].'</td>
+		<td>'.$ppge[$i].'</td>
+		<td>'.$ppgm[$i].'</td>
+		<td>'.$ppgg[$i].'</td>
 		</tr>';
 	}
 	}
-	echo '</table></div></div>';
+	echo '</tbody></table></div></div>';
 
-	$c = 1;
-	$i = 0;
 	echo '<div class = "col-sm-12 col-md-4">
-	<div class = "table-responsive">
-	<br><table class="table table-sm">
-	<tr class="titre"><td  colspan="4">'.$individualC.'</td></tr>
-	<tr class="tableau-top">
-	<td></td>
-	<td style="width:40px; text-align:right;">'.$individualTM.'</td>
-	<td style="width:30px; text-align:right;">'.$individualGP.'</td>
-	<td style="width:50px; text-align:right;">'.$individualPts.'</td>
-	</tr>';
+    <div class="tableau-top text-center">'.$individualC.'</div>
+	<div class = "table-responsive">';
+	echo '<table class="table table-sm table-striped text-center">
+	<thead>
+	<tr>
+	<th></td>
+	<th>'.$individualTM.'</th>
+	<th>'.$individualGP.'</th>
+	<th>'.$individualPts.'</th>
+	</tr>
+	</thead>
+    <tbody>';
+	
 	if(isset($cej)) {
 	for($i=0;$i<count($cej);$i++){
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
 		if(isset($TSabbr) && substr_count($cee[$i], $TSabbr)) $bold = 'font-weight:bold;';
 		echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$cej[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$cee[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$cem[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$ceg[$i].'</td>
+		<tr>
+		<td class="text-left">'.$cej[$i].'</td>
+		<td>'.$cee[$i].'</td>
+		<td>'.$cem[$i].'</td>
+		<td>'.$ceg[$i].'</td>
 		</tr>';
 	}
 	}
-	echo '</table></div></div>';
+	echo '</tbody></table></div></div>';
 echo '</div>';
 
-$c = 1;
-$i = 0;
-echo '<div">
-<br><table class="table table-sm">
-<tr class="titre"><td  colspan="4">'.$individualSHG.'</td></tr>
-<tr class="tableau-top">
-<td></td>
-<td style="width:40px; text-align:right;">'.$individualTM.'</td>
-<td style="width:30px; text-align:right;">'.$individualGP.'</td>
-<td style="width:30px; text-align:right;">'.$individualG.'</td>
-</tr>';
-if(isset($shgj)) {
-for($i=0;$i<count($shgj);$i++){
-	if($c == 1) $c = 2;
-	else $c = 1;
-	$bold = '';
-	if(isset($TSabbr) && substr_count($shge[$i], $TSabbr)) $bold = 'font-weight:bold;';
-	echo '
-	<tr class="hover'.$c.'">
-	<td style="'.$bold.'">'.$shgj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shge[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shgm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shgg[$i].'</td>
-	</tr>';
-}
-}
-echo '</table></div>';
 
-$c = 1;
-$i = 0;
-echo '<div>
-<br><table class="table table-sm">
-<tr class="titre"><td  colspan="4">'.$individualLW.'</td></tr>
-<tr class="tableau-top">
-<td></td>
-<td style="width:40px; text-align:right;">'.$individualTM.'</td>
-<td style="width:30px; text-align:right;">'.$individualGP.'</td>
-<td style="width:50px; text-align:right;">'.$individualPts.'</td>
-</tr>';
-if(isset($agj)) {
-for($i=0;$i<count($agj);$i++){
-	if($c == 1) $c = 2;
-	else $c = 1;
-	$bold = '';
-	if(isset($TSabbr) && substr_count($age[$i], $TSabbr)) $bold = 'font-weight:bold;';
-	echo '
-	<tr class="hover'.$c.'">
-	<td style="'.$bold.'">'.$agj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$age[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$agm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$agg[$i].'</td>
-	</tr>';
-}
-}
-echo '</table></div>';
+echo '<div class = "row">';
+
+    echo '<div class = "col-sm-12 col-md-4 offset-md-2">
+        <div class="tableau-top text-center">'.$individualSHG.'</div>
+    	<div class = "table-responsive">';
+    echo '<table class="table table-sm table-striped text-center">
+    	<thead>
+    	<tr>
+    	<th></td>
+    	<th>'.$individualTM.'</th>
+    	<th>'.$individualGP.'</th>
+    	<th>'.$individualG.'</th>
+    	</tr>
+    	</thead>
+        <tbody>';
+
+    if(isset($shgj)) {
+    for($i=0;$i<count($shgj);$i++){
+    	echo '
+    	<tr>
+    	<td class="text-left">'.$shgj[$i].'</td>
+    	<td>'.$shge[$i].'</td>
+    	<td>'.$shgm[$i].'</td>
+    	<td>'.$shgg[$i].'</td>
+    	</tr>';
+    }
+    }
+    echo '</tbody></table></div></div>';
+
+    $c = 1;
+    $i = 0;
+    
+    echo '<div class = "col-sm-12 col-md-4">
+        <div class="tableau-top text-center">'.$individualLW.'</div>
+    	<div class = "table-responsive">';
+    echo '<table class="table table-sm table-striped text-center">
+    	<thead>
+    	<tr>
+    	<th></td>
+    	<th>'.$individualTM.'</th>
+    	<th>'.$individualGP.'</th>
+    	<th>'.$individualPts.'</th>
+    	</tr>
+    	</thead>
+        <tbody>';
+    
+    if(isset($agj)) {
+    for($i=0;$i<count($agj);$i++){
+    	echo '
+    	<tr>
+    	<td class="text-left">'.$agj[$i].'</td>
+    	<td >'.$age[$i].'</td>
+    	<td >'.$agm[$i].'</td>
+    	<td >'.$agg[$i].'</td>
+    	</tr>';
+    }
+    }
+    echo '</tbody></table></div></div>';
+echo '</div>';
 
 $c = 1;
 $i = 0;
@@ -599,9 +603,9 @@ for($i=0;$i<count($shpj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$shpj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shpe[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shpm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shpp[$i].'</td>
+	<td >'.$shpe[$i].'</td>
+	<td >'.$shpm[$i].'</td>
+	<td >'.$shpp[$i].'</td>
 	</tr>';
 }
 }
@@ -627,9 +631,9 @@ for($i=0;$i<count($adj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$adj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$ade[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$adm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$adg[$i].'</td>
+	<td >'.$ade[$i].'</td>
+	<td >'.$adm[$i].'</td>
+	<td >'.$adg[$i].'</td>
 	</tr>';
 }
 }
@@ -655,9 +659,9 @@ for($i=0;$i<count($shotj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$shotj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shote[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shotm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$shott[$i].'</td>
+	<td >'.$shote[$i].'</td>
+	<td >'.$shotm[$i].'</td>
+	<td >'.$shott[$i].'</td>
 	</tr>';
 }
 }
@@ -683,9 +687,9 @@ for($i=0;$i<count($dfj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$dfj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$dfe[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$dfm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$dfg[$i].'</td>
+	<td >'.$dfe[$i].'</td>
+	<td >'.$dfm[$i].'</td>
+	<td >'.$dfg[$i].'</td>
 	</tr>';
 }
 }
@@ -712,9 +716,9 @@ for($i=0;$i<count($pimj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$pimj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$pime[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$pimm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$pimt[$i].'</td>
+	<td >'.$pime[$i].'</td>
+	<td >'.$pimm[$i].'</td>
+	<td >'.$pimt[$i].'</td>
 	</tr>';
 }
 }
@@ -740,9 +744,9 @@ for($i=0;$i<count($rkj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$rkj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rke[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rkm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rkg[$i].'</td>
+	<td >'.$rke[$i].'</td>
+	<td >'.$rkm[$i].'</td>
+	<td >'.$rkg[$i].'</td>
 	</tr>';
 }
 }
@@ -769,9 +773,9 @@ for($i=0;$i<count($pmj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$pmj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$pme[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$pmm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$pmt[$i].'</td>
+	<td >'.$pme[$i].'</td>
+	<td >'.$pmm[$i].'</td>
+	<td >'.$pmt[$i].'</td>
 	</tr>';
 }
 }
@@ -797,9 +801,9 @@ for($i=0;$i<count($htj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$htj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$hte[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$htm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$htg[$i].'</td>
+	<td >'.$hte[$i].'</td>
+	<td >'.$htm[$i].'</td>
+	<td >'.$htg[$i].'</td>
 	</tr>';
 }
 }
@@ -825,9 +829,9 @@ for($i=0;$i<count($spj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$spj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$spe[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$spm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$spg[$i].'</td>
+	<td >'.$spe[$i].'</td>
+	<td >'.$spm[$i].'</td>
+	<td >'.$spg[$i].'</td>
 	</tr>';
 }
 }
@@ -853,9 +857,9 @@ for($i=0;$i<count($rcj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$rcj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rce[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rcm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$rcg[$i].'</td>
+	<td >'.$rce[$i].'</td>
+	<td >'.$rcm[$i].'</td>
+	<td >'.$rcg[$i].'</td>
 	</tr>';
 }
 }
@@ -881,9 +885,9 @@ for($i=0;$i<count($blj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$blj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$ble[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$blm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$blg[$i].'</td>
+	<td >'.$ble[$i].'</td>
+	<td >'.$blm[$i].'</td>
+	<td >'.$blg[$i].'</td>
 	</tr>';
 }
 }
@@ -909,9 +913,9 @@ for($i=0;$i<count($gmj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$gmj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$gme[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$gmm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$gmg[$i].'</td>
+	<td >'.$gme[$i].'</td>
+	<td >'.$gmm[$i].'</td>
+	<td >'.$gmg[$i].'</td>
 	</tr>';
 }
 }
@@ -937,9 +941,9 @@ for($i=0;$i<count($mjj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$mjj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$mje[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$mjm[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$mjg[$i].'</td>
+	<td >'.$mje[$i].'</td>
+	<td >'.$mjm[$i].'</td>
+	<td >'.$mjg[$i].'</td>
 	</tr>';
 }
 }
@@ -965,9 +969,9 @@ for($i=0;$i<count($gaj);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$gaj[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$gae[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$gam[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$gag[$i].'</td>
+	<td >'.$gae[$i].'</td>
+	<td >'.$gam[$i].'</td>
+	<td >'.$gag[$i].'</td>
 	</tr>';
 }
 }
@@ -993,16 +997,22 @@ for($i=0;$i<count($spj2);$i++){
 	echo '
 	<tr class="hover'.$c.'">
 	<td style="'.$bold.'">'.$spj2[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$spe2[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$spm2[$i].'</td>
-	<td style="text-align:right;'.$bold.'">'.$spg2[$i].'</td>
+	<td >'.$spe2[$i].'</td>
+	<td >'.$spm2[$i].'</td>
+	<td >'.$spg2[$i].'</td>
 	</tr>';
 }
 }
-echo '</div></div>';
+echo '</div>';
+echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
+echo '</div>';
+echo '</div>';
+
 }
 else echo $allFileNotFound.' - '.$Fnm;
 echo '<div style="clear:both"></div></div></div>';
 ?>
+
+
 
 <?php include 'footer.php'; ?>

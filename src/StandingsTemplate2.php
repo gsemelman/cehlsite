@@ -65,8 +65,7 @@ if (file_exists($Fnm)) {
                   </div>';
             echo '<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">';
             echo '<div class="card-body p-1">';
-           
-            //echo '<div class = "tableau-top"><h3>Conference Standings</h3></div>';
+
         }
         else if (substr_count($val, '<H3>By Division</H3>')) {
 
@@ -93,8 +92,7 @@ if (file_exists($Fnm)) {
                   </div>';
             echo '<div id="divCollapse" class="collapse" aria-labelledby="divHeader" data-parent="#accordionExample">';
             echo '<div class="card-body p-1">';
- 
-            //echo '<div class = "tableau-top"><h3>Division Standings</h3></div>';
+
 
         }
         else if (substr_count($val, 'Conference</H3>') && ! substr_count($val, '<H3>By Conference</H3>')) {
@@ -125,8 +123,7 @@ if (file_exists($Fnm)) {
             $pos = strpos($val, 'Division</H3>');
             $pos2 = strpos($val, '<H3>');
             $val2 = substr($val, $pos2 + 4, $pos - $pos2 - 5);            
-            //echo '<tr><td colspan="' . $tableCol . '"><br></td></tr><tr class="titre"><td colspan="' . $tableCol . '"><h5 class="tableau-top"  style = "padding-top:5px; padding-bottom:5px">' . $val2 . ' ' . $standingDivision . '</h5></td></tr>';
-            
+
             if($divProcessed > 0){
                 echo '</tbody>';
                 echo '</table>';
@@ -179,7 +176,7 @@ if (file_exists($Fnm)) {
             }
             $reste = trim($val);
             if (substr_count($reste, 'WIDTH')) {
-                echo '<tr><td colspan="' . $tableCol . '" style="height:2px; background-color:' . $couleur_contour . ';"></td></tr>';
+                echo '<tr class="tableau-top"><td colspan="' . $tableCol . '" style="height:2px;"></td></tr>';
                 $reste = substr($reste, strpos($reste, '<A '));
             }
             $serie = '';

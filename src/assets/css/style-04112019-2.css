@@ -229,6 +229,19 @@ body{
   filter:alpha(opacity=100);
 }
 
+/*bootstrap pagination overrides*/
+.page-link {
+    color: var(--color-primary-1);
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: var(--color-text-primary-1);
+    background-color: var(--color-primary-1);
+    border-color: #007bff;
+}
+
+/*bootstrap table overrides*/
 .table{
 	line-height:25px;
 	white-space:nowrap;
@@ -391,7 +404,7 @@ a:hover.info span {
 }
 
 .tableau-top{
-	background-color:#1791CA;
+	background-color:var(--color-primary-1);
 	color:white;
 	padding-top:5px; 
 	padding-bottom:5px

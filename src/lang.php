@@ -222,7 +222,7 @@ if($leagueLang == 'FR') {
 	$financeYear = 'Année';
 	$financeProPayroll2 = 'CONTRAT DES PROS';
 	$financeFarmPayroll2 = 'CONTRAT DU CLUB-ÉCOLE';
-	$financePlayers = 'JOUEURS';
+	$financePlayers = 'JOUEUR';
 	$financeYear2 = 'A';
 	$financeContract = 'CONTRAT';
 	
@@ -858,9 +858,9 @@ if($leagueLang == 'EN') {
 	$financeYear = 'Year';
 	$financeProPayroll2 = 'PRO PAYROLL';
 	$financeFarmPayroll2 = 'FARM PAYROLL';
-	$financePlayers = 'PLAYERS';
-	$financeYear2 = 'YEARS';
-	$financeContract = 'CONTRACT';
+	$financePlayers = 'PLAYER';
+	$financeYear2 = 'TERM';
+	$financeContract = 'SALARY';
 	
 	// Prospects
 	$prospectsTitle = 'Futures';
@@ -1085,7 +1085,7 @@ if($leagueLang == 'EN') {
 	$linkedWeightm = 'WGT';
 	$linkedHeightm = 'HGT';
 	$linkedYear = 'CT';
-	$linkedYearF = 'Contract Years';
+	$linkedYearF = 'Contract Term';
 	$linkedFarmTeamAverage = 'Farm Team Average';
 	
 	// Team Card

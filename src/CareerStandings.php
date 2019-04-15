@@ -23,7 +23,7 @@ if($folderCarrerStats != '0') {
 		if(substr_count($hashFolder, '#') > 0) break 1;
 	}
 	$Fnm = str_replace("#/","*",$folderCarrerStats);
-	$NumberSeason = 0;
+	$NumberSeason = 26;
 	$dirs = glob($Fnm, GLOB_ONLYDIR);
 	for($j=0;$j<count($dirs);$j++) {
 		if(substr_count($dirs[$j], $hashFolder)) {
@@ -69,7 +69,7 @@ for($workSeason=$NumberSeason+1;$workSeason>0;$workSeason--) {
 		$overtime = 0;
 		$f = 0;
 		$tableau = file($Fnm);
-		while(list($cle,$val) = each($tableau)) {
+		while(list($cle,$val) = myEach($tableau)) {
 			$val = utf8_encode($val);
 			// Détection du simulateur utilisé
 			if(substr_count($val, 'STK') && (substr_count($val, 'OL') || substr_count($val, 'OTL'))) {
