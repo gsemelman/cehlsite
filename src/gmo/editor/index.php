@@ -19,6 +19,12 @@ if($scheduleHolder->isSeasonStarted()){
     $nextDay2 = 2;
 }
 
+$enableNext = TRUE;
+
+foreach($scheduleHolder->getScheduleByDay($nextDay2) as $schedule){
+    if($schedule->getTeam1() == $teamID || $schedule->getTeam1() == $teamID) $enableNext = true;
+}
+
 $game1Active = '';
 $game2Active = '';
 
@@ -49,9 +55,12 @@ if($modeGMO == 2){
       <li class="nav-item">
         <a class="nav-link <?php echo $game1Active?>" href="<?php echo BASE_URL.$game1url?>">Day <?php echo $nextDay;?></a>
       </li>
+      
+      <?php if($enableNext) {?>
       <li class="nav-item">
         <a class="nav-link <?php echo $game2Active?>" href="<?php echo BASE_URL.$game2url?>">Day <?php echo $nextDay2;?></a>
       </li>
+      <?php }?>
 <!--        <li class="nav-item"> -->
 <!--       		<button type="button" id="btnAddGame" class="btn btn-outline-primary btn-sm" >ADD</button> -->
 <!--       </li> -->

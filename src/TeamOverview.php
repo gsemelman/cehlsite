@@ -147,9 +147,9 @@ if(file_exists($Fnm)) {
 			$reste = trim(substr($reste, strpos($reste, ' ')));
 			if($standingFileEquipe[$b] == $currentTeam) $standingFileFound = $b;
 			if($standingFileSerie[$b] != ''){
-				if($standingFileSerie[$b] == 'z') $standingFileSerie[$b] = '<a href="Standings.php" class="info" style="color:#000000">'.$standingZ.'<span>'.$standingZFull.'</span></a>';
-				if($standingFileSerie[$b] == 'y') $standingFileSerie[$b] = '<a href="Standings.php" class="info" style="color:#000000">'.$standingY.'<span>'.$standingYFull.'</span></a>';
-				if($standingFileSerie[$b] == 'x') $standingFileSerie[$b] = '<a href="Standings.php" class="info" style="color:#000000">'.$standingX.'<span>'.$standingXFull.'</span></a>';
+				if($standingFileSerie[$b] == 'z') $standingFileSerie[$b] = '<a href="Standings.php" style="color:#000000">'.$standingZ.'<span>'.$standingZFull.'</span></a>';
+				if($standingFileSerie[$b] == 'y') $standingFileSerie[$b] = '<a href="Standings.php" style="color:#000000">'.$standingY.'<span>'.$standingYFull.'</span></a>';
+				if($standingFileSerie[$b] == 'x') $standingFileSerie[$b] = '<a href="Standings.php" style="color:#000000">'.$standingX.'<span>'.$standingXFull.'</span></a>';
 			}
 			$b++;
 		}
@@ -179,9 +179,9 @@ if(file_exists($Fnm)) {
 			$reste = trim(substr($reste, strpos($reste, ' ')));
 			if($standingFileDivisionEquipe[$b] == $currentTeam) $standingFileDivisionFound = $b;
 			if($standingFileDivisionSerie[$b] != ''){
-				if($standingFileDivisionSerie[$b] == 'z') $standingFileDivisionSerie[$b] = '<a href="Standings.php" class="info" style="color:#000000">'.$standingZ.'<span>'.$standingZFull.'</span></a>';
-				if($standingFileDivisionSerie[$b] == 'y') $standingFileDivisionSerie[$b] = '<a href="Standings.php" class="info" style="color:#000000">'.$standingY.'<span>'.$standingYFull.'</span></a>';
-				if($standingFileDivisionSerie[$b] == 'x') $standingFileDivisionSerie[$b] = '<a href="Standings.php" class="info" style="color:#000000">'.$standingX.'<span>'.$standingXFull.'</span></a>';
+				if($standingFileDivisionSerie[$b] == 'z') $standingFileDivisionSerie[$b] = '<a href="Standings.php" style="color:#000000">'.$standingZ.'<span>'.$standingZFull.'</span></a>';
+				if($standingFileDivisionSerie[$b] == 'y') $standingFileDivisionSerie[$b] = '<a href="Standings.php" style="color:#000000">'.$standingY.'<span>'.$standingYFull.'</span></a>';
+				if($standingFileDivisionSerie[$b] == 'x') $standingFileDivisionSerie[$b] = '<a href="Standings.php" style="color:#000000">'.$standingX.'<span>'.$standingXFull.'</span></a>';
 			}
 			$b++;
 		}
@@ -714,17 +714,11 @@ if(file_exists($Fnm)) {
 		}
 	}
 }
-//echo '<h3 class = "text-center wow fadeIn">'.$CurrentTitle.'</h3>';
-//echo '<div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border:solid 1px '.$couleur_contour.';">';
-
-
-
 
 echo '<div class = "container">';
 
 echo '<div class="card">';
 
-//echo '<div class="card-header wow fadeIn"><h3>'.$CurrentTitle.'</h3></div>';
 
 echo'<div class="card-header p-1">';
 
@@ -734,7 +728,7 @@ echo' </div>';
 
 echo '<div class="card-body wow fadeIn">';
 
-echo '<div class = "row wow fadeIn">';
+echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
     	echo '<div class = "table-responsive">';
     		echo '<table class="table table-sm table-striped">';
@@ -752,7 +746,7 @@ echo '<div class = "row wow fadeIn">';
 echo '</div>';
 
 
-echo '<div class="row wow fadeIn">';
+echo '<div class="row">';
 
 echo '<div class="col-sm-12 col-md-5 offset-md-1">';
 
@@ -761,11 +755,11 @@ if(isset($lastNumber)) {
 	echo '<a href="games.php?num='.$lastNumber.$linkRnd.'">';
 	echo '<table class="table table-sm table-striped">';
 	echo '<thead>';
-	echo '<tr class="tableau-top"><th colspan="2"><h5 class="m-0">'.$teamCardLastGame.' #'.$lastNumber.'</h5></th></tr>';
+	echo '<tr><th colspan="2"><h5 class="m-0">'.$teamCardLastGame.' #'.$lastNumber.'</h5></th></tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	echo '<tr class="hover2"><td>'.$lastEquipe1.'</td><td style="text-align:right;">'.$lastScore1.'</td></tr>';
-	echo '<tr class="hover1"><td>'.$lastEquipe2.'</td><td style="text-align:right;">'.$lastScore2.'</td></tr>';
+	echo '<tr><td>'.$lastEquipe1.'</td><td class="text-right">'.$lastScore1.'</td></tr>';
+	echo '<tr><td>'.$lastEquipe2.'</td><td class="text-right">'.$lastScore2.'</td></tr>';
 	echo '</tbody>';
 	echo '</table></a>';
 }
@@ -774,11 +768,11 @@ if(isset($nextNumber)) {
 	echo '<a href="'.$nextGameFile.'">';
 	echo '<table class="table table-sm table-striped">';
 	echo '<thead>';
-	echo '<tr class="tableau-top"><th><h5 class="m-0">'.$teamCardNextGame.' #'.$nextNumber.'</h5></th></tr>';
+	echo '<tr><th><h5 class="m-0">'.$teamCardNextGame.' #'.$nextNumber.'</h5></th></tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	echo '<tr class="hover2"><td>'.$nextEquipe1.'</td></tr>';
-	echo '<tr class="hover1"><td>'.$nextEquipe2.'</td></tr>';
+	echo '<tr><td>'.$nextEquipe1.'</td></tr>';
+	echo '<tr><td>'.$nextEquipe2.'</td></tr>';
 	echo '</tbody>';
 	echo '</table></a>';
 }
@@ -787,11 +781,11 @@ if(isset($propayroll)) {
 	echo '<a href="Finance.php'.$plfLink.'">';
     echo '<table class="table table-sm table-striped">';
     echo '<thead>';
-	echo '<tr class="tableau-top"><th colspan="2"><h5 class="m-0">'.$teamCardFinancial.'</h5></th></tr>';
+	echo '<tr><th colspan="2"><h5 class="m-0">'.$teamCardFinancial.'</h5></th></tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	echo '<tr class="hover2"><td>'.$teamCardProPayroll.'</td><td style="text-align:right;">'.$propayroll.'</td></tr>';
-	echo '<tr class="hover1"><td>'.$teamCardFarmPayroll.'</td><td style="text-align:right;">'.$farmpayroll.'</td></tr>';
+	echo '<tr><td>'.$teamCardProPayroll.'</td><td class="text-right">'.$propayroll.'</td></tr>';
+	echo '<tr><td>'.$teamCardFarmPayroll.'</td><td class="text-right">'.$farmpayroll.'</td></tr>';
 	$propayroll2 = preg_replace('/\D/', '', $propayroll);
 	$farmpayroll2 = preg_replace('/\D/', '', $farmpayroll);
 	if($leagueSalaryIncFarm == 0) {
@@ -801,7 +795,7 @@ if(isset($propayroll)) {
 		$restant = $leagueSalaryCap - $propayroll2 - $farmpayroll2;
 	}
 	$restant = number_format($restant, 0, ' ', ',');
-	echo '<tr class="hover2"><td>'.$teamCardPayrollRemaining.'</td><td style="text-align:right;">'.$restant.'</td></tr>';
+	echo '<tr><td>'.$teamCardPayrollRemaining.'</td><td class="text-right">'.$restant.'</td></tr>';
 	echo '</tbody>';
 	echo '</table></a>';
 }
@@ -809,51 +803,48 @@ if(isset($propayroll)) {
 echo '<div>';
 echo '<table class="table table-sm table-striped">';
 echo '<thead>';
-echo '<tr class="tableau-top"><th colspan="2"><h5 class="m-0">'.$teamCardPlayerInfos.'</h5></th></tr>';
+echo '<tr><th colspan="2"><h5 class="m-0">'.$teamCardPlayerInfos.'</h5></th></tr>';
 echo '</thead>';
 echo '<tbody>';
-echo '<tr class="hover2"><td>'.$teamCardPlayers.'</td><td style="text-align:right;">'.$njoueurs.'</td></tr>';
-echo '<tr class="hover1"><td>'.$teamCardProspects.'</td><td style="text-align:right;">'.$npropect.'</td></tr>';
-echo '<tr class="hover2"><td>'.$teamCardAvgAge.'</td><td style="text-align:right;">'.$vitalsAge.'</td></tr>';
-echo '<tr class="hover1"><td>'.$teamCardAvgHeight.'</td><td style="text-align:right;">'.$vitalsGrandeur.'</td></tr>';
-echo '<tr class="hover2"><td>'.$teamCardAvgWeight.'</td><td style="text-align:right;">'.$vitalsPoids.'</td></tr>';
-echo '<tr class="hover1"><td>'.$teamCardAvgSalary.'</td><td style="text-align:right;">'.$vitalsSalaire.'</td></tr>';
+echo '<tr><td>'.$teamCardPlayers.'</td><td class="text-right">'.$njoueurs.'</td></tr>';
+echo '<tr><td>'.$teamCardProspects.'</td><td class="text-right">'.$npropect.'</td></tr>';
+echo '<tr><td>'.$teamCardAvgAge.'</td><td class="text-right">'.$vitalsAge.'</td></tr>';
+echo '<tr><td>'.$teamCardAvgHeight.'</td><td class="text-right">'.$vitalsGrandeur.'</td></tr>';
+echo '<tr><td>'.$teamCardAvgWeight.'</td><td class="text-right">'.$vitalsPoids.'</td></tr>';
+echo '<tr><td>'.$teamCardAvgSalary.'</td><td class="text-right">'.$vitalsSalaire.'</td></tr>';
 echo '</tbody>';
 echo '</table></div>';
 
 if(isset($statsPosition) && count($statsPosition) >= 5) {
 	//echo '<div><table class="table table-sm">';
     echo '<div>';
-	echo '<table class="table table-sm table-striped">
+	echo '<table class="table table-sm table-striped text-center">
         <thead>
-        <tr class="tableau-top">
+        <tr >
             <th colspan="9"><h5 class="m-0">'.$teamCardBestPlayer.'</h5></th>
         </tr>
-        <tr class="tableau-top">
-		<th style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></th>
-		<th><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></th>
-		<th><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></th>
-		<th>'.$scoringName.'</th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGm.'<span>'.$scoringG.'</span></a></th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">A<span>'.$scoringAssits.'</span></a></th>
-		<th style="text-align:right; font-weight:bold;"><a class="info" href="javascript:return;">P<span>Points</span></a></th>
+        <tr>Position
+		<th data-toggle="tooltip" data-placement="top" title="Position">P</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringNumber.'">#</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringRookie.'">R</th>
+		<th class="text-left" data-toggle="tooltip" data-placement="top" title="'.$scoringName.'">'.$scoringName.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringGP.'">'.$scoringGPm.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringG.'">'.$scoringGm.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringAssits.'">A</th>
+		<th data-toggle="tooltip" data-placement="top" title="Points">P</th>
 		</tr>
         </thead>
         <tbody>';
-	$c = 1;
 	for($i=0;$i<5;$i++) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		echo '<tr class="hover'.$c.'">';
+		echo '<tr>';
 		echo '<td>'.$statsPosition[$i].'</td>';
 		echo '<td>'.$statsNumber[$i].'</td>';
 		echo '<td>'.$statsRookie[$i].'</td>';
-		echo '<td>'.$statsName[$i].'</td>';
-		echo '<td style="text-align:right;">'.$statsGP[$i].'</td>';
-		echo '<td style="text-align:right;">'.$statsG[$i].'</td>';
-		echo '<td style="text-align:right;">'.$statsA[$i].'</td>';
-		echo '<td style="text-align:right;">'.$statsP[$i].'</td>';
+		echo '<td class="text-left">'.$statsName[$i].'</td>';
+		echo '<td>'.$statsGP[$i].'</td>';
+		echo '<td>'.$statsG[$i].'</td>';
+		echo '<td>'.$statsA[$i].'</td>';
+		echo '<td>'.$statsP[$i].'</td>';
 		echo '</tr>';
 	}
 	echo '</tbody></table></div>';
@@ -862,21 +853,21 @@ if(isset($statsPosition) && count($statsPosition) >= 5) {
 if(isset($statsGNumber) && count($statsGNumber) >= 2) {
 	echo '<div>';
 
-	echo '<table class="table table-sm table-striped">
+	echo '<table class="table table-sm table-striped text-center">
         <thead>
-        <tr class="tableau-top">
+        <tr>
             <th colspan="9"><h5 class="m-0">'.$teamCardBestGoalie.'</h5></th>
         </tr>
-        <tr class="tableau-top">
-		<th><a class="info" href="javascript:return;">#<span>'.$scoringNumber.'</span></a></th>
-		<th><a class="info" href="javascript:return;">R<span>'.$scoringRookie.'</span></a></th>
-		<th>'.$scoringName.'</th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">MIN<span>'.$scoringMIN.'</span></a></th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringAVGm.'<span>'.$scoringAVG.'</span></a></th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringWm.'<span>'.$scoringW.'</span></a></th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringLm.'<span>'.$scoringL.'</span></a></th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringTm.'<span>'.$scoringT.'</span></a></th>
-		<th style="text-align:right;"><a class="info" href="javascript:return;">PCT<span>'.$scoringPCT.'</span></a></th>
+        <tr>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringNumber.'">#</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringRookie.'">R</th>
+		<th class="text-left" data-toggle="tooltip" data-placement="top" title="'.$scoringName.'">'.$scoringName.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringMIN.'">MIN</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringAVG.'">'.$scoringAVGm.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringW.'">'.$scoringWm.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringL.'">'.$scoringLm.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringT.'">'.$scoringTm.'</th>
+		<th data-toggle="tooltip" data-placement="top" title="'.$scoringPCT.'">PCT</th>
 		</tr>
         </thead>
         <tbody>';
@@ -885,21 +876,18 @@ if(isset($statsGNumber) && count($statsGNumber) >= 2) {
 	$tableauf = array_reverse ($tableauf, TRUE);
 	$key = key($tableauf);
 	$val = current($tableauf);
-	$c = 1;
 	$i = 0;
 	while(list ($key, $val) = myEach($tableauf)) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		echo '<tr class="hover'.$c.'">';
+		echo '<tr>';
 		echo '<td>'.$statsGNumber[$key].'</td>';
 		echo '<td>'.$statsGRookie[$key].'</td>';
-		echo '<td>'.$statsGName[$key].'</td>';
-		echo '<td style="text-align:right;">'.$statsGMin[$key].'</td>';
-		echo '<td style="text-align:right;">'.$statsGAVG[$key].'</td>';
-		echo '<td style="text-align:right;">'.$statsGW[$key].'</td>';
-		echo '<td style="text-align:right;">'.$statsGL[$key].'</td>';
-		echo '<td style="text-align:right;">'.$statsGT[$key].'</td>';
-		echo '<td style="text-align:right;">'.$statsGPCT[$key].'</td>';
+		echo '<td class="text-left">'.$statsGName[$key].'</td>';
+		echo '<td>'.$statsGMin[$key].'</td>';
+		echo '<td>'.$statsGAVG[$key].'</td>';
+		echo '<td>'.$statsGW[$key].'</td>';
+		echo '<td>'.$statsGL[$key].'</td>';
+		echo '<td>'.$statsGT[$key].'</td>';
+		echo '<td>'.$statsGPCT[$key].'</td>';
 		echo '</tr>';
 		if($i == 1) break 1;
 		$i++;
@@ -909,27 +897,24 @@ if(isset($statsGNumber) && count($statsGNumber) >= 2) {
 
 echo '</div>';
 
-//echo '<div style="float:right;">';
-//echo '<div class="col-sm-12 col-md-6">';
-//echo '<div class="col-sm-12 col-md-4">';
 echo '<div class="col-sm-12 col-md-5">';
 if(isset($standingFileSerie)) {
 	echo '<a href="Standings3.php">';
-	echo '<table class="table table-sm table-striped">';
+	echo '<table class="table table-sm table-striped text-center">';
 	echo '<thead>';
-	echo '<tr class="tableau-top">
+	echo '<tr">
 	<th colspan="9"><h5 class="m-0">'.$teamCardConference.'</h5></th>
 	</tr>';
-	echo '<tr class="tableau-top">';
+	echo '<tr>';
 	echo '<th></th>';
 	echo '<th></th>';
-	echo '<th><a href="Standings.php" class="info">'.$standingTeam.'</a></th>';
-	echo '<th><a href="Standings.php" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
-	echo '<th><a href="Standings.php" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></th>';
-	echo '<th><a href="Standings.php" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></th>';
-	echo '<th><a href="Standings.php" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></th>';
-	if($standingFileOLDetect == 1) echo '<th><a href="Standings.php" class="info">'.$standingOT.'<span>'.$standingOTFull.'</span></a></th>';
-	echo '<th><a href="Standings.php" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></th>';
+	echo '<th class="text-left">'.$standingTeam.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'.$standingGP.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingWFull.'">'.$standingW.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingLFull.'">'.$standingL.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingEFull.'">'.$standingE.'</th>';
+	if($standingFileOLDetect == 1) echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingOTFull.'">'.$standingOT.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPTSFull.'"><b>'.$standingPTS.'</b></th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
@@ -949,20 +934,16 @@ if(isset($standingFileSerie)) {
 	}
 
 	for($i=$tmpStart;$i<$tmpEnd;$i++) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
-		if($i == $standingFileFound) $bold = 'font-weight:bold;';
-		echo '<tr class="hover'.$c.'">';
-		echo '<td style="'.$bold.'">'.($i+1).'</td>';
-		echo '<td style="'.$bold.'">'.$standingFileSerie[$i].'</td>';
-		echo '<td style="'.$bold.'">'.$standingFileEquipe[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFilePJ[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFileW[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFileL[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFileT[$i].'</td>';
-		if($standingFileOLDetect == 1) echo '<td style="text-align:right;'.$bold.'">'.$standingFileOL[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'"><b>'.$standingFilePts[$i].'</b></td>';
+		echo '<tr>';
+		echo '<td>'.($i+1).'</td>';
+		echo '<td>'.$standingFileSerie[$i].'</td>';
+		echo '<td class="text-left">'.$standingFileEquipe[$i].'</td>';
+		echo '<td>'.$standingFilePJ[$i].'</td>';
+		echo '<td>'.$standingFileW[$i].'</td>';
+		echo '<td>'.$standingFileL[$i].'</td>';
+		echo '<td>'.$standingFileT[$i].'</td>';
+		if($standingFileOLDetect == 1) echo '<td>'.$standingFileOL[$i].'</td>';
+		echo '<td><b>'.$standingFilePts[$i].'</b></td>';
 		echo '</tr>';
 	}
 	echo '</tbody></table></a>';
@@ -970,40 +951,38 @@ if(isset($standingFileSerie)) {
 
 if(isset($standingFileDivisionSerie)) {
 	echo '<a href="Standings3.php">';
-	echo '<table class="table table-sm table-striped">';
+	echo '<table class="table table-sm table-striped text-center">';
 	echo '<thead>';
-	echo '<tr class="tableau-top">
-	<td colspan="9"><h5 class="m-0">'.$teamCardDivision.'</h5></td>
+	echo '<tr>
+	<th colspan="9"><h5 class="m-0">'.$teamCardDivision.'</h5></th>
 	</tr>';
-	echo '<tr class="tableau-top">';
-	echo '<td></td>';
-	echo '<td></td>';
-	echo '<td><a href="Standings.php" class="info">'.$standingTeam.'</a></td>';
-	echo '<td><a href="Standings.php" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></td>';
-	echo '<td><a href="Standings.php" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></td>';
-	echo '<td><a href="Standings.php" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></td>';
-	echo '<td><a href="Standings.php" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></td>';
-	if($standingFileOLDetect == 1) echo '<td style="text-align:right;"><a href="Standings.php" class="info">'.$standingOT.'<span>'.$standingOTFull.'</span></a></td>';
-	echo '<td><a href="Standings.php" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></td>';
+	echo '<tr>';
+	echo '<th></th>';
+	echo '<th></th>';
+	echo '<th class="text-left">'.$standingTeam.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'.$standingGP.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingWFull.'">'.$standingW.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingLFull.'">'.$standingL.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingEFull.'">'.$standingE.'</th>';
+	if($standingFileOLDetect == 1) echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingOTFull.'">'.$standingOT.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPTSFull.'"><b>'.$standingPTS.'</b></th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	$c = 1;
+
 	for($i=0;$i<count($standingFileDivisionSerie);$i++) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		$bold = '';
+	    $bold='';
 		if($i == $standingFileDivisionFound) $bold = 'font-weight:bold;';
-		echo '<tr class="hover'.$c.'">';
+		echo '<tr>';
 		echo '<td style="'.$bold.'">'.($i+1).'</td>';
 		echo '<td style="'.$bold.'">'.$standingFileDivisionSerie[$i].'</td>';
-		echo '<td style="'.$bold.'">'.$standingFileDivisionEquipe[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFileDivisionPJ[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFileDivisionW[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFileDivisionL[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFileDivisionT[$i].'</td>';
-		if($standingFileOLDetect == 1) echo '<td style="text-align:right;'.$bold.'">'.$standingFileDivisionOL[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'"><b>'.$standingFileDivisionPts[$i].'</b></td>';
+		echo '<td class"text-left" style="'.$bold.'">'.$standingFileDivisionEquipe[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFileDivisionPJ[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFileDivisionW[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFileDivisionL[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFileDivisionT[$i].'</td>';
+		if($standingFileOLDetect == 1) echo '<td style="'.$bold.'">'.$standingFileDivisionOL[$i].'</td>';
+		echo '<td style="'.$bold.'"><b>'.$standingFileDivisionPts[$i].'</b></td>';
 		echo '</tr>';
 	}
 	echo '</tbody></table></a>';
@@ -1011,19 +990,19 @@ if(isset($standingFileDivisionSerie)) {
 if(isset($standingFarmFilePJ)) {
 	echo '<a href="FarmStandings.php?s=1">';
 	echo '<div class="table-responsive">';
-	echo '<table class="table table-sm table-striped">';
+	echo '<table class="table table-sm table-striped text-center">';
 	echo '<thead>';
-	echo '<tr class="tableau-top">
+	echo '<tr>
 	<th colspan="7"><h5 class="m-0">'.$teamCardConferenceFarm.'</h5></th>
 	</tr>';
-	echo '<tr class="tableau-top">';
+	echo '<tr>';
 	echo '<th></th>';
-	echo '<th><a href="Standings.php" class="info">'.$standingTeam.'</a></th>';
-	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
-	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></th>';
-	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></th>';
-	echo '<th><a href="FarmStandings.php?s=1" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></th>';
-	echo '<th><a href="FarmStandings.php?s=1" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></th>';
+	echo '<th class="text-left">'.$standingTeam.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'.$standingGP.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingWFull.'">'.$standingW.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingLFull.'">'.$standingL.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingEFull.'">'.$standingE.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPTSFull.'"><b>'.$standingPTS.'</b></th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
@@ -1042,18 +1021,16 @@ if(isset($standingFarmFilePJ)) {
 		$tmpEnd = $tmpNbr;
 	}
 	for($i=$tmpStart;$i<$tmpEnd;$i++) {
-		if($c == 1) $c = 2;
-		else $c = 1;
 		$bold = '';
 		if($i == $standingFarmFileFound) $bold = 'font-weight:bold;';
-		echo '<tr class="hover'.$c.'">';
+		echo '<tr >';
 		echo '<td style="'.$bold.'">'.($i+1).'</td>';
-		echo '<td style="'.$bold.'">'.$standingFarmFileEquipe[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFarmFilePJ[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFarmFileW[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFarmFileL[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'">'.$standingFarmFileT[$i].'</td>';
-		echo '<td style="text-align:right;'.$bold.'"><b>'.$standingFarmFilePts[$i].'</b></td>';
+		echo '<td class"text-left" style="'.$bold.'">'.$standingFarmFileEquipe[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFarmFilePJ[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFarmFileW[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFarmFileL[$i].'</td>';
+		echo '<td style="'.$bold.'">'.$standingFarmFileT[$i].'</td>';
+		echo '<td style="'.$bold.'"><b>'.$standingFarmFilePts[$i].'</b></td>';
 		echo '</tr>';
 	}
 	echo '</tbody></table></div></a>';
@@ -1062,68 +1039,59 @@ if(isset($standingFarmFilePJ)) {
 // Team Record
 if($recordConferenceGP != 0 || $recordDivisionGP != 0 || $recordHomeGP != 0 || $recordAwayGP != 0) {
 
-    echo '<table class="table table-sm table-striped">';
+    echo '<table class="table table-sm table-striped text-center">';
     echo '<thead>';
-	echo '<tr class="tableau-top">
+	echo '<tr>
 	<th colspan="6"><h5 class="m-0">'.$teamCardReccord.'</h5></th>
 	</tr>';
-	echo '<tr class="tableau-top">';
-	echo '<th>'.$teamCardRecord.'</th>';
-	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="FarmStandings.php?s=1" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></th>';
+	echo '<tr>';
+	echo '<th class="text-left">'.$teamCardRecord.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'.$standingGP.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingWFull.'">'.$standingW.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingLFull.'">'.$standingL.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingEFull.'">'.$standingE.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPTSFull.'"><b>'.$standingPTS.'</b></th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	$c = 1;
 	if($recordConferenceGP != 0) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		echo '<tr class="hover'.$c.'">';
-		echo '<td>'.$teamCardRecordConference.'</td>';
-		echo '<td style="text-align:right;">'.$recordConferenceGP.'</td>';
-		echo '<td style="text-align:right;">'.$recordConferenceWin.'</td>';
-		echo '<td style="text-align:right;">'.$recordConferenceLos.'</td>';
-		echo '<td style="text-align:right;">'.$recordConferenceTie.'</td>';
-		echo '<td style="text-align:right;">'.$recordConferencePts.'</td>';
+		echo '<tr>';
+		echo '<td class="text-left">'.$teamCardRecordConference.'</td>';
+		echo '<td>'.$recordConferenceGP.'</td>';
+		echo '<td>'.$recordConferenceWin.'</td>';
+		echo '<td>'.$recordConferenceLos.'</td>';
+		echo '<td>'.$recordConferenceTie.'</td>';
+		echo '<td>'.$recordConferencePts.'</td>';
 		echo '</tr>';
 	}
 	if($recordDivisionGP != 0) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		echo '<tr class="hover'.$c.'">';
-		echo '<td>'.$teamCardRecordDivision.'</td>';
-		echo '<td style="text-align:right;">'.$recordDivisionGP.'</td>';
-		echo '<td style="text-align:right;">'.$recordDivisionWin.'</td>';
-		echo '<td style="text-align:right;">'.$recordDivisionLos.'</td>';
-		echo '<td style="text-align:right;">'.$recordDivisionTie.'</td>';
-		echo '<td style="text-align:right;">'.$recordDivisionPts.'</td>';
+		echo '<tr>';
+		echo '<td class="text-left">'.$teamCardRecordDivision.'</td>';
+		echo '<td>'.$recordDivisionGP.'</td>';
+		echo '<td>'.$recordDivisionWin.'</td>';
+		echo '<td>'.$recordDivisionLos.'</td>';
+		echo '<td>'.$recordDivisionTie.'</td>';
+		echo '<td>'.$recordDivisionPts.'</td>';
 		echo '</tr>';
 	}
 	if($recordHomeGP != 0) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		echo '<tr class="hover'.$c.'">';
-		echo '<td>'.$teamCardRecordHome.'</td>';
-		echo '<td style="text-align:right;">'.$recordHomeGP.'</td>';
-		echo '<td style="text-align:right;">'.$recordHomeWin.'</td>';
-		echo '<td style="text-align:right;">'.$recordHomeLos.'</td>';
-		echo '<td style="text-align:right;">'.$recordHomeTie.'</td>';
-		echo '<td style="text-align:right;">'.$recordHomePts.'</td>';
+		echo '<tr>';
+		echo '<td class="text-left">'.$teamCardRecordHome.'</td>';
+		echo '<td>'.$recordHomeGP.'</td>';
+		echo '<td>'.$recordHomeWin.'</td>';
+		echo '<td>'.$recordHomeLos.'</td>';
+		echo '<td>'.$recordHomeTie.'</td>';
+		echo '<td>'.$recordHomePts.'</td>';
 		echo '</tr>';
 	}
 	if($recordAwayGP != 0) {
-		if($c == 1) $c = 2;
-		else $c = 1;
-		echo '<tr class="hover'.$c.'">';
-		echo '<td>'.$teamCardRecordAway.'</td>';
-		echo '<td style="text-align:right;">'.$recordAwayGP.'</td>';
-		echo '<td style="text-align:right;">'.$recordAwayWin.'</td>';
-		echo '<td style="text-align:right;">'.$recordAwayLos.'</td>';
-		echo '<td style="text-align:right;">'.$recordAwayTie.'</td>';
-		echo '<td style="text-align:right;">'.$recordAwayPts.'</td>';
+		echo '<tr>';
+		echo '<td class="text-left">'.$teamCardRecordAway.'</td>';
+		echo '<td>'.$recordAwayGP.'</td>';
+		echo '<td>'.$recordAwayWin.'</td>';
+		echo '<td>'.$recordAwayLos.'</td>';
+		echo '<td>'.$recordAwayTie.'</td>';
+		echo '<td>'.$recordAwayPts.'</td>';
 		echo '</tr>';
 	}
 	echo '</tbody></table>';
@@ -1131,30 +1099,30 @@ if($recordConferenceGP != 0 || $recordDivisionGP != 0 || $recordHomeGP != 0 || $
 
 // Team Stats
 if(isset($teamStatsFilePP)) {
-    echo '<table class="table table-sm table-striped">';
+    echo '<table class="table table-sm table-striped text-center">';
     echo '<thead>';
-	echo '<tr class="tableau-top">
+	echo '<tr>
 	<th colspan="4"><h5 class="m-0">'.$teamStatsTitle.'</h5></th>
 	</tr>';
-	echo '<tr class="tableau-top">';
-	echo '<th style="text-align:right;"><a href="javascript:return;" class="info">'.$teamStatsPPm.'<span>'.$teamStatsPP.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="javascript:return;" class="info">'.$teamStatsPKm.'<span>'.$teamStatsPK.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="javascript:return;" class="info">'.$teamStatsGFGm.'<span>'.$teamStatsGFG.'</span></a></th>';
-	echo '<th style="text-align:right;"><a href="javascript:return;" class="info">'.$teamStatsGAGm.'<span>'.$teamStatsGAG.'</span></a></th>';
+	echo '<tr>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$teamStatsPP.'">'.$teamStatsPPm.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$teamStatsPK.'">'.$teamStatsPKm.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$teamStatsGFG.'">'.$teamStatsGFGm.'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$teamStatsGAG.'">'.$teamStatsGAGm.'</th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	echo '<tr class="hover2">';
-	echo '<td style="text-align:right;">'.$teamStatsFilePP.'</td>';
-	echo '<td style="text-align:right;">'.$teamStatsFilePK.'</td>';
-	echo '<td style="text-align:right;">'.$teamStatsFileGFG.'</td>';
-	echo '<td style="text-align:right;">'.$teamStatsFileGAG.'</td>';
+	echo '<tr>';
+	echo '<td>'.$teamStatsFilePP.'</td>';
+	echo '<td>'.$teamStatsFilePK.'</td>';
+	echo '<td>'.$teamStatsFileGFG.'</td>';
+	echo '<td>'.$teamStatsFileGAG.'</td>';
 	echo '</tr>';
-	echo '<tr class="hover1">';
-	echo '<td style="text-align:right;">'.$teamStatsFilePPPos.'</td>';
-	echo '<td style="text-align:right;">'.$teamStatsFilePKPos.'</td>';
-	echo '<td style="text-align:right;">'.$teamStatsFileGFGPos.'</td>';
-	echo '<td style="text-align:right;">'.$teamStatsFileGAGPos.'</td>';
+	echo '<tr>';
+	echo '<td>'.$teamStatsFilePPPos.'</td>';
+	echo '<td>'.$teamStatsFilePKPos.'</td>';
+	echo '<td>'.$teamStatsFileGFGPos.'</td>';
+	echo '<td>'.$teamStatsFileGAGPos.'</td>';
 	echo '</tr>';
 	echo '</tbody>';
 	echo '</table>';
@@ -1378,33 +1346,33 @@ echo '</div>';
 
 
 	if(isset($statsFwdName)) {
-		echo '<div class = "row wow fadeIn">';
+		echo '<div class = "row">';
 		//echo '<div class="col-sm-12 col-md-8 offset-md-2">';
 		echo '<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">';
 		echo '<a href="CareerLeaders.php?one=1"><div style="clear:both;">';
-			echo '<div><h5 class="tableau-top m-0"  style = "padding-top:5px; padding-bottom:5px">'.$teamCardBest10Players.'</h3></div>';
+		    echo '<div class="tableau-top"> <h5 class="m-0">'.$teamCardBest10Players.'</h5></div>';
 			echo '<div class="table-responsive">';
-			echo '<table class="table table-sm table-striped">';
+			echo '<table class="table table-sm table-striped text-center">';
 			echo '<thead>';
-			echo '<tr class="tableau-top">
-				<td></td>
-				<td style="text-align:center;"><a class="info" href="javascript:return;">P<span>Position</span></a></td>
-				<td><a class="info" href="javascript:return;">'.$scoringName.'</a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGPm.'<span>'.$scoringGP.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGm.'<span>'.$scoringG.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">A<span>'.$scoringAssits.'</span></a></td>
-				<td style="text-align:right; font-weight:bold;"><a class="info" href="javascript:return;">P<span>Points</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">+/-<span>'.$scoringDiff.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPIMm.'<span>'.$scoringPIM.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPPm.'<span>'.$scoringPP.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSHm.'<span>'.$scoringSH.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGWm.'<span>'.$scoringGW.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGTm.'<span>'.$scoringGT.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringHTm.'<span>'.$scoringHT.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringSm.'<span>'.$scoringS.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPCTGm.'<span>'.$scoringPCTG.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringGSm.'<span>'.$scoringGS.'</span></a></td>
-				<td style="text-align:right;"><a class="info" href="javascript:return;">'.$scoringPSm.'<span>'.$scoringPS.'</span></a></td>
+			echo '<tr>
+				<th></th>
+				<th data-toggle="tooltip" data-placement="top" title="Position">P</th>
+				<th class="text-left"  data-toggle="tooltip" data-placement="top" title="'.$scoringName.'">'.$scoringName.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringGP.'">'.$scoringGPm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringG.'">'.$scoringGm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringAssits.'">A</th>
+				<th data-toggle="tooltip" data-placement="top" title="Points">P</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringDiff.'">+/-<span>'.$scoringDiff.'</span></a></th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringPIM.'">'.$scoringPIMm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringPP.'">'.$scoringPPm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringSH.'">'.$scoringSHm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringGW.'">'.$scoringGWm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringGT.'">'.$scoringGTm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringHT.'">'.$scoringHTm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringS.'">'.$scoringSm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringPCTG.'">'.$scoringPCTGm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringGS.'">'.$scoringGSm.'</th>
+				<th data-toggle="tooltip" data-placement="top" title="'.$scoringPS.'">'.$scoringPSm.'</th>
 				</tr>';
 			echo '</thead>';
 			echo '<tbody>';
@@ -1418,25 +1386,25 @@ echo '</div>';
 				if($stop == 11) break 1;
 				if($c == 1) $c = 2;
 				else $c = 1;
-				echo '<tr class="hover'.$c.'">
-					<td style="">'.$stop.'</td>
-					<td style="text-align:center;">'.$statsFwdPosition[$key].'</td>
-					<td style="">'.$statsFwdName[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdGP[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdG[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdA[$key].'</td>
-					<td style="text-align:right; font-weight:bold;">'.$statsFwdP[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdDiff[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdPIM[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdPPG[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdSHG[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdGW[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdGT[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdHT[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdS[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdPCTG[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdGS[$key].'</td>
-					<td style="text-align:right;">'.$statsFwdPS[$key].'</td>
+				echo '<tr>
+					<td>'.$stop.'</td>
+					<td>'.$statsFwdPosition[$key].'</td>
+					<td class="text-left">'.$statsFwdName[$key].'</td>
+					<td>'.$statsFwdGP[$key].'</td>
+					<td>'.$statsFwdG[$key].'</td>
+					<td>'.$statsFwdA[$key].'</td>
+					<td>'.$statsFwdP[$key].'</td>
+					<td>'.$statsFwdDiff[$key].'</td>
+					<td>'.$statsFwdPIM[$key].'</td>
+					<td>'.$statsFwdPPG[$key].'</td>
+					<td>'.$statsFwdSHG[$key].'</td>
+					<td>'.$statsFwdGW[$key].'</td>
+					<td>'.$statsFwdGT[$key].'</td>
+					<td>'.$statsFwdHT[$key].'</td>
+					<td>'.$statsFwdS[$key].'</td>
+					<td>'.$statsFwdPCTG[$key].'</td>
+					<td>'.$statsFwdGS[$key].'</td>
+					<td>'.$statsFwdPS[$key].'</td>
 					</tr>';
 				$stop++;
 			}

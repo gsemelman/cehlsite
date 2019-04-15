@@ -1,9 +1,14 @@
 :root {
 	
-  --table-bg-color-1: rgb(225, 239, 255);
-  --table-bg-color-2: rgb(176, 214, 255); 
-  --table-header-bg:rgb(23, 145, 202);
-  --table-header-text:white;
+  --color-primary-1: rgb(27, 98, 162);
+  --color-alternate-1: rgb(225, 239, 255);
+  --color-alternate-2: rgb(176, 214, 255); 
+  --color-text-primary-1: white;
+   	
+  --table-bg-color-1: var(--color-alternate-1);
+  --table-bg-color-2: var(--color-alternate-2);
+  --table-header-bg:var(--color-primary-1);
+  --table-header-text:var(--color-text-primary-1);
   --table-highlight:rgb(18, 114, 160);
   --table-sort-asc:rgb(64, 104, 224);
   --table-sort-desc:rgb(0, 55, 111);;
