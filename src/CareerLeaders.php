@@ -689,6 +689,7 @@ function result(tmpSearch) {
 	var tbl = document.createElement('table');
 		tbl.style.width='100%';
 		tbl.className = "table table-sm table-striped";
+	var thead = document.createElement('thead');
 	var tbdy = document.createElement('tbody');
 	// Entête - Header
 	if(currentType == 0) {
@@ -894,7 +895,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		tbdy.appendChild(tr);
+		thead.appendChild(tr);
 		if(typeof seasonFwdNM != 'undefined') {
 			var zipped = [];
 			var tmpTransF = [];
@@ -976,6 +977,7 @@ function result(tmpSearch) {
 				}
 			}
 		}
+		
 	}
 	if(currentType == 1) {
 		var tr = document.createElement('tr');
@@ -1245,7 +1247,8 @@ function result(tmpSearch) {
 			}
 		}
 	}
-	
+
+	tbl.appendChild(thead);
 	tbl.appendChild(tbdy);
 	result.appendChild(tbl);
 	document.getElementById("windowResult").style.display = "block";
