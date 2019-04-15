@@ -3,7 +3,7 @@
 <head>
 
   	<meta charset="UTF-8"/>
-  	<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86"/>
+  	<meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=3.0, minimum-scale=0.85"/>
   	<title>Canadian Elite Hockey League</title>
 
 	<?php if(CDN_SUPPORT) {?>

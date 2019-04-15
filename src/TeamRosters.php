@@ -19,9 +19,6 @@ include_once 'classes/PlayerVitalsHolder.php';
 
 ?>
 
-<style>
-
-</style>
 
 <div class="container">
 	<div class="row no-gutters">
@@ -74,7 +71,7 @@ include_once 'classes/PlayerVitalsHolder.php';
              
                                 //create table header
                                 echo '<div class="table-responsive">';
-                                echo '<table id="'.$tableId.'" class="table table-sm table-striped table-hover fixed-column text-center">';
+                                echo '<table id="'.$tableId.'" class="table table-sm table-striped table-hover fixed-column table-striped text-center">';
                                 
                                     echo '<thead>
                                         <tr>
@@ -154,7 +151,7 @@ include_once 'classes/PlayerVitalsHolder.php';
                                     
                                     //display averages in table footer
                                     echo ' <tfoot>
-                                        <tr class="tableau-top">
+                                        <tr>
                               		       	<td></td>
                                             <td></td>
                                             <td></td>

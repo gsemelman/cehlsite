@@ -246,7 +246,7 @@ if(file_exists($Fnm)) {
 
 		if($b && $d && substr_count($val, 'PCTG') ) {
 			$e = 1;
-			echo '<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">'.$scoringScoring.'</h5>';
+			echo '<div class="tableau-top">'.$scoringScoring.'</div>';
 			echo '<div class = "table-responsive">
 			<table id="ForwardScoring" class="table table-sm table-striped table-hover text-center">
                 <thead>
@@ -276,7 +276,7 @@ if(file_exists($Fnm)) {
 		if($b && $d && substr_count($val, 'AVG') ) {
 			$f = 1;
 			echo '</tbody></table></div>
-            <h5 class="tableau-top">'.$scoringGoalie.'</h5>
+            <div class="tableau-top">'.$scoringGoalie.'</div>
 			<div class = "table-responsive">
 			<table id="GoalieStats" class="table table-sm table-striped table-hover ">
                 <thead>

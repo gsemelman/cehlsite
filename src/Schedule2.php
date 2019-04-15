@@ -82,7 +82,7 @@ if($currentPLF){
         }
     }
     
-    if($rnd) $schedTitlePlayoff = ' - '.$scheldRound.' '.$rnd;
+    if($rnd) $schedTitlePlayoff = $scheldRound.' '.$rnd;
 }else{
     $Fnm = getLeagueFile($baseFolder, $playoff, 'Schedule.html', 'Schedule');
 }
@@ -93,7 +93,8 @@ $CurrentHTML = $linkSchedule;
 $CurrentTitle = $schedTitle;
 
 if($currentPLF){
-    $CurrentTitle = 'Playoff '.$CurrentTitle.' '.$schedTitlePlayoff;
+    //$CurrentTitle = 'Playoff '.$CurrentTitle.' '.$schedTitlePlayoff;
+    $CurrentTitle = $schedTitlePlayoff;
 }
 
 ?>

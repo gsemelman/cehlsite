@@ -254,7 +254,7 @@ if(file_exists($Fnm)) {
 
 	echo '<div class = "row">';	
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
-        <div class="tableau-top"><h5 class="m-0">'.$financeProPayroll2.'</h5></div>
+        <div class="tableau-top">'.$financeProPayroll2.'</div>
 		<table id="proPayroll" class="table table-sm table-striped text-center">
         <thead>
 		
@@ -276,7 +276,7 @@ if(file_exists($Fnm)) {
 		echo '</tbody></table></div>';
 
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="tableau-top"><h5 class="m-0">'.$financeFarmPayroll2.'</h5></div>
+        <div class="tableau-top">'.$financeFarmPayroll2.'</div>
 		<table id="farmPayroll" class="table table-sm table-striped text-center">
         <thead>
 		<tr>

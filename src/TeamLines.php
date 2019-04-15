@@ -62,9 +62,9 @@ if(file_exists($Fnm)) {
 				if($y == 0) {
 				    echo '</tbody>';
 				    echo '</table>';
+				    echo '<div class="tableau-top text-center">'.$linesScratches.'</div>';
 				    echo '<table class="table table-sm table-striped">';
 				    echo '<thead>';
-					echo '<tr class="tableau-top"><th colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesScratches.'</h5></th></tr>';	
 					
 					$y++;
 				}
@@ -104,9 +104,9 @@ if(file_exists($Fnm)) {
 		if(substr_count($val, 'STARTING') && $b && $d) {
 		    echo '</tbody>';
 		    echo '</table>';
+		    echo '<div class="tableau-top text-center">'.$linesStartingGoalie.'</div>';
 		    echo '<table class="table table-sm table-striped">';
 		    echo '<thead>';
-			echo '<tr class="tableau-top"><th colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesStartingGoalie.'</h5></th></tr>';
 			echo '</thead>';
 			echo '<tbody>';
 			$a = 7;
@@ -210,10 +210,10 @@ if(file_exists($Fnm)) {
 		if(substr_count($val, 'POWER') && $b && $d) {
 		    echo '</tbody>';
 		    echo '</table>';
+		    echo '<div class="tableau-top text-center">'.$linesPP.'</div>';
 		    echo '<table class="table table-sm table-striped">';
 		    echo '<thead>';
-			echo '<tr class="tableau-top titre"><th colspan="4" style="text-align:center; font-weight:bold"><h5 class="m-0">'.$linesPP.'</h5></th></tr>
-			<tr class="tableau-top">
+			echo '<tr class="tableau-top">
 			<th>POS</th>
 			<th>'.$linesL1.'</th>
 			<th>POS</th>
@@ -226,9 +226,10 @@ if(file_exists($Fnm)) {
 			$i = 0;
 		}
 		if(substr_count($val, '<PRE>') && $b && $d) {
+		    echo '<div class="tableau-top text-center">'.$linesEvenStrenght.'</div>';
 		    echo '<table class="table table-sm table-striped">';
 		    echo '<thead>';
-		    echo '<tr class="tableau-top titre"><th colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesEvenStrenght.'</h5></th></tr>
+		    echo '
 			<tr class="tableau-top">
 			<th>POS</th>
 			<th>'.$linesL1.'</th>
@@ -243,9 +244,10 @@ if(file_exists($Fnm)) {
 		if(substr_count($val, 'PENALTY') && $b && $d) {
 		    echo '</tbody>';
 		    echo '</table>';
+		    echo '<div class="tableau-top text-center">'.$linesPK.'</div>';
 		    echo '<table class="table table-sm table-striped">';
 		    echo '<thead>';
-		    echo '<tr class="tableau-top titre"><th colspan="4" style="text-align:center; font-weight:bold;"><h5 class="m-0">'.$linesPK.'</h5></th></tr>
+		    echo '
 			<tr class="tableau-top">
 			<th>POS</th>
 			<th>'.$linesL1.'</th>

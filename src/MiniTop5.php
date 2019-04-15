@@ -148,9 +148,9 @@ if (file_exists($Fnm)) {
 	
     $i = 0;
     echo '<div class = "col">
+	<div class="tableau-top text-center">'.$top5Goals.'</div>
 	<table class="table table-sm table-striped">
     <thead>
-	<tr class="titre text-center"><th colspan="4">'.$top5Goals.'</th></tr>
 	<tr>
 	<th>NAME</th>
 	<th>'.$individualTM.'</th>
@@ -174,8 +174,8 @@ if (file_exists($Fnm)) {
 	    
 	    echo '<div class = "col">
 	<table class="table table-sm table-striped">
+	<div class="tableau-top text-center">'.$top5Points.'</div>
     <thead>
-	<tr class="titre text-center"><th colspan="4">'.$top5Points.'</th></tr>
 	<tr>
 	<th>P</th>
 	<th>NAME</th>
@@ -227,9 +227,9 @@ if (file_exists($Fnm)) {
 	    $c = 1;
 	    $i = 0;
 	    echo '<div class = "col">
+	<div class="tableau-top text-center">'.$top5SavePct.'</div>
 	<table class="table table-sm table-striped">
     <thead>
-	<tr class="titre text-center"><th colspan="4">'.$top5SavePct.'</th></tr>
 	<tr>
 	<th>NAME</th>
 	<th>'.$individualTM.'</th>

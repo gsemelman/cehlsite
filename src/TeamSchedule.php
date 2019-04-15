@@ -118,7 +118,7 @@ include 'TeamHeader.php';
 					
 
 					<?php
-					echo '<h5 class="tableau-top">Team Schedule</h5>';
+					echo '<div class="tableau-top">Team Schedule</div>';
 					$a = 0;
 					$c = 1;
 					$i = 0;
@@ -347,7 +347,7 @@ include 'TeamHeader.php';
 				<?php
 				/* echo '<div class="titre"><span class="bold-blanc">'.$ScheldMatchups.'</span></div>'; */
 				//echo '<div><span>'.$ScheldMatchups.'</span></div>';
-				echo '<h5 class="tableau-top" style = "padding-top:5px; padding-bottom:5px">'.$ScheldMatchups.'</h5>';
+				echo '<div class="tableau-top">'.$ScheldMatchups.'</div>';
 				echo '<div class="table-responsive">';
 				echo '<table class="table table-sm table-striped">';
 				echo '<thead>';
