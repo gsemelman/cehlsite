@@ -7,10 +7,13 @@ $CurrentPage = 'CareerStandings';
 include 'head.php';
 ?>
 
-<div style="clear:both; width:555px; margin-left:auto; margin-right:auto; border: solid 1px <?php echo $couleur_contour; ?>;">
-<div class="titre"><span class="bold-blanc"><?php echo $CurrentTitle; ?></span></div>
-<div style="padding:0px 0px 0px 0px;">
-<table class="tableau">
+<div class="container">
+<div class="col-sm-12 col-lg-8 offset-lg-2">
+<div class="card">
+<?php include 'SectionHeader.php';?>
+<div class="card-body px-1 px-md-2">
+<div class="table-responsive"> 
+<!-- <table class="table table-sm table-striped"> -->
 
 <?php
 // Recherche des saisons antérieurs
@@ -23,7 +26,7 @@ if($folderCarrerStats != '0') {
 		if(substr_count($hashFolder, '#') > 0) break 1;
 	}
 	$Fnm = str_replace("#/","*",$folderCarrerStats);
-	$NumberSeason = 26;
+	$NumberSeason = 0;
 	$dirs = glob($Fnm, GLOB_ONLYDIR);
 	for($j=0;$j<count($dirs);$j++) {
 		if(substr_count($dirs[$j], $hashFolder)) {
@@ -131,11 +134,12 @@ for($workSeason=$NumberSeason+1;$workSeason>0;$workSeason--) {
 		}
 	}
 	else { 
-		echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>';
+		//echo '<tr><td>'.$allFileNotFound.' - '.$Fnm.'</td></tr>'; 
 	}
 }
 
 if(isset($standingsTeams)) {
+    
 	// Classement total
 	$tmpPos = 0;
 	$tmpPlf = 0;
@@ -151,6 +155,8 @@ if(isset($standingsTeams)) {
 	$tmpDif = 0;
 	$tmpPct = 0;
 	for($s=$NumberSeason+1;$s>0;$s--) {
+	    
+	    if(!array_key_exists($s, $standingsTeams)) continue;
 		for($f=0;$f<count($standingsTeams[$s]);$f++) {
 			if($standingsTeams[$s][$f] == $currentTeam) {
 				$tmpPos += $standingsPos[$s][$f];
@@ -170,76 +176,78 @@ if(isset($standingsTeams)) {
 			}
 		}
 	}
-	$tmpPos = round($tmpPos / ($NumberSeason+1), 0);
-	//$tmpPct = round($tmpPct / ($NumberSeason+1), 3);
+// 	$tmpPos = round($tmpPos / ($NumberSeason+1), 0);
+// 	//$tmpPct = round($tmpPct / ($NumberSeason+1), 3);
 	
-	$tmpOvertimeCount = $tmpTie;
-	if($overtime == 1) $tmpOvertimeCount += $tmpOTL;
-	$tmpPct = number_format(round(($tmpOvertimeCount + (2 * $tmpWin)) / (2 * $tmpGPs), 3), 3);
+// 	$tmpOvertimeCount = $tmpTie;
+// 	if($overtime == 1) $tmpOvertimeCount += $tmpOTL;
+// 	$tmpPct = number_format(round(($tmpOvertimeCount + (2 * $tmpWin)) / (2 * $tmpGPs), 3), 3);
 			
-	echo '<tr class="hover2">';
-	echo '<td style=""></td>';
-	echo '<td style="">'.$tmpPos.'</td>';
-	echo '<td style=""></td>';
-	echo '<td style="text-align:right;">'.$tmpGPs.'</td>';
-	echo '<td style="text-align:right;">'.$tmpWin.'</td>';
-	echo '<td style="text-align:right;">'.$tmpLos.'</td>';
-	echo '<td style="text-align:right;">'.$tmpTie.'</td>';
-	if($overtime == 1) echo '<td style="text-align:right;">'.$tmpOTL.'</td>';
-	echo '<td style="text-align:right;"><b>'.$tmpPts.'</b></td>';
-	echo '<td style="text-align:right;">'.$tmpGFs.'</td>';
-	echo '<td style="text-align:right;">'.$tmpGAs.'</td>';
-	echo '<td style="text-align:right;">'.$tmpDif.'</td>';
-	echo '<td style="text-align:right;">'.$tmpPct.'</td>';
-	echo '</tr>';
+// 	echo '<tr class="hover2">';
+// 	echo '<td style=""></td>';
+// 	echo '<td style="">'.$tmpPos.'</td>';
+// 	echo '<td style=""></td>';
+// 	echo '<td style="text-align:right;">'.$tmpGPs.'</td>';
+// 	echo '<td style="text-align:right;">'.$tmpWin.'</td>';
+// 	echo '<td style="text-align:right;">'.$tmpLos.'</td>';
+// 	echo '<td style="text-align:right;">'.$tmpTie.'</td>';
+// 	if($overtime == 1) echo '<td style="text-align:right;">'.$tmpOTL.'</td>';
+// 	echo '<td style="text-align:right;"><b>'.$tmpPts.'</b></td>';
+// 	echo '<td style="text-align:right;">'.$tmpGFs.'</td>';
+// 	echo '<td style="text-align:right;">'.$tmpGAs.'</td>';
+// 	echo '<td style="text-align:right;">'.$tmpDif.'</td>';
+// 	echo '<td style="text-align:right;">'.$tmpPct.'</td>';
+// 	echo '</tr>';
 	
-	// Titre Classement
-	echo '<tr class="tableau-top">';
-	echo '<td><a href="javascript:return;" class="info">S<span>'.$langCareerLeadersSeasons.'</span></a></td>';
-	echo '<td><a href="javascript:return;" class="info">R<span>'.$standingTitle.' - '.$standingConference.'</span></a></td>';
-	echo '<td><a href="javascript:return;" class="info">P<span>'.$langCareerLeadersPlayoffs.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></td>';
-	if($overtime == 1) echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingOT.'<span>'.$standingOTFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGF.'<span>'.$standingGFFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGA.'<span>'.$standingGAFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingDiff.'<span>'.$standingDiffFull.'</span></a></td>';
-	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingPCT.'<span>'.$standingPCTFull.'</span></a></td>';
-	echo '</tr>';
+// 	// Titre Classement
+// 	echo '<tr class="tableau-top">';
+// 	echo '<td><a href="javascript:return;" class="info">S<span>'.$langCareerLeadersSeasons.'</span></a></td>';
+// 	echo '<td><a href="javascript:return;" class="info">R<span>'.$standingTitle.' - '.$standingConference.'</span></a></td>';
+// 	echo '<td><a href="javascript:return;" class="info">P<span>'.$langCareerLeadersPlayoffs.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingW.'<span>'.$standingWFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingL.'<span>'.$standingLFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingE.'<span>'.$standingEFull.'</span></a></td>';
+// 	if($overtime == 1) echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingOT.'<span>'.$standingOTFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info"><b>'.$standingPTS.'</b><span>'.$standingPTSFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGF.'<span>'.$standingGFFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingGA.'<span>'.$standingGAFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingDiff.'<span>'.$standingDiffFull.'</span></a></td>';
+// 	echo '<td style="text-align:right;"><a href="javascript:return;" class="info">'.$standingPCT.'<span>'.$standingPCTFull.'</span></a></td>';
+// 	echo '</tr>';
 	
-	// Classement data
-	$c = 1;
-	for($s=$NumberSeason+1;$s>0;$s--) {
-		for($f=0;$f<count($standingsTeams[$s]);$f++) {
-			if($standingsTeams[$s][$f] == $currentTeam) {
-				if($c == 1) $c = 2;
-				else $c = 1;
-				echo '<tr class="hover'.$c.'">';
-				echo '<td style="">'.$s.'</td>';
-				echo '<td style="">'.$standingsPos[$s][$f].'</td>';
-				echo '<td style="">'.$standingsPlayoff[$s][$f].'</td>';
-				echo '<td style="text-align:right;">'.$standingsGP[$s][$f].'</td>';
-				echo '<td style="text-align:right;">'.$standingsW[$s][$f].'</td>';
-				echo '<td style="text-align:right;">'.$standingsL[$s][$f].'</td>';
-				echo '<td style="text-align:right;">'.$standingsT[$s][$f].'</td>';
-				if($overtime == 1) echo '<td style="text-align:right;">'.$standingsOL[$s][$f].'</td>';
-				echo '<td style="text-align:right;"><b>'.$standingsPts[$s][$f].'</b></td>';
-				echo '<td style="text-align:right;">'.$standingsGF[$s][$f].'</td>';
-				echo '<td style="text-align:right;">'.$standingsGA[$s][$f].'</td>';
-				echo '<td style="text-align:right;">'.$standingsDiff[$s][$f].'</td>';
-				echo '<td style="text-align:right;">'.$standingsPCT[$s][$f].'</td>';
-				echo '</tr>';
-				break 1;
-			}
-		}
-	}
-	echo '</table>';
+// 	// Classement data
+// 	$c = 1;
+// 	for($s=$NumberSeason+1;$s>0;$s--) {
+// 	    if(!array_key_exists($s, $standingsTeams)) continue; //skip year if cannot be found
+// 		for($f=0;$f<count($standingsTeams[$s]);$f++) {
+// 			if($standingsTeams[$s][$f] == $currentTeam) {
+// 				if($c == 1) $c = 2;
+// 				else $c = 1;
+// 				echo '<tr class="hover'.$c.'">';
+// 				echo '<td style="">'.$s.'</td>';
+// 				echo '<td style="">'.$standingsPos[$s][$f].'</td>';
+// 				echo '<td style="">'.$standingsPlayoff[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;">'.$standingsGP[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;">'.$standingsW[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;">'.$standingsL[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;">'.$standingsT[$s][$f].'</td>';
+// 				if($overtime == 1) echo '<td style="text-align:right;">'.$standingsOL[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;"><b>'.$standingsPts[$s][$f].'</b></td>';
+// 				echo '<td style="text-align:right;">'.$standingsGF[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;">'.$standingsGA[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;">'.$standingsDiff[$s][$f].'</td>';
+// 				echo '<td style="text-align:right;">'.$standingsPCT[$s][$f].'</td>';
+// 				echo '</tr>';
+// 				break 1;
+// 			}
+// 		}
+// 	}
+// 	echo '</table>';
 	
 	// Recherche des classements par équipe
 	for($s=$NumberSeason+1;$s>0;$s--) {
+	    if(!array_key_exists($s, $standingsTeams)) continue;
 		for($f=0;$f<count($standingsTeams[$s]);$f++) {
 			$found = 0;
 			if(isset($tmpAllTms)) {
@@ -292,7 +300,7 @@ if(isset($standingsTeams)) {
 		}
 	}
 	if(isset($tmpAllTms)) {
-		echo '<div id="windowResult" style="margin-top:25px;"></div>';
+		echo '<div id="windowResult"></div>';
 		for($i=0;$i<count($tmpAllTms);$i++) {
 			$tmpAllTmsCount[$i] = $i;
 			$tmpOvertimeCount = $tmpAllTie[$i];
@@ -334,7 +342,8 @@ function result(x) {
 	var result = document.getElementById("windowResult");
 	var tbl = document.createElement('table');
 		tbl.style.width='100%';
-		tbl.className = "tableau";
+		tbl.className = "table table-sm table-striped";
+	var thead = document.createElement('thead');
 	var tbdy = document.createElement('tbody');
 	// Entête
 	var tr = document.createElement('tr');
@@ -492,7 +501,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		tbdy.appendChild(tr);
+		thead.appendChild(tr);
 	var zipped = [];
 	var tmpTransF = [];
 	if(type == 'GPS') tmpTransF = allGPS;
@@ -527,6 +536,7 @@ function result(x) {
 		d++;
 		if(d == 100) break;
 	}
+	tbl.appendChild(thead);
 	tbl.appendChild(tbdy);
 	result.appendChild(tbl);
 }
@@ -545,7 +555,7 @@ function showPlayer(i,c,d,currentSearch) {
 				a.className = "lien-noir";
 				a.style.display = "block";
 				a.style.width = "100%";
-				a.href = "LinkedRosters.php?team="+encodeURIComponent(allTms[i]);
+				a.href = "TeamRosters.php?team="+encodeURIComponent(allTms[i]);
 				//a.target = "_blank";
 				a.appendChild(document.createTextNode(allTms[i]));
 			td.appendChild(a);
@@ -611,6 +621,6 @@ document.addEventListener('DOMContentLoaded', result('PTS'), false);
 //-->
 </script>
 
-</div></div>
+</div></div></div></div></div>
 
 <?php include 'footer.php'; ?>

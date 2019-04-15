@@ -852,6 +852,7 @@ if(isset($statsPosition) && count($statsPosition) >= 5) {
 if(isset($statsGNumber) && count($statsGNumber) >= 2) {
 	echo '<div>';
 	echo '<div class="tableau-top">'.$teamCardBestGoalie.'</div>';
+	echo '<div class="table-responsive">';
 	echo '<table class="table table-sm table-striped text-center">
         <thead>
         <tr>
@@ -888,7 +889,7 @@ if(isset($statsGNumber) && count($statsGNumber) >= 2) {
 		if($i == 1) break 1;
 		$i++;
 	}
-	echo '<tbody></table></div>';
+	echo '<tbody></table></div></div>';
 }
 
 echo '</div>';
