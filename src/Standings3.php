@@ -55,7 +55,7 @@ if($currentPLF == 1){
 							data-toggle="tab">Playoffs</a></li>
 					</ul>
 				</div>
-				<div class="card-body tab-content p-0 m-0">
+				<div class="card-body tab-content m-0 p-0 pt-2">
 					<div class="tab-pane  <?php echo $seasonActive?>" id="Season">
 						<div id="SeasonInner">
         						<?php include 'StandingsTemplate2.php'; ?>

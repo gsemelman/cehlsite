@@ -1,4 +1,4 @@
-﻿<style>
+<style>
 
 #treeRow { display: flex; align-items: center; }
 

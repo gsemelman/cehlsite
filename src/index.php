@@ -28,15 +28,12 @@ include 'head.php';
 	margin-bottom: 10px;
 }
 
-.card-header {
-	background: linear-gradient(rgb(0, 55, 112) 2%, rgb(0, 55, 112) 20%,
-		rgb(27, 98, 162) 100%);
-	color: white;
-}
-/* .card-header{ */
-/*     background-color: rgb(103, 112, 127); */
-/*     color:white;  */
+/* .card-header { */
+/* 	background: linear-gradient(rgb(0, 55, 112) 2%, rgb(0, 55, 112) 20%, rgb(27, 98, 162) 100%); */
+
+/* 	color: white; */
 /* } */
+
 </style>
 
 <?php

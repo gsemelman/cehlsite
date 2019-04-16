@@ -16,8 +16,19 @@ class GameHolder implements \JsonSerializable
     private $homeShots= array();
     private $homeGoals= array();
     
+    private $scoringFirstPeriod = array();
+    private $scoringSecondPeriod = array();
+    private $scoringThirdPeriod = array();
+    private $scoringOtPeriod = array();
+    
+    private $penaltySummary = array();
+    
     private $awayStats = array();
     private $homeStats = array();
+    
+    private $goalieStats = array();
+    
+    private $threeStars = array();
     
     private $attendence;
     private $teamProfit;
@@ -130,7 +141,8 @@ class GameHolder implements \JsonSerializable
         $c = 1;
         $d = 0;
         $e = 0;
-        $statsProcessed = 0;
+        $awayStatsProcessed = 0;
+
         if(file_exists($file)) {
             $tableau = file($file);
             while(list($cle,$val) = myEach($tableau)) {
@@ -356,7 +368,7 @@ class GameHolder implements \JsonSerializable
                     $a = 10;
                     
                     //away team stats complete. start home stats
-                    $statsProcessed++;
+                    $awayStatsProcessed++;
                     $b++;
                 }
                 if($a == 11) {
@@ -387,18 +399,8 @@ class GameHolder implements \JsonSerializable
                         $statsArray['S'] = trim(substr($val, $pos+18, 2));
                         $statsArray['HT'] = trim(substr($val, $pos+21, 3));
                         $statsArray['IT'] = trim(substr($val, $pos+24, 3));
-                        
-//                         error_log(trim(substr($val, 0, $pos)));
-//                         error_log(trim(substr($val, $pos+3, 2)));
-//                         error_log(trim(substr($val, $pos, 2)));
-//                         error_log(trim(substr($val, $pos+6, 2)));
-//                         error_log(trim(substr($val, $pos+14, 3)));
-//                         error_log(trim(substr($val, $pos+18, 2)));
-//                         error_log(trim(substr($val, $pos+21, 3)));
-//                         error_log(trim(substr($val, $pos+24, 3)));
-                        
-                       
-                        if($statsProcessed == 0){
+
+                        if($awayStatsProcessed == 0){
                             //away
                             array_push($this->awayStats, $statsArray);
                         }else{
@@ -446,12 +448,18 @@ class GameHolder implements \JsonSerializable
                     $a = 10;
                 }
                 if($a == 9) {
+                    //three stars
                     $numero = substr($val, 1, 1);
                     $pos = strpos($val, '(');
                     $long = $pos - 6;
                     $joueur = substr($val, 5, $long);
                     $equipe = substr($val, $pos + 1, 3);
                     echo '<tr style="'.$bg_2.'"><td style="'.$style1.'">'.$numero.'</td><td style="'.$style1.'">'.$joueur.'</td><td style="'.$style1.'">'.$equipe.'</td></tr>';
+                    
+                    $this->threeStars[''.$numero.''] = $joueur;
+                 
+                    
+                    
                 }
                 if(substr_count($val, 'Game Stars')) {
                     echo '</table></div><div style="position: relative; text-align:left; float:right;"><table class="tableau" style="width:180px;">
@@ -469,11 +477,17 @@ class GameHolder implements \JsonSerializable
                     $result = substr($val, $pos, $long);
                     $result = str_replace('for', $gamesin, $result);
                     echo '<tr style="'.$bg_2.'"><td style="'.$style1.'">'.$team.'</td><td style="'.$style1.'">'.$result.'</td></tr>';
+                    
+                 
                 }
                 if(substr_count($val, 'Power Play Conversions')) {
                     echo '</table><div style="position: relative; text-align:left; float:left;"><table class="tableau" style="width:180px;">
 		<tr><td colspan="2"><br></td></tr>
 		<tr class="tableau-top"><td colspan="2" style="'.$style1.'">'.$gamesPPC.'</td></tr>';
+                    
+                    
+                    
+                    
                     $a = 8;
                 }
                 if($a == 7) {
@@ -508,6 +522,21 @@ class GameHolder implements \JsonSerializable
                         $total = '';
                     }
                     echo '<tr style="'.$bg_2.'"><td style="'.$style1.'">'.$joueur.'</td><td style="'.$style1.'">'.$team.'</td><td style="'.$style1.'">'.$save.'</td><td style="'.$style1.'">'.$status.'</td><td style="'.$style1.'">'.$total.'</td></tr>';
+         
+                    $statsArray = array();
+
+                    $statsArray['PLAYER'] = $joueur;
+                    $statsArray['TEAM'] = $team;
+                    //$statsArray['SAVES'] = $save;
+                    $statsArray['SAVES'] = strtok($save,' ');
+                    $statsArray['SA'] = strtok(substr($save, strpos($save, 'out of ') + 7),' ');;
+                    
+                    $statsArray['STATUS'] = $status;
+                    $statsArray['RECORD'] = $total;
+
+                    array_push($this->goalieStats, $statsArray);
+                    
+                    
                 }
                 if(substr_count($val, 'Goalie Statistics')) {
                     if(isset($punition)) {
@@ -520,32 +549,72 @@ class GameHolder implements \JsonSerializable
                             if(isset($punition[$d])) {
                                 $punition[$d] = str_replace($aremplacer, $remplace, $punition[$d]);
                                 $tmpCpt = substr_count($punition[$d],"(") - substr_count($punition[$d],"(Served");
+                                
+                               // error_log($punition[$d]);
+                                //error_log($tmpCpt);
                             }
-                            $tmpPunList = '';
+                           // $tmpPunList = '';
                             for($i=0;$i<$tmpCpt;$i++) {
                                 $pos = strpos($punition[$d], ',', strpos($punition[$d], ')'));
-                                if(!$pos) $tmpPunList[$i] = $punition[$d];
-                                else {
-                                    $tmpPunList[$i] = substr($punition[$d], 0, $pos);
-                                    $punition[$d] = substr($punition[$d], $pos+1);
+                                
+                              
+                                
+                                if(!$pos){
+                                    $tmpPunList[$i] = trim($punition[$d]);
+                                    
+                                   // error_log($punition[$d]);
                                 }
+                                else {
+                                    $tmpPunList[$i] = trim(substr($punition[$d], 0, $pos));
+                                    $punition[$d] = substr($punition[$d], $pos+1);
+                    
+                                    
+                                   // error_log($punition[$d]);
+                                }
+                                
+                               // error_log($tmpPunList[$i]);
                             }
+                            
+    
                             
                             if(isset($punition2[$d]) && $punition2[$d] == 1) {
                                 echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$games1stPer.'</b></td></tr>';
+                                
                             }
                             if(isset($punition2[$d]) && $punition2[$d] == 2) {
                                 echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$games2ndPer.'</b></td></tr>';
-                            }
+                                 }
                             if(isset($punition2[$d]) && $punition2[$d] == 3) {
                                 echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$games3rdPer.'</b></td></tr>';
-                            }
+                              }
                             if(isset($punition2[$d]) && $punition2[$d] == 4) {
                                 echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$gamesOTPer.'</b></td></tr>';
-                            }
+                              }
                             for($i=0;$i<$tmpCpt;$i++) {
                                 echo '<tr style="'.$bg_2.'"><td colspan="3" style="'.$style1.'">'.$tmpPunList[$i].'</td></tr>';
+                                
+                                error_log($tmpPunList[$i]);
                             }
+                            
+                          //  $this->penaltySummary[''.$punition2[$d].''] = $tmpPunList;
+                              
+                              
+                              if(isset($punition2[$d]) && $punition2[$d] == 1) {
+                                  $this->penaltySummary[''.$punition2[$d].''] = $tmpPunList;
+                              }
+                              if(isset($punition2[$d]) && $punition2[$d] == 2) {
+                                  $this->penaltySummary[''.$punition2[$d].''] = $tmpPunList;
+                              }
+                              if(isset($punition2[$d]) && $punition2[$d] == 3) {
+                                  $this->penaltySummary[''.$punition2[$d].''] = $tmpPunList;
+                              }
+                              if(isset($punition2[$d]) && $punition2[$d] == 4) {
+                                  $this->penaltySummary[''.$punition2[$d].''] = $tmpPunList;
+                              }
+                              
+                            
+                
+                            
                         }
                         echo'</table>';
                     }
@@ -559,6 +628,8 @@ class GameHolder implements \JsonSerializable
                     $a = 7;
                 }
                 if($a == 6 && $e && (substr_count($val, $equipe1c) || substr_count($val, $equipe2c)) ) {
+                    //SCORING BY PERIOD
+                    
                     $long = strlen($val);
                     $pos = $long - 10;
                     $temps = substr($val, $pos-1, 6);
@@ -568,11 +639,34 @@ class GameHolder implements \JsonSerializable
                     $pos_apres2 = $pos_apres - $pos_avant;
                     $team = substr($val, $pos_avant, $pos_apres2);
                     $pos_apres = $pos_apres + 2;
-                    $pos = $pos - 2;
+                    //$pos = $pos - 2;
+                    $pos = $pos - 3; //remove last comma
                     $pos = $pos - $pos_apres;
                     $score = substr($val, $pos_apres, $pos);
                     
                     echo '<tr style="'.$bg_2.'"><td style="'.$style1.'">'.$team.'</td><td style="'.$style1.'">'.$temps.'</td><td style="'.$style1.'">'.$score.'</td></tr>';
+   
+                    $scoreArray = array();
+                    
+                    $scoreArray['TEAM'] = $team;
+                    $scoreArray['TIME'] = $temps;
+                    $scoreArray['SCORE'] = $score;
+                    
+                    if($e == 1){
+                        array_push($this->scoringFirstPeriod, $scoreArray);
+                    }
+                    else if($e == 2){
+                        array_push($this->scoringSecondPeriod, $scoreArray);
+                    }
+                    else if($e == 3){
+                        array_push($this->scoringThirdPeriod, $scoreArray);
+                    }
+                    else{
+                        //assume OT
+                        array_push($this->scoringOtPeriod, $scoreArray);
+                    }
+
+                    
                 }
                 if($a == 6 && (substr_count($val, 'NO SCORING'))) {
                     echo '<tr style="'.$bg_2.'"><td colspan="3" style="'.$style1.'">'.$gamesNoScoring.'</td></tr>';
@@ -580,6 +674,11 @@ class GameHolder implements \JsonSerializable
                 if($a == 6 && (substr_count($val, 'PENALTIES'))) {
                     $punition[$d] = $val;
                     $punition2[$d] = $e;
+                    
+                    //$this->penaltySummary[''.$e.''] = array(explode(",", $val));
+                    //error_log($e);
+                   // error_log($val);
+  
                     $d++;
                 }
                 if($a == 6 && (substr_count($val, '<B>Period') || substr_count($val, '<B>Overtime'))) {
@@ -600,11 +699,13 @@ class GameHolder implements \JsonSerializable
                         echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$gamesOTPer.'</b></td></tr>';
                     }
                 }
+                
+               
             }
         }
+        
 
-        echo '<pre>'; print_r($team_r1); echo '</pre>';
-        echo '<pre>'; print_r($team_r1p); echo '</pre>';
+
     }
     
     

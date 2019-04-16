@@ -9,10 +9,12 @@
   --table-bg-color-2: var(--color-alternate-2);
   --table-header-bg:var(--color-primary-1);
   --table-header-text:var(--color-text-primary-1);
+  
+  --header-gradient:linear-gradient(rgb(0, 55, 112) 2%, rgb(0, 55, 112) 20%, rgb(27, 98, 162) 100%);
 
-  --table-highlight:rgb(27, 64, 162);
+  --table-highlight:var(--color-primary-1);
   --table-sort-asc:rgb(57, 27, 162);
-  --table-sort-desc:rgb(27, 31, 162);
+  --table-sort-desc:rgb(15, 40, 81);
   --selection-border:rgb(0, 0, 102);
  
 }
