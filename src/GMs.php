@@ -43,7 +43,7 @@ if(file_exists($Fnm)) {
 			
 			echo '<div class="col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table class="table table-sm table-striped">';
+			echo '<table class="table table-sm table-striped table-rounded">';
 		}
 		if(substr_count($val, 'HREF') && !substr_count($val, '<BR>')) {
 			$gmequipe[$i] = trim(substr($val, 0, 10));
@@ -85,18 +85,16 @@ if(file_exists($Fnm)) {
 	}
 	if($sendAll != '') {
 			echo '<tr class="tableau-top">
-			<td style="text-align:right; padding-right:10px;" colspan="2"><a class="lien-blanc" href="mailto:'.$sendAll.'">'.$GMsEmailAll.'</a></td>
+			<td colspan="2"><a style ="color:white" href="mailto:'.$sendAll.'">'.$GMsEmailAll.'</a></td>
 			</tr>';
 		}
 	$z = 0;
-	$c = 1;
+
 	if(isset($free[$z])) {
 		echo '<tr><td colspan="2"><br></td></tr><tr class="tableau-top"><td colspan="2" >'.$GMsFreeTeam.'</td></tr>';
 		for($z=0;$z<count($free);$z++) {
-			if($c == 1) $c = 2;
-			else $c = 1;
 			$equipe = $free[$z];
-			echo '<tr class="hover'.$c.'"><td colspan="2">'.$equipe.'</td></tr>';
+			echo '<tr><td colspan="2">'.$equipe.'</td></tr>';
 		}
 	}
 }

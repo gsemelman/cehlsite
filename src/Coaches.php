@@ -59,7 +59,7 @@ if(file_exists($Fnm)) {
 			$lastUpdated = $val;
 	
 			echo '<div class="table-responsive">';
-			echo '<table id ="coachTable" class="table table-sm table-striped table-hover text-center">';
+			echo '<table id ="coachTable" class="table table-sm table-striped table-hover text-center table-rounded">';
 		}
 		if($a == 1 && substr_count($val, '(')) {
 			$reste = trim($val);

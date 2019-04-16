@@ -43,7 +43,7 @@ if(file_exists($Fnm)) {
 			$val = substr($val, 10, $pos);
 			$lastUpdated = $val;
 			
-			echo '<table class="table table-sm table-striped">';
+			echo '<table class="table table-sm table-striped table-rounded"">';
 			echo '<tbody>';
 		}
 		if(substr_count($val, 'NAME=')){

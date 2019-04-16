@@ -56,7 +56,7 @@ if(file_exists($Fnm)) {
 			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';
 
 			echo '<div class="table-responsive wow fadeIn">';
-			echo '<table id = "leadersScTable" class="table table-sm table-striped table-hover text-center">';
+			echo '<table id = "leadersScTable" class="table table-sm table-striped table-hover text-center table-rounded-bottom">';
 		
 		}
 		if(substr_count($val, '</PRE>')) {
@@ -209,11 +209,13 @@ if(file_exists($Fnm)) {
 	}
 	echo '</tbody></table></div><br>';
 
-	echo '<div class="tableau-top text-center">'.$leaderGoalies.'</div>';
-	echo '<div class="tableau-top text-center">'.$leaderminGames.' '.$games.' '.$leaderminGames2.'.</div>';
+	echo '<div class="tableau-top text-center">';
+	   echo '<div>'.$leaderGoalies.'</div>';
+	   echo '<div style="font-size:0.8rem;">'.$leaderminGames.' '.$games.' '.$leaderminGames2.'.</div>';
+    echo '</div>';
 	
 	echo '<div class="table-responsive wow fadeIn">';
-	echo '<table id ="leadersGoalieTable" class="table table-sm table-striped table-hover text-center">';
+	echo '<table id ="leadersGoalieTable" class="table table-sm table-striped table-hover text-center  table-rounded-bottom">';
     echo '<thead>'; 
     echo '<tr>';
 	echo '<th class="text-left">Name</th>';

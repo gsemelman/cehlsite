@@ -688,17 +688,17 @@ function result(tmpSearch) {
 	var result = document.getElementById("windowResult");
 	var tbl = document.createElement('table');
 		tbl.style.width='100%';
-		tbl.className = "table table-sm table-striped";
+		tbl.className = "table table-sm table-striped table-rounded";
 	var thead = document.createElement('thead');
 	var tbdy = document.createElement('tbody');
 	// Entête - Header
 	if(currentType == 0) {
 		var tr = document.createElement('tr');
 			tr.className = "tableau-top";
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.appendChild(document.createTextNode(''));
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			var a = document.createElement('a');
 				a.href = "javascript:return;";
 				a.className = "info";
@@ -708,14 +708,14 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			var a = document.createElement('a');
 				a.href = "javascript:return;";
 				a.className = "lien-blanc";
 				a.appendChild(document.createTextNode('<?php echo $scoringName; ?>'));
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'GP') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -729,7 +729,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'GO') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -743,7 +743,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'AT') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -757,7 +757,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'PT') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -771,7 +771,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'DF') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -785,7 +785,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'PM') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -799,7 +799,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'PP') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -813,7 +813,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'SH') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -827,7 +827,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'GW') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -841,7 +841,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'GT') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -855,7 +855,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'HT') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -869,7 +869,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'ST') td.style.fontWeight = "bold";
 			var a = document.createElement('a');
@@ -883,7 +883,7 @@ function result(tmpSearch) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.style.textAlign = "right";
 			if(currentSearch == 'PG') td.style.fontWeight = "bold";
 			var a = document.createElement('a');

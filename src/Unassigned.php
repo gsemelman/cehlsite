@@ -107,7 +107,7 @@ include_once 'common.php';
                 		    if(isset($unassignedPL)) {
                 		        
                 		        echo '<div class="col px-0 px-md-2 px-lg-3">';
-                		        echo '<table id="faTable" class="table table-sm table-striped nowrap show" style="width:100%">';
+                		        echo '<table id="faTable" class="table table-sm table-striped nowrap show " style="width:100%">';
                 		          echo '<thead>
                                             <tr>
                                                 <th>'.$rostersName.'</th>

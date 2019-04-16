@@ -759,15 +759,15 @@ if(isset($lastNumber)) {
 	echo '<tr><th colspan="2"><h5 class="m-0">'.$teamCardLastGame.' #'.$lastNumber.'</h5></th></tr>';
 	echo '</thead>';
 	echo '<tbody>';
-	echo '<tr><td>'.$lastEquipe1.'</td><td class="text-right">'.$lastScore1.'</td></tr>';
-	echo '<tr><td>'.$lastEquipe2.'</td><td class="text-right">'.$lastScore2.'</td></tr>';
+	echo '<tr><td>'.$lastEquipe1.'</td><td class="text-center">'.$lastScore1.'</td></tr>';
+	echo '<tr><td>'.$lastEquipe2.'</td><td class="text-center">'.$lastScore2.'</td></tr>';
 	echo '</tbody>';
 	echo '</table></a>';
 }
 
 if(isset($nextNumber)) {
 	echo '<a href="'.$nextGameFile.'">';
-	echo '<table class="table table-sm table-striped table-rounded">';
+	echo '<table class="table table-sm table-striped table-rounded text-center">';
 	echo '<thead>';
 	echo '<tr><th><h5 class="m-0">'.$teamCardNextGame.' #'.$nextNumber.'</h5></th></tr>';
 	echo '</thead>';

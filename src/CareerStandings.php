@@ -342,23 +342,23 @@ function result(x) {
 	var result = document.getElementById("windowResult");
 	var tbl = document.createElement('table');
 		tbl.style.width='100%';
-		tbl.className = "table table-sm table-striped";
+		tbl.className = "table table-sm table-striped table-rounded";
 	var thead = document.createElement('thead');
 	var tbdy = document.createElement('tbody');
 	// Entête
 	var tr = document.createElement('tr');
 		tr.className = "tableau-top";
-		var td = document.createElement('td');
+		var td = document.createElement('th');
 			td.appendChild(document.createTextNode(''));
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				var a = document.createElement('a');
 					a.href = "javascript:return;";
 					a.className = "lien-blanc";
 					a.appendChild(document.createTextNode('<?php echo $standingTeam; ?>'));
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'GPS') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -372,7 +372,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'WIN') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -386,7 +386,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'LOS') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -400,7 +400,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'TIE') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -416,7 +416,7 @@ function result(x) {
 			tr.appendChild(td);
 			
 			if(<?php echo $overtime; ?> == 1) {
-				var td = document.createElement('td');
+				var td = document.createElement('th');
 					td.style.textAlign = "right";
 					if(type == 'OTL') td.style.fontWeight = "bold";
 						var a = document.createElement('a');
@@ -431,7 +431,7 @@ function result(x) {
 					td.appendChild(a);
 				tr.appendChild(td);
 			}
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'PTS') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -445,7 +445,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'GFS') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -459,7 +459,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'GAS') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -473,7 +473,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'DIF') td.style.fontWeight = "bold";
 					var a = document.createElement('a');
@@ -487,7 +487,7 @@ function result(x) {
 					a.appendChild(span);
 				td.appendChild(a);
 			tr.appendChild(td);
-			var td = document.createElement('td');
+			var td = document.createElement('th');
 				td.style.textAlign = "right";
 				if(type == 'PCT') td.style.fontWeight = "bold";
 					var a = document.createElement('a');

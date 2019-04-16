@@ -347,7 +347,7 @@ echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4 offset-md-2">
 	<div class="tableau-top text-center">'.$individualGoals.'</div>
 	<div class = "table-responsive">
-	<table class="table table-sm table-striped text-center">
+	<table class="table table-sm table-striped text-center table-rounded-bottom">
     <thead>
 	<tr>
 	<th></td>
@@ -376,7 +376,7 @@ echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4">
     <div class="tableau-top text-center">'.$individualGSS.'</div>
 	<div class = "table-responsive">
-	<table class="table table-sm table-striped text-center">
+	<table class="table table-sm table-striped text-center table-rounded-bottom">
     <thead>
 	<tr>
 	<th></td>
@@ -407,7 +407,7 @@ echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4 offset-md-2">
     <div class="tableau-top text-center">'.$individualAssists.'</div>
 	<div class = "table-responsive">
-	<table class="table table-sm table-striped text-center">
+	<table class="table table-sm table-striped text-center table-rounded-bottom">
     <thead>
 	<tr>
 	<th></td>
@@ -436,7 +436,7 @@ echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4">
     <div class="tableau-top text-center">'.$individualPSS.'</div>
 	<div class = "table-responsive">';
-	echo '<table class="table table-sm table-striped text-center">
+	echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
 	<thead>
 	<tr>
 	<th></td>
@@ -469,7 +469,7 @@ echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4 offset-md-2">
     <div class="tableau-top text-center">'.$individualPPG.'</div>
 	<div class = "table-responsive">';
-	echo '<table class="table table-sm table-striped text-center">
+	echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
 	<thead>
 	<tr>
 	<th></td>
@@ -496,7 +496,7 @@ echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-4">
     <div class="tableau-top text-center">'.$individualC.'</div>
 	<div class = "table-responsive">';
-	echo '<table class="table table-sm table-striped text-center">
+	echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
 	<thead>
 	<tr>
 	<th></td>
@@ -528,7 +528,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
         <div class="tableau-top text-center">'.$individualSHG.'</div>
     	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
     	<thead>
     	<tr>
     	<th></td>
@@ -558,7 +558,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4">
         <div class="tableau-top text-center">'.$individualLW.'</div>
     	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
     	<thead>
     	<tr>
     	<th></td>
@@ -589,7 +589,7 @@ echo '<div class = "row">';
 echo '<div class = "col-sm-12 col-md-4 offset-md-2">
         <div class="tableau-top text-center">'.$individualSP.'</div>
     	<div class = "table-responsive">';
-echo '<table class="table table-sm table-striped text-center">
+echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
     	<thead>
     	<tr>
     	<th></td>
@@ -617,7 +617,7 @@ echo '<table class="table table-sm table-striped text-center">
     echo '<div class = "col-sm-12 col-md-4">
         <div class="tableau-top text-center">'.$individualRW.'</div>
     	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
     	<thead>
     	<tr>
     	<th></td>
@@ -647,7 +647,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
             <div class="tableau-top text-center">'.$individualShots.'</div>
         	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
         	<thead>
         	<tr>
         	<th></td>
@@ -674,7 +674,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4">
             <div class="tableau-top text-center">'.$individualD.'</div>
         	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
         	<thead>
         	<tr>
         	<th></td>
@@ -706,7 +706,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
                 <div class="tableau-top text-center">'.$individualPM.'</div>
             	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
             	<thead>
             	<tr>
             	<th></td>
@@ -733,7 +733,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4">
                 <div class="tableau-top text-center">'.$individualRookies.'</div>
             	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
             	<thead>
             	<tr>
             	<th></td>
@@ -764,7 +764,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
                     <div class="tableau-top text-center">+/-</div>
                 	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                 	<thead>
                 	<tr>
                 	<th></td>
@@ -795,7 +795,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4">
                     <div class="tableau-top text-center">'.$individualHT.'</div>
                 	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                 	<thead>
                 	<tr>
                 	<th></td>
@@ -829,7 +829,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
                         <div class="tableau-top text-center">'.$individualSPG.'</div>
                     	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                     	<thead>
                     	<tr>
                     	<th></td>
@@ -857,7 +857,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4">
                         <div class="tableau-top text-center">'.$individualRec.'</div>
                     	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                     	<thead>
                     	<tr>
                     	<th></td>
@@ -887,7 +887,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
                             <div class="tableau-top text-center">'.$individualSO.'</div>
                         	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                         	<thead>
                         	<tr>
                         	<th></td>
@@ -914,7 +914,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4">
                             <div class="tableau-top text-center">'.$individualPM.'</div>
                         	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                         	<thead>
                         	<tr>
                         	<th></td>
@@ -945,7 +945,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
                                 <div class="tableau-top text-center">'.$individualMP.'</div>
                             	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                             	<thead>
                             	<tr>
                             	<th></td>
@@ -972,7 +972,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4">
     <div class="tableau-top text-center">'.$individualAssists.'</div>
 	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                             	<thead>
                             	<tr>
                             	<th></td>
@@ -1002,7 +1002,7 @@ echo '<div class = "row">';
     echo '<div class = "col-sm-12 col-md-4 offset-md-2">
                                     <div class="tableau-top text-center">'.$individualStar.'</div>
                                 	<div class = "table-responsive">';
-    echo '<table class="table table-sm table-striped text-center">
+    echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
                                 	<thead>
                                 	<tr>
                                 	<th></td>

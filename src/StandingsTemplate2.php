@@ -110,7 +110,7 @@ if (file_exists($Fnm)) {
             
             echo '<div class = "tableau-top">' . $val2 . ' ' . $standingConference . '</div>';
             echo '<div class="table-responsive">';
-            echo '<table class="table table-sm table-striped text-center">';
+            echo '<table class="table table-sm table-striped text-center table-rounded-bottom">';
            
      
             $d = 1;
@@ -132,7 +132,7 @@ if (file_exists($Fnm)) {
             
             echo '<div class = "tableau-top">' . $val2 . ' ' . $standingDivision . '</div>';
             echo '<div class="table-responsive">';
-            echo '<table class="table table-sm table-striped text-center">';
+            echo '<table class="table table-sm table-striped text-center table-rounded-bottom"">';
             
             
             $d = 1;
