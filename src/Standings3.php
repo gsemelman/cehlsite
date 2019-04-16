@@ -26,50 +26,54 @@ if($currentPLF == 1){
 		
 		<div class="card-body px-2 px-md-3">
 
-			<div class ="col-sm-4" style="display: flex;">
-	
+			<div class="col-sm-4" style="display: flex;">
+
 				<div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="seasonMenuHeader">Season</span>
-                  </div>
-             
-                  <select class="form-control" aria-label="Select Season" id="seasonMenu" aria-describedby="seasonMenuHeader">
-					<option value="Current">Current</option>
-					<option value=26>Season	26</option>
-					<option value=25>Season	25</option>
-				  </select>
-                </div>
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="seasonMenuHeader">Season</span>
+					</div>
+
+					<select class="form-control" aria-label="Select Season"
+						id="seasonMenu" aria-describedby="seasonMenuHeader">
+						<option value="Current">Current</option>
+						<option value=26>Season 26</option>
+						<option value=25>Season 25</option>
+					</select>
+				</div>
 			</div>
 
-			<div id="standingsTabs">
-				<ul class="nav nav-tabs nav-fill">
-					<li class="nav-item"><a class="nav-link <?php echo $seasonActive?>"
-						href="#Season" data-toggle="tab">Regular Season</a>
-					</li>
-					
-					<li class="nav-item"><a
-						class="nav-link <?php echo $playoffActive?>" href="#Playoffs"
-						data-toggle="tab">Playoffs</a>
-					</li>
-				</ul>
 
-				<div class="tab-content">
-    				<div class="tab-pane  <?php echo $seasonActive?>" id="Season">
-    					<div id="SeasonInner" >
-    						<?php include 'StandingsTemplate2.php'; ?>
-    					</div>
-    				</div>
-    
-                	<div class="tab-pane <?php echo $playoffActive?>" id="Playoffs">
-                		<div id="PlayoffsInner" >
-    						<?php include 'StandingsTreeTemplate.php'; ?>
-    					</div>
-                	</div>
+			<div class="card">
+				<div id="standingsTabs" class="card-header px-2 px-lg-4 pb-1 pt-2">
+					<ul class="nav nav-tabs nav-fill">
+						<li class="nav-item"><a
+							class="nav-link <?php echo $seasonActive?>" href="#Season"
+							data-toggle="tab">Regular Season</a></li>
+
+						<li class="nav-item"><a
+							class="nav-link <?php echo $playoffActive?>" href="#Playoffs"
+							data-toggle="tab">Playoffs</a></li>
+					</ul>
 				</div>
+				<div class="card-body tab-content p-0 m-0">
+					<div class="tab-pane  <?php echo $seasonActive?>" id="Season">
+						<div id="SeasonInner">
+        						<?php include 'StandingsTemplate2.php'; ?>
+        					</div>
+					</div>
+
+					<div class="tab-pane <?php echo $playoffActive?>" id="Playoffs">
+						<div id="PlayoffsInner">
+        						<?php include 'StandingsTreeTemplate.php'; ?>
+        					</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <script>
 

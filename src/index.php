@@ -12,18 +12,31 @@ include 'head.php';
 ?>
 
 <style>
-
-.team-header-content { 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cedce7+9,596a72+100 */
-    background: rgb(206,220,231); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(206,220,231,1) 9%, rgba(89,106,114,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(206,220,231,1) 9%,rgba(89,106,114,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(206,220,231,1) 9%,rgba(89,106,114,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
-
-    border-radius: 5px;   
-    margin-bottom:10px;
+.team-header-content {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cedce7+9,596a72+100 */
+	background: rgb(206, 220, 231); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(206, 220, 231, 1) 9%,
+		rgba(89, 106, 114, 1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(206, 220, 231, 1) 9%,
+		rgba(89, 106, 114, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(206, 220, 231, 1) 9%,
+		rgba(89, 106, 114, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7',
+		endColorstr='#596a72', GradientType=0); /* IE6-9 */
+	border-radius: 5px;
+	margin-bottom: 10px;
 }
+
+.card-header {
+	background: linear-gradient(rgb(0, 55, 112) 2%, rgb(0, 55, 112) 20%,
+		rgb(27, 98, 162) 100%);
+	color: white;
+}
+/* .card-header{ */
+/*     background-color: rgb(103, 112, 127); */
+/*     color:white;  */
+/* } */
 </style>
 
 <?php
@@ -93,7 +106,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 									}
 
 									echo '<a href="TeamRosters.php?team='.urlencode($gmequipe[$i]).'">';
-									echo '<img src="'.$teamImage.'" width=55 alt="'.$gmequipe[$i].'">';
+									echo '<img src="'.$teamImage.'" width=55 alt="'.$gmequipe[$i].' ">';
 									echo '</a>';
 
 								}
@@ -114,14 +127,14 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 
 				<div class="card wow fadeIn">
 					<div class="card-header">
-						<h3><?php
+						<h4 class="m-0"><?php
 						if ($playoffs) {
                             echo 'Playoff Tree';
                         } else {
                             echo 'Overall Standings';
                         }
                 
-                        ?></h3>
+                        ?></h4>
            
 					</div>
 					<div class="card-body">
@@ -138,7 +151,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 
 <!-- 				<div class="card wow fadeIn"> -->
 <!-- 					<div class="card-header wow fadeIn"> -->
-<!-- 						<h3>Latest Results</h3> -->
+<!-- 						<h4 class="m-0">Latest Results</h4> -->
 <!-- 					</div> -->
 <!-- 					<div class="card-body"> -->
 
@@ -147,7 +160,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 
 				<div class="card wow fadeIn">
 					<div class="card-header">
-						<h3>Next Games</h3>
+						<h4 class="m-0">Next Games</h4>
 					</div>
 					<div class="card-body">
 						<?php include 'MiniNextGames.php'; ?>
@@ -156,7 +169,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 
 				<div class="card wow fadeIn">
 					<div class="card-header">
-						<h3>News</h3>
+						<h4 class="m-0">News</h4>
 					</div>
 					<div class="card-body">
 						<?php include 'News.php'; ?>
@@ -165,7 +178,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 
 				<div class="card wow fadeIn">
 					<div class="card-header">
-						<h3>Waivers</h3>
+						<h4 class="m-0">Waivers</h4>
 					</div>
 					<div class="card-body">
 						<?php include 'MiniWaivers.php'; ?>
@@ -175,7 +188,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 
 				<div class="card wow fadeIn">
 					<div class="card-header">
-						<h3>Leaders</h3>
+						<h4 class="m-0">Leaders</h4>
 					</div>
 					<div class="card-body">
 						<?php include 'MiniTop5.php'; ?>

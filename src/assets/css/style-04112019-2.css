@@ -9,13 +9,10 @@
   --table-bg-color-2: var(--color-alternate-2);
   --table-header-bg:var(--color-primary-1);
   --table-header-text:var(--color-text-primary-1);
-/*   --table-highlight:rgb(18, 114, 160); */
+
   --table-highlight:rgb(27, 64, 162);
- 
-/*   --table-sort-asc:rgb(64, 104, 224); */
-/*   --table-sort-desc:rgb(0, 55, 111);; */
   --table-sort-asc:rgb(57, 27, 162);
-  --table-sort-desc:rgb(27, 31, 162);;
+  --table-sort-desc:rgb(27, 31, 162);
   --selection-border:rgb(0, 0, 102);
  
 }
@@ -26,6 +23,7 @@ body {
 	font-weight: 400; 
 	color: #888;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
+	background: gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
  	background-image: linear-gradient(to top, #ffffff, #fcfcff, #f9f9ff, #f5f7ff, #f1f4ff, #ecf1fc, #e7edf9, #e2eaf6, #dce4ef, #d5dee9, #cfd9e2, #c9d3dc);   
 }
 
@@ -85,6 +83,12 @@ th:focus,
 a:focus,
 a:hover {
   outline-color: var(--selection-border); 
+}
+
+.tablesorter  th:hover{
+	transition: all .3s;
+	
+	text-decoration: underline;
 }
 
 /*default Section header with gradient*/
@@ -248,21 +252,6 @@ body{
 /*bootstrap table overrides*/
 
 
-/* .table th:first-of-type { */
-/*   border-top-left-radius: 10px; */
-/* } */
-/* .table th:last-of-type { */
-/*   border-top-right-radius: 10px; */
-/* } */
-/* .table tr:last-of-type td:first-of-type { */
-/*   border-bottom-left-radius: 10px; */
-/* } */
-/* .table tr:last-of-type td:last-of-type { */
-/*   border-bottom-right-radius: 10px; */
-/* } */
-
-
-
 div .tableau-top{
 	margin-bottom:5px;
 	text-transform: uppercase;
@@ -274,31 +263,12 @@ div .tableau-top{
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	margin-bottom:0px;
+	
+/*  	background: linear-gradient(rgb(0, 39, 79) 10%, rgb(0, 39, 79) 30%, rgb(27, 98, 162) 100%);  */
+/*  	background:linear-gradient(rgb(20, 39, 79) 10%, rgb(27, 98, 162) 80%, rgb(27, 98, 162) 100%); */
+/*  	background:linear-gradient(rgb(0, 53, 108) 0%, rgb(0, 53, 108) 30%, rgb(27, 98, 162) 100%); */
 }
 
-.table-rounded th:first-of-type,
-.table-rounded-top th:first-of-type {
-  border-top-left-radius: 5px;
-}
-.table-rounded th:last-of-type,
-.table-rounded-top th:last-of-type {
-  border-top-right-radius: 5px;
-}
-.table-rounded tr:last-of-type td:first-of-type,
-.table-rounded-bottom tr:last-of-type td:first-of-type  {
-  border-bottom-left-radius: 5px;
-}
-.table-rounded tr:last-of-type td:last-of-type,
-.table-rounded-bottom tr:last-of-type td:last-of-type {
-  border-bottom-right-radius: 5px;
-}
-
-/* .table tr:last-of-type td:first-of-type { */
-/*   border-bottom-left-radius: 5px; */
-/* } */
-/* .table tr:last-of-type td:last-of-type { */
-/*   border-bottom-right-radius: 5px; */
-/* } */
 
 
 .table{
@@ -308,20 +278,26 @@ div .tableau-top{
 	width: 100%;
 }
 
-.table>tbody a { color: #09367c; font-weight: bold;}
+.table>tbody a { 
+	color: #09367c; 
+	font-weight: bold;
+}
 
 
 .table>tfoot td,
 .table>thead th{
-    background-color:var(--table-header-bg);  
-    color:#ffffff
+    background-color:var(--table-header-bg);   
+    color:#ffffff;
+/*     background: linear-gradient(rgb(0, 39, 79) 0%, rgb(0, 39, 79) 10%, rgb(27, 98, 162) 100%); */
+/*  	background:linear-gradient(rgb(0, 53, 108) 0%, rgb(0, 53, 108) 30%, rgb(27, 98, 162) 100%); */
 }
+
 
 .table td {
 	font-size: 12px;
 	margin: 0px;
 /* 	border-width:1px 0px 1px 0px;  */
-/* /*     border-width:1px 1px 1px 1px; */ */
+/*  border-width:1px 1px 1px 1px; */ 
 /* 	border-color:#ffffff; */
 }
 .table th {
@@ -379,6 +355,28 @@ div .tableau-top{
 table.table-sm>thead>tr>th{
 	padding-left: 0.2rem;
 	padding-right: 0.2rem;
+}
+
+/* rounded table */
+.table-rounded th:first-of-type,
+.table-rounded-top th:first-of-type {
+  border-top-left-radius: 5px;
+}
+.table-rounded th:last-of-type,
+.table-rounded-top th:last-of-type {
+  border-top-right-radius: 5px;
+}
+.table-rounded tr:last-of-type td:first-of-type,
+.table-rounded-bottom tr:last-of-type td:first-of-type  {
+  border-bottom-left-radius: 5px;
+}
+.table-rounded tr:last-of-type td:last-of-type,
+.table-rounded-bottom tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 5px;
+}
+
+.table-rounded-bottom>thead th{
+	background:var(--table-header-bg);  
 }
 
 /* needs to be last */
@@ -449,7 +447,7 @@ a:hover.info span {
   font-size: 10px;
   line-height:12px;
   padding:2px 6px;
-  width:100px;
+/*   width:100px; */
 }
 
 /* Other table styling*/

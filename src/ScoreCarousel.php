@@ -151,8 +151,6 @@ background-color: inherit;
     .dayPlayed{	height: 100px;}
 }
 
-}
-
 </style>
 
 <div id ="scoringBanner" class="scoring-banner pt-3">

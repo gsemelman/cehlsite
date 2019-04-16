@@ -87,9 +87,9 @@
 	
 	<!-- css legacy browser (IE 9+ support) polyfill for unsupported css vars -->
 	<?php if(CDN_SUPPORT) {?>
-	<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@1"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@1"></script>
 	<?php }else{?>
-	<script src="<?php echo BASE_URL?>assets/js/ex/css-vars-ponyfill@1.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL?>assets/js/ex/css-vars-ponyfill@1.js"></script>
 	<?php }?>
 
 	
@@ -153,7 +153,6 @@
 </head>
 
 <body>
-	<!-- <div class="site-content">-- for use with footer -->
   
   <!-- Top menu -->
 	<nav class="navbar navbar-dark fixed-top navbar-expand-lg navbar-no-bg">
