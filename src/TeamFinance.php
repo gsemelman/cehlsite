@@ -187,7 +187,7 @@ if(file_exists($Fnm)) {
 	
 	echo '<div class = "row">';
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">';
-			echo '<table class="table table-sm table-striped">';
+			echo '<table class="table table-sm table-striped table-rounded">';
 			echo '<thead>';
 			echo '<tr><th colspan="2" ><h5 class="m-0">'.$financeOrganization.'</h5></th></tr>';
 			echo '</thead>';
@@ -200,7 +200,7 @@ if(file_exists($Fnm)) {
 		echo '</div>';
 
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">';
-			echo '<table class="table table-sm table-striped">
+			echo '<table class="table table-sm table-striped table-rounded">
                 <thead>
 				<tr><th colspan="2"><h5 class="m-0">'.$financeSalaryCommitment.'</h5></th></tr>
                 </thead>
@@ -216,7 +216,7 @@ if(file_exists($Fnm)) {
 
 	echo '<div class = "row">';	
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
-			<table class="table table-sm table-striped">
+			<table class="table table-sm table-striped table-rounded">
             <thead>
 			<tr><th colspan="2"><h5 class="m-0">'.$financeExpenses.'</h5></th></tr>
             </thead>
@@ -235,7 +235,7 @@ if(file_exists($Fnm)) {
             </table>';
 		echo '</div>';
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">
-			<table class="table table-sm table-striped">
+			<table class="table table-sm table-striped table-rounded">
             <thead>
 			<tr><th colspan="2"><h5 class="m-0">'.$financeIncome.'</h5></th></tr>
         	</thead>
@@ -255,7 +255,7 @@ if(file_exists($Fnm)) {
 	echo '<div class = "row">';	
 		echo '<div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
         <div class="tableau-top">'.$financeProPayroll2.'</div>
-		<table id="proPayroll" class="table table-sm table-striped text-center">
+		<table id="proPayroll" class="table table-sm table-striped table-rounded-bottom text-center">
         <thead>
 		
 		<tr>
@@ -277,7 +277,7 @@ if(file_exists($Fnm)) {
 
 		echo '<div class="col-sm-12 col-md-6 col-lg-4">
         <div class="tableau-top">'.$financeFarmPayroll2.'</div>
-		<table id="farmPayroll" class="table table-sm table-striped text-center">
+		<table id="farmPayroll" class="table table-sm table-striped table-rounded-bottom text-center">
         <thead>
 		<tr>
 		<th class="text-left">'.$financePlayers.'</th>

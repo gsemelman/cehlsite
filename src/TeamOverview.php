@@ -731,7 +731,7 @@ echo '<div class="card-body wow fadeIn">';
 echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';
     	echo '<div class = "table-responsive">';
-    		echo '<table class="table table-sm table-striped">';
+    		echo '<table class="table table-sm table-rounded table-striped">';
     		echo '<thead>';
     		echo '<tr class="tableau-top"><th colspan="4"><h5 class="m-0">Team Info</h5></th></tr>';
     		
@@ -754,7 +754,7 @@ echo '<div class="col-sm-12 col-md-5 offset-md-1">';
 //echo '<table class="table table-sm">';
 if(isset($lastNumber)) {
 	echo '<a href="games.php?num='.$lastNumber.$linkRnd.'">';
-	echo '<table class="table table-sm table-striped">';
+	echo '<table class="table table-sm table-striped table-rounded">';
 	echo '<thead>';
 	echo '<tr><th colspan="2"><h5 class="m-0">'.$teamCardLastGame.' #'.$lastNumber.'</h5></th></tr>';
 	echo '</thead>';
@@ -767,7 +767,7 @@ if(isset($lastNumber)) {
 
 if(isset($nextNumber)) {
 	echo '<a href="'.$nextGameFile.'">';
-	echo '<table class="table table-sm table-striped">';
+	echo '<table class="table table-sm table-striped table-rounded">';
 	echo '<thead>';
 	echo '<tr><th><h5 class="m-0">'.$teamCardNextGame.' #'.$nextNumber.'</h5></th></tr>';
 	echo '</thead>';
@@ -780,7 +780,7 @@ if(isset($nextNumber)) {
 
 if(isset($propayroll)) {
 	echo '<a href="Finance.php'.$plfLink.'">';
-    echo '<table class="table table-sm table-striped">';
+    echo '<table class="table table-sm table-striped table-rounded">';
     echo '<thead>';
 	echo '<tr><th colspan="2"><h5 class="m-0">'.$teamCardFinancial.'</h5></th></tr>';
 	echo '</thead>';
@@ -802,7 +802,7 @@ if(isset($propayroll)) {
 }
 
 echo '<div>';
-echo '<table class="table table-sm table-striped">';
+echo '<table class="table table-sm table-striped table-rounded">';
 echo '<thead>';
 echo '<tr><th colspan="2"><h5 class="m-0">'.$teamCardPlayerInfos.'</h5></th></tr>';
 echo '</thead>';
@@ -820,7 +820,7 @@ if(isset($statsPosition) && count($statsPosition) >= 5) {
 	//echo '<div><table class="table table-sm">';
     echo '<div>';
     echo '<div class="tableau-top">'.$teamCardBestPlayer.'</div>';
-	echo '<table class="table table-sm table-striped text-center">
+	echo '<table class="table table-sm table-striped text-center table-rounded-bottom">
         <thead>
         <tr>
 		<th data-toggle="tooltip" data-placement="top" title="Position">P</th>
@@ -853,7 +853,7 @@ if(isset($statsGNumber) && count($statsGNumber) >= 2) {
 	echo '<div>';
 	echo '<div class="tableau-top">'.$teamCardBestGoalie.'</div>';
 	echo '<div class="table-responsive">';
-	echo '<table class="table table-sm table-striped text-center">
+	echo '<table class="table table-sm table-striped table-rounded-bottom text-center">
         <thead>
         <tr>
 		<th data-toggle="tooltip" data-placement="top" title="'.$scoringNumber.'">#</th>
@@ -898,7 +898,7 @@ echo '<div class="col-sm-12 col-md-5">';
 if(isset($standingFileSerie)) {
 	echo '<a href="Standings3.php">';
 	echo '<div class="tableau-top">'.$teamCardConference.'</div>';
-	echo '<table class="table table-sm table-striped text-center">';
+	echo '<table class="table table-sm table-striped table-rounded-bottom text-center">';
 	echo '<thead>';
 	echo '<tr>';
 	echo '<th></th>';
@@ -947,7 +947,7 @@ if(isset($standingFileSerie)) {
 if(isset($standingFileDivisionSerie)) {
 	echo '<a href="Standings3.php">';
 	echo '<div class="tableau-top">'.$teamCardDivision.'</div>';
-	echo '<table class="table table-sm table-striped text-center">';
+	echo '<table class="table table-sm table-striped table-rounded-bottom text-center">';
 	echo '<thead>';
 	echo '<tr>';
 	echo '<th></th>';
@@ -984,7 +984,7 @@ if(isset($standingFarmFilePJ)) {
 	echo '<a href="FarmStandings.php?s=1">';
 	echo '<div class="table-responsive">';
 	echo '<div class="tableau-top">'.$teamCardConferenceFarm.'</div>';
-	echo '<table class="table table-sm table-striped text-center">';
+	echo '<table class="table table-sm table-striped table-rounded-bottom text-center">';
 	echo '<thead>';
 	echo '<tr>';
 	echo '<th></th>';
@@ -1031,7 +1031,7 @@ if(isset($standingFarmFilePJ)) {
 if($recordConferenceGP != 0 || $recordDivisionGP != 0 || $recordHomeGP != 0 || $recordAwayGP != 0) {
 
     echo '<div class="tableau-top">'.$teamCardReccord.'</div>';
-    echo '<table class="table table-sm table-striped text-center">';
+    echo '<table class="table table-sm table-striped table-rounded-bottom text-center">';
     echo '<thead>';
 	echo '<th class="text-left">'.$teamCardRecord.'</th>';
 	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'.$standingGP.'</th>';
@@ -1088,7 +1088,7 @@ if($recordConferenceGP != 0 || $recordDivisionGP != 0 || $recordHomeGP != 0 || $
 // Team Stats
 if(isset($teamStatsFilePP)) {
     echo '<div class="tableau-top">'.$teamStatsTitle.'</div>';
-    echo '<table class="table table-sm table-striped text-center">';
+    echo '<table class="table table-sm table-striped table-rounded-bottom text-center">';
     echo '<thead>';
 	echo '<tr>';
 	echo '<th data-toggle="tooltip" data-placement="top" title="'.$teamStatsPP.'">'.$teamStatsPPm.'</th>';
@@ -1338,7 +1338,7 @@ echo '</div>';
 		echo '<a href="CareerLeaders.php?one=1"><div style="clear:both;">';
 		    echo '<div class="tableau-top">'.$teamCardBest10Players.'</div>';
 			echo '<div class="table-responsive">';
-			echo '<table class="table table-sm table-striped text-center">';
+			echo '<table class="table table-sm table-striped table-rounded-bottom text-center">';
 			echo '<thead>';
 			echo '<tr>
 				<th></th>

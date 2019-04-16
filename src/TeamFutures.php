@@ -112,7 +112,7 @@ if(file_exists($Fnm)) {
     			<div class = "col-sm-12 col-md-6">
     			
     				<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">Prospects</h5>
-    				<table class="table table-sm table-striped">
+    				<table class="table table-sm table-striped table-rounded-bottom">
     					<thead>
     						<tr class="tableau-top">
     							<th colspan=2 class="text-center">Name</th>
@@ -166,7 +166,7 @@ if(file_exists($Fnm)) {
     			<div class = "col-sm-12 col-md-6">
     			
     				<h5 class="tableau-top titre" style = "padding-top:5px; padding-bottom:5px">picks</h5>
-    				<table class="table table-sm table-striped" style="white-space:normal;">
+    				<table class="table table-sm table-striped table-rounded-bottom" style="white-space:normal;">
     					<thead>
     						<tr class="tableau-top">
     							<th class="text-center">Year</th>

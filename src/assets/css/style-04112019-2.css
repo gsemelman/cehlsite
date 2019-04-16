@@ -9,9 +9,13 @@
   --table-bg-color-2: var(--color-alternate-2);
   --table-header-bg:var(--color-primary-1);
   --table-header-text:var(--color-text-primary-1);
-  --table-highlight:rgb(18, 114, 160);
-  --table-sort-asc:rgb(64, 104, 224);
-  --table-sort-desc:rgb(0, 55, 111);;
+/*   --table-highlight:rgb(18, 114, 160); */
+  --table-highlight:rgb(27, 64, 162);
+ 
+/*   --table-sort-asc:rgb(64, 104, 224); */
+/*   --table-sort-desc:rgb(0, 55, 111);; */
+  --table-sort-asc:rgb(57, 27, 162);
+  --table-sort-desc:rgb(27, 31, 162);;
   --selection-border:rgb(0, 0, 102);
  
 }
@@ -258,13 +262,6 @@ body{
 /* } */
 
 
-/* .table-responsive{ */
-/*   border-top-left-radius: 10px; */
-/*   border-top-right-radius: 10px; */
-/*   border-bottom-left-radius: 10px; */
-/*   border-bottom-right-radius: 10px; */
-/*   margin-bottom:0px; */
-/* } */
 
 div .tableau-top{
 	margin-bottom:5px;
@@ -274,8 +271,34 @@ div .tableau-top{
 	background-color:var(--color-primary-1);
 	color:var(--color-text-primary-1);
 	text-align: center;
-	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-bottom:0px;
 }
+
+.table-rounded th:first-of-type,
+.table-rounded-top th:first-of-type {
+  border-top-left-radius: 5px;
+}
+.table-rounded th:last-of-type,
+.table-rounded-top th:last-of-type {
+  border-top-right-radius: 5px;
+}
+.table-rounded tr:last-of-type td:first-of-type,
+.table-rounded-bottom tr:last-of-type td:first-of-type  {
+  border-bottom-left-radius: 5px;
+}
+.table-rounded tr:last-of-type td:last-of-type,
+.table-rounded-bottom tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 5px;
+}
+
+/* .table tr:last-of-type td:first-of-type { */
+/*   border-bottom-left-radius: 5px; */
+/* } */
+/* .table tr:last-of-type td:last-of-type { */
+/*   border-bottom-right-radius: 5px; */
+/* } */
 
 
 .table{
@@ -307,11 +330,6 @@ div .tableau-top{
 /*     border-width:1px 1px 1px 1px; */
 /* 	border-color:#ffffff; */
 }
-
-/* .table>tbody>tr td {background-color: var(--table-bg-color-1); }  */
-
-/* .table-striped>tbody>tr:nth-child(odd) td {background-color: var(--table-bg-color-1); }  */
-/* .table-striped>tbody>tr:nth-child(even) td {background-color: var(--table-bg-color-2); } */
 
 .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
@@ -366,8 +384,8 @@ table.table-sm>thead>tr>th{
 /* needs to be last */
 .table-hover>tbody>tr:hover td,
 .table-hover>tbody>tr:hover td>a{
-	  background-color: rgb(18, 114, 160);
-	  color:white;
+	  background-color: var(--table-highlight);
+	  color:var(--color-text-primary-1);
 }
 
 /*table sorter*/

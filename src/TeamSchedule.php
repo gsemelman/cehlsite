@@ -113,12 +113,13 @@ include 'TeamHeader.php';
 
 			<div class = "row wow fadeIn">
 				<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+				<div class="tableau-top">Team Schedule</div>
 				<div class = "table-responsive">
-					<table class="table table-sm table-striped">
+					<table class="table table-sm table-striped table-rounded-bottom">
 					
 
 					<?php
-					echo '<div class="tableau-top">Team Schedule</div>';
+					
 					$a = 0;
 					$c = 1;
 					$i = 0;
@@ -349,7 +350,7 @@ include 'TeamHeader.php';
 				//echo '<div><span>'.$ScheldMatchups.'</span></div>';
 				echo '<div class="tableau-top">'.$ScheldMatchups.'</div>';
 				echo '<div class="table-responsive">';
-				echo '<table class="table table-sm table-striped">';
+				echo '<table class="table table-sm table-striped table-rounded-bottom">';
 				echo '<thead>';
 				echo '<tr>';
 				echo '<th>'.$ScheldTeam.'</th>';

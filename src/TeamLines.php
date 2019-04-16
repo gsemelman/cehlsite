@@ -63,7 +63,7 @@ if(file_exists($Fnm)) {
 				    echo '</tbody>';
 				    echo '</table>';
 				    echo '<div class="tableau-top text-center">'.$linesScratches.'</div>';
-				    echo '<table class="table table-sm table-striped">';
+				    echo '<table class="table table-sm table-striped table-rounded-bottom">';
 				    echo '<thead>';
 					
 					$y++;
@@ -99,13 +99,13 @@ if(file_exists($Fnm)) {
 		}
 		if($a == 7 && $b && $d) {
 			$goal = substr($val, 4, 22);
-			echo '<tr><td colspan="4" style="text-align:center;">'.$goal.'</td></tr>';
+			echo '<tr><td colspan="4" class="text-center">'.$goal.'</td></tr>';
 		}
 		if(substr_count($val, 'STARTING') && $b && $d) {
 		    echo '</tbody>';
 		    echo '</table>';
 		    echo '<div class="tableau-top text-center">'.$linesStartingGoalie.'</div>';
-		    echo '<table class="table table-sm table-striped">';
+		    echo '<table class="table table-sm table-striped table-rounded-bottom">';
 		    echo '<thead>';
 			echo '</thead>';
 			echo '<tbody>';
@@ -211,7 +211,7 @@ if(file_exists($Fnm)) {
 		    echo '</tbody>';
 		    echo '</table>';
 		    echo '<div class="tableau-top text-center">'.$linesPP.'</div>';
-		    echo '<table class="table table-sm table-striped">';
+		    echo '<table class="table table-sm table-striped table-rounded-bottom">';
 		    echo '<thead>';
 			echo '<tr class="tableau-top">
 			<th>POS</th>
@@ -227,7 +227,7 @@ if(file_exists($Fnm)) {
 		}
 		if(substr_count($val, '<PRE>') && $b && $d) {
 		    echo '<div class="tableau-top text-center">'.$linesEvenStrenght.'</div>';
-		    echo '<table class="table table-sm table-striped">';
+		    echo '<table class="table table-sm table-striped table-rounded-bottom">';
 		    echo '<thead>';
 		    echo '
 			<tr class="tableau-top">
@@ -245,7 +245,7 @@ if(file_exists($Fnm)) {
 		    echo '</tbody>';
 		    echo '</table>';
 		    echo '<div class="tableau-top text-center">'.$linesPK.'</div>';
-		    echo '<table class="table table-sm table-striped">';
+		    echo '<table class="table table-sm table-striped table-rounded-bottom">';
 		    echo '<thead>';
 		    echo '
 			<tr class="tableau-top">

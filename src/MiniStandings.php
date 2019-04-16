@@ -5,12 +5,36 @@ include_once 'common.php';
 //include_once 'class_lib.php';
 ?>
 
+
+<style>
+.tableFixHead {
+	overflow-y: auto;
+/* 	height: 200px; */
+}
+
+.tableFixHead table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+/* .tableFixHead th { */
+/* 	padding: 8px 16px; */
+/* 	padding-top:2px; */
+	
+/* } */
+
+.tableFixHead th {
+	position: sticky;
+	top: 0;
+	background: #eee;
+}
+</style>
+
 <!-- <div class="col"> -->
 <div class = "table-responsive scrollable-table">
-<table class="table table-sm table-striped">
+<table id ="miniStandings" class="table table-sm table-striped tableFixHead table-rounded text-center">
 
 <?php
-
 include 'phpGetAbbr.php'; // Output $TSabbr
 
 //default these so warnings are not throw. clean this up
@@ -71,20 +95,21 @@ if(file_exists($Fnm)) {
 
 			$pj[$d] = substr($reste, 0, strpos($reste, ' '));
 			$reste = trim(substr($reste, strpos($reste, ' ')));
+			$standingsW[$d] = substr($reste, 0, strpos($reste, ' '));
 			$reste = trim(substr($reste, strpos($reste, ' ')));
 			$reste = trim(substr($reste, strpos($reste, ' ')));
 			$reste = trim(substr($reste, strpos($reste, ' ')));
 			$reste = trim(substr($reste, strpos($reste, ' ')));
 			$standingsPts[$d] = substr($reste, 0, strpos($reste, ' '));
-			if($serie[$d] != ''){
-				if($serie[$d] == 'z') $serie[$d] = '<a href="javascript:return;" class="info" style="color:#000000">'.$standingZ.'<span>'.$standingZFull.'</span></a>';
-				if($serie[$d] == 'y') $serie[$d] = '<a href="javascript:return;" class="info" style="color:#000000">'.$standingY.'<span>'.$standingYFull.'</span></a>';
-				if($serie[$d] == 'x') $serie[$d] = '<a href="javascript:return;" class="info" style="color:#000000">'.$standingX.'<span>'.$standingXFull.'</span></a>';
-				$b++;
+			$reste = trim(substr($reste, strpos($reste, ' ')));
+			$reste = trim(substr($reste, strpos($reste, ' ')));
+			$reste = trim(substr($reste, strpos($reste, ' ')));
+
+			$reste = trim(substr($reste, strpos($reste, ' ')));
+			for ($z = 0; $z < 9; $z ++) {
+			    $reste = trim(substr($reste, strpos($reste, ' ')));
 			}
-			else {
-				if($b > 7) $serie[$d] = '<a href="javascript:return;" class="info" style="color:#000000">'.$standingN.'<span>'.$standingNFull.'</span></a>';
-			}
+			$standingsL10[$d] = substr($reste, 0, strpos($reste, ' '));
 			
 			$data[] = array('id' => $d, 'pts' => $standingsPts[$d], 'gp' => $pj[$d]);
 			
@@ -92,10 +117,12 @@ if(file_exists($Fnm)) {
 		}
 	}
 	echo '<thead>';
-	echo '<tr class="tableau-top">';
-	echo '<th>'.$standingTeam.'</th>';
-	echo '<th><a href="javascript:return;" class="info">'.$standingGP.'<span>'.$standingGPFull.'</span></a></th>';
-	echo '<th><a href="javascript:return;" class="info">'.$standingPTS.'<span>'.$standingPTSFull.'</span></a></th>';
+	echo '<tr>';
+	echo '<th class="text-left" style="padding-left:1rem">' . $standingTeam . '</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingGPFull.'">'. $standingGP .'</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingWFull.'">' . $standingW . '</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingPTSFull.'">' . $standingPTS . '</th>';
+	echo '<th data-toggle="tooltip" data-placement="top" title="'.$standingL10Full.'">' . $standingL10 . '</th>';
 	echo '</tr>';
 	echo '</thead>';
 	echo '<tbody>';
@@ -121,14 +148,13 @@ if(file_exists($Fnm)) {
 	for($d=0;$d<count($sorted);$d++) {
 	//for($d=0;$d<=5;$d++) { //only list top 5 (we need to process the entire standings first so that the results can be sorted)
 		$key = $sorted[$d]['id'];
-
-		if($c == 1) $c = 2;
-		else $c = 1;
 		$pos = $d + 1;
 		echo '<tr class="hover'.$c.'">';
-		echo '<td><a class="lien-noir" style="display:block; width:100%;" href="TeamRosters.php?team='.urlencode($equipe[$key]).'">'.$equipe[$key].'</a></td>';
+		echo '<td class="text-left"><a style="display:block; width:100%;" href="TeamRosters.php?team='.urlencode($equipe[$key]).'">'.$equipe[$key].'</a></td>';
 		echo '<td>'.$pj[$key].'</td>';
+		echo '<td>'.$standingsW[$key].'</td>';
 		echo '<td>'.$standingsPts[$key].'</td>';
+		echo '<td>'.$standingsL10[$key].'</td>';
 		echo '</tr>';
 	}
 	
@@ -141,6 +167,18 @@ else {
 </tbody>
 </table>
 </div>
+
+<script>
+
+$(document).ready(function() 
+    { 
+        $("#miniStandings").tablesorter({ 
+            sortInitialOrder: 'desc'
+    	}); 
+    } 
+); 
+
+</script>
 <!-- </div> -->
 
 <!-- </body> -->

@@ -113,7 +113,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 			<div class="card-columns">
 
 				<div class="card wow fadeIn">
-					<div class="card-header wow fadeIn">
+					<div class="card-header">
 						<h3><?php
 						if ($playoffs) {
                             echo 'Playoff Tree';
@@ -122,6 +122,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
                         }
                 
                         ?></h3>
+           
 					</div>
 					<div class="card-body">
 						<?php
@@ -145,7 +146,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 <!-- 				</div> -->
 
 				<div class="card wow fadeIn">
-					<div class="card-header wow fadeIn">
+					<div class="card-header">
 						<h3>Next Games</h3>
 					</div>
 					<div class="card-body">
@@ -154,7 +155,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 				</div>
 
 				<div class="card wow fadeIn">
-					<div class="card-header wow fadeIn">
+					<div class="card-header">
 						<h3>News</h3>
 					</div>
 					<div class="card-body">
@@ -163,7 +164,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 				</div>
 
 				<div class="card wow fadeIn">
-					<div class="card-header wow fadeIn">
+					<div class="card-header">
 						<h3>Waivers</h3>
 					</div>
 					<div class="card-body">
@@ -173,7 +174,7 @@ $playoffs = isPlayoffs($folder, $playoffMode);
 
 
 				<div class="card wow fadeIn">
-					<div class="card-header wow fadeIn">
+					<div class="card-header">
 						<h3>Leaders</h3>
 					</div>
 					<div class="card-body">

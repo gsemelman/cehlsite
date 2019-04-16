@@ -27,7 +27,7 @@ include_once 'classes/PlayerVitalsHolder.php';
 	<div class="card-header p-1">
 		<?php include 'TeamCardHeader.php'?>
 	</div>
-    	<div class="card-body px-2 px-lg-4 wow fadeIn">
+    	<div class="card-body px-2 px-lg-4 pt-3 wow fadeIn">
     
                     <?php
 
@@ -48,7 +48,8 @@ include_once 'classes/PlayerVitalsHolder.php';
                             //echo '<h5>'.$lastUpdated.'</h5>';
                             //echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$lastUpdated.'</h5>';
                             
-                            echo'<div id="rosterTabs">';
+                            echo'<div class="card text-center">';
+                            echo'<div id="rosterTabs" class="card-header px-2 px-lg-4 pb-1 pt-2">';
                             echo'<ul class="nav nav-tabs nav-fill">
                                 			<li class="nav-item">
                                                 <a class="nav-link active" href="#Pro" data-toggle="tab">Pro Roster</a>
@@ -57,8 +58,9 @@ include_once 'classes/PlayerVitalsHolder.php';
                                                 <a class="nav-link" href="#Farm" data-toggle="tab">Farm Roster</a>
                                 			</li>
                                 </ul>';
+                            echo '</div>';
                             
-                            echo '<div class="tab-content">';
+                            echo '<div class="card-body tab-content p-0 m-0">';
                             
                             $typeArray = array('Pro','Farm');
                             
@@ -71,7 +73,7 @@ include_once 'classes/PlayerVitalsHolder.php';
              
                                 //create table header
                                 echo '<div class="table-responsive">';
-                                echo '<table id="'.$tableId.'" class="table table-sm table-striped table-hover fixed-column table-striped text-center">';
+                                echo '<table id="'.$tableId.'" class="table table-sm table-striped table-hover fixed-column table-striped  text-center">';
                                 
                                     echo '<thead>
                                         <tr>

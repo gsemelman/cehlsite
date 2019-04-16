@@ -342,8 +342,8 @@ class GameHolder implements \JsonSerializable
                     if(substr_count($val, 'Net Profit')) $texte2 = $gamesNetProfit;
                     echo '<tr style="'.$bg_2.'"><td style="'.$style1.'">'.$texte2.'</td><td style="'.$style1.'">'.$texte.'</td></tr>';
                     
-                    if(substr_count($val, 'Attendance')) $this->attendence = $texte;
-                    if(substr_count($val, 'Net Profit')) $this->teamProfit = $texte;
+                    if(substr_count($val, 'Attendance')) $this->attendence = trim($texte);
+                    if(substr_count($val, 'Net Profit')) $this->teamProfit = trim($texte);
                     
                 }
                 if(substr_count($val, 'Financial')) {

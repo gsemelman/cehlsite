@@ -248,7 +248,7 @@ if(file_exists($Fnm)) {
 			$e = 1;
 			echo '<div class="tableau-top">'.$scoringScoring.'</div>';
 			echo '<div class = "table-responsive">
-			<table id="ForwardScoring" class="table table-sm table-striped table-hover text-center">
+			<table id="ForwardScoring" class="table table-sm table-striped table-hover table-rounded-bottom text-center">
                 <thead>
                     <tr>
             			<th data-toggle="tooltip" data-placement="top" title="'.$rostersPosition.'">PO</th>
@@ -278,7 +278,7 @@ if(file_exists($Fnm)) {
 			echo '</tbody></table></div>
             <div class="tableau-top">'.$scoringGoalie.'</div>
 			<div class = "table-responsive">
-			<table id="GoalieStats" class="table table-sm table-striped table-hover ">
+			<table id="GoalieStats" class="table table-sm table-striped table-hover table-rounded-bottom">
                 <thead>
                     <tr>
             			<th data-toggle="tooltip" data-placement="top" title="'.$rostersPosition.'">PO</th>
