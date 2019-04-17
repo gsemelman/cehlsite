@@ -125,6 +125,11 @@ else {
 
 <style>
 
+.table{
+width:100%;
+white-space: normal;
+}
+
 .header-content { margin-top: 65px; margin-bottom: 10px; }
 
 .highlight-team {
@@ -359,7 +364,7 @@ border-bottom:1px solid blue;
                 	
                 	<div class="row mt-2">
                         <div class="col-sm-12 col-lg-4">
-                        	 <table class = "table table-striped table-bordered text-center" >
+                        	 <table class = "table table-sm table-striped table-bordered text-center" >
                         	    <thead>
                             	 	<tr style = "text-transform: uppercase;"> 
                     				    <th></th>
@@ -446,7 +451,7 @@ border-bottom:1px solid blue;
                         
                         <div class="col-sm-12 col-lg-4">
                         
-                        	<table class="table table-striped table-bordered">
+                        	<table class="table table-sm table-striped">
                         		<thead>
                             		<tr>
                             			<th>GOALS</th>
@@ -479,7 +484,7 @@ border-bottom:1px solid blue;
                         ?>
                         
                         <div class="col-sm-12 col-lg-4">
-                         	<table class="table table-striped t">
+                         	<table class="table table-sm table-striped ">
                         		<thead>
                             		<tr>
                             			<th>GOALTENDERS:</th>
@@ -509,9 +514,9 @@ border-bottom:1px solid blue;
                 		<div class="col-sm-12 col-lg-8 offset-lg-2">
                 		<div><h5>SCORING SUMMARY</h5></div>
                 		<div>
-                			<div><h5>1ST PERIOD</h5></div>
+                			<div class="tableau-top">1ST PERIOD</div>
     
-                            <table class="table table-striped t">
+                            <table class="table table-sm table-striped">
                                 <thead>
                                     <tr>
                                         <th style="width:10%">Time</th>
@@ -536,13 +541,17 @@ border-bottom:1px solid blue;
                                             <td>'.$awayScoreCounter.'-'.$homeScoreCounter.'</td>
                                         </tr>';
                                 	}  
+                                	
+                                	if(empty($gameHolder->getScoringFirstPeriod())){
+                                	    echo '<tr><td class="text-center" colspan="4">NO SCORING</td></tr>';
+                                	}
                                 	?>
                                 </tbody>
                             </table>
                             
-                            <div><h5>2ND PERIOD</h5></div>
+                            <div class="tableau-top">2ND PERIOD</div>
     
-                            <table class="table table-striped t">
+                            <table class="table table-sm table-striped">
           					    <thead>
                                     <tr>
                                         <th style="width:10%">Time</th>
@@ -567,14 +576,18 @@ border-bottom:1px solid blue;
                                             <td>'.$scoringTemp['SCORE'].'</td>
                                             <td>'.$awayScoreCounter.'-'.$homeScoreCounter.'</td>
                                         </tr>';
+                                	    
                                 	}  
+                                	if(empty($gameHolder->getScoringSecondPeriod())){
+                                	    echo '<tr><td class="text-center" colspan="4">NO SCORING</td></tr>';
+                                	}
                                 	?>
                                 </tbody>
                             </table>
                             
-                            <div><h5>3RD PERIOD</h5></div>
+                            <div class="tableau-top">3RD PERIOD</div>
     
-                            <table class="table table-striped t">
+                            <table class="table table-sm table-striped">
                                 <thead>
                                     <tr>
                                         <th style="width:10%">Time</th>
@@ -600,16 +613,21 @@ border-bottom:1px solid blue;
                                             <td>'.$scoringTemp['SCORE'].'</td>
                                             <td>'.$awayScoreCounter.'-'.$homeScoreCounter.'</td>
                                         </tr>';
+                                	    
+                                	   
                                 	}  
+                                	if(empty($gameHolder->getScoringThirdPeriod())){
+                                	    echo '<tr><td class="text-center" colspan="4">NO SCORING</td></tr>';
+                                	}
                                 	?>
                                 </tbody>
                             </table>
                             
                             <?php if($isOvertime){ ?>
                             
-                                          <div><h5>OVERTIME PERIOD</h5></div>
+                                          <div class="tableau-top">OVERTIME PERIOD</div>
     
-                            <table class="table table-striped">
+                            <table class="table table-sm table-striped">
                                 <thead>
                                     <tr>
                                         <th style="width:10%">Time</th>
@@ -634,6 +652,10 @@ border-bottom:1px solid blue;
                                             <td>'.$awayScoreCounter.'-'.$homeScoreCounter.'</td>
                                         </tr>';
                                 	}  
+                                	
+                                	if(empty($gameHolder->getScoringOtPeriod())){
+                                	    echo '<tr><td class="text-center" colspan="4">NO SCORING</td></tr>';
+                                	}
                                 	?>
                                 </tbody>
                             </table>
@@ -647,6 +669,7 @@ border-bottom:1px solid blue;
                 		<div class="col-sm-12 col-lg-8 offset-lg-2">
                     		<div class="card text-center">
                                 <div id="rosterTabs" class="card-header px-2 px-lg-4 pb-1 pt-2">
+                                	<h4>STATISTICS</h4>
                                     <ul class="nav nav-tabs nav-fill">
                             			<li class="nav-item">
                                             <a class="nav-link active" href="#AwayTeamStats" data-toggle="tab"><?php echo $awayTeam?></a>
