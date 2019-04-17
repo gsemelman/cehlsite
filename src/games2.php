@@ -743,14 +743,138 @@ table.table-sm>thead>tr>th:first-of-type {
 						<!-- start scoring summary-->
 						<div class="col-sm-12 col-lg-8 offset-lg-2 mb-3">
 							<div class="card">
-								<div class="card-header text-center">SCORING SUMMARY</div>
-								<div class="card-body p-2">        	
-                            	<?php
-                            $awayScoreCounter = 0;
-                            $homeScoreCounter = 0;
-                            ?>
+								<div id="summaryTabs" class="card-header px-2 px-lg-4 pb-1 pt-2">
+									<div class="text-center">GAME SUMMARY</div>
+									<ul class="nav nav-tabs nav-fill pt-1">
+										<li class="nav-item"><a class="nav-link active"
+											href="#ScoringSummary" data-toggle="tab">SCORING</a>
+										</li>
+										<li class="nav-item"><a class="nav-link" href="#PenaltySummary"
+											data-toggle="tab">PENALITY</a></li>
+									</ul>
+								</div>
+								<div class="card-body tab-content p-2">        	
+      
+     							 <div class="tab-pane" id="PenaltySummary">
+     								<div class="tableau-top">1ST PERIOD</div>
+
+									<table
+										class="table table-sm table-striped table-rounded-bottom">
+										<thead>
+											<tr>
+												<th>SUMMARY</th>
+											</tr>
+										</thead>
+										<tbody>
+                                        	<?php
+      
+                                        if (array_key_exists('1',$gameHolder->getPenaltySummary())) {
+                                            foreach ($gameHolder->getPenaltySummary()['1'] as $penaltyTemp) {
+
+                                                
+                                                echo '<tr >
+                                                    <td>' . $penaltyTemp . '</td>
+                                                </tr>';
+                                            }
+                                        }else{
+                                            echo '<tr><td class="text-center" colspan="4">NO PENALTIES</td></tr>';
+                                        }
+                                        ?>
+                                        </tbody>
+									</table>
+									
+								    <div class="tableau-top">2ND PERIOD</div>
+
+									<table
+										class="table table-sm table-striped table-rounded-bottom">
+										<thead>
+											<tr>
+												<th>SUMMARY</th>
+											</tr>
+										</thead>
+										<tbody>
+                                        	<?php
+      
+                                        if (array_key_exists('2',$gameHolder->getPenaltySummary())) {
+                                            foreach ($gameHolder->getPenaltySummary()['2'] as $penaltyTemp) {
+
+                                                
+                                                echo '<tr >
+                                                    <td>' . $penaltyTemp . '</td>
+                                                </tr>';
+                                            }
+                                        }else{
+                                            echo '<tr><td class="text-center" colspan="4">NO PENALTIES</td></tr>';
+                                        }
+                                        ?>
+                                        </tbody>
+									</table>
+									
+									<div class="tableau-top">3RD PERIOD</div>
+
+									<table
+										class="table table-sm table-striped table-rounded-bottom">
+										<thead>
+											<tr>
+												<th>SUMMARY</th>
+											</tr>
+										</thead>
+										<tbody>
+                                        	<?php
+      
+                                        if (array_key_exists('3',$gameHolder->getPenaltySummary())) {
+                                            foreach ($gameHolder->getPenaltySummary()['3'] as $penaltyTemp) {
+
+                                                
+                                                echo '<tr >
+                                                    <td>' . $penaltyTemp . '</td>
+                                                </tr>';
+                                            }
+                                        }else{
+                                            echo '<tr><td class="text-center" colspan="4">NO PENALTIES</td></tr>';
+                                        }
+                                        ?>
+                                        </tbody>
+									</table>
+									
+									<?php if($isOvertime){ ?>
+										
+									<div class="tableau-top">OVERTIME PERIOD</div>
+
+									<table
+										class="table table-sm table-striped table-rounded-bottom">
+										<thead>
+											<tr>
+												<th>SUMMARY</th>
+											</tr>
+										</thead>
+										<tbody>
+                                        	<?php
+      
+                                        if (array_key_exists('OT',$gameHolder->getPenaltySummary())) {
+                                            foreach ($gameHolder->getPenaltySummary()['OT'] as $penaltyTemp) {
+
+                                                
+                                                echo '<tr >
+                                                    <td>' . $penaltyTemp . '</td>
+                                                </tr>';
+                                            }
+                                        }else{
+                                            echo '<tr><td class="text-center" colspan="4">NO PENALTIES</td></tr>';
+                                        }
+                                        ?>
+                                        </tbody>
+									</table>
+									<?php } ?>
+									
+									
+     						    </div> <!-- end penalty summary -->
                         	
-                        		<div>
+                        		<div class="tab-pane active" id="ScoringSummary">
+                        		        <?php
+                                        $awayScoreCounter = 0;
+                                        $homeScoreCounter = 0;
+                                        ?>
 										<div class="tableau-top">1ST PERIOD</div>
 
 										<table
@@ -1096,7 +1220,7 @@ table.table-sm>thead>tr>th:first-of-type {
 
 echo '<pre>';
 // echo json_encode($gameHolder, JSON_PRETTY_PRINT);
-// echo jsonPrettify(json_encode($gameHolder));
+ echo jsonPrettify(json_encode($gameHolder));
 echo '/<pre>';
 
 ?>
