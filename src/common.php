@@ -26,6 +26,13 @@ function isAdmin(){
     return false;
 }
 
+function jsonPrettify($json)
+{
+    $array = json_decode($json, true);
+    $json = json_encode($array, JSON_PRETTY_PRINT);
+    return $json;
+}
+
 
 function myEach(&$arr) {
     $key = key($arr);

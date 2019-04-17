@@ -1,7 +1,7 @@
 <?php 
 
 include_once 'classes/TeamInfo.php';
-$teamInfo = new TeamInfo($folder, $playoff, $currentTeam);
+$teamInfoAway = new TeamInfo($folder, $playoff, $currentTeam);
 
 ?>
 
@@ -29,8 +29,8 @@ $teamInfo = new TeamInfo($folder, $playoff, $currentTeam);
 		<div class="gloss"></div>
 		<div class="header">
 			<h3 class="mb-0" ><?php echo $CurrentTitle ?></h3>
-			<?php echo $currentTeam.' '.$teamInfo->getWins().'-'.$teamInfo->getLosses().'-'.$teamInfo->getTies() ?>
-			<?php echo '('.$teamInfo->getPlaceString().' '.$teamInfo->getConferenceSafeString().')' ?>
+			<?php echo $currentTeam.' '.$teamInfoAway->getWins().'-'.$teamInfoAway->getLosses().'-'.$teamInfoAway->getTies() ?>
+			<?php echo '('.$teamInfoAway->getPlaceString().' '.$teamInfoAway->getConferenceSafeString().')' ?>
 			
 		</div>
 	</div>
