@@ -879,14 +879,14 @@ table.table-sm>thead>tr>th:first-of-type {
 
 										<table
 											class="table table-sm table-striped table-rounded-bottom">
-											<thead>
+									   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
 													<th style="width: 20%">Team</th>
 													<th style="width: 60%">Details</th>
 													<th style="width: 10%">Score</th>
 												</tr>
-											</thead>
+											</thead>-->
 											<tbody>
                                         	<?php
                                         foreach ($gameHolder->getScoringFirstPeriod() as $scoringTemp) {
@@ -897,10 +897,10 @@ table.table-sm>thead>tr>th:first-of-type {
                                             }
 
                                             echo '<tr >
-                                                    <td>' . $scoringTemp['TIME'] . '</td>
-                                                    <td>' . $scoringTemp['TEAM'] . '</td>
-                                                    <td>' . $scoringTemp['SCORE'] . '</td>
-                                                    <td>' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
+                                                    <td style="width:24%">' . $scoringTemp['TEAM'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $scoringTemp['TIME'] . '</td>
+                                                    <td style="width:60%">' . $scoringTemp['SCORE'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
                                                 </tr>';
                                         }
 
@@ -915,14 +915,14 @@ table.table-sm>thead>tr>th:first-of-type {
 
 										<table
 											class="table table-sm table-striped table-rounded-bottom">
-											<thead>
+									   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
 													<th style="width: 20%">Team</th>
 													<th style="width: 60%">Details</th>
 													<th style="width: 10%">Score</th>
 												</tr>
-											</thead>
+											</thead>-->
 											<tbody>
                                         	<?php
                                         foreach ($gameHolder->getScoringSecondPeriod() as $scoringTemp) {
@@ -934,10 +934,10 @@ table.table-sm>thead>tr>th:first-of-type {
                                             }
 
                                             echo '<tr >
-                                                    <td>' . $scoringTemp['TIME'] . '</td>
-                                                    <td>' . $scoringTemp['TEAM'] . '</td>
-                                                    <td>' . $scoringTemp['SCORE'] . '</td>
-                                                    <td>' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
+                                                    <td style="width:24%">' . $scoringTemp['TEAM'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $scoringTemp['TIME'] . '</td>
+                                                    <td style="width:60%">' . $scoringTemp['SCORE'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
                                                 </tr>';
                                         }
                                         if (empty($gameHolder->getScoringSecondPeriod())) {
@@ -951,14 +951,14 @@ table.table-sm>thead>tr>th:first-of-type {
 
 										<table
 											class="table table-sm table-striped table-rounded-bottom">
-											<thead>
+										   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
 													<th style="width: 20%">Team</th>
 													<th style="width: 60%">Details</th>
 													<th style="width: 10%">Score</th>
 												</tr>
-											</thead>
+											</thead>-->
 											<tbody>
                                         	<?php
 
@@ -971,10 +971,10 @@ table.table-sm>thead>tr>th:first-of-type {
                                             }
 
                                             echo '<tr >
-                                                    <td>' . $scoringTemp['TIME'] . '</td>
-                                                    <td>' . $scoringTemp['TEAM'] . '</td>
-                                                    <td>' . $scoringTemp['SCORE'] . '</td>
-                                                    <td>' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
+                                                    <td style="width:24%">' . $scoringTemp['TEAM'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $scoringTemp['TIME'] . '</td>
+                                                    <td style="width:60%">' . $scoringTemp['SCORE'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
                                                 </tr>';
                                         }
                                         if (empty($gameHolder->getScoringThirdPeriod())) {
@@ -991,14 +991,14 @@ table.table-sm>thead>tr>th:first-of-type {
 
 										<table
 											class="table table-sm table-striped table-rounded-bottom">
-											<thead>
+									   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
 													<th style="width: 20%">Team</th>
 													<th style="width: 60%">Details</th>
 													<th style="width: 10%">Score</th>
 												</tr>
-											</thead>
+											</thead>-->
 											<tbody>
                                         	<?php
 
@@ -1013,10 +1013,10 @@ table.table-sm>thead>tr>th:first-of-type {
                                                 }
 
                                                 echo '<tr >
-                                                    <td>' . $scoringTemp['TIME'] . '</td>
-                                                    <td>' . $scoringTemp['TEAM'] . '</td>
-                                                    <td>' . $scoringTemp['SCORE'] . '</td>
-                                                    <td>' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
+                                                    <td style="width:24%">' . $scoringTemp['TEAM'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $scoringTemp['TIME'] . '</td>
+                                                    <td style="width:60%">' . $scoringTemp['SCORE'] . '</td>
+                                                    <td class="text-center" style="width:8%">' . $awayScoreCounter . '-' . $homeScoreCounter . '</td>
                                                 </tr>';
                                             }
                                         }
