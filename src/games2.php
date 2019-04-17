@@ -737,7 +737,7 @@ table.table-sm>thead>tr>th:first-of-type {
 
 					</div>
 				</div>
-				<div class="card-body p-3">
+				<div class="card-body p-3" style="background-color:#85878c">
 
 					<div class="row no-gutters">
 						<!-- start scoring summary-->
@@ -760,11 +760,11 @@ table.table-sm>thead>tr>th:first-of-type {
 
 									<table
 										class="table table-sm table-striped table-rounded-bottom">
-										<thead>
-											<tr>
-												<th>SUMMARY</th>
-											</tr>
-										</thead>
+<!-- 										<thead> -->
+<!-- 											<tr> -->
+<!-- 												<th>SUMMARY</th> -->
+<!-- 											</tr> -->
+<!-- 										</thead> -->
 										<tbody>
                                         	<?php
       
@@ -787,11 +787,11 @@ table.table-sm>thead>tr>th:first-of-type {
 
 									<table
 										class="table table-sm table-striped table-rounded-bottom">
-										<thead>
-											<tr>
-												<th>SUMMARY</th>
-											</tr>
-										</thead>
+<!-- 										<thead> -->
+<!-- 											<tr> -->
+<!-- 												<th>SUMMARY</th> -->
+<!-- 											</tr> -->
+<!-- 										</thead> -->
 										<tbody>
                                         	<?php
       
@@ -814,11 +814,11 @@ table.table-sm>thead>tr>th:first-of-type {
 
 									<table
 										class="table table-sm table-striped table-rounded-bottom">
-										<thead>
-											<tr>
-												<th>SUMMARY</th>
-											</tr>
-										</thead>
+<!-- 										<thead> -->
+<!-- 											<tr> -->
+<!-- 												<th>SUMMARY</th> -->
+<!-- 											</tr> -->
+<!-- 										</thead> -->
 										<tbody>
                                         	<?php
       
@@ -831,7 +831,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                                 </tr>';
                                             }
                                         }else{
-                                            echo '<tr><td class="text-center" colspan="4">NO PENALTIES</td></tr>';
+                                            echo '<tr><td colspan="4">NO PENALTIES</td></tr>';
                                         }
                                         ?>
                                         </tbody>
@@ -843,11 +843,11 @@ table.table-sm>thead>tr>th:first-of-type {
 
 									<table
 										class="table table-sm table-striped table-rounded-bottom">
-										<thead>
-											<tr>
-												<th>SUMMARY</th>
-											</tr>
-										</thead>
+	<!-- 										<thead> -->
+<!-- 											<tr> -->
+<!-- 												<th>SUMMARY</th> -->
+<!-- 											</tr> -->
+<!-- 										</thead> -->
 										<tbody>
                                         	<?php
       
@@ -1220,8 +1220,8 @@ table.table-sm>thead>tr>th:first-of-type {
 
 echo '<pre>';
 // echo json_encode($gameHolder, JSON_PRETTY_PRINT);
- echo jsonPrettify(json_encode($gameHolder));
-echo '/<pre>';
+ //echo jsonPrettify(json_encode($gameHolder));
+echo '</pre>';
 
 ?>
 
