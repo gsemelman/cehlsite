@@ -254,7 +254,27 @@ class RostersHolder{
         
         //return $center >= 3 && $rw >= 3 && $lw >= 3 && $defense >= 4 && $goalie >= 2 ;
     }
-
     
+    /**
+     * @return array of RosterObj results matching the string array of player names.
+     */
+    public function searchRoster(array $searchArray) : array{
+        
+        $results = array();
+        
+        foreach($this->getProRosters() as $roster){
+            if (in_array($roster->getName(), $searchArray)) {
+                array_push($results, $roster);
+            }
+        }
+        
+        foreach($this->getFarmRosters() as $roster){
+            if (in_array($roster->getName(), $searchArray)) {
+                array_push($results, $roster);
+            }
+        }
+        
+        return $results;
+    }
 
 }

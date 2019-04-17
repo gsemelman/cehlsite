@@ -6,6 +6,8 @@ require_once 'config.php';
 include 'lang.php';
 include_once 'common.php';
 include_once 'classes/GameHolder.php';
+include_once 'classes/RosterObj.php';
+include_once 'classes/RostersHolder.php';
 
 if(!function_exists('search')) {
     function search($Fnm,$currentTeam) {
@@ -275,21 +277,25 @@ a:hover, a:focus {
 		100%);
 }
 
-.table-dark {
-	border-spacing: 2px;
-	border-color: grey;
-	width: 100%;
-	boder-width: 2px;
-	font-size: 12px;
-	font-weight: 400px;
-}
+/* .table-dark { */
+/* 	border-spacing: 2px; */
+/* 	border-color: grey; */
+/* 	width: 100%; */
+/* 	boder-width: 2px; */
+/* 	font-size: 12px; */
+/* 	font-weight: 400px; */
+/* } */
 
-.table-dark th {
-	background-color: rgb(39, 41, 43);
-}
+/* .table-dark th { */
+/* 	background-color: rgb(39, 41, 43); */
+/* } */
 
-.table-dark2 th {
-	background-color: rgb(39, 41, 43);
+/* .table-dark2 th { */
+/* 	background-color: rgb(39, 41, 43); */
+/* } */
+
+.table {
+	line-height: 20px;
 }
 
 .table-dark2>tbody td {
@@ -324,6 +330,8 @@ a:hover, a:focus {
 	-webkit-border-horizontal-spacing: 0px;
 	-webkit-border-vertical-spacing: 0px;
 	width: 100%;
+	line-height:25px;
+	margin-bottom:0px;
 }
 
 table.table-sm>thead>tr>th:first-of-type {
@@ -341,24 +349,24 @@ table.table-sm>thead>tr>th:first-of-type {
 }
 
 /* // Small devices (landscape phones, 576px and up) */
-@media ( min-width : 576px) {
-	.table {
-		line-height: 20px;
-	}
-}
+/* @media ( min-width : 576px) { */
+
+/* } */
 
 /* // Medium devices (tablets, 768px and up) */
-/* @media (min-width: 768px) { } */
-
-/* // Large devices (desktops, 992px and up) */
-@media ( min-width : 992px) {
+@media (min-width: 768px) { 
 	#awayHeader .score {
 		float: left;
 	}
 	#awayHeader .logo-home {
 		float: right;
 	}
-}
+} 
+
+/* // Large devices (desktops, 992px and up) */
+/* @media ( min-width : 992px) { */
+
+/* } */
 
 /* // Extra large devices (large desktops, 1200px and up) */
 /* @media (min-width: 1200px) {  } */
@@ -393,16 +401,17 @@ table.table-sm>thead>tr>th:first-of-type {
         $homeTeamAbbr = search($FnmAbbr,$homeTeam);
     }
     else exit($allFileNotFound.' - '.$FnmAbbr);
+
 ?>
 
 <div class = "container">
 	<div class="row">
 		<div class="col">
        		<div class="card">
-            	<div class="card-header" style="background-color:rgb(39,41,43);">
+            	<div class="card-header" style="background-color:rgb(50, 52, 54);">
             
                     <div id="scoreMain" class="row no-gutters"> <!-- start main score -->
-                		 <div class= "col-sm-12 col-md-6 pr-md-1 pb-2 pb-md-0">
+                		 <div class= "col-12 col-md-6 pr-md-1 pb-2 pb-md-0">
                 		 	<div class="teamheader logo-gradient border">
                             	<?php 
                             	$teamCardLogoSrc = glob($folderTeamLogos.strtolower($awayTeam).'.*');
@@ -431,7 +440,7 @@ table.table-sm>thead>tr>th:first-of-type {
                         	</div>
                         </div>
                         
-                        <div id="awayHeader" class= "col-sm-12 col-md-6 pl-md-1">
+                        <div id="awayHeader" class= "col-12 col-md-6 pl-md-1">
                         	<div class="teamheader logo-gradient border">
                             	<?php 
                             	$teamCardLogoSrc = glob($folderTeamLogos.strtolower($homeTeam).'.*');
@@ -463,13 +472,13 @@ table.table-sm>thead>tr>th:first-of-type {
                 	
                 	
                 	<div class="row mt-2"> <!-- start mini scores -->
-                        <div class="col-sm-12 col-md-4 pr-md-1">
-                        	 <table class = "table-dark2 table-sm text-center mb-2 mb-md-0" >
+                        <div class="col-12 col-md-4 pr-md-1">
+                        	 <table class = "table-dark2 table-sm text-center" >
 <!--                         	 <table class = " table table-sm table-striped table-rounded" > -->
                         	
                         	    <thead>
                             	 	<tr style = "text-transform: uppercase;"> 
-                    				    <th style="width:30%"></th>
+                    				    <th class="text-left" style="width:30%">SCORING</th>
                     				    <th style="width:14%">1st</th>
                     				    <th style="width:14%">2nd</th>
                     				    <th style="width:14%">3rd</th>
@@ -561,7 +570,7 @@ table.table-sm>thead>tr>th:first-of-type {
                         
                         ?>
                         
-                        <div class="col-sm-12 col-md-4 px-md-1 mb-2 mb-md-0">
+                        <div class="col-12 col-md-4 px-md-1">
                         
                         	 <table class = "table-dark2 table-sm" >
 <!--                         	 <table class = " table table-sm table-striped table-rounded" > -->
@@ -582,48 +591,141 @@ table.table-sm>thead>tr>th:first-of-type {
                         
                         </div><!-- end goals smmary -->
                         
-                        
-                        <?php               
-                            $awayGoalieFormatted='';
-                            $homeGoalieFormatted='';
-                            foreach($gameHolder->getGoalieStats() as $goalieState){
-                                if($goalieState['TEAM'] == $awayTeamAbbr && !empty($goalieState["STATUS"])){
-                                    $awayGoalieFormatted = $goalieState['PLAYER'].' ('.$goalieState["SAVES"].' SV)';
-                                    $awayGoalieFormatted = str_replace(' ', '&nbsp;', $awayGoalieFormatted);
-                              
-                                }else if($goalieState['TEAM'] == $homeTeamAbbr && !empty($goalieState["STATUS"])){
-                                    $homeGoalieFormatted = $goalieState['PLAYER'].' ('.$goalieState["SAVES"].' SV)';
-                                    $homeGoalieFormatted = str_replace(' ', '&nbsp;', $homeGoalieFormatted);
-                                }
-                
-                            }
-                        
-                        ?>
-                        
-                        <div class="col-sm-12 col-md-4 pl-md-1">
-                        	 <table class = "table-dark2 table-sm" >
-<!--                         	 <table class = " table table-sm table-striped table-rounded" > -->
+                        <div class="col-12 col-md-4 pl-md-1"> 
+                        	 <table class = "table-dark2 table-sm text-center" >
                         		<thead>
                             		<tr>
-                            			<th>GOALTENDERS</th>
+                            			<th class="text-left">SHOTS</th>
+                            			<th>1ST</th>
+                            			<th>2ND</th>
+                            			<th>3RD</th>
+                            			<?php if ($isOvertime) {?>
+                                        <th>OT</th>
+                                        <?php } ?>
+                            			
+                            			<th>T</th>
                             		</tr>
                         		</thead>
                         		<tbody>
                             		<tr>
-                            			<td><?php echo $awayTeam?> - <span class="scoreMainText"><?php echo $awayGoalieFormatted ?></span></td>
+                       			        <td class = "scoreMainText teamName text-left pl-3">
+                                         <?php echo $awayTeamAbbr;?>
+                                        </td>
+    
+                                        <td><?php echo $gameHolder->getAwayShots()[0]?></td>
+                                        <td><?php echo $gameHolder->getAwayShots()[1]?></td>
+                                        <td><?php echo $gameHolder->getAwayShots()[2]?></td>
+                                        <?php if ($isOvertime) {?>
+                                            <td><?php echo $gameHolder->getAwayShots()[3]?></td>
+                                        <?php } ?>
+                                        <td class = "teamTotal"><strong><?php echo $gameHolder->getAwayShotsTotal()?></strong></td>
                             		</tr>
                             		<tr>
-                            			<td><?php echo $homeTeam?> - <span class="scoreMainText"><?php echo $homeGoalieFormatted ?></span></td>
+                           				<td class = "scoreMainText teamName text-left pl-3">
+                                         <?php echo $homeTeamAbbr;?>
+                                        </td>
+    
+                                        <td><?php echo $gameHolder->getHomeShots()[0]?></td>
+                                        <td><?php echo $gameHolder->getHomeShots()[1]?></td>
+                                        <td><?php echo $gameHolder->getHomeShots()[2]?></td>
+                                        <?php if ($isOvertime) {?>
+                                            <td><?php echo $gameHolder->getHomeShots()[3]?></td>
+                                        <?php } ?>
+                                        <td class = "teamTotal"><strong><?php echo $gameHolder->getHomeShotsTotal()?></strong></td>
                             		</tr>
                         		</tbody>
                         	</table>
-                        </div><!-- end goalie smmary -->
+                       </div><!-- end shots summary-->
+                	</div><!-- end main summary row -->
+                	<div class="row">
+                      
+                            <?php               
+                                $awayGoalieFormatted='';
+                                $homeGoalieFormatted='';
+                                foreach($gameHolder->getGoalieStats() as $goalieState){
+                                    if($goalieState['TEAM'] == $awayTeamAbbr && !empty($goalieState["STATUS"])){
+                                        $awayGoalieFormatted = $goalieState['PLAYER'].' ('.$goalieState["SAVES"].' SV) '.$goalieState["STATUS"];
+                                        $awayGoalieFormatted = str_replace(' ', '&nbsp;', $awayGoalieFormatted);
+                                  
+                                    }else if($goalieState['TEAM'] == $homeTeamAbbr && !empty($goalieState["STATUS"])){
+                                        $homeGoalieFormatted = $goalieState['PLAYER'].' ('.$goalieState["SAVES"].' SV) '.$goalieState["STATUS"];
+                                        $homeGoalieFormatted = str_replace(' ', '&nbsp;', $homeGoalieFormatted);
+                                    }
                     
-                	</div><!-- end mini scores row -->
+                                }
+                            
+                            ?>
+                            
+                            <div class="col-12 col-md-4 pr-md-1">
+                            	 <table class = "table-dark2 table-sm" >
+                            		<thead>
+                                		<tr>
+                                			<th>GOALTENDERS</th>
+                                		</tr>
+                            		</thead>
+                            		<tbody>
+                                		<tr>
+    	                          			<td><?php echo $awayTeam?> - <span class="scoreMainText"><?php echo $awayGoalieFormatted ?></span></td>
+                                		</tr>
+                                		<tr>
+                              				<td><?php echo $homeTeam?> - <span class="scoreMainText"><?php echo $homeGoalieFormatted ?></span></td>
+                                		</tr>
+                            		</tbody>
+                            	</table>
+                           </div><!-- end goalie smmary-->
+                           
+                           
+                           <div class="col-6 col-md-4 pr-1 px-md-1">
+                            	 <table class = "table-dark2 table-sm" >
+                            		<thead>
+                                		<tr>
+                                			<th colspan="2">POWER PLAY</th>
+                                		</tr>
+                            		</thead>
+                            		<tbody>
+                                		<?php foreach($gameHolder->getPowerPlaySummary() as $ppTemp){ ?>
+                                		<tr>
+                              				<td><?php echo $ppTemp['TEAM']?></td>
+                              				<td><?php echo $ppTemp['RESULT']?></td>
+                                		</tr>
+                                		<?php } ?>
+                                	
+                                		
+                            		</tbody>
+                            	</table>
+                           </div><!-- powerplay-->
+                           
+                           <?php 
+                           
+                           $profitTemp = $gameHolder->getTeamProfit();
+                           $profitTemp = substr($profitTemp, 0, -3);
+                           
+                           ?>
+                           
+                           <div class="col-6 col-md-4 pl-1 pr-1 pl-md-1">
+                            	<table class = "table-dark2 table-sm" >
+                            		<thead>
+                                		<tr>
+                                			<th colspan="2">FINANCIALS</th>
+                                			<th></th>
+                                		</tr>
+                            		</thead>
+                            		<tbody>
+                                		<tr>
+    	                          			<td>Attendance</td>
+    	                          			<td><?php echo $gameHolder->getAttendence()?></td>
+                                		</tr>
+                                		<tr>
+                              				<td>Net Profit</td>
+                              				<td><?php echo $profitTemp?></td>
+                                		</tr>
+                            		</tbody>
+                            	</table>
+                           </div><!-- financials-->
+                       
+                     </div>
             	</div>
             	<div class="card-body p-3">
-                	
-
 
 					<div class="row no-gutters"><!-- start scoring summary-->
 						<div class="col-sm-12 col-lg-8 offset-lg-2 mb-3">
@@ -800,8 +902,8 @@ table.table-sm>thead>tr>th:first-of-type {
                 		<div class="col-sm-12 col-lg-8 offset-lg-2">
                     		<div class="card text-center">
                                 <div id="rosterTabs" class="card-header px-2 px-lg-4 pb-1 pt-2">
-                                	<h4>STATISTICS</h4>
-                                    <ul class="nav nav-tabs nav-fill">
+                                	STATISTICS
+                                    <ul class="nav nav-tabs nav-fill pt-1">
                             			<li class="nav-item">
                                             <a class="nav-link active" href="#AwayTeamStats" data-toggle="tab"><?php echo $awayTeam?></a>
                             			</li>
@@ -810,9 +912,40 @@ table.table-sm>thead>tr>th:first-of-type {
                             			</li>
                                     </ul>
                                 </div>
+                                
+                                <?php 
+                                
+                               
+                                $awayStats = $gameHolder->getAwayStats();
+                                $homeStats = $gameHolder->getHomeStats();
+                                
+                                //set initial sort (Points/G/A/Name)
+                                function statCompare($stat1, $stat2) {
+                                    $returnValue =  $stat2['P'] <=> $stat1['P'];
+                                    
+                                    if($returnValue == 0){
+                                        $returnValue =  $stat2['G'] <=> $stat1['G'];
+                                    }
+                                    
+                                    if($returnValue == 0){
+                                        $returnValue =  $stat2['A'] <=> $stat1['A'];
+                                    }
+                                    
+                                    if($returnValue == 0){
+                                        $returnValue =  $stat1['NAME'] <=> $stat2['NAME'];
+                                    }
+                                    
+                                    return $returnValue;
+                                };
+                                
+                                usort($awayStats , 'statCompare');
+                                usort($homeStats , 'statCompare');
+                                
+                                ?>
+                                
                                 <div class="card-body tab-content p-0 m-0">
                                 	<div class="tab-pane active" id="AwayTeamStats">
-                                		<table class="table table-sm table-striped text-center">
+                                		<table id="tblAwayStats" class="table table-sm table-striped text-center">
                                             <thead>
                                                 <tr>
                                                 	<th class="text-left">NAME</th>
@@ -828,7 +961,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                             </thead>
                                             <tbody>
                                             	<?php 
-                                            	foreach($gameHolder->getAwayStats() as $scoringTemp){
+                                            	foreach($awayStats as $scoringTemp){
                                         
                                             	    echo '<tr >
                                                         <td class="text-left">'.$scoringTemp['NAME'].'</td>
@@ -846,7 +979,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                         </table>
                                 	</div>
                                 	<div class="tab-pane" id="HomeTeamStats">
-                                		<table class="table table-sm table-striped text-center">
+                                		<table id="tblHomeStats" class="table table-sm table-striped text-center">
                                             <thead>
                                                 <tr>
                                                 	<th class="text-left">NAME</th>
@@ -862,7 +995,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                             </thead>
                                             <tbody>
                                             	<?php 
-                                            	foreach($gameHolder->getHomeStats() as $scoringTemp){
+                                            	foreach($homeStats as $scoringTemp){
                                         
                                             	    echo '<tr >
                                                         <td class="text-left">'.$scoringTemp['NAME'].'</td>
@@ -882,7 +1015,50 @@ table.table-sm>thead>tr>th:first-of-type {
                                 </div>
                             </div>
                 		</div>
+                		<script>
+
+                		<!-- enable table sorting for stats tables -->
+                        $(document).ready(function() 
+                            { 
+                                $("#tblAwayStats").tablesorter({ 
+                                    sortInitialOrder: 'desc'
+                            	}); 
+                                $("#tblHomeStats").tablesorter({ 
+                                    sortInitialOrder: 'desc'
+                            	}); 
+                            } 
+                        ); 
+      
+                        </script>
                 	</div><!-- end player statistics -->
+                	
+                	<div class="row mt-3"> <!-- game notes -->
+                		<div class=" col col-lg-8 offset-lg-2">
+                			    <table class = "table table-sm table-striped table-rounded" >
+                            		<thead>
+                                		<tr>
+                                			<th>GAME NOTES</th>
+                                		</tr>
+                            		</thead>
+                            		<tbody>
+                            		
+                            			<?php foreach($gameHolder->getGameNotes() as $gameNote){?>
+                                		<tr>
+    	                          			<td><?php echo $gameNote ?></td>
+                                		</tr>
+                                		<?php } ?>
+                                		
+                                		<?php if(empty($gameHolder->getGameNotes())){ ?>
+                                		<tr>
+    	                          			<td class="text-center">NONE</td>
+                                		</tr>
+                                		<?php } ?>
+                            		</tbody>
+                            	</table>
+                		
+                		</div>
+                		
+                	</div>
                 	
             	</div> <!-- end card body -->
             </div><!-- end card body -->

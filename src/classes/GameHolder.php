@@ -22,6 +22,7 @@ class GameHolder implements \JsonSerializable
     private $scoringOtPeriod = array();
     
     private $penaltySummary = array();
+    private $powerPlaySummary = array();
     
     private $awayStats = array();
     private $homeStats = array();
@@ -55,7 +56,7 @@ class GameHolder implements \JsonSerializable
         $gamesW = 'W';
         $gamesL = 'L';
         $gamesT = 'T';
-        $gamesin = 'en';
+        $gamesin = 'of';
         
         $a = 0;
         $b = 0;
@@ -304,6 +305,12 @@ class GameHolder implements \JsonSerializable
                     $long = $long - $pos;
                     $result = substr($val, $pos, $long);
                     $result = str_replace('for', $gamesin, $result);
+                    
+                    $ppResult = array($team, $result);
+                    $ppResult['TEAM'] = $team;
+                    $ppResult['RESULT'] = $result;
+                    
+                    array_push($this->powerPlaySummary, $ppResult);
        
                 }
                 if(substr_count($val, 'Power Play Conversions')) {
@@ -608,6 +615,16 @@ class GameHolder implements \JsonSerializable
     public function getPenaltySummary()
     {
         return $this->penaltySummary;
+    }
+    
+    
+
+    /**
+     * @return multitype:
+     */
+    public function getPowerPlaySummary()
+    {
+        return $this->powerPlaySummary;
     }
 
     /**
