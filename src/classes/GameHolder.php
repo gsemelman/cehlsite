@@ -153,7 +153,9 @@ class GameHolder implements \JsonSerializable
                 }
                 if($a == 19 || $a == 20) {
                     $a = 20;
-                    if(!substr_count($val, '(')) echo '<tr><td><br></td></tr>';
+                    if(!substr_count($val, '(')){
+                        
+                    }
                     else {
                         //farm scoring summary
                         array_push($this->farmScoringSummary, trim($val));
@@ -342,14 +344,14 @@ class GameHolder implements \JsonSerializable
   
                     $statsArray = array();
 
-                    $statsArray['PLAYER'] = $joueur;
-                    $statsArray['TEAM'] = $team;
+                    $statsArray['PLAYER'] = trim($joueur);
+                    $statsArray['TEAM'] = trim($team);
                     //$statsArray['SAVES'] = $save;
-                    $statsArray['SAVES'] = strtok($save,' ');
-                    $statsArray['SA'] = strtok(substr($save, strpos($save, 'out of ') + 7),' ');;
+                    $statsArray['SAVES'] = trim(strtok($save,' '));
+                    $statsArray['SA'] = trim(strtok(substr($save, strpos($save, 'out of ') + 7),' '));
                     
-                    $statsArray['STATUS'] = $status;
-                    $statsArray['RECORD'] = $total;
+                    $statsArray['STATUS'] = trim($status);
+                    $statsArray['RECORD'] = trim($total);
 
                     array_push($this->goalieStats, $statsArray);
                     
@@ -466,19 +468,15 @@ class GameHolder implements \JsonSerializable
                 if($a == 6 && (substr_count($val, '<B>Period') || substr_count($val, '<B>Overtime'))) {
                     if(substr_count($val, 'Period 1')) {
                         $e++;
-                        //echo '<div style="clear:both;"><br></div><table class="tableau"><tr class="tableau-top"><td colspan="3" style="text-align:left;'.$style1.'">'.$gamesGoalScorers.'</td></tr><tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$games1stPer.'</b></td></tr>';
                     }
                     if(substr_count($val, 'Period 2')) {
                         $e++;
-                       // echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$games2ndPer.'</b></td></tr>';
                     }
                     if(substr_count($val, 'Period 3')) {
                         $e++;
-                     //   echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$games3rdPer.'</b></td></tr>';
                     }
                     if(substr_count($val, 'Overtime')) {
                         $e++;
-                        //echo '<tr style="'.$bg_1.'"><td colspan="3" style="'.$style1.'"><b>'.$gamesOTPer.'</b></td></tr>';
                     }
                 }
                 

@@ -80,7 +80,7 @@
 	
 			
 	<!-- Custom scripts and styling and overrides (load last)-->
-	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04112019-2.css"/>
+	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04162019-1.css"/>
 	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/media-queries.css"/>
 	<script type="text/javascript" src="<?php echo BASE_URL?>assets/js/scripts-04112019-1.js"></script>
 	
