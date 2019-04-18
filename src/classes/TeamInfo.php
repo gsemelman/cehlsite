@@ -20,6 +20,7 @@ class TeamInfo
     private $pct = '';
     private $last10='';
     private $streak='';
+    private $arena='';
    
 
     public function __construct(string $rootFolder, string $playoff, string $team) {
@@ -109,6 +110,38 @@ class TeamInfo
             
             
         } 
+
+        $a = 0;
+        $b = 0;
+        $c = 1;
+        $d = 1;
+        $e = 0;
+        $i = 0;
+        $j = 0;
+        $k = 0;
+        $financeFileName = getLeagueFile($rootFolder, $playoff, 'Finance.html', 'Finance'); // exclude farm
+        if (file_exists($financeFileName)) {
+            $tableau = file($financeFileName);
+
+            while (list ($cle, $val) = myEach($tableau)) {
+                $val = utf8_encode($val);
+                
+                if(substr_count($val, 'A NAME='.$team) && $d) {
+                    $pos = strpos($val, '</A>');
+                    $pos = $pos - 23;
+                    $equipe = substr($val, 23, $pos);
+                    $b = 1;
+                    
+                }
+                
+                if(substr_count($val, 'Arena') && $b && $d) {
+                    $this->arena = trim(substr($val, 52, 30));
+
+                    break;
+                }
+            }
+            
+        }
     }
     /**
      * @return <number, string>
@@ -326,6 +359,14 @@ class TeamInfo
     {
         $this->streak = $streak;
     }
+    /**
+     * @return string
+     */
+    public function getArena()
+    {
+        return $this->arena;
+    }
+
 
 
 

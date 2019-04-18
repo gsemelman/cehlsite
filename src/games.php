@@ -486,68 +486,79 @@ table.table-sm>thead>tr>th:first-of-type {
 	<div class="row">
 		<div class="col">
 			<div class="card">
-				<div class="card-header" style="background-color: rgb(50, 52, 54);">
-
-					<div id="scoreMain" class="row no-gutters">
-						<!-- start main score -->
-						<div class="col-12 col-md-6 pr-md-1 pb-2 pb-md-0">
-							<div class="teamheader logo-gradient border">
-                            	<?php
-                            $teamCardLogoSrc = glob($folderTeamLogos . strtolower($awayTeam) . '.*');
-                            ?>
-                             	<div class="team-logo gloss logo-gradient">
-                                    <?php
-                                    if (isset($teamCardLogoSrc[0])) {
-                                        echo '<img src="' . $teamCardLogoSrc[0] . '" alt="' . $awayTeam . '">';
-                                    }
-                                    ?>
-                                 </div>
-								<div class="team-logo gloss gradient-score team-right score">
-									<div><?php echo $gameHolder->getAwayScore()?></div>
-								</div>
-
-								<div class="header-container">
-
-									<div class="gloss"></div>
-									<div class="header">
-										<h3 class="mb-0"><?php echo $awayTeam ?></h3>
-                            			<?php echo $teamInfoAway->getWins().'-'.$teamInfoAway->getLosses().'-'.$teamInfoAway->getTies() ?>
-                            			<?php echo '('.$teamInfoAway->getPlaceString().' '.$teamInfoAway->getConferenceSafeString().')' ?>
-                            			
-                            		</div>
-								</div>
-							</div>
-						</div>
-
-						<div id="awayHeader" class="col-12 col-md-6 pl-md-1">
-							<div class="teamheader logo-gradient border">
-                            	<?php
-                            $teamCardLogoSrc = glob($folderTeamLogos . strtolower($homeTeam) . '.*');
-                            ?>
-                             	<div
-									class="team-logo gloss logo-gradient logo-home">
-                                    <?php
-                                    if (isset($teamCardLogoSrc[0])) {
-                                        echo '<img src="' . $teamCardLogoSrc[0] . '" alt="' . $homeTeam . '">';
-                                    }
-                                    ?>
-                                 </div>
-								<div class="team-logo gloss gradient-score team-right score">
-									<div><?php echo $gameHolder->getHomeScore()?></div>
-								</div>
-
-								<div class="header-container">
-
-									<div class="gloss"></div>
-									<div class="header">
-										<h3 class="mb-0"><?php echo $homeTeam ?></h3>
-                            			<?php echo $teamInfoHome->getWins().'-'.$teamInfoHome->getLosses().'-'.$teamInfoHome->getTies() ?>
-                            			<?php echo '('.$teamInfoHome->getPlaceString().' '.$teamInfoHome->getConferenceSafeString().')' ?>
-                            			
-                            		</div>
-								</div>
-							</div>
-						</div>
+				<div class="card-header p-1 text-center text-white" style="background-color: rgb(50, 52, 54); border-color:rgb(128, 128, 128);">
+					<span>FINAL<?php if($gameHolder->isOvertime()) echo ' (OT)';?></span>
+				</div>
+				<!-- <div class="card-body p-3" style="background-color: rgb(220, 222, 224);"> -->
+				<div class="card-body p-3" style="background-color: rgb(50, 52, 54);">
+				
+					<div class="mb-3 border-bottom" style="border-color:rgb(128, 128, 128) !important;">
+					
+					<div id="scoreMain">
+						<div class="row no-gutters">
+    						<!-- start main score -->
+    						<div class="col-12 col-md-6 pr-md-1 pb-2 pb-md-0">
+    							<div class="teamheader logo-gradient border">
+                                	<?php
+                                	$teamCardLogoSrc = glob($folderTeamLogos . strtolower($awayTeam) . '.*');
+                                ?>
+                                 	<div class="team-logo gloss logo-gradient">
+                                        <?php
+                                        if (isset($teamCardLogoSrc[0])) {
+                                            echo '<img src="' . $teamCardLogoSrc[0] . '" alt="' . $awayTeam . '">';
+                                        }
+                                        ?>
+                                     </div>
+    								<div class="team-logo gloss gradient-score team-right score">
+    									<div><?php echo $gameHolder->getAwayScore()?></div>
+    								</div>
+    
+    								<div class="header-container">
+    
+    									<div class="gloss"></div>
+    									<div class="header">
+    										<h3 class="mb-0"><?php echo $awayTeam ?></h3>
+                                			<?php echo $teamInfoAway->getWins().'-'.$teamInfoAway->getLosses().'-'.$teamInfoAway->getTies() ?>
+                                			<?php echo '('.$teamInfoAway->getPlaceString().' '.$teamInfoAway->getConferenceSafeString().')' ?>
+                                			
+                                		</div>
+    								</div>
+    							</div>
+    						</div>
+    
+    						<div id="awayHeader" class="col-12 col-md-6 pl-md-1">
+    							<div class="teamheader logo-gradient border">
+                                	<?php
+                                	$teamCardLogoSrc = glob($folderTeamLogos . strtolower($homeTeam) . '.*');
+                                ?>
+                                 	<div
+    									class="team-logo gloss logo-gradient logo-home">
+                                        <?php
+                                        if (isset($teamCardLogoSrc[0])) {
+                                            echo '<img src="' . $teamCardLogoSrc[0] . '" alt="' . $homeTeam . '">';
+                                        }
+                                        ?>
+                                     </div>
+    								<div class="team-logo gloss gradient-score team-right score">
+    									<div><?php echo $gameHolder->getHomeScore()?></div>
+    								</div>
+    
+    								<div class="header-container">
+    
+    									<div class="gloss"></div>
+    									<div class="header">
+    										<h3 class="mb-0"><?php echo $homeTeam ?></h3>
+                                			<?php echo $teamInfoHome->getWins().'-'.$teamInfoHome->getLosses().'-'.$teamInfoHome->getTies() ?>
+                                			<?php echo '('.$teamInfoHome->getPlaceString().' '.$teamInfoHome->getConferenceSafeString().')' ?>
+                                			
+                                		</div>
+    								</div>
+    							</div>
+    						</div>
+							
+						</div><!-- end row -->
+						<div class="text-center mt-1 pb-1 border-bottom" style="font-size:0.8rem;border-color:rgb(128, 128, 128) !important;"><?php echo $teamInfoHome->getArena(); ?></div> 						
+    						
 					</div>
 					<!-- end main score row -->
 
@@ -726,7 +737,7 @@ table.table-sm>thead>tr>th:first-of-type {
 						<!-- end shots summary-->
 					</div>
 					<!-- end main summary row -->
-					<div class="row">
+					<div class="row mb-2">
                       
                             <?php
                             $awayGoalieFormatted = '';
@@ -812,11 +823,8 @@ table.table-sm>thead>tr>th:first-of-type {
 							</table>
 						</div>
 						<!-- financials-->
-
+                        </div>
 					</div>
-				</div>
-				<!-- <div class="card-body p-3" style="background-color: rgb(220, 222, 224);"> -->
-				<div class="card-body p-3" style="background-color: rgb(50, 52, 54);">
 
 					<div class="row no-gutters">
 						<!-- start scoring summary-->
@@ -1398,6 +1406,155 @@ table.table-sm>thead>tr>th:first-of-type {
 		<!-- main col -->
 	</div>
 	<!-- end main row -->
+
+	<!-- start farm -->
+	<div class="row mt-3">
+		<div class="col">
+
+			<div class="accordion" id="farmAccordian">
+				<div class="card">
+					<div id="headingOne" class="card-header p-1 text-center text-white"
+						style="background-color: rgb(50, 52, 54);">
+
+						<h5 class="mb-0 border-bottom" style="border-color: rgb(128, 128, 128) !important;">
+							<button class="btn btn-link" type="button" data-toggle="collapse"
+								data-target="#collapseOne" aria-expanded="true"
+								aria-controls="collapseOne">
+                          	MINOR LEAGUE BOX SCORE <?php //echo $gameHolder->getFarmAwayScore().' '.$gameHolder->getFarmHomeScore().' FINAL' ?>
+                        </button>
+						</h5>
+					</div>
+
+					<div id="collapseOne" class="collapse"
+						aria-labelledby="headingOne" data-parent="#farmAccordian">
+						<div class="card-body pt-0"
+							style="background-color: rgb(50, 52, 54);">
+							<div id="scoreMain border-bottom">
+								<div class="row no-gutters p-3 border-bottom" style="border-color: rgb(128, 128, 128) !important;">
+									<!-- start main score -->
+									<div class="col-12 col-md-6 pr-md-1 pb-2 pb-md-0">
+										<div class="teamheader logo-gradient border">
+                                        	<?php
+                                        $teamCardLogoSrc = glob($folderTeamLogos . 'farm/' . strtolower($awayTeam) . '.*');
+                                        ?>
+                                         	<div
+												class="team-logo gloss logo-gradient">
+                                                <?php
+                                                if (isset($teamCardLogoSrc[0])) {
+                                                    echo '<img src="' . $teamCardLogoSrc[0] . '" alt="' . $awayTeam . '">';
+                                                }
+                                                ?>
+                                             </div>
+											<div class="team-logo gloss gradient-score team-right score">
+												<div><?php echo $gameHolder->getFarmAwayScore()?></div>
+											</div>
+
+											<div class="header-container">
+
+												<div class="gloss"></div>
+												<div class="header">
+													<h3 style="margin-top: 13px"><?php echo $gameHolder->getFarmAwayTeam() ?></h3>
+                                        			<?php //echo $teamInfoAway->getWins().'-'.$teamInfoAway->getLosses().'-'.$teamInfoAway->getTies() ?>
+                                        			<?php //echo '('.$teamInfoAway->getPlaceString().' '.$teamInfoAway->getConferenceSafeString().')' ?>
+                                        			
+                                        		</div>
+											</div>
+										</div>
+									</div>
+
+									<div id="awayHeader" class="col-12 col-md-6 pl-md-1">
+										<div class="teamheader logo-gradient border">
+                                        	<?php
+                                        $teamCardLogoSrc = glob($folderTeamLogos . 'farm/' . strtolower($homeTeam) . '.*');
+                                        ?>
+                                         	<div
+												class="team-logo gloss logo-gradient logo-home">
+                                                <?php
+                                                if (isset($teamCardLogoSrc[0])) {
+                                                    echo '<img src="' . $teamCardLogoSrc[0] . '" alt="' . $homeTeam . '">';
+                                                }
+                                                ?>
+                                             </div>
+											<div class="team-logo gloss gradient-score team-right score">
+												<div><?php echo $gameHolder->getFarmHomeScore()?></div>
+											</div>
+
+											<div class="header-container">
+
+												<div class="gloss"></div>
+												<div class="header">
+													<h3 style="margin-top: 13px"><?php echo $gameHolder->getFarmHomeTeam() ?></h3>
+                                        			<?php //echo $teamInfoHome->getWins().'-'.$teamInfoHome->getLosses().'-'.$teamInfoHome->getTies() ?>
+                                        			<?php //echo '('.$teamInfoHome->getPlaceString().' '.$teamInfoHome->getConferenceSafeString().')' ?>
+                                        			
+                                        		</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- end row -->
+
+								<div class="row no-gutters mt-2">
+
+									<div class="col-12 col-md-6 offset-md-3 pr-md-1 pb-2 pb-md-0">
+
+										<table class="table-dark2 table-sm">
+											<thead>
+												<tr>
+													<th>GOALIES</th>
+												</tr>
+											</thead>
+											<tbody>
+                                            		
+                                            			<?php foreach($gameHolder->getFarmGoalies() as $farmGoalieTemp){?>
+                                                			<tr>
+													<td><?php echo $farmGoalieTemp ?></td>
+												</tr>
+                                                		<?php } ?>
+    
+                                            		</tbody>
+										</table>
+
+										<table class="table-dark2 table-sm">
+											<thead>
+												<tr>
+													<th>SCORING SUMMARY</th>
+												</tr>
+											</thead>
+											<tbody>
+                                            		
+                                            			<?php foreach($gameHolder->getFarmScoringSummary() as $farmScoringTemp){?>
+                                                		<tr>
+													<td><?php echo $farmScoringTemp ?></td>
+												</tr>
+                                                		<?php } ?>
+                                                		
+                                                		<?php if(empty($gameHolder->getFarmScoringSummary())){ ?>
+                                                		<tr>
+													<td class="text-center">NONE</td>
+												</tr>
+                                                		<?php } ?>
+                                            		</tbody>
+										</table>
+
+									</div>
+
+
+
+								</div>
+								<!-- end farm summary -->
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
 
 
 </div>

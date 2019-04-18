@@ -26,7 +26,7 @@ if($currentPLF == 1){
 		
 		<div class="card-body px-2 px-md-3">
 
-			<div class="col-sm-4" style="display: flex;">
+			<div class="col-sm-4 col-md-6 col-lg-4" style="display: flex;">
 
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
