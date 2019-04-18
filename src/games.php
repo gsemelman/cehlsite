@@ -1560,13 +1560,29 @@ table.table-sm>thead>tr>th:first-of-type {
 </div>
 <!-- end contaainer -->
 
+<script>
+
+
+
+$(document).ready(function() 
+	    { 
+        	$('.collapse').on('shown.bs.collapse', function(e) {
+        	    var $card = $(this).closest('.card');
+        	    $('html,body').animate({
+        	        scrollTop: $card.offset().top - 55
+        	    }, 500);
+        	});
+	    } 
+	); 
+</script>
+
 
 <?php
 
-echo '<pre>';
+//echo '<pre>';
 // echo json_encode($gameHolder, JSON_PRETTY_PRINT);
 // echo jsonPrettify(json_encode($gameHolder));
-echo '</pre>';
+//echo '</pre>';
 
 ?>
 
