@@ -341,13 +341,11 @@ function result(x) {
 	document.getElementById("windowResult").textContent = "";
 	var result = document.getElementById("windowResult");
 	var tbl = document.createElement('table');
-		tbl.style.width='100%';
 		tbl.className = "table table-sm table-striped table-rounded";
 	var thead = document.createElement('thead');
 	var tbdy = document.createElement('tbody');
 	// Entête
 	var tr = document.createElement('tr');
-		tr.className = "tableau-top";
 		var td = document.createElement('th');
 			td.appendChild(document.createTextNode(''));
 			tr.appendChild(td);
@@ -554,7 +552,7 @@ function showPlayer(i,c,d,currentSearch) {
 			var a = document.createElement('a');
 				a.className = "lien-noir";
 				a.style.display = "block";
-				a.style.width = "100%";
+				//a.style.width = "100%";
 				a.href = "TeamRosters.php?team="+encodeURIComponent(allTms[i]);
 				//a.target = "_blank";
 				a.appendChild(document.createTextNode(allTms[i]));

@@ -38,6 +38,7 @@ if($currentPLF == 1){
 						<option value="Current">Current</option>
 						<option value=26>Season 26</option>
 						<option value=25>Season 25</option>
+						<option value=24>Season 24</option>
 					</select>
 				</div>
 			</div>

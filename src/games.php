@@ -126,6 +126,14 @@ else {
 ?>
 
 <style>
+:root {
+
+  --table-sort-asc:rgb(15, 40, 81);
+  --table-sort-desc:var(--color-primary-1);
+
+}
+
+
 .table {
 	width: 100%;
 	white-space: normal;
@@ -298,6 +306,10 @@ a:hover, a:focus {
 	line-height: 20px;
 }
 
+ .table-dark2>thead th { 
+ 	background-color: rgb(50, 52, 54);
+ } 
+
 .table-dark2>tbody td {
   background-color: rgb(24, 26, 29);
 
@@ -321,7 +333,8 @@ a:hover, a:focus {
 	border-right-color: rgb(128, 128, 128);
 	border-top-color: rgb(128, 128, 128);
 	box-sizing: border-box;
-	color: rgb(173, 173, 178);
+/* 	color: rgb(173, 173, 178); */
+    color: rgb(208, 208, 209);
 	display: table;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -337,6 +350,52 @@ a:hover, a:focus {
 table.table-sm>thead>tr>th:first-of-type {
 	padding-left: 0.34rem;
 	padding-right: inherit;
+}
+
+.table-dark2.table-striped>tbody>tr:nth-child(odd)>td{
+   background-color: rgb(24, 26, 29);
+ }
+ 
+.table-dark2.table-striped>tbody>tr:nth-child(even)>td{
+ background-color: rgb(50, 52, 54);
+}
+
+.nav-tabs-dark .nav-link{
+    color:rgb(173, 173, 178);
+   
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background-color: rgb(24, 26, 29);
+}
+
+.nav-tabs-dark .nav-link.active {
+/*     color: var(--color-primary-1); */
+/*     background-color: var(--color-alternate-2); */
+    border-color: #dee2e6 #dee2e6 #fff;
+    
+    background-color:var(--color-primary-1);
+    color:var(--color-alternate-1);
+
+}
+
+.nav-tabs-dark a:focus{
+    color:var(--color-primary-1);
+    background-color:var(--color-alternate-2);
+    filter: initial;
+}
+
+
+.stats-type-header{
+ background-color: rgb(24, 26, 29);;
+}
+
+.stats-type-header h5{
+ color:white;
+ text-align:left;
+ margin-left:0.3rem;
+ margin-bottom:0;
+ margin-top:3px;
 }
 
 #scoreMain{
@@ -361,7 +420,26 @@ table.table-sm>thead>tr>th:first-of-type {
 	#awayHeader .logo-home {
 		float: right;
 	}
+
 } 
+
+@media (min-width: 768px) and (max-width: 991px){
+	.teamheader .header h3{
+	   font-size: 1.4rem;
+	   margin-top: 3px;
+	}
+}
+
+@media (max-width: 415px) { 
+	.teamheader .header h3{
+	   font-size: 1.3rem;
+	   margin-top: 5px;
+	}
+	
+	.teamheader .header{
+	   font-size:0.9rem;
+	}
+}
 
 /* // Large devices (desktops, 992px and up) */
 /* @media ( min-width : 992px) { */
@@ -737,15 +815,16 @@ table.table-sm>thead>tr>th:first-of-type {
 
 					</div>
 				</div>
-				<div class="card-body p-3" style="background-color:#85878c">
+				<!-- <div class="card-body p-3" style="background-color: rgb(220, 222, 224);"> -->
+				<div class="card-body p-3" style="background-color: rgb(50, 52, 54);">
 
 					<div class="row no-gutters">
 						<!-- start scoring summary-->
 						<div class="col-sm-12 col-lg-8 offset-lg-2 mb-3">
-							<div class="card">
-								<div id="summaryTabs" class="card-header px-2 px-lg-4 pb-1 pt-2">
-									<div class="text-center">GAME SUMMARY</div>
-									<ul class="nav nav-tabs nav-fill pt-1">
+							<div class="card border" style="background-color:rgb(50, 52, 54); border-color: var(--color-primary-1) !important;">
+								<div id="summaryTabs" class="card-header text-white px-2 px-lg-4 pb-0 pt-2">
+									<div class="text-center"><h5 class="mb-1">GAME SUMMARY</h5></div>
+									<ul class="nav nav-tabs nav-tabs-dark nav-fill pt-1">
 										<li class="nav-item"><a class="nav-link active"
 											href="#ScoringSummary" data-toggle="tab">SCORING</a>
 										</li>
@@ -756,15 +835,21 @@ table.table-sm>thead>tr>th:first-of-type {
 								<div class="card-body tab-content p-2">        	
       
      							 <div class="tab-pane" id="PenaltySummary">
-     								<div class="tableau-top">1ST PERIOD</div>
+<!--      								<div class="tableau-top">1ST PERIOD</div> -->
 
-									<table
-										class="table table-sm table-striped table-rounded-bottom">
+									<table class="table table-dark2">
+<!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 <!-- 										<thead> -->
 <!-- 											<tr> -->
 <!-- 												<th>SUMMARY</th> -->
 <!-- 											</tr> -->
 <!-- 										</thead> -->
+
+										<thead>
+											<tr>
+												<th>1ST PERIOD</th>
+											</tr>
+										</thead>
 										<tbody>
                                         	<?php
       
@@ -783,15 +868,21 @@ table.table-sm>thead>tr>th:first-of-type {
                                         </tbody>
 									</table>
 									
-								    <div class="tableau-top">2ND PERIOD</div>
+<!-- 								    <div class="tableau-top">2ND PERIOD</div> -->
 
-									<table
-										class="table table-sm table-striped table-rounded-bottom">
+									<table class="table table-dark2">
+<!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 <!-- 										<thead> -->
 <!-- 											<tr> -->
 <!-- 												<th>SUMMARY</th> -->
 <!-- 											</tr> -->
 <!-- 										</thead> -->
+
+										<thead>
+											<tr>
+												<th>2ND PERIOD</th>
+											</tr>
+										</thead>
 										<tbody>
                                         	<?php
       
@@ -810,15 +901,15 @@ table.table-sm>thead>tr>th:first-of-type {
                                         </tbody>
 									</table>
 									
-									<div class="tableau-top">3RD PERIOD</div>
+<!-- 									<div class="tableau-top">3RD PERIOD</div> -->
 
-									<table
-										class="table table-sm table-striped table-rounded-bottom">
-<!-- 										<thead> -->
-<!-- 											<tr> -->
-<!-- 												<th>SUMMARY</th> -->
-<!-- 											</tr> -->
-<!-- 										</thead> -->
+									<table class="table table-dark2">
+<!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
+										<thead>
+											<tr>
+												<th>3RD PERIOD</th>
+											</tr>
+										</thead>
 										<tbody>
                                         	<?php
       
@@ -839,15 +930,20 @@ table.table-sm>thead>tr>th:first-of-type {
 									
 									<?php if($isOvertime){ ?>
 										
-									<div class="tableau-top">OVERTIME PERIOD</div>
+<!-- 									<div class="tableau-top">OVERTIME PERIOD</div> -->
 
-									<table
-										class="table table-sm table-striped table-rounded-bottom">
+										<table class="table table-dark2">
+<!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 	<!-- 										<thead> -->
 <!-- 											<tr> -->
 <!-- 												<th>SUMMARY</th> -->
 <!-- 											</tr> -->
 <!-- 										</thead> -->
+	     								<thead>
+											<tr>
+												<th>OVERTIME PERIOD</th>
+											</tr>
+										</thead>
 										<tbody>
                                         	<?php
       
@@ -870,15 +966,15 @@ table.table-sm>thead>tr>th:first-of-type {
 									
      						    </div> <!-- end penalty summary -->
                         	
-                        		<div class="tab-pane active" id="ScoringSummary">
+                        		<div class="tab-pane active" id="ScoringSummary"> <!-- start scoring summary -->
                         		        <?php
                                         $awayScoreCounter = 0;
                                         $homeScoreCounter = 0;
                                         ?>
-										<div class="tableau-top">1ST PERIOD</div>
+<!-- 										<div class="tableau-top">1ST PERIOD</div> -->
 
-										<table
-											class="table table-sm table-striped table-rounded-bottom">
+										<table class="table table-dark2">
+<!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 									   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
@@ -887,6 +983,11 @@ table.table-sm>thead>tr>th:first-of-type {
 													<th style="width: 10%">Score</th>
 												</tr>
 											</thead>-->
+											<thead>
+												<tr>
+													<th colspan="4">1ST PERIOD</th>
+												</tr>
+											</thead>
 											<tbody>
                                         	<?php
                                         foreach ($gameHolder->getScoringFirstPeriod() as $scoringTemp) {
@@ -911,10 +1012,11 @@ table.table-sm>thead>tr>th:first-of-type {
                                         </tbody>
 										</table>
 
-										<div class="tableau-top">2ND PERIOD</div>
+<!-- 										<div class="tableau-top">2ND PERIOD</div> -->
 
-										<table
-											class="table table-sm table-striped table-rounded-bottom">
+<!-- 										<table class="table table-sm table-striped table-rounded-bottom"> -->
+                                        <table class="table table-dark2">
+											
 									   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
@@ -923,6 +1025,11 @@ table.table-sm>thead>tr>th:first-of-type {
 													<th style="width: 10%">Score</th>
 												</tr>
 											</thead>-->
+											<thead>
+												<tr>
+													<th colspan="4">2ND PERIOD</th>
+												</tr>
+											</thead>
 											<tbody>
                                         	<?php
                                         foreach ($gameHolder->getScoringSecondPeriod() as $scoringTemp) {
@@ -947,10 +1054,10 @@ table.table-sm>thead>tr>th:first-of-type {
                                         </tbody>
 										</table>
 
-										<div class="tableau-top">3RD PERIOD</div>
+<!-- 										<div class="tableau-top">3RD PERIOD</div> -->
 
-										<table
-											class="table table-sm table-striped table-rounded-bottom">
+										<table class="table table-dark2">
+<!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 										   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
@@ -959,6 +1066,11 @@ table.table-sm>thead>tr>th:first-of-type {
 													<th style="width: 10%">Score</th>
 												</tr>
 											</thead>-->
+											<thead>
+												<tr>
+													<th colspan="4">3RD PERIOD</th>
+												</tr>
+											</thead>
 											<tbody>
                                         	<?php
 
@@ -986,11 +1098,10 @@ table.table-sm>thead>tr>th:first-of-type {
                                     
                                     <?php if($isOvertime){ ?>
                                     
-                                                  <div
-											class="tableau-top">OVERTIME PERIOD</div>
+<!--                                         <div class="tableau-top">OVERTIME PERIOD</div> -->
 
-										<table
-											class="table table-sm table-striped table-rounded-bottom">
+										<table class="table table-dark2">
+<!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 									   <!--<thead>
 												<tr>
 													<th style="width: 10%">Time</th>
@@ -999,6 +1110,11 @@ table.table-sm>thead>tr>th:first-of-type {
 													<th style="width: 10%">Score</th>
 												</tr>
 											</thead>-->
+											<thead>
+												<tr>
+													<th colspan="4">OVERTIME PERIOD</th>
+												</tr>
+											</thead>
 											<tbody>
                                         	<?php
 
@@ -1034,12 +1150,12 @@ table.table-sm>thead>tr>th:first-of-type {
 					<!-- end scoring summary -->
 
 
-					<div class="row">
+					<div class="row no-gutters">
 						<div class="col-sm-12 col-lg-8 offset-lg-2">
-							<div class="card text-center">
-								<div id="rosterTabs" class="card-header px-2 px-lg-4 pb-1 pt-2">
-									STATISTICS
-									<ul class="nav nav-tabs nav-fill pt-1">
+							<div class="card border text-center" style="background-color:rgb(50, 52, 54); border-color: var(--color-primary-1) !important;" >
+								<div id="rosterTabs" class="card-header text-white px-2 px-lg-4 pb-0 pt-2">
+									<div class="text-center"><h5 class="mb-1">STATISTICS</h5></div>
+									<ul class="nav nav-tabs nav-tabs-dark nav-fill pt-1">
 										<li class="nav-item"><a class="nav-link active"
 											href="#AwayTeamStats" data-toggle="tab"><?php echo $awayTeam?></a>
 										</li>
@@ -1080,10 +1196,11 @@ table.table-sm>thead>tr>th:first-of-type {
                                 ?>
                                 
                                 <div
-									class="card-body tab-content p-0 m-0">
+									class="card-body tab-content p-2">
 									<div class="tab-pane active" id="AwayTeamStats">
-										<table id="tblAwayStats"
-											class="table table-sm table-striped text-center">
+<!-- 										<table id="tblAwayStats" class="table table-sm table-striped text-center"> -->
+                                        <div class="stats-type-header"><h5>SKATERS</h5></div>
+										<table id="tblAwayStats" class="table table-dark2 table-sm table-striped text-center">
 											<thead>
 												<tr>
 													<th class="text-left">NAME</th>
@@ -1115,10 +1232,45 @@ table.table-sm>thead>tr>th:first-of-type {
                                             ?>
                                             </tbody>
 										</table>
+										<div class="stats-type-header"><h5>GOALIES</h5></div>
+										<table id="goalieStatsAway" class="table table-dark2 table-sm table-striped text-center">	
+        									<thead>
+        										<tr>
+        											<th class="text-left">NAME</th>
+        											<th>S</th>
+        											<th>SA</th>
+        											<th>PCT</th>
+        											<th>W/L</th>
+        											<th>REC</th>
+        										</tr>
+        									</thead>
+        									<tbody>
+                                            	<?php
+                                            	foreach ($gameHolder->getGoalieStats() as $goalieTemp) {
+                                            	    
+                                            	    if($goalieTemp['TEAM'] != $awayTeamAbbr) continue;
+                                            	    
+                                            	    $savePctTemp = round($goalieTemp['SAVES'] / $goalieTemp['SA'], 3);
+                                            	 
+                        
+                                                    echo '<tr >
+                                                            <td class="text-left">' . $goalieTemp['PLAYER'] . '</td>
+                                                            <td>' . $goalieTemp['SAVES'] . '</td>
+                                                            <td>' . $goalieTemp['SA'] . '</td>
+                                                            <td>' . $savePctTemp . '</td>
+                                                            <td>' . $goalieTemp['STATUS'] . '</td>
+                                                            <td>' . $goalieTemp['RECORD'] . '</td>
+                                                        </tr>';
+                                            }
+                                            ?>
+                                            </tbody>
+        								</table>
 									</div>
 									<div class="tab-pane" id="HomeTeamStats">
-										<table id="tblHomeStats"
-											class="table table-sm table-striped text-center">
+<!-- 										<table id="tblHomeStats" class="table table-sm table-striped text-center"> -->
+                                        <div class="stats-type-header"><h5>SKATERS</h5></div>
+                                        <table id="tblHomeStats" class="table table-dark2 table-sm table-striped text-center">
+											
 											<thead>
 												<tr>
 													<th class="text-left">NAME</th>
@@ -1150,6 +1302,41 @@ table.table-sm>thead>tr>th:first-of-type {
                                             ?>
                                             </tbody>
 										</table>
+										
+										<div class="stats-type-header"><h5>GOALIES</h5></div>
+										<table id="goalieStatsHome" class="table table-dark2 table-sm table-striped text-center">	
+        									<thead>
+       
+        										<tr>
+        											<th class="text-left">NAME</th>
+        											<th>S</th>
+        											<th>SA</th>
+        											<th>PCT</th>
+        											<th>W/L</th>
+        											<th>REC</th>
+        										</tr>
+        									</thead>
+        									<tbody>
+                                            	<?php
+                                            	foreach ($gameHolder->getGoalieStats() as $goalieTemp) {
+                                            	    
+                                            	    if($goalieTemp['TEAM'] != $homeTeamAbbr) continue;
+                                            	    
+                                            	    $savePctTemp = round($goalieTemp['SAVES'] / $goalieTemp['SA'], 3);
+                                            	 
+                        
+                                                    echo '<tr >
+                                                            <td class="text-left">' . $goalieTemp['PLAYER'] . '</td>
+                                                            <td>' . $goalieTemp['SAVES'] . '</td>
+                                                            <td>' . $goalieTemp['SA'] . '</td>
+                                                            <td>' . $savePctTemp . '</td>
+                                                            <td>' . $goalieTemp['STATUS'] . '</td>
+                                                            <td>' . $goalieTemp['RECORD'] . '</td>
+                                                        </tr>';
+                                            }
+                                            ?>
+                                            </tbody>
+        								</table>
 									</div>
 								</div>
 							</div>
@@ -1172,31 +1359,32 @@ table.table-sm>thead>tr>th:first-of-type {
 					</div>
 					<!-- end player statistics -->
 
-					<div class="row mt-3">
+					<div class="row no-gutters mt-3">
 						<!-- game notes -->
 						<div class=" col col-lg-8 offset-lg-2">
-							<table class="table table-sm table-striped table-rounded">
-								<thead>
-									<tr>
-										<th>GAME NOTES</th>
-									</tr>
-								</thead>
-								<tbody>
-                            		
-                            			<?php foreach($gameHolder->getGameNotes() as $gameNote){?>
-                                		<tr>
-										<td><?php echo $gameNote ?></td>
-									</tr>
-                                		<?php } ?>
-                                		
-                                		<?php if(empty($gameHolder->getGameNotes())){ ?>
-                                		<tr>
-										<td class="text-center">NONE</td>
-									</tr>
-                                		<?php } ?>
-                            		</tbody>
-							</table>
+							<div class="card border text-center p-2" style="background-color:rgb(50, 52, 54); border-color: var(--color-primary-1) !important;">
+								<div class="card-header text-white px-2 py-1 pb-2">
+									<div class="text-center">GAME NOTES</div>
+								</div>
+<!--     							<table class="table table-sm table-striped table-rounded"> -->
+            					<table class="table table-dark2 table-sm table-striped text-center">
 
+    								<tbody>
+                                		
+                                			<?php foreach($gameHolder->getGameNotes() as $gameNote){?>
+                                    		<tr>
+    										<td><?php echo $gameNote ?></td>
+    									</tr>
+                                    		<?php } ?>
+                                    		
+                                    		<?php if(empty($gameHolder->getGameNotes())){ ?>
+                                    		<tr>
+    										<td class="text-center">NONE</td>
+    									</tr>
+                                    		<?php } ?>
+                                		</tbody>
+    							</table>
+							</div>
 						</div>
 
 					</div>
@@ -1220,7 +1408,7 @@ table.table-sm>thead>tr>th:first-of-type {
 
 echo '<pre>';
 // echo json_encode($gameHolder, JSON_PRETTY_PRINT);
- //echo jsonPrettify(json_encode($gameHolder));
+// echo jsonPrettify(json_encode($gameHolder));
 echo '</pre>';
 
 ?>
