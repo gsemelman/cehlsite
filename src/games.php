@@ -845,7 +845,7 @@ table.table-sm>thead>tr>th:first-of-type {
      							 <div class="tab-pane" id="PenaltySummary">
 <!--      								<div class="tableau-top">1ST PERIOD</div> -->
 
-									<table class="table table-dark2">
+									<table class="table table-dark2 table-sm ">
 <!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 <!-- 										<thead> -->
 <!-- 											<tr> -->
@@ -878,7 +878,7 @@ table.table-sm>thead>tr>th:first-of-type {
 									
 <!-- 								    <div class="tableau-top">2ND PERIOD</div> -->
 
-									<table class="table table-dark2">
+									<table class="table table-dark2 table-sm ">
 <!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 <!-- 										<thead> -->
 <!-- 											<tr> -->
@@ -911,7 +911,7 @@ table.table-sm>thead>tr>th:first-of-type {
 									
 <!-- 									<div class="tableau-top">3RD PERIOD</div> -->
 
-									<table class="table table-dark2">
+									<table class="table table-dark2 table-sm">
 <!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 										<thead>
 											<tr>
@@ -940,7 +940,7 @@ table.table-sm>thead>tr>th:first-of-type {
 										
 <!-- 									<div class="tableau-top">OVERTIME PERIOD</div> -->
 
-										<table class="table table-dark2">
+										<table class="table table-dark2 table-sm">
 <!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 	<!-- 										<thead> -->
 <!-- 											<tr> -->
@@ -981,7 +981,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                         ?>
 <!-- 										<div class="tableau-top">1ST PERIOD</div> -->
 
-										<table class="table table-dark2">
+										<table class="table table-dark2 table-sm">
 <!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 									   <!--<thead>
 												<tr>
@@ -1023,7 +1023,7 @@ table.table-sm>thead>tr>th:first-of-type {
 <!-- 										<div class="tableau-top">2ND PERIOD</div> -->
 
 <!-- 										<table class="table table-sm table-striped table-rounded-bottom"> -->
-                                        <table class="table table-dark2">
+                                        <table class="table table-dark2 table-sm">
 											
 									   <!--<thead>
 												<tr>
@@ -1064,7 +1064,7 @@ table.table-sm>thead>tr>th:first-of-type {
 
 <!-- 										<div class="tableau-top">3RD PERIOD</div> -->
 
-										<table class="table table-dark2">
+										<table class="table table-dark2  table-sm">
 <!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 										   <!--<thead>
 												<tr>
@@ -1108,7 +1108,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                     
 <!--                                         <div class="tableau-top">OVERTIME PERIOD</div> -->
 
-										<table class="table table-dark2">
+										<table class="table table-dark2 table-sm">
 <!-- 									<table class="table table-sm table-striped table-rounded-bottom"> -->
 									   <!--<thead>
 												<tr>
@@ -1579,10 +1579,9 @@ $(document).ready(function()
 
 <?php
 
-//echo '<pre>';
-// echo json_encode($gameHolder, JSON_PRETTY_PRINT);
-// echo jsonPrettify(json_encode($gameHolder));
-//echo '</pre>';
+echo '<pre>';
+echo jsonPrettify(json_encode($gameHolder));
+echo '</pre>';
 
 ?>
 

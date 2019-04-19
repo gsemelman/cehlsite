@@ -99,10 +99,10 @@ class GameHolder implements \JsonSerializable
                         $pos_avant = strpos($mod, '>') + 1;
                         $pos_apres = strpos($mod, '</TD>');
                         $long = $pos_apres - $pos_avant;
-                        if($a == 1)$visiteur1[$i] = substr($mod, $pos_avant, $long);
-                        if($a == 2)$domicile1[$i] = substr($mod, $pos_avant, $long);
-                        if($a == 3)$visiteur2[$i] = substr($mod, $pos_avant, $long);
-                        if($a == 4)$domicile2[$i] = substr($mod, $pos_avant, $long);
+//                         if($a == 1)$visiteur1[$i] = substr($mod, $pos_avant, $long);
+//                         if($a == 2)$domicile1[$i] = substr($mod, $pos_avant, $long);
+//                         if($a == 3)$visiteur2[$i] = substr($mod, $pos_avant, $long);
+//                         if($a == 4)$domicile2[$i] = substr($mod, $pos_avant, $long);
                         
                         if($a == 1)$this->awayShots[$i] = substr($mod, $pos_avant, $long);
                         if($a == 2)$this->homeShots[$i] = substr($mod, $pos_avant, $long);
@@ -731,8 +731,10 @@ class GameHolder implements \JsonSerializable
         return $this->farmScoringSummary;
     }
     
-    public function isOvertime(){
-        return !empty($this->scoringOtPeriod);
+    public function isOvertime() :bool{
+       // return !empty($this->scoringOtPeriod);
+       
+        return count($this->awayGoals) > 3;
     }
 
     public function jsonSerialize()
