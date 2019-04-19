@@ -1430,7 +1430,7 @@ table.table-sm>thead>tr>th:first-of-type {
 						<div class="card-body pt-0"
 							style="background-color: rgb(50, 52, 54);">
 							<div id="scoreMain border-bottom">
-								<div class="row no-gutters p-3 border-bottom" style="border-color: rgb(128, 128, 128) !important;">
+								<div class="row no-gutters py-3 border-bottom" style="border-color: rgb(128, 128, 128) !important;">
 									<!-- start main score -->
 									<div class="col-12 col-md-6 pr-md-1 pb-2 pb-md-0">
 										<div class="teamheader logo-gradient border">
@@ -1579,9 +1579,9 @@ $(document).ready(function()
 
 <?php
 
-echo '<pre>';
-echo jsonPrettify(json_encode($gameHolder));
-echo '</pre>';
+// echo '<pre>';
+// echo jsonPrettify(json_encode($gameHolder));
+// echo '</pre>';
 
 ?>
 
