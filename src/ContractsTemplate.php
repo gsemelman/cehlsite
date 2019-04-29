@@ -34,6 +34,7 @@ $file = fopen($csvLocation, "r");
 if(empty($team)){
     while (($row = fgetcsv($file)) !== FALSE) {
         if($i >= $start_row) {            
+            if($row[0] == "") continue;
             $contract = new Contract($row[0], $row[1],$row[2],$row[3],$row[4],$row[5], $row[6]);
             $contractArray[$i-1] = $contract;
         }
@@ -42,6 +43,7 @@ if(empty($team)){
 }else{
     while (($row = fgetcsv($file)) !== FALSE) {
         if($i >= $start_row) {
+            if($row[0] == "") continue;
             if(strtoupper(trim($row[0])) == strtoupper(trim($team))){
                 $contract = new Contract($row[0], $row[1],$row[2],$row[3],$row[4],$row[5], $row[6]);
                 $contractArray[$i-1] = $contract;
