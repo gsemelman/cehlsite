@@ -4,13 +4,13 @@
 
 // include GMO_ROOT.'login/mysqli.php';
 
-// $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_folder' LIMIT 1";
-// $query = mysqli_query($con, $sql) or die(mysqli_error($con));
-// if($query){
-// 	while($data = mysqli_fetch_array($query)) {
-// 	    $file_folder = GMO_ROOT.$data['VALUE'];
-// 	}
-// }
+$sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_folder' LIMIT 1";
+$query = mysqli_query($con, $sql) or die(mysqli_error($con));
+if($query){
+	while($data = mysqli_fetch_array($query)) {
+	    $file_folder = GMO_ROOT.$data['VALUE'];
+	}
+}
 
 // $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_last_update' LIMIT 1";
 // $query = mysqli_query($con, $sql) or die(mysqli_error($con));

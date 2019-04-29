@@ -5,28 +5,70 @@
 //if($modeGMO == 1) include GMO_ROOT.'editor/teamRoster.php';
 //if($modeGMO == 2) include GMO_ROOT.'editor/teamLines.php';
 
-include_once FS_ROOT.'classes/ScheduleHolder.php';
-include_once FS_ROOT.'/classes/ScheduleObj.php';
+// include_once FS_ROOT.'classes/ScheduleHolder.php';
+// include_once FS_ROOT.'/classes/ScheduleObj.php';
 
-$scheduleFile = getLeagueFile($folder, $playoff, 'Schedule.html', 'Schedule');
-$scheduleHolder = new ScheduleHolder($scheduleFile, '');
+// $scheduleFile = getLeagueFile($folder, $playoff, 'Schedule.html', 'Schedule');
+// $scheduleHolder = new ScheduleHolder($scheduleFile, '');
 
-if($scheduleHolder->isSeasonStarted()){
-    $nextDay = $scheduleHolder->getLastDayPlayed() + 1;
-    $nextDay2 = $scheduleHolder->getLastDayPlayed() + 2;
-}else {
-    $nextDay = 1;
-    $nextDay2 = 2;
-}
+// if($scheduleHolder->isSeasonStarted()){
+//     $nextDay = $scheduleHolder->getLastDayPlayed() + 1;
+//     $nextDay2 = $scheduleHolder->getLastDayPlayed() + 2;
+// }else {
+//     $nextDay = 1;
+//     $nextDay2 = 2;
+// }
 
-$enableNext = TRUE;
+// $enableNext = TRUE;
 
-foreach($scheduleHolder->getScheduleByDay($nextDay2) as $schedule){
-    if($schedule->getTeam1() == $teamID || $schedule->getTeam1() == $teamID) $enableNext = true;
-}
+// foreach($scheduleHolder->getScheduleByDay($nextDay2) as $schedule){
+//     if($schedule->getTeam1() == $teamID || $schedule->getTeam1() == $teamID) $enableNext = true;
+// }
+
+// $game1Active = '';
+// $game2Active = '';
+
+// if($linesGame == 1){
+//     $game1Active = 'active';
+// }
+
+// if($linesGame == 2){
+//     $game2Active = 'active';
+// }
+
+// if($modeGMO == 1){
+//     $game1url = 'MyCehl.php?lines=1&game=1#Lines';
+//     $game2url = 'MyCehl.php?lines=1&game=2#Lines';
+// }
+// if($modeGMO == 2){
+//     $game1url = 'MyCehl.php?lines=2&game=1#Lines';
+//     $game2url = 'MyCehl.php?lines=2&game=2#Lines';
+// }
+
+include_once FS_ROOT.'classes/ScheduleHolder2.php';
+error_log($file_folder.'cehl.scx');
+$scheduleHolder2 = new ScheduleHolder2($file_folder.'cehl.scx');
+$playsGameOne = $scheduleHolder2->playsInDays($_SESSION['teamId'] -1 , 1);
+$playsGameTwo = $scheduleHolder2->playsInDays($_SESSION['teamId'] -1 , 2);
+
+
+$lastDayPlayed = $scheduleHolder2->getLastDayPlayed();
+
+$nextDay = $lastDayPlayed + 1;
+$nextDay2 = $lastDayPlayed + 2;
 
 $game1Active = '';
 $game2Active = '';
+
+$enableNext=false;
+
+if($playsGameOne){
+ 
+}
+
+if($playsGameOne && $playsGameTwo){
+    $enableNext=true;
+}
 
 if($linesGame == 1){
     $game1Active = 'active';
@@ -44,7 +86,6 @@ if($modeGMO == 2){
     $game1url = 'MyCehl.php?lines=2&game=1#Lines';
     $game2url = 'MyCehl.php?lines=2&game=2#Lines';
 }
-
 
 ?>
 
