@@ -19,7 +19,7 @@ include 'TeamHeader.php';
     	</div>
     	<div class="card-body wow fadeIn">
     		
-    			<div class="row">
+    			<div class="row mb-2">
     				
 <!--             		<div class="col-sm-3"> -->
 <!--             			<select name="contractsMenu" class="form-control mb-3" id="contractsMenu"> -->

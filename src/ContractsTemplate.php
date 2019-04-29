@@ -96,41 +96,42 @@ usort($contractArray, function ($c1, $c2)
 				<div class="row no-gutters">
                 	<div class="col">
                 		<div class="tableau-top">Contract Signings</div>
-                		<table id = "contract-table" class="table table-sm table-striped table-hover table-rounded-bottom ">
-                			<thead>
-                                <tr>
-                                	<?php if(empty($team)){ ?>
-                                	<th class="text-left">Team</th>
-                                	<?php } ?>
-                                	<th class="text-left">Player</th>
-                                	<th>Salary</th>
-                                	<th>Term</th>
-                                	<th>SB</th>
-                                	<th>AAV</th>
-                                	<th>Total Contract</th>
-                                	<th>Date</th>
-                                </tr>
-                			</thead>
-                			<tbody>
-                				<?php foreach($contractArray as $contract) {
-                				    if($contract->getType() != "S") continue;
-                				    ?>
-                					<tr>
-                						<?php if(empty($team)){ ?>
-                						<td class="text-left"><?php echo $contract->getTeam()?></td>
-                						<?php } ?>
-                						<td class="text-left"><?php echo $contract->getName()?></td>
-                						<td><?php echo $contract->getSalaryDisplay()?></td>
-                						<td><?php echo $contract->getTermDisplay()?></td>
-                						<td><?php echo $contract->getBonusDisplay()?></td>
-                						<td><?php echo $contract->getAavDisplay()?></td>
-                						<td><?php echo $contract->getTotalDisplay()?></td>
-                						<td><?php echo $contract->getDate()?></td>
-                					</tr>
-                				<?php } ?>
-                			</tbody>	
-                		</table>
-                	
+                		<div class="table-responsive">
+                    		<table id = "contract-table" class="table table-sm table-striped table-hover table-rounded-bottom ">
+                    			<thead>
+                                    <tr>
+                                    	<?php if(empty($team)){ ?>
+                                    	<th class="text-left">Team</th>
+                                    	<?php } ?>
+                                    	<th class="text-left">Player</th>
+                                    	<th>Salary</th>
+                                    	<th>Term</th>
+                                    	<th>SB</th>
+                                    	<th>AAV</th>
+                                    	<th>Total</th>
+                                    	<th>Date</th>
+                                    </tr>
+                    			</thead>
+                    			<tbody>
+                    				<?php foreach($contractArray as $contract) {
+                    				    if($contract->getType() != "S") continue;
+                    				    ?>
+                    					<tr>
+                    						<?php if(empty($team)){ ?>
+                    						<td class="text-left"><?php echo $contract->getTeam()?></td>
+                    						<?php } ?>
+                    						<td class="text-left"><?php echo $contract->getName()?></td>
+                    						<td><?php echo $contract->getSalaryDisplay()?></td>
+                    						<td><?php echo $contract->getTermDisplay()?></td>
+                    						<td><?php echo $contract->getBonusDisplay()?></td>
+                    						<td><?php echo $contract->getAavDisplay()?></td>
+                    						<td><?php echo $contract->getTotalDisplay()?></td>
+                    						<td><?php echo $contract->getDate()?></td>
+                    					</tr>
+                    				<?php } ?>
+                    			</tbody>	
+                    		</table>
+                		</div>
                 	</div>
                 
                 </div> <!-- end table -->
@@ -144,41 +145,42 @@ usort($contractArray, function ($c1, $c2)
                 		<div class="tableau-top">Contract Extensions
                 		<div><h6>*Applies next season</h6></div>
                 		</div>
-                		<table id = "extensions-table" class="table table-sm table-striped table-hover table-rounded-bottom ">
-                			<thead>
-                                <tr>
-                                	<?php if(empty($team)){ ?>
-                                	<th class="text-left">Team</th>
-                                	<?php } ?>
-                                	<th class="text-left">Player</th>
-                                	<th>Salary</th>
-                                	<th>Term</th>
-                                	<th>SB</th>
-                                	<th>AAV</th>
-                                	<th>Total Contract</th>
-                                	<th>Date</th>
-                                </tr>
-                			</thead>
-                			<tbody>
-                				<?php foreach($contractArray as $contract) {
-                				    if($contract->getType() != "E") continue;
-                				    ?>
-                					<tr>
-                						<?php if(empty($team)){ ?>
-                						<td class="text-left"><?php echo $contract->getTeam()?></td>
-                						<?php } ?>
-                						<td class="text-left"><?php echo $contract->getName()?></td>
-                						<td><?php echo $contract->getSalaryDisplay()?></td>
-                						<td><?php echo $contract->getTermDisplay()?></td>
-                						<td><?php echo $contract->getBonusDisplay()?></td>
-                						<td><?php echo $contract->getAavDisplay()?></td>
-                						<td><?php echo $contract->getTotalDisplay()?></td>
-                						<td><?php echo $contract->getDate()?></td>
-                					</tr>
-                				<?php } ?>
-                			</tbody>	
-                		</table>
-                	
+                		<div class="table-responsive">
+                    		<table id = "extensions-table" class="table table-sm table-striped table-hover table-rounded-bottom ">
+                    			<thead>
+                                    <tr>
+                                    	<?php if(empty($team)){ ?>
+                                    	<th class="text-left">Team</th>
+                                    	<?php } ?>
+                                    	<th class="text-left">Player</th>
+                                    	<th>Salary</th>
+                                    	<th>Term</th>
+                                    	<th>SB</th>
+                                    	<th>AAV</th>
+                                    	<th>Total</th>
+                                    	<th>Date</th>
+                                    </tr>
+                    			</thead>
+                    			<tbody>
+                    				<?php foreach($contractArray as $contract) {
+                    				    if($contract->getType() != "E") continue;
+                    				    ?>
+                    					<tr>
+                    						<?php if(empty($team)){ ?>
+                    						<td class="text-left"><?php echo $contract->getTeam()?></td>
+                    						<?php } ?>
+                    						<td class="text-left"><?php echo $contract->getName()?></td>
+                    						<td><?php echo $contract->getSalaryDisplay()?></td>
+                    						<td><?php echo $contract->getTermDisplay()?></td>
+                    						<td><?php echo $contract->getBonusDisplay()?></td>
+                    						<td><?php echo $contract->getAavDisplay()?></td>
+                    						<td><?php echo $contract->getTotalDisplay()?></td>
+                    						<td><?php echo $contract->getDate()?></td>
+                    					</tr>
+                    				<?php } ?>
+                    			</tbody>	
+                    		</table>
+                		</div>
                 	</div>
                 
                 </div> <!-- end table -->
