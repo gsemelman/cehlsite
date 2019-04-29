@@ -143,7 +143,7 @@ usort($contractArray, function ($c1, $c2)
 				<div class="row no-gutters">
                 	<div class="col">
                 		<div class="tableau-top">Contract Extensions
-                		<div><h6>*Applies next season</h6></div>
+                		<div>*Applies next season*</div>
                 		</div>
                 		<div class="table-responsive">
                     		<table id = "extensions-table" class="table table-sm table-striped table-hover table-rounded-bottom ">
