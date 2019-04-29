@@ -10,7 +10,7 @@ if(isset($_GET['seasonId']) || isset($_POST['seasonId'])) {
 
 if(isset($_GET['team']) || isset($_POST['team'])) {
     $team = ( isset($_GET['team']) ) ? $_GET['team'] : $_POST['team'];
-    $team = filter_var($seasonId, FILTER_SANITIZE_STRING);
+    //$team = filter_var($seasonId, FILTER_SANITIZE_STRING);
 }
 
 if(empty($seasonId)){
@@ -44,7 +44,7 @@ if(empty($team)){
     while (($row = fgetcsv($file)) !== FALSE) {
         if($i >= $start_row) {
             if($row[0] == "") continue;
-            if(strtoupper(trim($row[0])) == strtoupper(trim($team))){
+            if(trim($row[0]) == trim($team)){
                 $contract = new Contract($row[0], $row[1],$row[2],$row[3],$row[4],$row[5], $row[6]);
                 $contractArray[$i-1] = $contract;
             }
@@ -53,12 +53,34 @@ if(empty($team)){
     }
 }
 
+
 // echo '<pre>'; print_r($contractArray); echo '</pre>';
 
 // echo '{ "data": '.json_encode(array_values($contractArray)).'}';
 // http_response_code(200);
 
+usort($contractArray, function ($c1, $c2)
+{
+    
+    //desc by date
+    $returnValue = strtotime($c2->getDate()) - strtotime($c1->getDate());
+    
+    //asc by team
+    if ($returnValue == 0) {
+        $returnValue = $c1->getTeam() <=> $c2->getTeam();
+    }
+    
+    //asc by name
+    if ($returnValue == 0) {
+        $returnValue = $c1->getName() <=> $c2->getName();
+    }
+
+    return $returnValue;
+});
+
 ?>
+
+
 
 
 <div class="card">
