@@ -104,47 +104,7 @@ usort($tradesArray, function ($c1, $c2)
     return $returnValue;
 });
 
-
-//echo '<pre>'; print_r($tradesArray); echo '</pre>';
-
-//echo '{ "data": '.json_encode(array_values($tradesArray)).'}';
-//http_response_code(200);
-
-
 ?>
-
-<!--<div class="row no-gutters">
-	<div class="col">
-		<div class="tableau-top">Transactions</div>
-		<div class="table-responsive">
-    		<table id = "contract-table" class="table table-sm table-striped table-hover table-rounded-bottom" style="white-space:normal;">
-    			<thead>
-                    <tr>
-                    	<th>Team 1</th>
-                    	<th>Assets</th>
-                    	<th>Team 2</th>
-                    	<th>Assets</th>
-                    	<th>Date</th>
-                    </tr>
-    			</thead>
-    			<tbody>
-    				<?php foreach($tradesArray as $trade) {
-    				  
-    				    ?>
-    					<tr>
-    						<td><strong><?php echo $trade->getTeam1()?></strong></td>
-    						<td class="text-uppercase"><?php echo $trade->concatTrade1()?></td>
-    						<td><strong><?php echo $trade->getTeam2()?></strong></td>
-    						<td class="text-uppercase"><?php echo $trade->concatTrade2()?></td>
-    						<td><?php echo $trade->getDate()?></td>
-    					</tr>
-    				<?php } ?>
-    			</tbody>	
-    		</table>
-		</div>
-	</div>
-
-</div>  --> <!-- end table -->
 
 <style>
 
@@ -210,19 +170,23 @@ color:black;
 
 <script type="text/javascript">
 
+$('#teamInputField').keyup(function(e){
+    if(e.keyCode == 46) {
+    	$('#teamInputField option[value=""]').prop('selected', true);
+
+    	var team = $('#teamInputField').val();
+    	var searchText = $('#searchField').val();
+
+    	filter(team,searchText);
+    }
+});
+
 $('#teamInputField').on('change', function() {
 
 	var team = this.value;
 	var searchText = $('#searchField').val();
-	
-	$('#trades-inner .list-group-item ul').each(function(){
-		var filter = searchFilter(searchText,this);
-		filter = filter && teamFilter(team, this);
 
-    	//toggle outer ul
-    	$(this).parent().toggle(filter);
-	});
-
+	filter(team,searchText);
 
 });
 
@@ -233,33 +197,21 @@ $(function(){
         var searchText = $(this).val();
         var team = $('#teamInputField').val();
 
-        $('#trades-inner .list-group-item ul').each(function(){
+        filter(team,searchText);
 
-// 			var filter = false;
-        	
-//         	//iterate li children
-//         	$(this).children('li').each(function(i) { 
-//                 var currentLiText = $(this).text();
-//                 var showCurrentLi = currentLiText.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
-
-//                 if(showCurrentLi){
-//                 	filter =true;
-//                 	return false;
-//                 }
-//         	});
-
-			var show = searchFilter(searchText,this);
-			show = show && teamFilter(team, this);
-
-        	//toggle outer ul
-        	$(this).parent().toggle(show);
-        	//console.log($(this).parent());
-        	//$(this).toggle(filter);
-
-        });  
     });
 
 });
+
+function filter(team, searchText){
+	$('#trades-inner .list-group-item ul').each(function(){
+		var filter = searchFilter(searchText,this);
+		filter = filter && teamFilter(team, this);
+
+    	//toggle outer ul
+    	$(this).parent().toggle(filter);
+	});
+}
 
 function searchFilter(searchText, ul){
 
