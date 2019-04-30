@@ -45,6 +45,8 @@ class GameHolder implements \JsonSerializable
     private $farmGoalies= array();
     private $farmScoringSummary = array();
     
+    private $overtime = false;
+    
 
 
 
@@ -484,6 +486,7 @@ class GameHolder implements \JsonSerializable
                     }
                     if(substr_count($val, 'Overtime')) {
                         $e++;
+                        $this->overtime = true;
                     }
                 }
                 
@@ -733,8 +736,9 @@ class GameHolder implements \JsonSerializable
     
     public function isOvertime() :bool{
        // return !empty($this->scoringOtPeriod);
-       
-        return count($this->awayGoals) > 3;
+//         error_log(var_dump($this->awayGoals));
+//         return count($this->awayGoals) >= 4;
+        return $this->overtime;
     }
 
     public function jsonSerialize()
