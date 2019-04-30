@@ -125,13 +125,12 @@ if($currentPLF){
         	?>
 
 			<div class = "row">
-				<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+				<div class="col-sm-12 col-md-6 offset-md-3">
 				<div class = "table-responsive">
 					<table class="table table-sm table-striped table-rounded">
 
 					<?php
 					$a = 0;
-					$c = 1;
 					$i = 0;
 
 					if (file_exists($Fnm)) {
@@ -204,12 +203,12 @@ if($currentPLF){
 					        if($a == $i){
 					            echo '<thead>';
 					            echo '<tr>';
-					            echo '<th>'.$ScheldGameNum.'</th>';
-					            echo '<th>'.$ScheldVisitor.'</th>';
-					            echo '<th style="text-align:center;">'.$ScheldScore.'</th>';
-					            echo '<th>'.$ScheldHome.'</th>';
-					            echo '<th style="text-align:center;">'.$ScheldScore.'</th>';
-					            echo '<th style="text-align:center;">'.$schedOT.'</th>';
+					            echo '<th style="width:5%">'.$ScheldGameNum.'</th>';
+					            echo '<th style="width:10%">'.$ScheldVisitor.'</th>';
+					            echo '<th style="width:5%"</th>';
+					            echo '<th style="width:10%">'.$ScheldHome.'</th>';
+					            echo '<th class="text-center" style="width:5%">'.$ScheldScore.'</th>';
+					            echo '<th class="text-center">'.$schedOT.'</th>';
 					            echo '</tr>';
 					            echo '</thead>';
 					            echo '<tbody>';
@@ -225,29 +224,27 @@ if($currentPLF){
 					        }
 
 					        if($status[$i] == 'game'){
-					            if($c == 1) $c = 2;
-					            else $c = 1;
-					            echo '<tr class="hover'.$c.'">';
+					            echo '<tr>';
 					            $linkRnd = '';
 					            if($rnd != 0) {
 					                $linkRnd = '&rnd='.$rnd;
 					            }
 					            echo '<td><a class="lien-noir" style="display:block; width:100%;" href="games.php?num='.$number[$i].$linkRnd.'">'.$number[$i].'</a></td>';
-					            echo '<td>'.$equipe1[$i].'</td>';
-					            echo '<td>'.$score1[$i].'</td>';
-					            echo '<td>'.$equipe2[$i].'</td>';
-					            echo '<td>'.$score2[$i].'</td>';
+					            echo '<td class="text-left">'.$equipe1[$i].'</td>';
+					            echo '<td class="text-center">@</td>';
+					            //echo '<td>'.$score1[$i].'</td>';
+					            echo '<td class="text-left">'.$equipe2[$i].'</td>';
+					            //echo '<td>'.$score2[$i].'</td>';
+					            echo '<td class="text-center">'.$score1[$i].'-'.$score2[$i].'</td>';
 					            if(isset($prol[$i]) && $prol[$i] == 'PROL') echo '<td style="text-align:center; width:40px;">'.$schedOT.'</td>';
 					            else echo '<td></td>';
 					            echo '</tr>';
 					        }
 					        if($status[$i] == 'at'){
-					            if($c == 1) $c = 2;
-					            else $c = 1;
-					            echo '<tr class="hover'.$c.'">';
+					            echo '<tr>';
 					            echo '<td style="width:40px;">'.$number[$i].'</td>';
 					            echo '<td style="width:100px;">'.$equipe1[$i].'</td>';
-					            echo '<td style="text-align:center; width:20px;">@</td>';
+					            echo '<td class="text-center" style="width:20px;">@</td>';
 					            echo '<td colspan="3">'.$equipe2[$i].'</td>';
 					            echo '</tr>';
 					        }
