@@ -17,7 +17,7 @@ include 'head.php';
     				
             		<div class="col-sm-3">
             			 <select name="contractsMenu" class="form-control mb-3" id="contractsMenu">
-            			<option value="27">Current</option>
+            				<option value="27">Current</option>
                 			<option data-legacy value="26">Season 26</option>
                             <option data-legacy value="25">Season 25</option>
                             <option data-legacy value="24">Season 24</option>
@@ -44,7 +44,7 @@ include 'head.php';
     			<div class="row">
     			
     				<div class="col"> 
-            			<div class="loaderImage"><img src="assets/img/loader.gif"></div>
+            			<div class="loaderImage"><img class="mx-auto d-block" src="assets/img/loader.gif"></div>
             			<div ALIGN=LEFT id = 'contracts'></div>
             		</div>
     			</div>
@@ -65,21 +65,6 @@ include 'head.php';
 		    } 
 		); 
 
-		
-//         $.ajax({
-//        url: "<?php echo $folderLegacy ?>cehlContracts.htm",
-//  		    cache: false,
-//  		    dataType: "html",
-//  		    success: function(data) {
-//  		        $("#contracts").html(data);
-//  		       $(".loaderImage").hide();
-//  		    },
-//     	 	error: function(XMLHttpRequest, textStatus, errorThrown) {
-//     	 		$('#contracts').html('<p>Error loading data</p>');
-//     	 		$(".loaderImage").hide();
-//     	 	}
-//  		});
-		
 
         $('#contractsMenu').on('change', function() {
 

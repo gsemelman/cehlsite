@@ -1,32 +1,34 @@
 <?php
 require_once 'config.php';
 include 'lang.php';
-$CurrentHTML = 'TeamContracts.php';
-$CurrentTitle = 'Team Contracts';
-$CurrentPage = 'TeamContracts';
+$CurrentHTML = 'TeamTransactions.php';
+$CurrentTitle = 'Transactions';
+$CurrentPage = 'TeamTransactions';
 include 'head.php';
 include 'TeamHeader.php';
 ?>
 
+<style>
+
+#loaderImage {
+    background: url("assets/img/loader.gif") no-repeat scroll center center #FFF;
+
+    height: 100%;
+    width: 100%;
+}
+</style>
+
+
 
 <div class = "container">
 	<div class="card">
-
     	<div class="card-header p-1">
     	
     		 <?php include 'TeamCardHeader.php'; ?>
     	
     	</div>
     	<div class="card-body wow fadeIn">
-    		
     			<div class="row mb-2">
-    				
-<!--             		<div class="col-sm-3"> -->
-<!--             			<select name="contractsMenu" class="form-control mb-3" id="contractsMenu"> -->
-<!--             				<option value="27">Current</option> -->
-<!--                         </select> -->
-            		
-<!--             		</div> -->
             		
             		<div class="col col-md-8 col-lg-6">
 							<div class="input-group">
@@ -42,10 +44,14 @@ include 'TeamHeader.php';
             		
     			
     			</div>
-    			<div class="row">
     			
+    			<div class="row">
+    				
     				<div class="col"> 
-            			<div class="loaderImage"><img src="assets/img/loader.gif"></div>
+             			<div id="loaderImage"><img class="mx-auto d-block" src="assets/img/loader.gif"></div>
+<!--                         <div id="loaderImage" class="loaderImage">test</div> -->
+    			
+    		
             			<div id = "contracts"></div>
             		</div>
     			</div>
@@ -56,11 +62,17 @@ include 'TeamHeader.php';
 
 <script type="text/javascript">
 
+//         $(window).load(function(){
+//             $('#loaderImage').fadeOut(1000);
+            
+//         });
+
+
 		var currentTeam = '<?php echo $currentTeam?>';
 
 		$(document).ready(function() 
 		    { 
-				$('.loaderImage').show();
+				$('#loaderImage').show();
 				//var seasonId = $("#contractsMenu option[value='" + seasonId + "']").value();
 				var seasonId = $("#contractsMenu").find(':selected').val();
 				load(seasonId);
@@ -71,7 +83,7 @@ include 'TeamHeader.php';
         $('#contractsMenu').on('change', function() {
 
         	$("#contracts").hide();
-        	$('.loaderImage').show();
+        	$('#loaderImage').show();
 
         	var seasonId = this.value;
 
@@ -82,19 +94,20 @@ include 'TeamHeader.php';
         });
 
         function load(seasonId){
+            
           	 $.ajax({
-        	    url: './ContractsTemplate.php',
+        	    url: './TeamTransactionsTemplate.php',
         	    data: {seasonId: seasonId, team: currentTeam},
       		    cache: false,
       		    dataType: "html",
       		    success: function(data) {
       		        $("#contracts").html(data);
-      		        $(".loaderImage").hide();
+      		        $("#loaderImage").hide();
       		    	$("#contracts").show();
       		    },
               	 error: function(XMLHttpRequest, textStatus, errorThrown) {
            	 		$('#contracts').html('<p>Error loading data</p>');
-           	 		$(".loaderImage").hide();
+           	 		$("#loaderImage").hide();
            	 	}
       			});
         }

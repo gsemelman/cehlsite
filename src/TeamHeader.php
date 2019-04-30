@@ -161,7 +161,7 @@ echo '<nav id ="header-nav" class="nav justify-content-center">';
     echo'<a class="nav-item nav-link" href="TeamRosters.php'.$plfLink.'">'.$allRosters.'</a>';
     echo'<a class="nav-item nav-link" href="TeamLines.php'.$plfLink.'">'.$allLines.'</a>';
     echo'<a class="nav-item nav-link" href="TeamFutures.php'.$plfLink.'">'.$allProspects.'</a>';
-    echo'<a class="nav-item nav-link" href="TeamContracts.php">Contracts</a>';
+    echo'<a class="nav-item nav-link" href="TeamTransactions.php">Transactions</a>';
     //echo'<a class="nav-item nav-link" href="Futures2.php">'.$allProspects.'</a>';
     //echo'<a class="nav-item nav-link" target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNC0vO9e6s4zizPX3yYpongarBRr9sVdTQj1xxbzdTExEiEQwNmFidIWemXmmVimsYJjLKQOFnXrZZ/pubhtml?widget=true&amp;headers=false">'.$allProspects.'</a>';
     //echo'<a class="nav-item nav-link" href="fiche.php'.$plfLink.'">'.$allTeamCard.'</a>';
