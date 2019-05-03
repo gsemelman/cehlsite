@@ -32,12 +32,13 @@ include_once 'classes/WaiverObj.php';
                     if (isset($results) && !empty($results)) {
                         echo '<table class="table table-sm table-striped">';
                         //create table header
-                        echo '<tr class="tableau-top">
+                        echo '<thead><tr>
             			<th>'.$waiversPlayer.'</th>
             			<th>'.$waiversDate.'</th>
             			<th>'.$waiversBy.'</th>
             			<th>'.$waiversClaimed.'</th>
-            			</tr>';
+            			</tr></thead>';
+                        echo '<tbody>';
                         
                         //create result rows
                         foreach ($results as $waiver) {
@@ -49,7 +50,7 @@ include_once 'classes/WaiverObj.php';
                                 echo '<td>'.$waiver->claimedBy.'</td>';
                             echo '</tr>';
                         }
-                        
+                        echo '</tbody>';
                         echo '</table>';
                     }else{
                         //no waivers

@@ -60,7 +60,7 @@ $nextDay2 = $lastDayPlayed + 2;
 $game1Active = '';
 $game2Active = '';
 
-$enableNext=false;
+$enableNext=true;
 
 if($playsGameOne){
  
