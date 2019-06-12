@@ -1,15 +1,29 @@
-<div class = "news-image"><img class="rounded mx-auto d-block" src="./assets/img/news/rangers_oilers.jpg" alt="News Image"/></div>
+<div class = "news-image"><img class="rounded mx-auto d-block" src="./assets/img/news/allstarcomp.jpg" alt="News Image"/></div>
 <div class = "news-text">
 
-	<p class="medium-paragraph">Live from CEHL HQ - April 18th, 2019<p>
+	<p class="medium-paragraph">Live from CEHL HQ - June 11th, 2019<p>
 
-	<p class="small-paragraph text-left">The season has started, and the Oilers and Rangers are both off to hot starts while leading their respective conferences</p>
+	<p class="small-paragraph text-left">Midseason is here! Rerates are going strong, but fist things first.. All Star Weekend is here!</p>
 	
-	<p class="small-paragraph text-left">There have also been some surprising starts, perennial contenders Anaheim and Chicago are off to shaky starts, 
-	while the so called tankers the Calgary flames are having trouble losing games. St Louis with their rag tag youth driven team has also seen a great start to the season</p>
+	<p class="small-paragraph text-left">First up is the All Stars Skills Competition</p>
 		
-	<p class="small-paragraph text-left">The site continues to see changes for the better, with a brand new boxscore page, along with general theming of the website. Please send
-	your complaints to CEHL PR representative Josh Gordon should you not like anything.</p>
+	<p class="small-paragraph text-left">The East tried to keep up with the West, but in the ended were not able to handle the onslaught of talent on the western side.</p>
+	
+	<p class="small-paragraph text-left">Final Score: Western Conference <strong>9</strong>. Eastern Conference <strong>5</strong></p>
+	
+	<p class="small-paragraph text-left">Click below to see the results of the competition including prize winners!</p>
+	
+	<p class="small-paragraph text-left">Stay tuned! The All star game will be simmed tomorrow!</p>
+	
+	<div class="row">
+		<div class="col">
+
+            <a href="AllStarSkills.php" class="btn btn-outline-primary" role="button">Skills Competition Results</a>
+			
+		</div>
+	</div>
+	
+	
 </div>
 
 <style>
