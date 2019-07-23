@@ -52,8 +52,18 @@ if(!function_exists('search')) {
 
 $baseFolder = '';
 $seasonId = '';
+$awayTeamAbbr='';
+$homeTeamAbbr='';
 if(isset($_GET['seasonId']) || isset($_POST['seasonId'])) {
     $seasonId = ( isset($_GET['seasonId']) ) ? $_GET['seasonId'] : $_POST['seasonId'];
+}
+
+//override abbreviation
+if(isset($_GET['awayTeam']) || isset($_POST['awayTeam'])) {
+    $awayTeamAbbr = ( isset($_GET['awayTeam']) ) ? $_GET['awayTeam'] : $_POST['awayTeam'];
+}
+if(isset($_GET['homeTeam']) || isset($_POST['homeTeam'])) {
+    $homeTeamAbbr = ( isset($_GET['homeTeam']) ) ? $_GET['homeTeam'] : $_POST['homeTeam'];
 }
 
 if(trim($seasonId) == false){
@@ -64,11 +74,12 @@ if(trim($seasonId) == false){
 
 $matchNumber = '';
 $linkHTML = '';
+$round = '';
 if(isset($_GET['num']) || isset($_POST['num'])) {
 	$matchNumber = ( isset($_GET['num']) ) ? $_GET['num'] : $_POST['num'];
 	$matchNumber = htmlspecialchars($matchNumber);
 	$linkHTML = $matchNumber;
-	$round = '';
+	//$round = '';
 	if(isset($_GET['rnd']) || isset($_POST['rnd'])) {
 		$round = ( isset($_GET['rnd']) ) ? $_GET['rnd'] : $_POST['rnd'];
 		$round = htmlspecialchars($round);
@@ -108,6 +119,15 @@ if(isset($_GET['num']) || isset($_POST['num'])) {
 
 $rondes = '';
 if($round != '') $rondes = ' - '.$scheldRound.' '.$round;
+
+//override filename
+if(isset($_GET['override']) || isset($_POST['override'])) {
+    $override = ( isset($_GET['override']) ) ? $_GET['override'] : $_POST['override'];
+    $Fnm = $baseFolder.$folderGames.$override.'.html';
+    //echo $Fnm;
+}
+
+
 
 $CurrentHTML = $linkHTML;
 $CurrentTitle = $gamesTitle.' #'.$matchNumber.$rondes;
@@ -457,8 +477,8 @@ table.table-sm>thead>tr>th:first-of-type {
     $homeTeam = $gameHolder->getHomeTeam();
     $teamInfoAway = new TeamInfo($folder, $playoff, $awayTeam);
     $teamInfoHome = new TeamInfo($folder, $playoff, $homeTeam);
-    $awayTeamAbbr='';
-    $homeTeamAbbr='';
+    //$awayTeamAbbr='';
+    //$homeTeamAbbr='';
     $isOvertime= $gameHolder->isOvertime();
     
     // Find Teams Abbr
@@ -479,6 +499,11 @@ table.table-sm>thead>tr>th:first-of-type {
         $homeTeamAbbr = search($FnmAbbr,$homeTeam);
     }
     else exit($allFileNotFound.' - '.$FnmAbbr);
+    
+    if(!$awayTeamAbbr){
+        $awayTeamAbbr = 'Wes';
+        $homeTeamAbbr = 'Eas';
+    }
 
 ?>
 
@@ -740,6 +765,8 @@ table.table-sm>thead>tr>th:first-of-type {
 					<div class="row mb-2">
                       
                             <?php
+                            error_log(print_r($gameHolder->getGoalieStats(),true));
+                            
                             $awayGoalieFormatted = '';
                             $homeGoalieFormatted = '';
                             foreach ($gameHolder->getGoalieStats() as $goalieState) {
@@ -1397,6 +1424,34 @@ table.table-sm>thead>tr>th:first-of-type {
 
 					</div>
 					<!-- end game notes -->
+					
+					<div class="row no-gutters mt-3">
+						<!-- three stars -->
+						<div class=" col col-lg-8 offset-lg-2">
+							<div class="card border text-center p-2" style="background-color:rgb(50, 52, 54); border-color: var(--color-primary-1) !important;">
+								<div class="card-header text-white px-2 py-1 pb-2">
+									<div class="text-center">GAME STARS</div>
+								</div>
+            					<table class="table table-dark2 table-sm table-striped text-center">
+
+    								<tbody>
+                                		
+                                		
+                                    		
+                                    		<?php foreach($gameHolder->getThreeStars() as $stars){?>
+                                    		<tr>
+    											<td><?php echo $stars['NUM'] ?></td>
+    											<td class="text-left"><?php echo $stars['PLAYER'] ?></td>
+    											<td class="text-left"><?php echo $stars['TEAM'] ?></td>
+        									</tr>
+                                        	<?php } ?>
+ 
+                                		</tbody>
+    							</table>
+							</div>
+						</div>
+
+					</div>
 
 				</div>
 				<!-- end card body -->

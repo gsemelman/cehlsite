@@ -291,8 +291,15 @@ class GameHolder implements \JsonSerializable
                     $long = $pos - 6;
                     $joueur = substr($val, 5, $long);
                     $equipe = substr($val, $pos + 1, 3);
+                    
+                    $starsArray = array();
+                    $starsArray['NUM'] = $numero;
+                    $starsArray['PLAYER'] = $joueur;
+                    $starsArray['TEAM'] = $equipe;
+                    
+                    array_push($this->threeStars, $starsArray);
        
-                    $this->threeStars[''.$numero.''] = $joueur;
+                   // $this->threeStars[''.$numero.''] = $joueur;
 
                 }
                 if(substr_count($val, 'Game Stars')) {

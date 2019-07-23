@@ -83,6 +83,16 @@
 	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/style-04182019-1.css"/>
 	<link rel="stylesheet" href="<?php echo BASE_URL?>assets/css/media-queries-04182019.css"/>
 	<script type="text/javascript" src="<?php echo BASE_URL?>assets/js/scripts-04112019-1.js"></script>
+	<!--<script type="text/javascript" src="<?php echo BASE_URL?>assets/js/google.js"></script>-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141959083-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-141959083-1');
+    </script>
 	
 	
 	<!-- css legacy browser (IE 9+ support) polyfill for unsupported css vars -->
