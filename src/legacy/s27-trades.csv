@@ -1,68 +1,101 @@
-﻿Team1,Team1Players,Team1Prospects,Team1Picks,Team1Cash,Team2,Team2Players,Team2Prospects,Team2Picks,Team2Cash,Date
-Dallas,,,"NAS 1st 2017, NAS 1st 2018",,Detroit,,,,30,2/1/2019
-Buffalo,,,"BUF 1st 2017, MTL 1st 2017",,Calgary,,,CGY 1st 2017,,2/1/2019
-Washington,Andreas Athanasiou,,,11.5,Florida,,,FLA 1st 2017,,2/1/2019
-Colorado,,,"NJ 1st 2017, EDM 1st 2017",,Philly,,,PHI 1st 2017,,2/1/2019
-Toronto,,,FLA 3rd 2017,,Phoenix,,,LA 3rd 2018,,2/1/2019
-Dallas,Mark Giordano,,,,Rangers,"Wayne Simmonds, John Merrill, EDM 3rd 2017",,,,2/1/2019
-Rangers,,,"NAS 2nd 2017, NYR 2nd 2017",,Toronto,,,WAS 1st 2017,,2/1/2019
-Anaheim,,,"PHO 1st 2018, ANA 4th 2017, BOS 3rd 2018",,Phoenix,Casey Mittelstadt,,CAR 1st 2018,,2/1/2019
-Anaheim,,,ANA 1st 2017,,Tampa Bay,,,EDM 1st 2018,,2/1/2019
-Dallas,,,EDM 3rd 2017,,Calgary,,,,1.5,2/1/2019
-Ottawa,Par Lindholm,,"MIN 3rd 2017, NJ 3rd 2017, NSH 3rd 2017, OTT 4th 2017",,St. Louis,,,STL 2nd 2017,,2/1/2019
-Washington,,,,0.8,Rangers,,,WAS 4th 2017,,2/1/2019
-Boston,,,BOS 2nd 2020,,Rangers,Joonas Korpisalo,,,0.75,2/1/2019
-Dallas,,,,5.5,New Jersey,"Jason Spezza, Jay Bouwmeester",,,,2/1/2019
-Philly,,,PHI 4th 2020,,New Jersey,Ilya Kovalchuk,,,,2/1/2019
-Calgary,,,,0.800001,New Jersey,,,PHI 4th 2018,,2/1/2019
-Carolina,"J.T Compher, Jeremy Roy",,CAR 1st 2021,,Vancouver,Alexander Radulov,,STL 4th 2018,,2/1/2019
-Phoenix,,,,1.5,New Jersey,,,"BOS 4th 2019, PHI 4th 2020",,2/1/2019
-Calgary,,,,3.25,New Jersey,Garret Sparks,,NJ 3rd 2019,,2/1/2019
-Calgary,,,,0.75,New Jersey,,,NJ 4th 2020,,2/1/2019
-Montreal,Corey Crawford,,,,Rangers,Connor Murphy,,NYR 2nd 2018,,2/1/2019
-Phoenix,,,,2,New Jersey,,,NJ 3rd 2020,,2/1/2019
-Rangers,"Henrik Borgstrom, Tristan Jarry, Jean-Gabriel Pageau",,"CHI 1st 2018,NYR 4th 2018",,Toronto,"Viktor Arvidsson, Zach Hyman",,,,2/1/2019
-Chicago,,,CHI 3rd 2019,,Toronto,Jean-Gabriel Pageau,,,,2/1/2019
-Florida,,,"FLA 2nd 2021, FLA 4th 2020",0.5,Rangers,Derek Stepan,,,,2/1/2019
-Calgary,William Karlsson,,,2.5,Edmonton,,,"NAS 2nd 2018, EDM 2nd 2019, NAS 2nd 2020, FLA 3rd 2020",,2/1/2019
-Washington,,,,0.5,Dallas,,,DAL 4th 2021,,2/1/2019
-Toronto,"Ryan Nugent Hopkins, Jamie Oleksiak",,,,Edmonton,"Joseph Woll, Ivan Barbashev, Austin Wagner",,"EDM 1st 2019, CHI 2nd 2018",,2/1/2019
-Edmonton,,,,1,Colorado,Frans Nielson,,,,2/1/2019
-Philly,Ryan Murphy,,,,Colorado,Brandon Sutter,,,,2/1/2019
-Montreal,P.K. Subban,,,2.5,Vancouver,Jake Muzzin,,"VAN 1st 2018, VAN 3rd 2019",,2/1/2019
-Edmonton,Nick Holden,,,,Boston,,,,0.5,2/1/2019
-Vancouver,Noah Gregor,,,,Edmonton,Nathan Noel ,,,,2/1/2019
-Phoenix,Reilly Smith,,,,St. Louis,Tanner Pearson ,,NJ 2nd 2018,,2/1/2019
-Montreal,,,VAN 3rd 2019,,Phoenix,Tanner Pearson,,,,2/1/2019
-Philly,,,PHI 3rd 2018,,Phoenix,,,,1.5,2/1/2019
-Carolina,"David Kase, Tim Gettinger, Wyatt Kalynuk",,CAR 3rd 2019,,LosAngeles,Artem Anisimov,,,1.5,2/1/2019
-Chicago,"Kevin Bieksa, Jonathan Davidson",,CHI 2nd 2021,,Tampa Bay,Cody Ceci,,,,4/27/2019
-Edmonton,"Ryan Nugent Hopkins, Artemi Panarin, Dimitry Orlov, Cam Ward",,EDM 2nd 2020,,Dallas,"Shea Weber, Jordan Binnington, Claude Giroux",,,,4/28/2019
-Rangers,Josh Manson,,"OTT 2nd 2018, COL 2nd 2018",,Philly,Jeff Petry,,,,5/3/2019
-Chicago,,Leon Gawanke,CHI 4th 2021,,Calgary,Troy Stecher,,,,5/21/2019
-Tampa Bay,Roman Josi ,,,,Rangers,"Kevin Shattenkirk, Christian Wolanin",,"NYR 1st 2018, DAL 2nd 2018, NJ 3rd 2018",2,5/21/2019
-Montreal,Evgenii Dadonov,,,,Edmonton,,,"EDM 1st 2020, EDM 1st 2021, EDM 3rd 2019",,5/22/2019
-Washington,,,WAS 4th 2021,0.1,Montreal,Daniel Winnik,,,,7/25/2019
-Pittsburgh,"John Carlson, Grayson Downing",,,,Dallas,"Ryan Nugent Hopkins, Dmitri Orlov",,EDM 3rd 2019,,7/30/2019
-Dallas,,,,0.5,Edmonton,Ian Cole,,,,7/30/2019
-Montreal,,,"NYR 2nd 2018, EDM 3rd 2019",,Colorado,Lars Eller,,,,7/30/2019
-Minnesota,Jeremy Bracco,,MIN 2nd 2020,,New Jersey,"Antti Raanta, Jake McCabe",,,,7/30/2019
-St. Louis,Dennis Seidenberg,,,,New Jersey,,,,0.5,7/31/2019
-Dallas,"Jon Carlson, Artemi Panarin, Eric Gelinas",,,,Edmonton,"Brad Marchand, Ryan Suter, Adam Lowry",,,,7/31/2019
-Carolina,,Joey Anderson,DAL 3rd 2019,0.5,Tampa Bay,Dustin Brown,,TB 4th 2020,,8/14/2019
-Anaheim,,,,0.5,Phoenix,Jay Bouwmeester,,,,8/20/2019
-St. Louis,,,,1.5,Carolina,,"Damir Sharipzyanov, Linus Nassen, Patrick Holway, Dennis Yan, Jakob Stenqvist",,,8/20/2019
-Rangers,"Oscar Dansk, Sven Baertschi",,,,Boston,Max Pacioretty,,,,8/30/2019
-Vancouver,,,VAN 1st 2020,1.5,Tampa Bay,,,"NYR 1st 2018,  Dal 3rd 2018",,9/1/2019
-Montreal,Jake Muzzin,,,,Carolina,"Justin Abdelkadder, Marco Scandella",,"CHI 2nd 2020, LA 3rd 2020",,9/1/2019
-Montreal,James van Riemsdyk,,,,Toronto,,,"LA 3rd 2018, MTL 4th 2018, WAS 3rd 2019",,9/3/2019
-Montreal,David Krejci,,,2,New Jersey,"Tyler Johnson, Zach Aston-Reese",,BOS 2nd 2019,,9/3/2019
-Montreal,Jake Gardiner,,,,New Jersey,Andreas Borgman,,MTL 2nd 2018,,9/3/2019
-Montreal,"Nick Foligno, David Perron",,,,Colorado,"Sven Andrighetto, Ryan Murphy, Jake Dotchin",,"NAS 3rd 2018, EDM 3rd 2019",,9/3/2019
-Montreal,Lars Eller,,,,Toronto,,,TOR 3rd 2020,,9/6/2019
-Montreal,Alex Goligoski,,,,Carolina,,,"CAR 4th 2020, CHI 4th 2020",,9/6/2019
-Montreal,Jonathan Bernier,,,,Pittsburgh,,,PIT 4th 2019,0.5,9/6/2019
-Montreal,Marco Scandella,,,,Toronto,,,TOR 4th 2021,,9/6/2019
-,,,,,,,,,,
-,,,,,,,,,,
-,,,,,,,,,,
+﻿Team1,Team1Players,Team1Prospects,Team1Picks,Team1Cash,Team2,Team2Players,Team2Prospects,Team2Picks,Team2Cash,Date,
+Dallas,,,"NAS 1st 2017, NAS 1st 2018",,Detroit,,,,30,2/1/2019,
+Buffalo,,,"BUF 1st 2017, MTL 1st 2017",,Calgary,,,CGY 1st 2017,,2/1/2019,
+Washington,Andreas Athanasiou,,,11.5,Florida,,,FLA 1st 2017,,2/1/2019,
+Colorado,,,"NJ 1st 2017, EDM 1st 2017",,Philly,,,PHI 1st 2017,,2/1/2019,
+Toronto,,,FLA 3rd 2017,,Phoenix,,,LA 3rd 2018,,2/1/2019,
+Dallas,Mark Giordano,,,,Rangers,"Wayne Simmonds, John Merrill, EDM 3rd 2017",,,,2/1/2019,
+Rangers,,,"NAS 2nd 2017, NYR 2nd 2017",,Toronto,,,WAS 1st 2017,,2/1/2019,
+Anaheim,,,"PHO 1st 2018, ANA 4th 2017, BOS 3rd 2018",,Phoenix,Casey Mittelstadt,,CAR 1st 2018,,2/1/2019,
+Anaheim,,,ANA 1st 2017,,Tampa Bay,,,EDM 1st 2018,,2/1/2019,
+Dallas,,,EDM 3rd 2017,,Calgary,,,,1.5,2/1/2019,
+Ottawa,Par Lindholm,,"MIN 3rd 2017, NJ 3rd 2017, NSH 3rd 2017, OTT 4th 2017",,St. Louis,,,STL 2nd 2017,,2/1/2019,
+Washington,,,,0.8,Rangers,,,WAS 4th 2017,,2/1/2019,
+Boston,,,BOS 2nd 2020,,Rangers,Joonas Korpisalo,,,0.75,2/1/2019,
+Dallas,,,,5.5,New Jersey,"Jason Spezza, Jay Bouwmeester",,,,2/1/2019,
+Philly,,,PHI 4th 2020,,New Jersey,Ilya Kovalchuk,,,,2/1/2019,
+Calgary,,,,0.800001,New Jersey,,,PHI 4th 2018,,2/1/2019,
+Carolina,"J.T Compher, Jeremy Roy",,CAR 1st 2021,,Vancouver,Alexander Radulov,,STL 4th 2018,,2/1/2019,
+Phoenix,,,,1.5,New Jersey,,,"BOS 4th 2019, PHI 4th 2020",,2/1/2019,
+Calgary,,,,3.25,New Jersey,Garret Sparks,,NJ 3rd 2019,,2/1/2019,
+Calgary,,,,0.75,New Jersey,,,NJ 4th 2020,,2/1/2019,
+Montreal,Corey Crawford,,,,Rangers,Connor Murphy,,NYR 2nd 2018,,2/1/2019,
+Phoenix,,,,2,New Jersey,,,NJ 3rd 2020,,2/1/2019,
+Rangers,"Henrik Borgstrom, Tristan Jarry, Jean-Gabriel Pageau",,"CHI 1st 2018,NYR 4th 2018",,Toronto,"Viktor Arvidsson, Zach Hyman",,,,2/1/2019,
+Chicago,,,CHI 3rd 2019,,Toronto,Jean-Gabriel Pageau,,,,2/1/2019,
+Florida,,,"FLA 2nd 2021, FLA 4th 2020",0.5,Rangers,Derek Stepan,,,,2/1/2019,
+Calgary,William Karlsson,,,2.5,Edmonton,,,"NAS 2nd 2018, EDM 2nd 2019, NAS 2nd 2020, FLA 3rd 2020",,2/1/2019,
+Washington,,,,0.5,Dallas,,,DAL 4th 2021,,2/1/2019,
+Toronto,"Ryan Nugent Hopkins, Jamie Oleksiak",,,,Edmonton,"Joseph Woll, Ivan Barbashev, Austin Wagner",,"EDM 1st 2019, CHI 2nd 2018",,2/1/2019,
+Edmonton,,,,1,Colorado,Frans Nielson,,,,2/1/2019,
+Philly,Ryan Murphy,,,,Colorado,Brandon Sutter,,,,2/1/2019,
+Montreal,P.K. Subban,,,2.5,Vancouver,Jake Muzzin,,"VAN 1st 2018, VAN 3rd 2019",,2/1/2019,
+Edmonton,Nick Holden,,,,Boston,,,,0.5,2/1/2019,
+Vancouver,Noah Gregor,,,,Edmonton,Nathan Noel ,,,,2/1/2019,
+Phoenix,Reilly Smith,,,,St. Louis,Tanner Pearson ,,NJ 2nd 2018,,2/1/2019,
+Montreal,,,VAN 3rd 2019,,Phoenix,Tanner Pearson,,,,2/1/2019,
+Philly,,,PHI 3rd 2018,,Phoenix,,,,1.5,2/1/2019,
+Carolina,"David Kase, Tim Gettinger, Wyatt Kalynuk",,CAR 3rd 2019,,LosAngeles,Artem Anisimov,,,1.5,2/1/2019,
+Chicago,"Kevin Bieksa, Jonathan Davidson",,CHI 2nd 2021,,Tampa Bay,Cody Ceci,,,,4/27/2019,
+Edmonton,"Ryan Nugent Hopkins, Artemi Panarin, Dimitry Orlov, Cam Ward",,EDM 2nd 2020,,Dallas,"Shea Weber, Jordan Binnington, Claude Giroux",,,,4/28/2019,
+Rangers,Josh Manson,,"OTT 2nd 2018, COL 2nd 2018",,Philly,Jeff Petry,,,,5/3/2019,
+Chicago,,Leon Gawanke,CHI 4th 2021,,Calgary,Troy Stecher,,,,5/21/2019,
+Tampa Bay,Roman Josi ,,,,Rangers,"Kevin Shattenkirk, Christian Wolanin",,"NYR 1st 2018, DAL 2nd 2018, NJ 3rd 2018",2,5/21/2019,
+Montreal,Evgenii Dadonov,,,,Edmonton,,,"EDM 1st 2020, EDM 1st 2021, EDM 3rd 2019",,5/22/2019,
+Washington,,,WAS 4th 2021,0.1,Montreal,Daniel Winnik,,,,7/25/2019,
+Pittsburgh,"John Carlson, Grayson Downing",,,,Dallas,"Ryan Nugent Hopkins, Dmitri Orlov",,EDM 3rd 2019,,7/30/2019,
+Dallas,,,,0.5,Edmonton,Ian Cole,,,,7/30/2019,
+Montreal,,,"NYR 2nd 2018, EDM 3rd 2019",,Colorado,Lars Eller,,,,7/30/2019,
+Minnesota,Jeremy Bracco,,MIN 2nd 2020,,New Jersey,"Antti Raanta, Jake McCabe",,,,7/30/2019,
+St. Louis,Dennis Seidenberg,,,,New Jersey,,,,0.5,7/31/2019,
+Dallas,"Jon Carlson, Artemi Panarin, Eric Gelinas",,,,Edmonton,"Brad Marchand, Ryan Suter, Adam Lowry",,,,7/31/2019,
+Carolina,,Joey Anderson,DAL 3rd 2019,0.5,Tampa Bay,Dustin Brown,,TB 4th 2020,,8/14/2019,
+Anaheim,,,,0.5,Phoenix,Jay Bouwmeester,,,,8/20/2019,
+St. Louis,,,,1.5,Carolina,,"Damir Sharipzyanov, Linus Nassen, Patrick Holway, Dennis Yan, Jakob Stenqvist",,,8/20/2019,
+Rangers,"Oscar Dansk, Sven Baertschi",,,,Boston,Max Pacioretty,,,,8/30/2019,
+Vancouver,,,VAN 1st 2020,1.5,Tampa Bay,,,"NYR 1st 2018,  Dal 3rd 2018",,9/1/2019,
+Montreal,Jake Muzzin,,,,Carolina,"Justin Abdelkadder, Marco Scandella",,"CHI 2nd 2020, LA 3rd 2020",,9/1/2019,
+Montreal,James van Riemsdyk,,,,Toronto,,,"LA 3rd 2018, MTL 4th 2018, WAS 3rd 2019",,9/3/2019,
+Montreal,David Krejci,,,2,New Jersey,"Tyler Johnson, Zach Aston-Reese",,BOS 2nd 2019,,9/3/2019,
+Montreal,Jake Gardiner,,,,New Jersey,Andreas Borgman,,MTL 2nd 2018,,9/3/2019,
+Montreal,"Nick Foligno, David Perron",,,,Colorado,"Sven Andrighetto, Ryan Murphy, Jake Dotchin",,"NAS 3rd 2018, EDM 3rd 2019",,9/3/2019,
+Montreal,Lars Eller,,,,Toronto,,,TOR 3rd 2020,,9/6/2019,
+Montreal,Alex Goligoski,,,,Carolina,,,"CAR 4th 2020, CHI 4th 2020",,9/6/2019,
+Montreal,Jonathan Bernier,,,,Pittsburgh,,,PIT 4th 2019,0.5,9/6/2019,
+Montreal,Marco Scandella,,,,Toronto,,,TOR 4th 2021,,9/6/2019,
+Phoenix,Thomas Vanek,,,,Minnesota,,,MIN 4th 2018,,9/7/2019,
+Phoenix,Nate Prosser,,,,Montreal,,,,0.2,9/7/2019,
+Montreal,Robin Lehner Andrew Shaw,,,1,Boston,,,"BOS 2nd 2021, BOS 3rd 2021, BOS 4th 2021",,9/7/2019,
+Rangers,Corey Crawford,,,1,Islanders,Henrik Lundquist,,,,9/7/2019,
+Montreal,,,,5,Islanders,"James Reimer, Pavel Datsyuk, Chris Thorburn ",,,,9/7/2019,
+Montreal,Calle Jarnkrok,,,2,Carolina,Artem Anisimov ,,CAR 4th 2021,,9/9/2019,
+Toronto,Cam Talbot,,,1,Islanders,Corey Crawford,,,,9/10/2019,
+Rangers,Max Pacioretty,,NYR 4th 2021,,Carolina,T.J. Oshie,,"CAR 3rd 2020, CHI 3rd 2020",,9/10/2019,
+Rangers,T.J. Oshie,,,,Toronto,,,"TOR 2nd 2020, TOR 3rd 2021",,9/10/2019,
+Toronto,Andrew Cogliano,,NYR 4th 2018,,Montreal,Artem Anisimov,,,,9/10/2019,
+Edmonton,Jamie Oleksiak,Ollie Lycksell,,6,Boston,Brent Seabrook,,,,9/12/2019,
+Tampa Bay,Matt Duchene,,,,Chicago,"Jason Demers, Bobby Ryan",,CHI 1st 2021,,9/12/2019,chicago to pay SB
+Colorado,Daniel Sprong,,NYR 2nd 2018,,Minnesota,Martin Jones,,,1,9/12/2019,
+Colorado,Brian Elliott ,,,,New Jersey,,,,2.5,9/12/2019,
+Tampa Bay,,,"TB 2nd 2019, TB 4th 2019",,Ottawa,"Josh Anderson, Anders Nilsson",,,,9/12/2019,
+Montreal,Justin Abdelkader,,,,Florida,,,FLA 4th 2021,,9/12/2019,
+Toronto,"Corey Crawford, Brandon Sutter, Sam Bennett",Noah Juulson,TOR 3rd 2018,,LosAngeles,Sergei Bobrovsky,,,,9/12/2019,
+Boston,,,BOS 1st 2020,,Rangers,"Jimmy Vesey, Mikhail Vorobyov",,NYR 2nd 2020,,9/12/2019,
+Tampa Bay,Loui Eriksson,,,,Rangers,,,,0.25,9/12/2019,
+Minnesota,,,,0.5,Tampa Bay,Thomas Greiss,,,,9/12/2019,
+Pittsburgh,,,PIT 3rd 2019,,Montreal,Craig Smith,,,,9/12/2019,
+Carolina,Neal Pionk,,,,LosAngeles,Corey Crawford,,,,9/12/2019,
+Montreal,Brendan Dillon,,,,St. Louis,,,,5,9/12/2019,
+Carolina,,,,2.5,Montreal,Nicolas Petan,,,,9/12/2019,
+Philly,Joshua Bailey,,,,Rangers,Patric Hornqvist,Carl Grundstrom,,,9/12/2019,
+Philly,Patric Hornqvist,,,,Toronto,Brandon Pirri,,EDM 4th 2019,,9/12/2019,
+LosAngeles,"Alexander Edler, Marcus Johansson, David Savard",,,,Columbus,Austin Czarnik,"Cale Fleury, Michael DiPietro, Trent Frederic","CBJ 1st 2018, CBJ 4th 2019",,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
+,,,,,,,,,,9/12/2019,
