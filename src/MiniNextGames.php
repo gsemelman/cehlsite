@@ -83,7 +83,12 @@ if($scheduleHolder->isScheduleComplete()){
     echo '<h5>No Games Scheduled</h5>';
 }
 
-for ($i = $scheduleHolder->getLastDayPlayed() + 1; $i <= $scheduleHolder->getLastDayPlayed() + 2; $i ++) {
+
+//only display one day for playoffs, 2 for reg season
+$miniNextGame = $scheduleHolder->getLastDayPlayed() + 1;
+$miniNextToProcess = !isPlayoffs($folder, $playoffMode) ? $miniNextGame + 1 : $miniNextGame;
+
+for ($i = $miniNextGame; $i <= $miniNextToProcess; $i ++) {
 
      $miniGames = $scheduleHolder->getScheduleByDay($i);
 

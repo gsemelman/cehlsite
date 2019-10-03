@@ -220,16 +220,25 @@ if($playoff == 1){
 //$fileName = getLeagueFile($folder, $playoff, '-Round1-Schedule.html', '-Round1-Schedule');
 
 
-
+//last games played scores
 if($scheduleHolder->isSeasonStarted()){
     
-    if($scheduleHolder->getLastDayPlayed() > 1){
-        $startGame = $scheduleHolder->getLastDayPlayed() - 1;
+    
+    if(!$playoff){
+        if($scheduleHolder->getLastDayPlayed() > 1){
+            $startGame = $scheduleHolder->getLastDayPlayed() - 1;
+        }else{
+            $startGame = $scheduleHolder->getLastDayPlayed();
+        }
+        
+        $endGame = $scheduleHolder->getLastDayPlayed();
     }else{
+        //only display one game for playoffs
         $startGame = $scheduleHolder->getLastDayPlayed();
+        $endGame = $scheduleHolder->getLastDayPlayed();
     }
     
-    $endGame = $scheduleHolder->getLastDayPlayed();
+
     
     for ($x = $startGame; $x <= $endGame; $x++) {
         echo '<div class="dayPlayed text-center">';
@@ -309,164 +318,14 @@ if($scheduleHolder->isSeasonStarted()){
         }
     }
 
-//     if($scheduleHolder->getLastDayPlayed() > 1){
-
-//         echo '<div class="dayPlayed text-center">';
-//             echo '<div style ="padding-top:50%">';
-//                 if(!$playoff){
-//                     echo '<span><strong>Day</strong></span>';
-//                     echo '<span><strong>'.($round ).'</strong></span>';
-//                 }else{
-//                     echo '<span><strong>Rnd '.($scheduleHolder->getLastDayPlayed() -1 ).'</strong></span>';
-//                     echo '<span><strong>Day '.($scheduleHolder->getLastDayPlayed() -1 ).'</strong></span>';
-//                 }
-
-//             echo '</div>';
-//         echo '</div>';
-        
-//         foreach ($scheduleHolder->getScheduleByDay($scheduleHolder->getLastDayPlayed()-1) as $games) {
-            
-//             //series over playoffs
-//             if(!$games->getIsRequired()){
-//                 continue;
-//             }
-            
-//             $matches = glob($folderTeamLogos.strtolower($games->team1).'.*');
-//             $todayImage1 = '';
-//             for($j=0;$j<count($matches);$j++) {
-//                 $todayImage1 = $matches[$j];
-//                 break 1;
-//             }
-//             $matches = glob($folderTeamLogos.strtolower($games->team2).'.*');
-//             $todayImage2 = '';
-//             for($j=0;$j<count($matches);$j++) {
-//                 $todayImage2 = $matches[$j];
-//                 break 1;
-//             }
-            
-// //             $FnmAbbr = getLeagueFile($folder, $playoff, 'TeamScoring.html', 'TeamScoring');
-            
-// //             if(file_exists($FnmAbbr)) {
-// //                 $team1Abbr = search($FnmAbbr,$games->team1);
-// //                 $team2Abbr = search($FnmAbbr,$games->team2);
-// //             }
-// //             else echo $allFileNotFound.' - '.$FnmAbbr;
-//             $team1Abbr = $teamAbbrs[$games->team1];
-//             $team2Abbr = $teamAbbrs[$games->team2];
-            
-//             error_log($games->team1);
-//             error_log($team1Abbr);
-//             error_log($games->team2);
-//             error_log($team2Abbr);
-            
-//             echo '<div>';
-//             echo '<a href="games.php?num='.$games->getGameNumber().$playoffLink.'">';
-//             echo '<table class = "table table-sm mb-0" style="width:90px" >';
-//             echo '<tbody>';
-//             echo '<tr class="d-flex" style = "text-transform: uppercase;">'; //header
-//             echo '<th class="col-9 p-1">Final</th>';
-//             echo '<th class="col-3 p-1"></th>';
-//             echo '</tr>';
-            
-//             echo '<tr class="d-flex">'; //header
-//             echo '<td class="col-9 p-1">
-//                 <div><img class="logo" src="'.$todayImage1.'" alt="'.$games->team1.'"</img></div>
-//                 <div class = "team-acronym">'.$team1Abbr.'</div>
-//              </td>';
-            
-//             echo '<td class = "col-3 p-1 dark-text text-center"><strong>'.$games->team1Score.'</strong></td>';
-//             echo '</tr>';
-            
-//             echo '<tr class="d-flex">'; //header
-//             echo '<td class="col-9 p-1">
-//                 <div><img class="logo" src="'.$todayImage2.'" alt="'.$games->team2.'"</img></div>
-//                 <div class = "team-acronym">'.$team2Abbr.'</div>
-//              </td>';
-//             echo '<td class = "col-3 p-1 dark-text text-center"><strong>'.$games->team2Score.'</strong></td>';
-//             echo '</tr>';
-            
-//             echo '</tbody>';
-//             echo '</table>'; //end score-main table
-//             echo '</a>';
-//             echo '</div>';
-   
-//         }
-//     }
-    
-//     echo '<div class="dayPlayed text-center">';
-//         echo '<div style ="padding-top:50%">';
-//             echo '<span><strong>Day</strong></span>';
-//             echo '<span><strong>'.($scheduleHolder->getLastDayPlayed() ).'</strong></span>';
-//         echo '</div>';
-//     echo '</div>';
-    
-//     foreach ($scheduleHolder->getLastScheduleDay() as $games) {
-        
-//         //series over playoffs
-//         if(!$games->getIsRequired()){
-//             continue;
-//         }
-
-//         $matches = glob($folderTeamLogos.strtolower($games->team1).'.*');
-//         $todayImage1 = '';
-//         for($j=0;$j<count($matches);$j++) {
-//             $todayImage1 = $matches[$j];
-//             break 1;
-//         }
-//         $matches = glob($folderTeamLogos.strtolower($games->team2).'.*');
-//         $todayImage2 = '';
-//         for($j=0;$j<count($matches);$j++) {
-//             $todayImage2 = $matches[$j];
-//             break 1;
-//         }
-        
-// //         $FnmAbbr = getLeagueFile($folder, $playoff, 'TeamScoring.html', 'TeamScoring');
-// //         if(file_exists($FnmAbbr)) {
-// //             $team1Abbr = search($FnmAbbr,$games->team1);
-// //             $team2Abbr = search($FnmAbbr,$games->team2);
-// //         }
-// //         else echo $allFileNotFound.' - '.$FnmAbbr;
-//         $team1Abbr = $teamAbbrs[$games->team1];
-//         $team2Abbr = $teamAbbrs[$games->team2];
-        
-       
-//         echo '<div>';
-//         echo '<a href="games.php?num='.$games->getGameNumber().$playoffLink.'">';
-//         echo '<table class = "table table-sm " style="width:90px" >';
-//         echo '<tbody>';
-//         echo '<tr class="d-flex" style = "text-transform: uppercase;">'; //header
-//         echo '<th class="col-9 p-1">Final</th>';
-//         echo '<th class="col-3 p-1"></th>';
-//         echo '</tr>';
-        
-//         echo '<tr class="d-flex">'; //header
-//         echo '<td class="col-9 p-1">
-//                 <div><img class="logo" src="'.$todayImage1.'" alt="'.$games->team1.'"</img></div>
-//                 <div class = "team-acronym">'.$team1Abbr.'</div>
-//              </td>';
-        
-//         echo '<td class = "col-3 p-1 dark-text text-center"><strong>'.$games->team1Score.'</strong></td>';
-//         echo '</tr>';
-        
-//         echo '<tr class="d-flex">'; //header
-//         echo '<td class="col-9 p-1">
-//                 <div><img class="logo" src="'.$todayImage2.'" alt="'.$games->team2.'"</img></div>
-//                 <div class = "team-acronym">'.$team2Abbr.'</div>
-//              </td>';
-//         echo '<td class = "col-3 p-1 dark-text text-center"><strong>'.$games->team2Score.'</strong></td>';
-//         echo '</tr>';
-        
-//         echo '</tbody>';
-//         echo '</table>'; //end score-main table
-//         echo '</a>';
-//         echo '</div>';
-       
-//     }
 }
 
 //next games
 $nextGame = $nextGameScheduleHolder->getLastDayPlayed() + 1;
-for ($x = $nextGame; $x <= $nextGame + 1; $x++) {
+$nextGamesToProcess = !$playoff ? $nextGame + 1 : $nextGame;
+
+//only display one day for playoffs
+for ($x = $nextGame; $x <= $nextGamesToProcess; $x++) {
 
     
     if(empty($nextGameScheduleHolder->getScheduleByDay($x))) continue;
