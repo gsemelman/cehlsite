@@ -1,17 +1,4 @@
-<div class="card">
-  <img class="card-img-top" src="./assets/img/news/playoffs.jpg" alt="News Image">
-  <div class="card-body">
-    <h5 class="card-title">Live from CEHL HQ - Oct 2nd, 2019</h5>
 
-	<p class="small-paragraph text-left">After a long season the playoffs are finally here!</p>
-	
-	<p class="small-paragraph text-left">The season saw an arms war between some of the top teams in the east and west. The result is some very interesting first round
-	matchups between powerhouse teams.</p>
-		
-	<p class="small-paragraph text-left">The playoffs will begin Thursday Oct 3rd. Stay tuned for the playoff preview!</p>
-
-  </div>
-</div>
 
 <div class="card">
   <img class="card-img-top" src="./assets/img/news/allstargame.jpg" alt="News Image">
@@ -39,6 +26,26 @@
 	<p class="small-paragraph text-left">Click below to see the boxscore of the game</p>
 
     <a href="./games.php?override=allstar&homeTeam=Eas&awayTeam=Wes" class="btn btn-outline-primary">All-Star Game Boxscore</a>
+  </div>
+</div>
+
+<div class="card">
+  <img class="card-img-top" src="./assets/img/news/allstarcomp.jpg" alt="News Image">
+  <div class="card-body">
+    <h5 class="card-title">Live from CEHL HQ - June 11th, 2019</h5>
+
+	<p class="small-paragraph text-left">Midseason is here! Rerates are going strong, but fist things first.. All Star Weekend is here!</p>
+	
+	<p class="small-paragraph text-left">First up is the All Stars Skills Competition</p>
+		
+	<p class="small-paragraph text-left">The East tried to keep up with the West, but in the end were not able to handle the onslaught of talent on the western side.</p>
+	
+	<p class="small-paragraph text-left">Final Score: Western Conference <strong>9</strong>. Eastern Conference <strong>5</strong></p>
+	
+	<p class="small-paragraph text-left">Click below to see the results of the competition including prize winners!</p>
+	
+	<p class="small-paragraph text-left">Stay tuned! The All star game will be simmed tomorrow!</p>
+    <a href="AllStarSkills.php" class="btn btn-outline-primary">Skills Competition Results</a>
   </div>
 </div>
 
