@@ -146,110 +146,118 @@ if (file_exists($Fnm)) {
 		}
 	}
 	
-    $i = 0;
-    echo '<div class = "col">
-	<div class="tableau-top text-center">'.$top5Goals.'</div>
-	<table class="table table-sm table-striped table-rounded-bottom">
-    <thead>
-	<tr>
-	<th>NAME</th>
-	<th>'.$individualTM.'</th>
-	<th>'.$individualG.'</th>
-	</tr>
-    </thead>
-    <tbody>';
-	    for($i=0;$i<count($goalj);$i++){
-	        if($c == 1) $c = 2;
-	        else $c = 1;
-	        $bold = '';
-	        if(isset($TSabbr) && $goale[$i] == $TSabbr) $bold = 'font-weight:bold;';
-	        echo '
-		<tr class="hover'.$c.'">
-		<td style="'.$bold.'">'.$goalj[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$goale[$i].'</td>
-		<td style="text-align:right;'.$bold.'">'.$goalg[$i].'</td>
-		</tr>';
-	    }
-	    echo '</tbody></table></div>';
-	    
-	    echo '<div class = "col">
-	<div class="tableau-top text-center">'.$top5Points.'</div>
-	<table class="table table-sm table-striped table-rounded-bottom">
-    <thead>
-	<tr>
-	<th>P</th>
-	<th>NAME</th>
-	<th>'.$individualTM.'</th>
-	<th>'.$top5Pts.'</th>
-	</tr>
-    </thead>
-	<tbody>';
-	    
-	    
-	    echo '
-	<tr class="hover2">
-	<td>C</td>
-	<td>'.$cej[0].'</td>
-	<td style="text-align:right;">'.$cee[0].'</td>
-	<td style="text-align:right;">'.$ceg[0].'</td>
-	</tr>';
-	    echo '
-	<tr class="hover1">
-	<td>'.$top5LW.'</td>
-	<td>'.$agj[0].'</td>
-	<td style="text-align:right;">'.$age[0].'</td>
-	<td style="text-align:right;">'.$agg[0].'</td>
-	</tr>';
-	    echo '
-	<tr class="hover2">
-	<td>'.$top5RW.'</td>
-	<td>'.$adj[0].'</td>
-	<td style="text-align:right;">'.$ade[0].'</td>
-	<td style="text-align:right;">'.$adg[0].'</td>
-	</tr>';
-	    echo '
-	<tr class="hover1">
-	<td>D</td>
-	<td>'.$dfj[0].'</td>
-	<td style="text-align:right;">'.$dfe[0].'</td>
-	<td style="text-align:right;">'.$dfg[0].'</td>
-	</tr>';
-	    echo '
-	<tr class="hover2">
-	<td>*</td>
-	<td>'.$rkj[0].'</td>
-	<td style="text-align:right;">'.$rke[0].'</td>
-	<td style="text-align:right;">'.$rkg[0].'</td>
-	</tr>';
-	    
-	    echo '</tbody></table></div>';
-	    
-	    $c = 1;
+	if(!empty($goalj)){
 	    $i = 0;
 	    echo '<div class = "col">
-	<div class="tableau-top text-center">'.$top5SavePct.'</div>
-	<table class="table table-sm table-striped table-rounded-bottom">
-    <thead>
-	<tr>
-	<th>NAME</th>
-	<th>'.$individualTM.'</th>
-	<th>%</th>
-	</tr>
-    </thead>
-    <tbody>';
-    for($i=0;$i<count($spj);$i++){
-        if($c == 1) $c = 2;
-        else $c = 1;
-        $bold = '';
-        if(isset($TSabbr) && $spe[$i] == $TSabbr) $bold = 'font-weight:bold;';
-        echo '
-	<tr class="hover'.$c.'">
-	<td style="'.$bold.'">'.$spj[$i].'</td>
-	<td style="'.$bold.'">'.$spe[$i].'</td>
-	<td style="'.$bold.'">'.$spg[$i].'</td>
-	</tr>';
-    }
-    echo '</tbody></table></div>';
+    	<div class="tableau-top text-center">'.$top5Goals.'</div>
+    	<table class="table table-sm table-striped table-rounded-bottom">
+        <thead>
+    	<tr>
+    	<th>NAME</th>
+    	<th>'.$individualTM.'</th>
+    	<th>'.$individualG.'</th>
+    	</tr>
+        </thead>
+        <tbody>';
+    	    for($i=0;$i<count($goalj);$i++){
+    	        if($c == 1) $c = 2;
+    	        else $c = 1;
+    	        $bold = '';
+    	        if(isset($TSabbr) && $goale[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	        echo '
+    		<tr class="hover'.$c.'">
+    		<td style="'.$bold.'">'.$goalj[$i].'</td>
+    		<td style="text-align:right;'.$bold.'">'.$goale[$i].'</td>
+    		<td style="text-align:right;'.$bold.'">'.$goalg[$i].'</td>
+    		</tr>';
+    	    }
+    	    echo '</tbody></table></div>';
+    	    
+    	    echo '<div class = "col">
+    	<div class="tableau-top text-center">'.$top5Points.'</div>
+    	<table class="table table-sm table-striped table-rounded-bottom">
+        <thead>
+    	<tr>
+    	<th>P</th>
+    	<th>NAME</th>
+    	<th>'.$individualTM.'</th>
+    	<th>'.$top5Pts.'</th>
+    	</tr>
+        </thead>
+    	<tbody>';
+    	    
+    	    
+    	    echo '
+    	<tr class="hover2">
+    	<td>C</td>
+    	<td>'.$cej[0].'</td>
+    	<td style="text-align:right;">'.$cee[0].'</td>
+    	<td style="text-align:right;">'.$ceg[0].'</td>
+    	</tr>';
+    	    echo '
+    	<tr class="hover1">
+    	<td>'.$top5LW.'</td>
+    	<td>'.$agj[0].'</td>
+    	<td style="text-align:right;">'.$age[0].'</td>
+    	<td style="text-align:right;">'.$agg[0].'</td>
+    	</tr>';
+    	    echo '
+    	<tr class="hover2">
+    	<td>'.$top5RW.'</td>
+    	<td>'.$adj[0].'</td>
+    	<td style="text-align:right;">'.$ade[0].'</td>
+    	<td style="text-align:right;">'.$adg[0].'</td>
+    	</tr>';
+    	    echo '
+    	<tr class="hover1">
+    	<td>D</td>
+    	<td>'.$dfj[0].'</td>
+    	<td style="text-align:right;">'.$dfe[0].'</td>
+    	<td style="text-align:right;">'.$dfg[0].'</td>
+    	</tr>';
+    	    echo '
+    	<tr class="hover2">
+    	<td>*</td>
+    	<td>'.$rkj[0].'</td>
+    	<td style="text-align:right;">'.$rke[0].'</td>
+    	<td style="text-align:right;">'.$rkg[0].'</td>
+    	</tr>';
+    	    
+    	    echo '</tbody></table></div>';
+    	    
+    	    $c = 1;
+    	    $i = 0;
+    	    echo '<div class = "col">
+    	<div class="tableau-top text-center">'.$top5SavePct.'</div>
+    	<table class="table table-sm table-striped table-rounded-bottom">
+        <thead>
+    	<tr>
+    	<th>NAME</th>
+    	<th>'.$individualTM.'</th>
+    	<th>%</th>
+    	</tr>
+        </thead>
+        <tbody>';
+    	    for($i=0;$i<count($spj);$i++){
+    	        if($c == 1) $c = 2;
+    	        else $c = 1;
+    	        $bold = '';
+    	        if(isset($TSabbr) && $spe[$i] == $TSabbr) $bold = 'font-weight:bold;';
+    	        echo '
+    	<tr class="hover'.$c.'">
+    	<td style="'.$bold.'">'.$spj[$i].'</td>
+    	<td style="'.$bold.'">'.$spe[$i].'</td>
+    	<td style="'.$bold.'">'.$spg[$i].'</td>
+    	</tr>';
+	    }
+	    echo '</tbody></table></div>';
+	}else{
+	    echo '<div class = "col">';
+	    echo '<h5>No Games</h5>';
+	    echo '</div>';
+	}
+	
+    
 	
 	
 }

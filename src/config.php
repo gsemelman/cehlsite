@@ -118,7 +118,7 @@ $leagueFuturesDraftYears = FUTURES_DRAFT_YEARS;
 
 # Playoff mode (Auto mode will check if playoff files exist in transfer directory, other two settings are overrides)
 # Auto: 0 Regular Season : 1 or Playoffs : 2
-define("LEAGUE_MODE",1);
+define("LEAGUE_MODE",2);
 $playoffMode = LEAGUE_MODE;
 
 

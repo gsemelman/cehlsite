@@ -323,7 +323,7 @@ else {
 
 if($fileExists && $d){
     if(isset($playoff) && $playoff=='PLF'){
-        echo '<h5 class = "text-center">This team did not make the playoffs</h5>';
+        echo '<h5 class = "text-center">Team did not make the Playoffs or the Playoffs have not started.</h5>';
     }else{
         echo '<h5 class = "text-center">The season has not started</h5>';
     }

@@ -39,4 +39,37 @@ $teamDivisions = array(
     "Minnesota"=>"Northwest"
 );
 
+$teamAbbrs = array(
+    "Anaheim"=>"ANA",
+    "Winnipeg"=>"WPG",
+    "Boston"=>"BOS",
+    "Buffalo"=>"BUF",
+    "Calgary"=>"CGY",
+    "Carolina"=>"CAR",
+    "Chicago"=>"CHI",
+    "Colorado"=>"COL",
+    "Dallas"=>"DAL",
+    "Detroit"=>"DET",
+    "Edmonton"=>"EDM",
+    "Florida"=>"FLA",
+    "LosAngeles"=>"LA",
+    "Montreal"=>"MTL",
+    "Nashville"=>"NAS",
+    "New Jersey"=>"NJ",
+    "Islanders"=>"NYI",
+    "Rangers"=>"NYR",
+    "Ottawa"=>"OTT",
+    "Philly"=>"PHI",
+    "Phoenix"=>"PHO",
+    "Pittsburgh"=>"PIT",
+    "St. Louis"=>"STL",
+    "San Jose"=>"SJ",
+    "Tampa Bay"=>"TB",
+    "Toronto"=>"TOR",
+    "Vancouver"=>"VAN",
+    "Washington"=>"WAS",
+    "Columbus"=>"CBJ",
+    "Minnesota"=>"MIN"
+);
+
 ?>

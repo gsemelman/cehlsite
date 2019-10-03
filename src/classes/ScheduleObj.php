@@ -3,6 +3,7 @@
 class ScheduleObj{
     
     var $isPlayed = false;
+    var $isRequired = true;
     var $gameNumber;
     var $gameDay;
     var $team1;
@@ -26,6 +27,22 @@ class ScheduleObj{
     public function setIsPlayed($isPlayed)
     {
         $this->isPlayed = $isPlayed;
+    }
+    
+    /**
+     * @return boolean
+     */
+    public function getIsRequired()
+    {
+        return $this->isRequired;
+    }
+
+    /**
+     * @param boolean $isRequired
+     */
+    public function setIsRequired($isRequired)
+    {
+        $this->isRequired = $isRequired;
     }
 
     /**

@@ -66,6 +66,31 @@ $j = 0;
 $round = 4;
 $playoffLink = '';
 
+if(isPlayoffs($folder, $playoffMode)){
+    $round = 0;
+    if(file_exists($folder.'cehlPLF-Round4-Schedule.html')) {
+        //$fileName = $folder.'cehlPLF-Round4-Schedule.html';
+        $round = 4;
+    }else if(file_exists($folder.'cehlPLF-Round3-Schedule.html')) {
+        //$fileName = $folder.'cehlPLF-Round3-Schedule.html';
+        $round = 3;
+    }else if(file_exists($folder.'cehlPLF-Round2-Schedule.html')) {
+        //$fileName = $folder.'cehlPLF-Round2-Schedule.html';
+        $round = 2;
+    }else if(file_exists($folder.'cehlPLF-Round1-Schedule.html')) {
+        //$fileName = $folder.'cehlPLF-Round1-Schedule.html';
+        $round = 1;
+    }
+    
+    $fileName = getLeagueFile($folder, 'PLF', '-Round'.$round.'-Schedule.html', '-Round'.$round.'-Schedule');
+    $playoffLink = '&rnd='.$round;
+    
+}else{
+    $fileName = getLeagueFile($folder, $playoff, 'Schedule.html', 'Schedule');
+}
+
+
+
 $scheduleHolder = new ScheduleHolder($fileName, '');
 
 
@@ -417,9 +442,22 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
                       </a>
                     </li>
 					<?php 
-					echo '<li class="page-item'.(($game1 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game1.'">'.$game1.'</a></li>';
-                    echo '<li class="page-item'.(($game2 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game2.'">'.$game2.'</a></li>';
-                    echo '<li class="page-item'.(($game3 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game3.'">'.$game3.'</a></li>';
+
+					$gameCounter = $selectedDay >= 3 ? $selectedDay - 2 : $selectedDay;
+					$maxGames = 5;
+					
+					for ($x = 1; $x <= $maxGames; $x++) {
+					    
+					    if($gameCounter > $scheduleHolder->getLastDayPlayed()) continue;
+					    if($gameCounter <= 0) continue;
+					    
+					    echo '<li class="page-item'.(($gameCounter == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$gameCounter.'">'.$gameCounter.'</a></li>';
+					    $gameCounter++;
+					}
+					
+// 					echo '<li class="page-item'.(($game1 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game1.'">'.$game1.'</a></li>';
+//                     echo '<li class="page-item'.(($game2 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game2.'">'.$game2.'</a></li>';
+//                     echo '<li class="page-item'.(($game3 == $selectedDay)?' active':'').'"><a class="page-link" href="'.$CurrentHTML.'.php?dayNum='.$game3.'">'.$game3.'</a></li>';
 
                     ?>
             

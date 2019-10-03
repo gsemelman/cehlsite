@@ -8,6 +8,7 @@ class ScheduleHolder{
     private $schedule = array();
     private $tradeDeadline;
     private $lastDayPlayed;
+    private $days;
     
     public function __construct(string $file, string $filterTeam = '') {
         if(!file_exists($file)) {
@@ -18,6 +19,7 @@ class ScheduleHolder{
         $i = 0;
         $lastDay = 0;
         $lastGame = 0;
+        $days = 0;
         $otGames = array();
 
         $pageHtml = file($file);
@@ -26,6 +28,7 @@ class ScheduleHolder{
               
                 $reste = trim(substr($val, strpos($val, 'Day')));
                 $lastDay = trim(substr($reste, strpos($reste, 'Day')+4, strpos($reste, '< ')-strpos($reste, 'Day')-4));
+                $days++;
                 $i++;
             }
             else if(substr_count($val, 'TRADE DEADLINE')){
@@ -44,6 +47,7 @@ class ScheduleHolder{
                 //game result
                 
                 $isPlayed = false;
+                $isRequired = true;
                 $gameNumber= 0;
                 $gameDay = $lastDay;
                 $team1 = '';
@@ -52,7 +56,8 @@ class ScheduleHolder{
                 $team2Score = 0;
 
                 //game is not played
-                if(substr_count($val, ' at ') && !substr_count($val, '<strike>')){
+               // if(substr_count($val, ' at ') && !substr_count($val, '<strike>')){
+                if(substr_count($val, ' at ')){
                     
                     $reste = trim(str_replace('<br>','', $val));
                     $reste = trim(str_replace('<BR>','', $reste));
@@ -61,6 +66,11 @@ class ScheduleHolder{
                     $team1 = substr($reste, 0, strpos($reste, ' at '));
                     $reste = trim(substr($reste, strpos($reste, ' at ')+4));
                     $team2 = $reste;
+                    
+                    // game not required (should only happen in playoffs)
+                    if(substr_count($val, '<strike>')){
+                        $isRequired = false;
+                    }
                     
                     $i++;
                 }
@@ -120,11 +130,12 @@ class ScheduleHolder{
  
                 $scheduleDay = new ScheduleObj();
                 $scheduleDay->setIsPlayed($isPlayed);
+                $scheduleDay->setIsRequired($isRequired);
                 $scheduleDay->setGameNumber($gameNumber);
                 $scheduleDay->setGameDay($gameDay);
-                $scheduleDay->setTeam1($team1);
+                $scheduleDay->setTeam1(trim($team1));
                 $scheduleDay->setTeam1Score($team1Score);
-                $scheduleDay->setTeam2($team2);
+                $scheduleDay->setTeam2(trim($team2));
                 $scheduleDay->setTeam2Score($team2Score);
  
                 array_push($this->schedule, $scheduleDay);
@@ -143,7 +154,20 @@ class ScheduleHolder{
             }
   
         }
+        
+        $this->days=$days;
 
+    }
+    
+    public function isScheduleComplete(){
+        
+        foreach ($this->getSchedule() as $scheduleDay) {
+            if(!$scheduleDay->getIsPlayed() && $scheduleDay->getIsRequired()){
+                return false;
+            }      
+        }
+        
+        return true;
     }
     
     public function getScheduleByDay($day){
@@ -173,7 +197,9 @@ class ScheduleHolder{
 
     }
     
- 
+    public function getNextGames($amount){
+        $filtered_array = array();
+    }
 
     /**
      * @return multitype:
