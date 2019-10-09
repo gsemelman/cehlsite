@@ -187,24 +187,43 @@ if($playoff == 1){
     $playedGamesRound = $round;
     $nextGamesRound = $round;
     
-    if($scheduleHolder->isSeasonStarted()){
-        $nextGameScheduleHolder = $scheduleHolder;
-    }else if(!$scheduleHolder->isSeasonStarted() && $round > 1){
-        $nextGameScheduleHolder = $scheduleHolder;
-        $previousRound = $round - 1;
-        $fileName = getLeagueFile($folder, $playoff, '-Round'.$previousRound.'-Schedule.html', '-Round'.$previousRound.'-Schedule');
-        $scheduleHolder = new ScheduleHolder($fileName, '');
-        
-        $playedGamesRound = $previousRound;
-    }else if($scheduleHolder->isScheduleComplete() && $round > 1 && $round < 4){
+    if($scheduleHolder->isScheduleComplete() && $round > 1 && $round < 4){
         $nextGameScheduleHolder = $scheduleHolder;
         $nextRound = $round + 1;
         $fileName = getLeagueFile($folder, $playoff, '-Round'.$nextRound.'-Schedule.html', '-Round'.$nextRound.'-Schedule');
         
         $nextGamesRound = $nextRound;
+    }else if(!$scheduleHolder->isSeasonStarted() && $round > 1){
+            $nextGameScheduleHolder = $scheduleHolder;
+            $previousRound = $round - 1;
+            $fileName = getLeagueFile($folder, $playoff, '-Round'.$previousRound.'-Schedule.html', '-Round'.$previousRound.'-Schedule');
+            $scheduleHolder = new ScheduleHolder($fileName, '');
+            
+            $playedGamesRound = $previousRound;
+            $playoffLink = '&rnd='.$previousRound;
     }else{
         $nextGameScheduleHolder = $scheduleHolder;
     }
+    
+//     if($scheduleHolder->isSeasonStarted()){
+//         $nextGameScheduleHolder = $scheduleHolder;
+//     }else 
+//     if(!$scheduleHolder->isSeasonStarted() && $round > 1){
+//         $nextGameScheduleHolder = $scheduleHolder;
+//         $previousRound = $round - 1;
+//         $fileName = getLeagueFile($folder, $playoff, '-Round'.$previousRound.'-Schedule.html', '-Round'.$previousRound.'-Schedule');
+//         $scheduleHolder = new ScheduleHolder($fileName, '');
+        
+//         $playedGamesRound = $previousRound;
+//     }else if($scheduleHolder->isScheduleComplete() && $round > 1 && $round < 4){
+//         $nextGameScheduleHolder = $scheduleHolder;
+//         $nextRound = $round + 1;
+//         $fileName = getLeagueFile($folder, $playoff, '-Round'.$nextRound.'-Schedule.html', '-Round'.$nextRound.'-Schedule');
+        
+//         $nextGamesRound = $nextRound;
+//     }else{
+//         $nextGameScheduleHolder = $scheduleHolder;
+//     }
     
     
     
