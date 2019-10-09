@@ -224,9 +224,11 @@ if(file_exists($Fnm)) {
 			<tr><td class="text-left">'.$financeProPayroll.'</td><td class="text-right"">'.$propayroll.'$</td></tr>
 			<tr><td class="text-left">'.$financeFarmPayroll.'</td><td class="text-right"">'.$farmpayroll.'$</td></tr>
 			<tr><td class="text-left">'.$financeProspectFees.'</td><td class="text-right"">'.$prospectfees.'$</td></tr>
-			<tr><td class="text-left">'.$financeCoach.'</td><td class="text-right"">'.$coach.'$</td></tr>
-			<tr><td class="text-left">'.$financeGamesRemaining.'</td><td class="text-right"">'.$gamesremaining.'</td></tr>
-			<tr><td class="text-left">'.$financeTotalGameExpenses.'</td><td class="text-right"">'.$totalgameexpenses.'$</td></tr>
+			<tr><td class="text-left">'.$financeCoach.'</td><td class="text-right"">'.$coach.'$</td></tr>';
+    		if($currentPLF == 0){
+    		    echo '<tr><td class="text-left">'.$financeGamesRemaining.'</td><td class="text-right"">'.$gamesremaining.'</td></tr>';
+    		}
+			echo '<tr><td class="text-left">'.$financeTotalGameExpenses.'</td><td class="text-right"">'.$totalgameexpenses.'$</td></tr>
 			<tr><td class="text-left">'.$financeProjectExpenses.'</td><td class="text-right"">'.$projectedexpenses.'$</td></tr>
             </tbody> 
             <tfoot>
