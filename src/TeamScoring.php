@@ -88,8 +88,18 @@ include 'TeamHeader.php';
 									<label class="input-group-text" for="typeMenu">Type</label>
 								</div>
 								<select class="custom-select" id="typeMenu">
-									<option selected value=REG>Regular</option>
-									<option value=PLF>Playoffs</option>
+<!-- 									<option selected value=REG>Regular</option> -->
+<!-- 									<option value=PLF>Playoffs</option> -->
+
+                                        <?php 
+                                        if(isPlayoffs($folder, $playoffMode)){
+                                            echo '<option value=REG>Regular</option>';
+                                            echo '<option selected value=PLF>Playoffs</option> ';
+                                        }else{
+                                            echo '<option selected value=REG>Regular</option>';
+                                            echo '<option value=PLF>Playoffs</option> ';
+                                        }
+                                        ?>
 								</select>
 							</div>
 						</div>
