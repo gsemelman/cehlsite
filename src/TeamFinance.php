@@ -241,11 +241,17 @@ if(file_exists($Fnm)) {
         	</thead>
             <tbody>
 			<tr><td class="text-left">'.$financeCurrentFunds.'</td><td class="text-right"">'.$currentfunds.'$</td></tr>';
-			if($currentPLF == 0) echo '<tr><td class="text-left">'.$financeHomeGameRemaining.'</td><td class="text-right"">'.$homeGamesRemaining.'</td></tr>
+// 			if($currentPLF == 0) echo '<tr><td class="text-left">'.$financeHomeGameRemaining.'</td><td class="text-right"">'.$homeGamesRemaining.'</td></tr>
+// 			<tr><td class="text-left">'.$financeAVGAttendance.'</td><td class="text-right"">'.$avgAttendance.'</td></tr>
+// 			<tr><td class="text-left">'.$financeAVGRevenueParGame.'</td><td class="text-right"">'.$avgRevenueGame.'$</td></tr>
+// 			<tr><td class="text-left">'.$financeProjectedRevenue.'</td><td class="text-right"">'.$projectedRevenue.'$</td></tr>
+// 			</tbody>
+// 			</table>';
+		    if($currentPLF == 0) echo '<tr><td class="text-left">'.$financeHomeGameRemaining.'</td><td class="text-right"">'.$homeGamesRemaining.'</td></tr>
 			<tr><td class="text-left">'.$financeAVGAttendance.'</td><td class="text-right"">'.$avgAttendance.'</td></tr>
 			<tr><td class="text-left">'.$financeAVGRevenueParGame.'</td><td class="text-right"">'.$avgRevenueGame.'$</td></tr>
-			<tr><td class="text-left">'.$financeProjectedRevenue.'</td><td class="text-right"">'.$projectedRevenue.'$</td></tr>
-			</tbody>
+			<tr><td class="text-left">'.$financeProjectedRevenue.'</td><td class="text-right"">'.$projectedRevenue.'$</td></tr>';
+			echo '</tbody>
 			</table>';
 	echo '</div>';
 	echo '</div>';
