@@ -101,6 +101,11 @@ for ($i = $miniNextGame; $i <= $miniNextToProcess; $i ++) {
     echo '<div class = "row">';
 
     foreach ($miniGames as $games) {
+        
+        if(!$games->getIsRequired()){
+            continue;
+        }
+        
             $matches = glob($folderTeamLogos . strtolower($games->team1) . '.*');
             $todayImage1 = '';
             for ($j = 0; $j < count($matches); $j ++) {

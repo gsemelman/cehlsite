@@ -170,9 +170,15 @@ class ScheduleHolder{
         return true;
     }
     
+    public function getScheduleByDayFilterNonRequired($day){
+        $array = getFilteredArray('gameDay', $day, $this->getSchedule());
+        return getFilteredArray('isRequired', true, $array);
+    }
+    
     public function getScheduleByDay($day){
         return getFilteredArray('gameDay', $day, $this->getSchedule());
     }
+    
     
     public function getLastScheduleDay(){
         return getFilteredArray('gameDay', $this->getLastDayPlayed(), $this->getSchedule());

@@ -119,6 +119,10 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 
 		foreach ($lastGames as $game) {
 		//for($i=0;$i<count($lastGames);$i++) {
+		
+		    if(!$game->getIsRequired()){
+		        continue;
+		    }
 		    
 		    $lastEquipe1 = $game->getTeam1(); 
 		    $lastEquipe2  = $game->getTeam2(); 
@@ -496,6 +500,10 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 			//for($i=0;$i<count($lastGames);$i++){
 			$i = 0;
 		    foreach ($lastGames as $game) {
+		        
+		        if(!$game->getIsRequired()){
+		            continue;
+		        }
 			    
 			    $lastEquipe1 = $game->getTeam1();
 			    $lastEquipe2  = $game->getTeam2();
