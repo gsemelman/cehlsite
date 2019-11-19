@@ -36,6 +36,7 @@ if($currentPLF == 1){
 					<select class="form-control" aria-label="Select Season"
 						id="seasonMenu" aria-describedby="seasonMenuHeader">
 						<option value="Current">Current</option>
+						<option value=27>Season 27</option>
 						<option value=26>Season 26</option>
 						<option value=25>Season 25</option>
 						<option value=24>Season 24</option>

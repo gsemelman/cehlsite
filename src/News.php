@@ -1,4 +1,25 @@
 <div class="card">
+  <img class="card-img-top" src="./assets/img/news/2018_draft.png" alt="News Image">
+  <div class="card-body">
+    <h5 class="card-title">Live from CEHL HQ - Nov 18th, 2019</h5>
+    
+    <p class="small-paragraph text-left">The CEHL Draft is upon us!</p>
+    
+    <p class="small-paragraph text-left">The Draft will be held on November 23rd at 1PM EST</p>
+    
+    <p class="small-paragraph text-left">We are will be drafting players eligible for the 2018 NHL Draft. That is any player born before September 15th, 2000</p>
+
+	<p class="small-paragraph text-left">If you can not make the draft, please feel free to email me a list of ranked players</p>
+
+	<p class="small-paragraph text-left">The draft will be held in on a Google doc that will be updated live. Picks will be made on the FB chat group. 
+	If you are not in the group, you can email me when you pick comes close</p>
+	
+	<p class="small-paragraph text-left">Click below to open the draft board</p>
+    <a href="https://docs.google.com/spreadsheets/d/1-EHOk52yhBcJayCS6dlfT6Bb3OFu8UnMooi7rjkbVBI/edit?usp=sharing" class="btn btn-outline-primary">2018 CEHL Draft</a>
+  </div>
+</div>
+
+<div class="card">
   <img class="card-img-top" src="./assets/img/news/rangers.jpg" alt="News Image">
   <div class="card-body">
     <h5 class="card-title">Live from CEHL HQ - Nov 13th, 2019</h5>

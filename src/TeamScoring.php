@@ -51,6 +51,7 @@ include 'TeamHeader.php';
 
 								<select class="col custom-select" id="seasonMenu">
 									<option selected value="Current">Current</option>
+									<option value=27>27</option>
 									<option value=26>26</option>
 									<option value=25>25</option>
 									<option value=24>24</option>
