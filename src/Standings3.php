@@ -16,6 +16,9 @@ if($currentPLF == 1){
     $seasonActive = 'active';
 }
 
+//get seasons which will be used to populate previous season dropdown if they exist
+$previousSeasons = getPreviousSeasons(CAREER_STATS_DIR);
+
 ?>
 
 <div class="container wow fadeIn">
@@ -36,10 +39,15 @@ if($currentPLF == 1){
 					<select class="form-control" aria-label="Select Season"
 						id="seasonMenu" aria-describedby="seasonMenuHeader">
 						<option value="Current">Current</option>
-						<option value=27>Season 27</option>
-						<option value=26>Season 26</option>
-						<option value=25>Season 25</option>
-						<option value=24>Season 24</option>
+						<?php 
+                        //set dropdown dynamically from prev season dirs
+						if (!empty($previousSeasons)) {
+						    foreach ($previousSeasons as $prevSeason) {
+						        echo '<option value='.$prevSeason.'>'.$prevSeason.'</option>';
+						    }
+						}
+					
+						?>
 					</select>
 				</div>
 			</div>
@@ -98,7 +106,7 @@ if($currentPLF == 1){
     	    url: './StandingsTemplate2.php',
     	    data: {seasonId: selection},
     	    success: function(data){
-    	    	$('#SeasonInner').html(data);
+    	    	$('#SeasonInner').html(data.trim());
     	    }
     	});
 
@@ -109,7 +117,7 @@ if($currentPLF == 1){
     	    url: './StandingsTreeTemplate.php',
     	    data: {seasonId: selection},
     	    success: function(data){
-    	    	$('#PlayoffsInner').html(data);
+    	    	$('#PlayoffsInner').html(data.trim());
     	    }
     	});
         

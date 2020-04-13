@@ -27,7 +27,8 @@ include_once 'classes/PlayerVitalsHolder.php';
 	<div class="card-header p-1">
 		<?php include 'TeamCardHeader.php'?>
 	</div>
-    	<div class="card-body px-2 px-lg-4 pt-3 wow fadeIn">
+<!--     	<div class="card-body px-2 px-lg-4 pt-3 wow fadeIn"> -->
+		<div class="card-body px-2 px-lg-4 pt-3">
     
                     <?php
 

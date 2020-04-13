@@ -116,6 +116,25 @@ function getFilteredArray($aFilterKey, $aFilterValue, $array) {
     return $filtered_array;
 }
 
+function getPreviousSeasons($folderCarrerStats):array{
+    $seasons = array();
+    
+    if(isset($folderCarrerStats)) {
+
+        $dirs = array_filter(glob(str_replace("#/","*",$folderCarrerStats)), 'is_dir');
+
+        foreach($dirs as $dir) {
+            $tmpYear = substr($dir, strlen($folderCarrerStats)-2);
+            array_push($seasons, $tmpYear);
+        }
+        
+    }
+    
+    rsort($seasons);
+    
+    return $seasons;
+}
+
 // function startsWith($haystack, $needle)
 // {
 //     return strncmp($haystack, $needle, strlen($needle)) === 0;

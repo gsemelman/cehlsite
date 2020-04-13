@@ -1,4 +1,21 @@
 <div class="card">
+  <img class="card-img-top" src="./assets/img/news/fa.jpg" alt="News Image">
+  <div class="card-body">
+    <h5 class="card-title">Live from CEHL HQ - March 27th, 2020</h5>
+    
+    <p class="small-paragraph text-left">CEHL RETURNS</p>
+    
+    <p class="small-paragraph text-left">Free Agency for season 28 will open Tuesday March 31st at 8PM EST</p>
+    
+    <p class="small-paragraph text-left">Some of the agents have changed so be sure to check the Free Agents page before making a bid.</p>
+    
+    <p class="small-paragraph text-left">Please see the rules page for details on RFA compensation and other FA rules</p>
+
+
+  </div>
+</div>
+
+<div class="card">
   <img class="card-img-top" src="./assets/img/news/2018_draft.png" alt="News Image">
   <div class="card-body">
     <h5 class="card-title">Live from CEHL HQ - Nov 18th, 2019</h5>
@@ -19,49 +36,49 @@
   </div>
 </div>
 
-<div class="card">
-  <img class="card-img-top" src="./assets/img/news/rangers.jpg" alt="News Image">
-  <div class="card-body">
-    <h5 class="card-title">Live from CEHL HQ - Nov 13th, 2019</h5>
+<!-- <div class="card"> -->
+<!--   <img class="card-img-top" src="./assets/img/news/rangers.jpg" alt="News Image"> -->
+<!--   <div class="card-body"> -->
+<!--     <h5 class="card-title">Live from CEHL HQ - Nov 13th, 2019</h5> -->
     
-    <p class="small-paragraph text-left">Congratulations to the CEHL Season 27 Smitty Cup Winner the New York Rangers!</p>
+<!--     <p class="small-paragraph text-left">Congratulations to the CEHL Season 27 Smitty Cup Winner the New York Rangers!</p> -->
     
-    <p class="small-paragraph text-left">Once a CEHL tanking god, Mark Mead has turned his team into one of the best the league has ever seen.</p>
+<!--     <p class="small-paragraph text-left">Once a CEHL tanking god, Mark Mead has turned his team into one of the best the league has ever seen.</p> -->
     
-    <p class="small-paragraph text-left">Andy Bradley and the Edmonton Oilers were a formidible opponent, but the Rangers with 3 previous game 7 come from behind
-    victories seemed poised to take down the league's highest honor the Smitty Cup.</p>
+<!--     <p class="small-paragraph text-left">Andy Bradley and the Edmonton Oilers were a formidible opponent, but the Rangers with 3 previous game 7 come from behind -->
+<!--     victories seemed poised to take down the league's highest honor the Smitty Cup.</p> -->
 
-	<p class="small-paragraph text-left">The late season pickup of Henrik Lundqvist proved to be 
-	crucial for Rangers cup victory as he came out in Championship form and took home the Conn Smyth</p>
+<!-- 	<p class="small-paragraph text-left">The late season pickup of Henrik Lundqvist proved to be  -->
+<!-- 	crucial for Rangers cup victory as he came out in Championship form and took home the Conn Smyth</p> -->
 
-	 <p class="small-paragraph text-left">Next up is the draft which will be held on November 23rd at 1PM EST. Details to come...</p>
-  </div>
-</div>
+<!-- 	 <p class="small-paragraph text-left">Next up is the draft which will be held on November 23rd at 1PM EST. Details to come...</p> -->
+<!--   </div> -->
+<!-- </div> -->
 
-<div class="card">
-  <img class="card-img-top" src="./assets/img/news/draftlottery.jpg" alt="News Image">
-  <div class="card-body">
-    <h5 class="card-title">Live from CEHL HQ - Oct 15th, 2019</h5>
+<!-- <div class="card"> -->
+<!--   <img class="card-img-top" src="./assets/img/news/draftlottery.jpg" alt="News Image"> -->
+<!--   <div class="card-body"> -->
+<!--     <h5 class="card-title">Live from CEHL HQ - Oct 15th, 2019</h5> -->
     
-    <p class="small-paragraph text-left">In what will go down as a great day in history, the CEHL lottery draft was held today</p>
+<!--     <p class="small-paragraph text-left">In what will go down as a great day in history, the CEHL lottery draft was held today</p> -->
     
-      <p class="small-paragraph text-left">Congratulations LA and Vancouver (MTL) for moving up in the draft!</p>
+<!--       <p class="small-paragraph text-left">Congratulations LA and Vancouver (MTL) for moving up in the draft!</p> -->
 
-	<p class="small-paragraph text-left">Watch the video below to view the full draft</p>
+<!-- 	<p class="small-paragraph text-left">Watch the video below to view the full draft</p> -->
 
 		
 	
-	<div class="d-flex justify-content-center">
-		<video width="320" height="240" controls>
-      <source src="./assets/img/news/lottery-draft.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+<!-- 	<div class="d-flex justify-content-center"> -->
+<!-- 		<video width="320" height="240" controls> -->
+<!--       <source src="./assets/img/news/lottery-draft.mp4" type="video/mp4"> -->
+<!--       Your browser does not support the video tag. -->
+<!--     </video> -->
 	
-	</div>
+<!-- 	</div> -->
 
 
-  </div>
-</div>
+<!--   </div> -->
+<!-- </div> -->
 
 
 

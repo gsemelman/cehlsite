@@ -27,7 +27,7 @@ include 'TeamHeader.php';
     		 <?php include 'TeamCardHeader.php'; ?>
     	
     	</div>
-    	<div class="card-body wow fadeIn">
+    	<div class="card-body">
     			<div class="row mb-2">
             		
             		<div class="col col-md-8 col-lg-6">

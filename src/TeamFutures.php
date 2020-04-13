@@ -107,7 +107,7 @@ if(file_exists($Fnm)) {
     		 <?php include 'TeamCardHeader.php'; ?>
     	
     	</div>
-    	<div class="card-body wow fadeIn">
+    	<div class="card-body">
     		<div class="row">
     			<div class = "col-sm-12 col-md-6">
     			

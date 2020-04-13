@@ -55,7 +55,7 @@ if(file_exists($Fnm)) {
 				   include 'TeamCardHeader.php';
 				
 				echo' </div>';
-				echo '<div class="card-body wow fadeIn">';
+				echo '<div class="card-body">';
 
 			}
 			if(substr_count($val, 'A NAME='.$currentTeam) && $d) {

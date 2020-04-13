@@ -96,7 +96,7 @@ include 'TeamHeader.php';
               <?php include 'TeamCardHeader.php' ?>
 			
 		</div>
-		<div class="card-body wow fadeIn">
+		<div class="card-body">
 		
         	<?php 
         	if($currentPLF == 1 && isset($existRnd)) {
@@ -111,7 +111,7 @@ include 'TeamHeader.php';
         	}
         	?>
 
-			<div class = "row wow fadeIn">
+			<div class = "row">
 				<div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
 				<div class="tableau-top">Team Schedule</div>
 				<div class = "table-responsive">

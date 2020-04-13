@@ -726,7 +726,7 @@ echo'<div class="card-header p-1">';
         
 echo' </div>';
 
-echo '<div class="card-body wow fadeIn">';
+echo '<div class="card-body">';
 
 echo '<div class = "row">';
 	echo '<div class = "col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">';

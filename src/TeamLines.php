@@ -37,7 +37,7 @@ if(file_exists($Fnm)) {
 			    include 'TeamCardHeader.php';
 			
 			echo' </div>';
-			echo '<div class="card-body wow fadeIn">';
+			echo '<div class="card-body">';
 
 			//echo '<h5 class = "text-center wow fadeIn">'.$allLastUpdate.' '.$val.'</h5>';	
 			

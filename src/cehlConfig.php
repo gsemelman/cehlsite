@@ -1,10 +1,10 @@
 <?php
 
 $agentDivisions = array("Northeast"=>"Andrew Bradley", "Atlantic"=>"Cory Williams", "Southeast"=>"Jeremy Wall",
-    "Central"=>"Dan Rudd", "Pacific"=>"Grant Semelman", "Northwest"=>"Colin March");
+    "Central"=>"Chad Wise", "Pacific"=>"Grant Semelman", "Northwest"=>"Colin March");
 
 $agentEmails = array("Andrew Bradley"=>"abdraftsman@hotmail.com", "Cory Williams"=>"corywa@gmail.com", "Jeremy Wall"=>"jeremy_wall@hotmail.com",
-    "Dan Rudd"=>"danielrudd4@gmail.com", "Grant Semelman"=>"grant3@gmail.com", "Colin March"=>"cehlottawa@gmail.com");
+    "Chad Wise"=>"pudge119@hotmail.com", "Grant Semelman"=>"grant3@gmail.com", "Colin March"=>"cehlottawa@gmail.com");
 
 $teamDivisions = array(
     "Anaheim"=>"Pacific",
