@@ -119,9 +119,9 @@ class RostersHolder{
                 $reste = trim(substr($reste, strpos($reste, ' ')));
                 $sk = substr($reste, 0, strpos($reste, ' '));
                 $reste = trim(substr($reste, strpos($reste, ' ')));
-                $pc = substr($reste, 0, strpos($reste, ' '));
-                $reste = trim(substr($reste, strpos($reste, ' ')));
                 $pa = substr($reste, 0, strpos($reste, ' '));
+                $reste = trim(substr($reste, strpos($reste, ' ')));
+                $pc = substr($reste, 0, strpos($reste, ' '));
                 $reste = trim(substr($reste, strpos($reste, ' ')));
                 $df = substr($reste, 0, strpos($reste, ' '));
                 $reste = trim(substr($reste, strpos($reste, ' ')));

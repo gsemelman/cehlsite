@@ -11,11 +11,13 @@ require_once 'config.php';
 include 'lang.php';
 include_once 'classes/ScheduleHolder.php';
 include_once 'classes/ScheduleObj.php';
+include_once 'classes/TeamAbbrHolder.php';
 
 $CurrentHTML = 'Scores';
 $CurrentTitle = 'Scores';
 $CurrentPage = 'Scores';
 include 'head.php';
+
 
 
 if(!function_exists('search')) {
@@ -94,7 +96,26 @@ if(isPlayoffs($folder, $playoffMode)){
 $scheduleHolder = new ScheduleHolder($fileName, '');
 
 
+// Find Teams Abbr
+// $matches = glob($folder.'*TeamScoring.html');
+// $folderLeagueURL3 = '';
+// $matchesDate = array_map('filemtime', $matches);
+// arsort($matchesDate);
+// foreach ($matchesDate as $j => $val) {
+//     if(!substr_count($matches[$j], 'PLF')) {
+//         $folderLeagueURL3 = substr($matches[$j], strrpos($matches[$j], '/')+1,  strpos($matches[$j], 'TeamScoring')-strrpos($matches[$j], '/')-1);
+//         break 1;
+//     }
+// }
 
+// $teanScoringFile = $folder.$folderLeagueURL3.'TeamScoring.html';
+
+$gmFile = getLeagueFile($folder, $playoff, 'GMs.html', 'GMs');
+$teamScoringFile = getLeagueFile($folder, $playoff, 'TeamScoring.html', 'TeamScoring');
+$teamAbbrHolder = new TeamAbbrHolder($gmFile,$teamScoringFile);
+
+
+//set days
 if(isset($dayNum)){
     $selectedDay = intval($dayNum);
 }else{
@@ -121,6 +142,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 		//for($i=0;$i<count($lastGames);$i++) {
 		
 		    if(!$game->getIsRequired()){
+		        $i++;
 		        continue;
 		    }
 		    
@@ -129,6 +151,10 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 		    $lastScore1 = $game->getTeam1Score();
 		    $lastScore2 = $game->getTeam2Score();
 		    
+		    $team1abbr = $teamAbbrHolder->getAbbr($lastEquipe1);
+		    $team2abbr = $teamAbbrHolder->getAbbr($lastEquipe2);
+		   
+
 			//$matchNumber = $lastGames[$i];
 		    $matchNumber = $game->getGameNumber();
 			if($playoff == '') $Fnm = $folder.$folderGames.$folderLeagueURL.$matchNumber.'.html';
@@ -144,6 +170,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 			$gameOvertime[$i] = '';
 			$test='';
 			if(file_exists($Fnm)) {
+			    
 				$tableau = file($Fnm);
 				while(list($cle,$val) = myEach($tableau)) {
 					$val = utf8_encode($val);
@@ -158,7 +185,9 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 						$gameTeam2[$i] = substr($val, $pos, $long2);
 						$a = 1;
 						$b = 1;
+
 					}
+					
 					
 					if((isset($gameTeam1[$i]) && (substr_count($val, '<TR><TD>'.$gameTeam1[$i])) || (isset($gameTeam2[$i]) && substr_count($val, '<TR><TD>'.$gameTeam2[$i]))) && $b >= 1 && $b < 5) {
 						$gameMod = prev($tableau);
@@ -181,6 +210,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 						if($b == 3) $gameAway2[$i][4] = substr($gameMod, $pos_avant, $long1);
 						if($b == 4) $gameHome2[$i][4] = substr($gameMod, $pos_avant, $long1);
 						$b++;
+
 					}
 					
 					if((substr_count($val, '>Period') || substr_count($val, '>Overtime<')) && ($a == 1 || $a == 3)) {
@@ -189,6 +219,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 						if(substr_count($val, '>Overtime<')) {
 							$gameOvertime[$i] = ' (OT)';
 						}
+						
 					}
 						
 					if(substr_count($val, '(') && $a == 2 && !substr_count($val, 'PENALTIES') ) {
@@ -208,12 +239,17 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 							$gameScorer2Nbr[$i][$k] = $tmpScorerNbr;
 							$k++;
 						}
+						
 					}
 					if(strlen($val) < 10 && $a == 2) {
 						$a = 3;
 					}
+					
 					if(substr_count($val, 'saves out of') && $a == 3) {
+
 						$tmpGoalName = '<b>'.trim(substr($val, 0, strpos($val, '('))).'</b>';
+						$tmpTeam = trim(substr($val, strpos($val, '(')+1, 3));
+						//echo $tmpTeam;
 						$reste = trim(substr($val, strpos($val, ',')+1));
 						$tmpGoalSaves = trim(substr($reste, 0, strpos($reste, 'saves')-1));
 						$reste = trim(substr($reste, strpos($reste, 'of')+2));
@@ -222,15 +258,66 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 						$tmpGoalStatus = trim(substr($reste, 0, strpos($reste, ',')));
 						$reste = trim(substr($reste, strpos($reste, ',')+1));
 						$tmpGoalRecord = trim(substr($reste, 0, strpos($reste, '<')));
+
+						$tmpGoalieResult = 'N/A';
+						
 						if($tmpGoalStatus == 'W' || $tmpGoalStatus == 'L' || $tmpGoalStatus == 'T') {
-							if(isset($gameGoal1[$i]) && !isset($gameGoal2[$i])) {
-								$gameGoal2[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
-								$a = 4;
-							}
-							if(!isset($gameGoal1[$i])) $gameGoal1[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
+						    $tmpGoalieResult = $tmpGoalName.' ('.$tmpGoalSaves.'SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
+						    
+						}else{
+						    $tmpGoalieResult = $tmpGoalName.' ('.$tmpGoalSaves.'SV)';//'.$tmpGoalShots.'
 						}
+						
+						if(strcmp($team1abbr, $tmpTeam) == 0){
+						    $gameGoal1[$i] = $tmpGoalieResult;
+						}else if(strcmp($team2abbr, $tmpTeam) == 0){
+						    $gameGoal2[$i]  = $tmpGoalieResult;
+						}
+						
+// 						if($tmpGoalStatus == 'W' || $tmpGoalStatus == 'L' || $tmpGoalStatus == 'T') {
+// 							if(!isset($gameGoal1[$i])){
+// 							    $gameGoal1[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
+// 							}else{
+// 							    $gameGoal2[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, '.$tmpGoalRecord.')';//'.$tmpGoalShots.'
+// 							}
+							
+// 							$gProcessed++;
+// 						}else{
+// 						    //rendering issue.. For some reason record and W/L/T not listed.
+						    
+// 						    if(!isset($gameGoal1[$i])){
+// 						        $gameGoal1[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, N/A)';//'.$tmpGoalShots.'
+// 						    }else{
+// 						        $gameGoal2[$i] = $tmpGoalName.' ('.$tmpGoalSaves.'SV, N/A)';//'.$tmpGoalShots.'
+// 						    }
+
+// 						}
+						
+	                    //stop and continue to next step if both goalies set.
+						if(isset($gameGoal1[$i]) && isset($gameGoal2[$i])){
+						    $a = 4;
+						}
+						
+						
+						//will happen if no home team goalie or no goalies play
+						//skip to next step which will set to NA
+						if(!isset($gameGoal1[$i]) && isset($gameGoal2[$i])){
+						    $a = 4;
+						}
+	
+                        
 					}
 					if(substr_count($val, 'Game Stars') && $a == 4) {
+					    
+					    //default in case not set.
+					    if(!isset($gameGoal1[$i])){
+					        $gameGoal1[$i] = 'N/A';
+					    }
+					    
+					    if(!isset($gameGoal2[$i])){
+					        $gameGoal2[$i] = 'N/A';
+					    }
+					    
 						$a = 5;
 					}
 					if(substr_count($val, '(') && $a == 5) {
@@ -241,6 +328,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 						}
 						if(isset($gameStar1[$i]) && !isset($gameStar2[$i])) $gameStar2[$i] = $tmpGameStar;
 						if(!isset($gameStar1[$i])) $gameStar1[$i] = $tmpGameStar;
+						
 					}
 					if(substr_count($val, '</TD><TD><PRE>') && $a == 7) {
 						$a = 8;
@@ -276,7 +364,7 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
 				}
 			}
 			else echo $allFileNotFound.' - '.$Fnm;
-			
+		
 			$i++;
 		}
 	}
@@ -619,11 +707,13 @@ $lastGames = $scheduleHolder->getScheduleByDay($selectedDay);
                 echo '<div class = "row game-score-footer" style="margin-top: -15px;">'; //goals scoring details
                     //echo '<span class = "footer-header">Goals</span>';
                     echo '<div class = "footer-header text-left" style="width: 100%;">Goals</div>';
-                    
+
                     $scoringList = '';
                     if(isset($gameScorer1[$i])) {
+                        
                         for($j=0;$j<count($gameScorer1[$i]);$j++) {
                             $tmpScorer1 = '';
+                            
                             for($w=0;$w<count($gamePlayersList1[$i]);$w++) {
                                 $tmpPlayerListCAP = mb_strtoupper($gamePlayersList1[$i][$w], 'UTF-8');
                                 if(isset($gameScorer1[$i][$j]) && $gameScorer1[$i][$j] != '' && substr_count($tmpPlayerListCAP, $gameScorer1[$i][$j])) {

@@ -420,7 +420,7 @@ class GameHolder implements \JsonSerializable
                           }
                               
                             
-                
+                          unset($tmpPunList);
                             
                         }
                     
