@@ -4,332 +4,442 @@ $dataTablesRequired = 1; //require datatables import
 require_once 'config.php';
 include 'lang.php';
 $CurrentHTML = 'WaiverDraft.php';
-$CurrentTitle = 'WaiverDraft';
-$CurrentPage =  'WaiverDraft';
+$CurrentTitle ='Waiver Draft';
+$CurrentPage = 'WaiverDraft';
 include 'head.php';
 
-include_once 'common.php';
+include_once 'classes/TeamHolder.php';
 
+$gmFile = getLeagueFile($folder, $playoff, 'GMs.html', 'GMs');
+$teams = new TeamHolder($gmFile);
 
-//READ WAIVER CSV
-$waiverArray = array();
-$start_row = 2; //define start row
-$i = 1; //define row count flag
-$csvLocation = $folderLegacy."waiverDraft.csv";
-$file = fopen($csvLocation, "r");
-while (($row = fgetcsv($file)) !== FALSE) {
-    if($i >= $start_row) {
-        $waiverArray[$i] = $row;
-    }
-    $i++;
-}
-
-function calcOv(&$arr){
-    
-    $ov = 0;
-    
-
-    
-    if($arr[3] == 'C' ||$arr[3] == 'RW' || $arr[3] == 'LW' ) {
-        $weighted_total =
-        ($arr[4] * 5) +
-        ($arr[5]* 5) +
-        ($arr[6] * 7) +
-        ($arr[7] * 3) +
-        ($arr[8] * 1) +
-        ($arr[9] * 1) +
-        ($arr[10] * 6) +
-        ($arr[11] * 10) +
-        ($arr[12] * 8) +
-        ($arr[13] * 7) +
-        ($arr[14] * 13) +
-        ($arr[15]* 1) +
-        ($arr[16] * 1);
-        $ov = 5 + ($weighted_total / 68);
-        $ov = round($ov,0);
-       
-    }
-    
-    //defensive D
-    if($arr[3] == "D" && (($arr[11] + $arr[14]) >= ($arr[13] + $arr[6]))) {
-        $weighted_total =
-        ($arr[4] * 4) +
-        ($arr[5]* 8) +
-        ($arr[6] * 4) +
-        ($arr[7] * 3) +
-        ($arr[8] * 1) +
-        ($arr[9] * 1) +
-        ($arr[10] * 8) +
-        ($arr[11] * 11) +
-        ($arr[12] * 6) +
-        ($arr[13] * 6) +
-        ($arr[14] * 11) +
-        ($arr[15]* 1) +
-        ($arr[16] * 1);
-        $ov = 5 + ($weighted_total / 68);
-        $ov = round($ov,0);
-        
-    }
-    
-    //offensive D
-    if($arr[3] == "D" && $ov == 0) {
-        $weighted_total =
-        ($arr[4] * 8) +
-        ($arr[5]* 5) +
-        ($arr[6] * 10) +
-        ($arr[7] * 3) +
-        ($arr[8] * 1) +
-        ($arr[9] * 1) +
-        ($arr[10] * 6) +
-        ($arr[11] * 8) +
-        ($arr[12] * 6) +
-        ($arr[13] * 13) +
-        ($arr[14] * 5) +
-        ($arr[15]* 1) +
-        ($arr[16] * 1);
-        $ov = 5 + ($weighted_total / 68);
-        $ov = round($ov,0);
-        
-    }
-    
-    //G
-    if($arr[3] == "G" && $ov == 0) {
-        $weighted_total =
-        ($arr[4] * 5) +
-        ($arr[5]* 17) +
-        ($arr[6] * 4) +
-        ($arr[7] * 3) +
-        ($arr[8] * 1) +
-        ($arr[9] * 1) +
-        ($arr[10] * 7) +
-        ($arr[11] * 3) +
-        ($arr[12] * 8) +
-        ($arr[15]* 1) +
-        ($arr[16] * 1);
-        $ov = $weighted_total / 53;
-        $ov = round($ov,0);
-        
-    }
-    
-    return $ov;
-
-}
 ?>
-
-
-
-
 
 <style>
 
- #faTable { 
-   display:none;  
- } 
+.input-group>.input-group-prepend{
+    flex: 0 0 25%;
+}
+
+#searchFields .input-group .input-group-text{
+    width:100%
+}
+
+#advancedSearch .input-group>.input-group-prepend{
+    flex: 0 0 30%;
+}
+
+
 
 </style>
 
-	<div class = "container-fluid" style = "width: 100%; height: 100%;">
-		
-    	<div class = "card">
-    		<div class = "card-header">
-    			<h3><?php echo $CurrentTitle; ?></h3>
-    		</div>
-    		<div class = "card-body p-2">
-    			<div class="container">
-        			<div class = "row justify-content-center" style="padding-top:10px;"> 
-    
-                		<div class="col-*-*">
-                    		<label style="padding-right:10px;" class="text-center" for="positionInputField">Position: </label> 
-                    	</div>
-                    	<div class="col-*-*">
-                    		<select
-                			name="positionInputField" class="form-control mb-3"
-                			id="positionInputField">
-                			<option value="">All Players</option>
-                			<option value="Skaters">All Skaters</option>
-                			<option value="Forwards">All Forwards</option>
-                			<option value="C">Center</option>
-                			<option value="RW">Right Wing</option>
-                			<option value="LW">Left Wing</option>
-                			<option value="D">Defense</option>
-                			<option value="G">Goalie</option>
-                			</select>
-                    	</div>
-                
-                		
-                	</div>
-                
-                	<div class = "row"> 
-                	<?php
-                	
-                	$i=0;
-                	foreach ($waiverArray as $value){
-                	    
-                	    $unassignedPL[$i] = $value[1];
-                	    $unassignedPO[$i] = $value[2];
-                	    $unassignedAG[$i] = $value[3];
-                	    $unassignedIT[$i] = $value[4];
-                	    $unassignedSP[$i] = $value[5];
-                	    $unassignedST[$i] = $value[6];
-                	    $unassignedEN[$i] = $value[7];
-                	    $unassignedDU[$i] = $value[8];
-                	    $unassignedDI[$i] = $value[9];
-                	    $unassignedSK[$i] = $value[10];
-                	    $unassignedPA[$i] = $value[11];
-                	    $unassignedPC[$i] = $value[12];
-                	    $unassignedDF[$i] = $value[13];
-                	    $unassignedSC[$i] = $value[14];
-                	    $unassignedEX[$i] = $value[15];
-                	    $unassignedLD[$i] = $value[16];
-                	    $unassignedSAL[$i] = $value[17];
-                	    $unassignedCT[$i] = $value[18];
-                	    $unassignedOV[$i]  = calcOv($value);
-                	    $unassignedSts[$i] = $value[19];
-                	    
-                	    $i++;
-                	}
-                
-                    
-                		    if(isset($unassignedPL)) {
-                		        
-                		        
-                		        echo '<div class="table-responsive">';
-                		        //echo '<table id="freeAgents" class="table table-sm table-striped fixed-column-striped">';
-                		        echo '<table id="faTable" class="table table-sm table-striped nowrap" style="width:100%">';
-                		          echo '<thead>
-                                            <tr>
-                                                <th>'.$rostersName.'</th>
-                                                <th>Age</th>
-                                    			<th>PO</th>
-                                                <th>Salary</th>
-                                                <th>Contract</th>
-                                                <th>Status</th>
-                                                <th>'.$rostersIT.'</th>
-                                                <th>'.$rostersSP.'</th>
-                                                <th>'.$rostersST.'</th>
-                                                <th>'.$rostersEN.'</th>
-                                                <th>'.$rostersDU.'</th>
-                                                <th>'.$rostersDI.'</th>
-                                                <th>'.$rostersSK.'</th>
-                                                <th>'.$rostersPA.'</th>
-                                                <th>'.$rostersPC.'</th>
-                                                <th>'.$rostersDF.'</th>
-                                                <th>'.$rostersOF.'</th>
-                                                <th>'.$rostersEX.'</th>
-                                                <th>'.$rostersLD.'</th>
-                                                <th>'.$rostersOV.'</th>
-                                     
-                                			</tr>
-                                        </thead>';
-                		        echo '<tbody style="font-weight:normal">';
-                		        
-                		        for ($x = 0; $x < $i; $x++) {
-                		            echo '<tr>';
-                		            
-                		            $scoringNameSearch = htmlspecialchars($unassignedPL[$x]);
-                		            $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
-                		            
-                		            // 		            echo '<td class="text-left">'.$unassignedPL[$x].'</td>';
-                		            echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$unassignedPL[$x].'</a></td>';
-                		            echo '<td>'.$unassignedAG[$x].'</td>';
-                		            echo '<td>'.$unassignedPO[$x].'</td>';
-                		            echo '<td>'.$unassignedSAL[$x].'</td>';
-                		            echo '<td>'.$unassignedCT[$x].'</td>';
-                		            echo '<td>'.$unassignedSts[$x].'</td>';
-                		            echo '<td>'.$unassignedIT[$x].'</td>';
-                		            echo '<td>'.$unassignedSP[$x].'</td>';
-                		            echo '<td>'.$unassignedST[$x].'</td>';
-                		            echo '<td>'.$unassignedEN[$x].'</td>';
-                		            echo '<td>'.$unassignedDU[$x].'</td>';
-                		            echo '<td>'.$unassignedDI[$x].'</td>';
-                		            echo '<td>'.$unassignedSK[$x].'</td>';
-                		            echo '<td>'.$unassignedPA[$x].'</td>';
-                		            echo '<td>'.$unassignedPC[$x].'</td>';
-                		            echo '<td>'.$unassignedDF[$x].'</td>';
-                		            echo '<td>'.$unassignedSC[$x].'</td>';
-                		            echo '<td>'.$unassignedEX[$x].'</td>';
-                		            echo '<td>'.$unassignedLD[$x].'</td>';
-                		            echo '<td>'.$unassignedOV[$x].'</td>';
-
-                		            echo '</tr>';        
-                		        } 
-                		        echo '</tbody>';
-                		        echo '</table>';
-                		        echo '</div>';
-                		        
-                		    }else {
-                		        echo $langUnassignedPlayersNotFound;
-                		    }
-                
-                		?>
-                	</div>
-            	</div>
-    		</div>
-    	</div>
+<div class="container" >
 	
+	<div class="card">
+    		<?php include 'SectionHeader.php';?>
+    		<div class="card-body p-2">
+			<div class="container">
+				<div class="row py-2" id="searchFields">
+					<div class="col px-0 px-md-2 px-lg-3">
 
+						<!-- position -->
+						<div class="row">
+							<div class="input-group mb-3 col-sm-6">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="positionInputField">Position</label>
+								</div>
+								<select class="custom-select" id="positionInputField">
+									<option value="">All Players</option>
+									<option value="Skaters">All Skaters</option>
+									<option value="Forwards">All Forwards</option>
+									<option value="C">Center</option>
+									<option value="RW">Right Wing</option>
+									<option value="LW">Left Wing</option>
+									<option value="D">Defense</option>
+									<option value="G">Goalie</option>
+								</select>
+							</div>
+
+							<!-- team -->
+							<div class="input-group mb-3 col-sm-6">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="teamInputField">Team</label>
+								</div>
+								<select class="custom-select" id="teamInputField">
+									<option value="">All Teams</option>
+                      				<?php
+                                        foreach ($teams->get_teams() as $team) {
+                                            echo '<option value="' . $team . '">' . $team . '</option>';
+                                        }
+                                    ?>
+
+                    		   </select>
+							</div>
+			
+						</div>
 	
+						<div class="accordion" id="searchAccordion">
+                          <div class="card" id="advancedSearch">
+                            <div class="card-header" id="advancedSearchHeader">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
+                                  Advanced Filter
+                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseSearch" class="collapse" aria-labelledby="advancedSearchHeader" data-parent="#searchAccordion">
+                              <div class="card-body">
+                              	<div class="row">
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">IT</span>
+        								</div>
+        								<input id="itMin" type="text" class="form-control" value = 0> 
+        								<input id="itMax" type="text" class="form-control" value = 99>
+        							</div>
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">SP</span>
+        								</div> 
+        								<input id="spMin" type="text" class="form-control" value = 0> 
+        								<input id="spMax" type="text" class="form-control" value = 99>
+        							</div>
+        						</div>
+        						<div class="row pt-1">
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">ST</span>
+        								</div>
+        								<input id="stMin" type="text" class="form-control" value = 0> 
+        								<input id="stMax" type="text" class="form-control" value = 99>
+        							</div>
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">EN</span>
+        								</div> 
+        								<input id="enMin" type="text" class="form-control" value = 0> 
+        								<input id="enMax" type="text" class="form-control" value = 99>
+        							</div>
+        						</div>
+        						<div class="row pt-1">
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">DU</span>
+        								</div>
+        								<input id="duMin" type="text" class="form-control" value = 0> 
+        								<input id="duMax" type="text" class="form-control" value = 99>
+        							</div>
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">DI</span>
+        								</div> 
+        								<input id="diMin" type="text" class="form-control" value = 0> 
+        								<input id="diMax" type="text" class="form-control" value = 99>
+        							</div>
+        						</div>
+        						<div class="row pt-1">
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">SK</span>
+        								</div>
+        								<input id="skMin" type="text" class="form-control" value = 0> 
+        								<input id="skMax" type="text" class="form-control" value = 99>
+        							</div>
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">PA</span>
+        								</div> 
+        								<input id="paMin" type="text" class="form-control" value = 0> 
+        								<input id="paMax" type="text" class="form-control" value = 99>
+        							</div>
+        						</div>
+        						<div class="row pt-1">
+        							<div class="input-group col-6 col-lg-3" >
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">PC</span>
+        								</div>
+        								<input id="pcMin" type="text" class="form-control" value = 0> 
+        								<input id="pcMax" type="text" class="form-control" value = 99>
+        							</div>
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">DF</span>
+        								</div> 
+        								<input id="dfMin" type="text" class="form-control" value = 0> 
+        								<input id="dfMax" type="text" class="form-control" value = 99>
+        							</div>
+        						</div>
+        						<div class="row pt-1">
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">SC</span>
+        								</div>
+        								<input id="scMin" type="text" class="form-control" value = 0> 
+        								<input id="scMax" type="text" class="form-control" value = 99>
+        							</div>
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">EN</span>
+        								</div> 
+        								<input id="enMin" type="text" class="form-control" value = 0> 
+        								<input id="enMax" type="text" class="form-control" value = 99>
+        							</div>
+        						</div>
+        						<div class="row pt-1">
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">LD</span>
+        								</div>
+        								<input id="ldMin" type="text" class="form-control" value = 0> 
+        								<input id="ldMax" type="text" class="form-control" value = 99>
+        							</div>
+        							<div class="input-group col-6 col-lg-3">
+        								<div class="input-group-prepend">
+        									<span class="input-group-text" id="">OV</span>
+        								</div> 
+        								<input id="ovMin" type="text" class="form-control" value = 0> 
+        								<input id="ovMax" type="text" class="form-control" value = 99>
+        							</div>
+        						</div>
+        						
+        						<button id="btnSearch" class="btn btn-sm btn-outline-primary my-2">Filter</button>
+                              
+                              
+                              </div>
+                            </div>
+                          </div>
+                        </div>    
+                            
+						
+
+					</div>
+				</div>
+
+				<div class="row ">
+					<div class="col px-0 px-md-2 px-lg-3">
+	
+						<table id="tblPlayerSearch" class="table table-sm table-striped display text-center" style="width:100%">
+                            <thead>
+                                <tr>
+                                	<th class="text-left"><?php echo $rostersName ?></th>
+                               	    <th>Team</th>
+                               	    <th>Type</th>
+									<th>PO</th>
+									<th><?php echo $rostersIT ?></th>
+									<th><?php echo $rostersSP ?></th>
+									<th><?php echo $rostersST ?></th>
+									<th><?php echo $rostersEN ?></th>
+									<th><?php echo $rostersDU ?></th>
+									<th><?php echo $rostersDI ?></th>
+									<th><?php echo $rostersSK ?></th>
+									<th><?php echo $rostersPA ?></th>
+									<th><?php echo $rostersPC ?></th>
+									<th><?php echo $rostersDF ?></th>
+									<th><?php echo $rostersOF ?></th>
+									<th><?php echo $rostersEX ?></th>
+									<th><?php echo $rostersLD ?></th>
+									<th><?php echo $rostersOV ?></th>	 	
+									<th>Age</th>
+									<th><?php echo $joueursContrat ?></th>	 	
+									<th><?php echo $joueursSalary ?></th>	 
+
+                                </tr>
+                            </thead>             
+                        </table>
+
+					 </div>	
+				 </div>
+			</div>
+		</div>
 	</div>
+</div>
+
 
 	<script>
 
-// 	window.onload = function () {
-// 		makeTableSortable('freeAgents');
-// 	};
+        $(document).ready(function() {
+        	var table = $('#tblPlayerSearch').DataTable( {
+        		dom: 'lftBip',
+        		scrollY:        true,
+                scrollX:        true,
+                scrollCollapse: true,
+                order: [[ 17, "desc" ]],
+                fixedColumns:   {
+                    leftColumns: 1,
+                    rightColumns: 1
+                },
+                "ajax": "<?php echo BASE_URL?>WaiverDraftAjax.php",
+                "columns": [
+                    //{ "data": "name" },
+                    { "data": "name",
+                        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                            $(nTd).html("<a href='<?php echo BASE_URL?>CareerStatsPlayer.php?csName="+ encodeURIComponent(oData.name)+"'>"+oData.name+"</a>");
+                        }
+                    },
+                	{ "data": "team" },
+                	{ "data": "type" },
+                    { "data": "position" },
+                    { "data": "it" },
+                    { "data": "sp" },
+                    { "data": "st" },
+                    { "data": "en" },
+                    { "data": "du" },
+                    { "data": "di" },
+                    { "data": "sk" },
+                    { "data": "pa" },
+                    { "data": "pc" },
+                    { "data": "df" },
+                    { "data": "sc" },
+                    { "data": "ex" },
+                    { "data": "ld" },
+                    { "data": "ov" },
+                    { "data": "age" },
+                    { "data": "contract"},
+                    { "data": "salary"}
+                ],
+                "columnDefs": [
+                    { className: "text-left", "targets": [ 0,1,2 ] }
+                  ],
+                lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+                language: {
+                    "lengthMenu": "Display _MENU_ records"
+                }, 
+                buttons: [
+                	'copyHtml5',
+                    {
+                        extend: 'excelHtml5',
+                        title: 'PlayerSearchExport'
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        title: 'PlayerSearchExport'
+                    }
+                ]
+            } );
 
+            $('#positionInputField, #teamInputField, #typeInputField').change( function() {
+                table.draw();
+            } );
 
-	var table = $('#faTable').DataTable({
-		dom: 'lftBip',
-		scrollY:        true,
-        scrollX:        true,
-        scrollCollapse: true,
-        order: [[ 19, "desc" ]],
-        fixedColumns:   {
-            leftColumns: 1,
-            rightColumns: 1
-        },
-        paging:         true,
-        pagingType: "simple_numbers",
-        lengthMenu: [[ 50, 100, 200, -1], [50, 100, 200, "All"]],
-        language: {
-            "lengthMenu": "Display _MENU_ records"
-        },   
-        search: {
-            "regex": true
-          },    
-        initComplete: function () {
-        	$("#faTable").show(); 
-        },
+            $( "#btnSearch" ).click(function() {
+            	 table.draw();
+            	});
+
+            $("#collapseSearch").on("hide.bs.collapse", function(){
+
+            	resetSimAttrib('it');
+            	resetSimAttrib('sp');
+            	resetSimAttrib('st');
+            	resetSimAttrib('en');
+            	resetSimAttrib('du');
+            	resetSimAttrib('di');
+            	resetSimAttrib('sk');
+            	resetSimAttrib('pa');
+            	resetSimAttrib('pc');
+            	resetSimAttrib('df');
+            	resetSimAttrib('sc');
+            	resetSimAttrib('en');
+            	resetSimAttrib('ld');
+            	resetSimAttrib('ov');
+                
+            	table.draw();
+              });
+
+            
+
+            
+        } );
+
+        $.fn.dataTable.ext.search.push(
+        	    function( settings, data, dataIndex ) {
+        	    	// Don't filter on anything other than "myTable"
+        	        if ( settings.nTable.id !== 'tblPlayerSearch' ) {
+        	            return true;
+        	        }
+
+        	        var display = false;
+
+            	    //position filter
+        	    	var posSelection = $('#positionInputField').val();
+        	    	var pos = data[3]; 
+        	    	
+        	    	if(posSelection === ''){
+        	    		display = true;
+        	    	}else if(posSelection == 'Skaters'){
+    
+                    	if (pos.match('^(?=.*?(C|RW|LW|D)).*?')) {
+                    		display = true;
+                    	}
+                    	
+                    }
+                    else if(posSelection == 'Forwards'){
+                       	if (pos.match('^(?=.*?(C|RW|LW)).*?')) {
+                       		display = true;
+                    	}
+                    }else{
+                    	display = posSelection === pos;
+                    }   
+
+                    if(!display) return false;
+                   
+
+ 					//team filter
+ 					var teamSelection = $('#teamInputField').val();
+ 					var team = data[1]; 
+ 					if(teamSelection === ''){
+        	    		display = true;
+        	    	}else if(teamSelection === team){
+        	    		display = true;
+                    }else{
+                        return false; 
+                    }
+
+     
+                    //attribs
+                    
+                    if ( $( '#collapseSearch' ).hasClass( "show" ) ) {
+                    	if(!attribBetween('it', data[4])) return false;
+                        if(!attribBetween('sp', data[5])) return false;
+                        if(!attribBetween('st', data[6])) return false;
+                        if(!attribBetween('en', data[7])) return false;
+                        if(!attribBetween('du', data[8])) return false;
+                        if(!attribBetween('di', data[9])) return false;
+                        if(!attribBetween('sk', data[10])) return false;
+                        if(!attribBetween('pa', data[11])) return false;
+                        if(!attribBetween('pc', data[12])) return false;
+                        if(!attribBetween('df', data[13])) return false;
+                        if(!attribBetween('sc', data[14])) return false;
+                        if(!attribBetween('en', data[15])) return false;
+                        if(!attribBetween('ld', data[16])) return false;
+                        if(!attribBetween('ov', data[17])) return false;
+                    }
+                    
+                   
+
+        	       return display;
+        	    }
+        	);
+
+        function resetSimAttrib(attrib){
+        	$('#' + attrib + 'Min').val(0);
+			$('#' + attrib + 'Max').val(99);
+        }
+
+    	function attribBetween(attrib, val){
+
+			var min = $('#' + attrib + 'Min');
+			var max =  $('#' + attrib + 'Max');
+
+        	if(min.val() == 0 && max.val() == 99) return true;
+
+        	
+    		if (val >= min.val() && val <= max.val()) {
+        		 return true;
+    		}
+
+    		return false;
+    	}
         
-        buttons: [
-        	'copyHtml5',
-            {
-                extend: 'excelHtml5',
-                title: 'FreeAgencyExport'
-            },
-            {
-                extend: 'csvHtml5',
-                title: 'FreeAgencyExport'
-            }
-        ]
-        
-	});
-
-
-    $("#positionInputField").on('change', function() {  
-        var pos = $(this).val();
-        if(pos == 'Skaters'){
-        	table.column(2).search('^(?=.*?(C|RW|LW|D)).*?', true, false).draw();
-        }else if(pos == 'Forwards'){
-        	table.column(2).search('^(?=.*?(C|RW|LW)).*?', true, false).draw();
-        }else{
-        	table.column(2).search(pos).draw() ; 
-        }    
-        
-    } );
-
-
-
 	</script>
 
 <?php include 'footer.php'; ?>

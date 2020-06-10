@@ -121,7 +121,8 @@ include_once 'classes/PlayerVitalsHolder.php';
                                         //var_dump($vitals);
                                         
                                         $scoringNameSearch = htmlspecialchars($roster->getName());
-                                        $scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
+                                        //$scoringNameLink = 'http://www.google.com/search?q='.$scoringNameSearch.'%nhl.com&btnI';
+                                        $scoringNameLink ='http://www.hockeydb.com/ihdb/stats/findplayer.php?full_name='.$scoringNameSearch;
 
                                         echo '<tr>';
                                             echo '<td class="text-left"><a href="'.$scoringNameLink.'">'.$roster->getName().'</a></td>';

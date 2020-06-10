@@ -43,6 +43,9 @@ class RosterAvgObj
         }
         
         $resultsSize = count($rosters);
+        
+        //may not have anyone on the roster.
+        if($resultsSize == 0) return;
 
         $this->avgIt = round($this->avgIt / $resultsSize);
         $this->avgSp = round($this->avgSp / $resultsSize);
@@ -53,8 +56,14 @@ class RosterAvgObj
         $this->avgSk = round($this->avgSk / $resultsSize);
         $this->avgPa = round($this->avgPa / $resultsSize);
         $this->avgPc = round($this->avgPc / $resultsSize);
-        $this->avgDf = round($this->avgDf / ($resultsSize-$goalieCount));
-        $this->avgSc = round($this->avgSc / ($resultsSize-$goalieCount));
+        if($resultsSize > $goalieCount){
+            $this->avgDf = round($this->avgDf / ($resultsSize-$goalieCount));
+            $this->avgSc = round($this->avgSc / ($resultsSize-$goalieCount));
+        }else{
+            $this->avgDf = 0;
+            $this->avgSc = 0;
+        }
+
         $this->avgEx = round($this->avgEx / $resultsSize);
         $this->avgLd = round($this->avgLd / $resultsSize);
         $this->avgOv = round($this->avgOv / $resultsSize);

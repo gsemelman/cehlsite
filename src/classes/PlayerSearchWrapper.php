@@ -23,7 +23,10 @@ class PlayerSearchWrapper implements \JsonSerializable{
     private $ex;
     private $ld;
     private $ov;
-    
+    private $age;
+    private $contract;
+    private $salary;
+   
     
     
     /**
@@ -97,6 +100,7 @@ class PlayerSearchWrapper implements \JsonSerializable{
     {
         return $this->injStatus;
     }
+    
 
     /**
      * @return mixed
@@ -378,10 +382,60 @@ class PlayerSearchWrapper implements \JsonSerializable{
         $this->ov = $ov;
     }
     
+    
+    
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSalary()
+    {
+        return $this->salary;
+    }
+
+    /**
+     * @param mixed $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    /**
+     * @param mixed $salary
+     */
+    public function setSalary($salary)
+    {
+        $this->salary = $salary;
+    }
+
     public function jsonSerialize()
     {
         return get_object_vars($this);
     }
+    /**
+     * @return mixed
+     */
+    public function getContract()
+    {
+        return $this->contract;
+    }
+
+    /**
+     * @param mixed $contract
+     */
+    public function setContract($contract)
+    {
+        $this->contract = $contract;
+    }
+
 
     
     
