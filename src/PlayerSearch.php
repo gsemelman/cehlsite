@@ -256,6 +256,7 @@ $teams = new TeamHolder($gmFile);
 									<th><?php echo $rostersEX ?> </th>
 									<th><?php echo $rostersLD ?> </th>
 									<th><?php echo $rostersOV ?> </th>	 	
+									<th>#</th>
                                 </tr>
                             </thead>             
                         </table>
@@ -305,7 +306,8 @@ $teams = new TeamHolder($gmFile);
                     { "data": "sc" },
                     { "data": "ex" },
                     { "data": "ld" },
-                    { "data": "ov" }
+                    { "data": "ov" },
+                    { "data": "number" },
                 ],
                 "columnDefs": [
                     { className: "text-left", "targets": [ 0,1,2 ] }

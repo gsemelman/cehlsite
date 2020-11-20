@@ -76,12 +76,12 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Western Conference</td>
+											<td class="text-left">Eastern Conference</td>
 											<td>9</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Eastern Conference</td>
-											<td>5</td>
+											<td class="text-left">Western Conference</td>
+											<td>3</td>
 										</tr>
 									</tbody>
 								</table>
@@ -96,17 +96,17 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>2</td>
+											<td>1</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Eastern Conference</td>
 											<td>1</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Western Conference wins the Puck Control Relay</td>
+											<td colspan="2" class="text-left">Eastern Conference wins the Puck Control Relay</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Steven Stamkos and Auston Matthews tied the Individual Puck Control Relay.</td>
+											<td colspan="2" class="text-left">Connor McDavid unsurprisingly takes the Individual Puck Control Relay.</td>
 										</tr>
 									</tbody>
 								</table>
@@ -119,17 +119,17 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>2</td>
-										</tr>
-										<tr>	
-											<td class="text-left">Eastern Conference</td>
 											<td>0</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Western Conference wins the Team Event</td>
+											<td class="text-left">Eastern Conference</td>
+											<td>2</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Winner Individual Event: Carl Hagelin</td>
+											<td colspan="2" class="text-left">Eastern Conference wins the Team Event</td>
+										</tr>
+										<tr>	
+											<td colspan="2" class="text-left">Winner Individual Event: Erik Karlsson</td>
 										</tr>
 									</tbody>
 								</table>
@@ -145,17 +145,17 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>2</td>
+											<td>1</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Eastern Conference</td>
-											<td>0</td>
+											<td>1</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Western Conference wins the Hardest Shot Event</td>
+											<td colspan="2" class="text-left">Eastern Conference wins the Hardest Shot Event</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Brent Burns recorded the hardest shot with 108.5 MPH</td>
+											<td colspan="2" class="text-left">Dougie Hamilton recorded the hardest shot with 105.1 MPH</td>
 										</tr>
 									</tbody>
 								</table>
@@ -174,6 +174,9 @@ include 'head.php';
 											<td class="text-left">Eastern Conference</td>
 											<td>1</td>
 										</tr>
+										<tr>	
+											<td colspan="2" class="text-left">Eastern Conference wins the Rapid Fire event</td>
+										</tr>
 
 									</tbody>
 								</table>
@@ -189,17 +192,17 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>2</td>
-										</tr>
-										<tr>	
-											<td class="text-left">Eastern Conference</td>
 											<td>0</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Western Conference wins the Accuracy Shooting Team Event</td>
+											<td class="text-left">Eastern Conference</td>
+											<td>2</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Alexander Ovechkin hits the target four times with only 4 shots</td>
+											<td colspan="2" class="text-left">Eastern Conference wins the Accuracy Shooting Team Event</td>
+										</tr>
+										<tr>	
+											<td colspan="2" class="text-left">Kevin Labanc hits the target four times with only 4 shots.</td>
 										</tr>
 									</tbody>
 								</table>
@@ -212,18 +215,16 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>0</td>
-										</tr>
-										<tr>	
-											<td class="text-left">Eastern Conference</td>
 											<td>1</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Eastern Conference wins the Accuracy Shooting Team Event</td>
+											<td class="text-left">Eastern Conference</td>
+											<td>0</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Matt Duchene and Jakub Voracek have the most goals for the winning team (1)</td>
+											<td colspan="2" class="text-left">Western Conference wins the Breakaway Relay Event</td>
 										</tr>
+
 									</tbody>
 								</table>
 							</div>
@@ -248,7 +249,7 @@ include 'head.php';
 											<td colspan="2" class="text-left">Eastern Conference wins the Goalie Goals Event.</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Tuukka Rask and Connor Hellebuyck scored the most goals (2)</td>
+											<td colspan="2" class="text-left">Frederik Andersen scored the most goals (2)</td>
 										</tr>
 									</tbody>
 								</table>
@@ -262,14 +263,14 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>1</td>
+											<td>0</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Eastern Conference</td>
 											<td>1</td>
 										</tr>
 										<tr>	
-											<td colspan="2" class="text-left">Matt Murray and Connor Hellebuyck have the most saves with 16</td>
+											<td colspan="2" class="text-left">Frederik Andersen and Henrik Lundqvist have the most saves with 16</td>
 										</tr>
 									</tbody>
 								</table>
@@ -285,38 +286,38 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Puck Control Relay</td>
-											<td class="text-left">Steven Stamkos and Auston Matthews</td>
-											<td>250K each</td>
+											<td class="text-left">Connor McDavid</td>
+											<td>500K each</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Fastest Skater</td>
-											<td class="text-left">Carl Hagelin</td>
+											<td class="text-left">Erik Karlsson</td>
 											<td>500K</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Hardest Shot</td>
-											<td class="text-left">Brent Burns</td>
+											<td class="text-left">Dougie Hamilton</td>
 											<td>500K</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Accuracy Shooting</td>
-											<td class="text-left">Alexander Ovechkin</td>
+											<td class="text-left">Kevin Labanc</td>
 											<td>500K</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Breakaway Relay</td>
-											<td class="text-left">Matt Duchene and Jakub Voracek</td>
-											<td>250K each</td>
+											<td class="text-left">Matthew Tkachuk scores the winning goal </td>
+											<td>500K</td>
 										</tr>
 
 										<tr>	
 											<td class="text-left">Goalie Goals</td>
-											<td class="text-left">Tuukka Rask and Connor Hellebuyck</td>
-											<td>250K each</td>
+											<td class="text-left">Frederik Andersen</td>
+											<td>500k</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Goaltender Competition</td>
-											<td class="text-left">Matt Murray and Connor Hellebuyck</td>
+											<td class="text-left">Frederik Andersen and Henrik Lundqvist</td>
 											<td>250K each</td>
 										</tr>
 										
@@ -367,13 +368,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Connor McDavid</td>
+											<td>John Tavares</td>
 										</tr>
 										<tr>
-											<td>Erik Karlsson</td>
+											<td>Torey Krug</td>
 										</tr>
 										<tr>
-											<td>Jamie Benn</td>
+											<td>John Klingberg</td>
 										</tr>
 									</tbody>
 								</table>
@@ -385,13 +386,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Evgeni Malkin</td>
+											<td>Artemi Panarin</td>
 										</tr>
 										<tr>
-											<td>Alex Pietrangelo</td>
+											<td>Erik Karlsson</td>
 										</tr>
 										<tr>
-											<td>Nicklas Backstrom</td>
+											<td>Kristopher Letang</td>
 										</tr>
 									</tbody>
 								</table>
@@ -407,30 +408,30 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Connor McDavid for the Western Conference and Evgeni Malkin for the Eastern</td>
+											<td class="text-left">	John Tavares for the Western Conference and Artemi Panarin for the Eastern</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Conference hit the ice and start skating....</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Connor McDavid crosses the line with a 2ft lead.</td>
+											<td class="text-left">Artemi Panarin crosses the line with a 2ft lead.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">The next skaters are Erik Karlsson for the Western Conference
-									and Alex Pietrangelo for the Eastern Conference.</td>
+											<td class="text-left">The next skaters are Torey Krug for the Western Conference
+									and Erik Karlsson for the Eastern Conference.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Erik Karlsson crosses the line with a 10ft lead.</td>
+											<td class="text-left">Erik Karlsson crosses the line with a 10ft lead. BOOM!</td>
 										</tr>
 										<tr>	
-											<td class="text-left">The next skaters are Jamie Benn for the Western Conference
-									and Nicklas Backstrom for the Eastern Conference.</td>
+											<td class="text-left">The next skaters are 	John Klingberg for the Western Conference
+									and Kristopher Letang for the Eastern Conference.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Jamie Benn crosses the line with a 11ft lead.</td>
+											<td class="text-left">Kristopher Letang crosses the line with a 3ft lead.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Western Conference wins!</td>
+											<td class="text-left">Eastern Conference wins!</td>
 										</tr>
 									</tbody>
 								</table>
@@ -469,7 +470,7 @@ include 'head.php';
 									<tbody>
 										<tr>
 											<td>Western Conference</td>
-											<td>Steven Stamkos</td>
+											<td>Connor McDavid</td>
 										</tr>
 										<tr>
 											<td>Eastern Conference</td>
@@ -489,13 +490,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Steven Stamkos for the Western Conference and Auston Matthews for the Eastern</td>
+											<td class="text-left">Connor McDavid for the Western Conference and Auston Matthews for the Eastern</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Players hit the ice and start skating....</td>
 										</tr>
 										<tr>	
-											<td class="text-left"> Steven Stamkos and Auston Matthews cross the line at the same time. They are alle tied up.</td>
+											<td class="text-left"> Connor McDavid crosses the line with a 5ft lead. The west WIN!</td>
 										</tr>
 									</tbody>
 								</table>
@@ -569,13 +570,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Phil Kessel</td>
+											<td>Connor McDavid</td>
 										</tr>
 										<tr>
-											<td>Carl Hagelin</td>
+											<td>Alexander Radulov</td>
 										</tr>
 										<tr>
-											<td>Tobias Rieder</td>
+											<td>Michael Grabner</td>
 										</tr>
 									</tbody>
 								</table>
@@ -587,13 +588,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Jon Marchessault</td>
+											<td>Erik Karlsson</td>
 										</tr>
 										<tr>
-											<td>Nikita Kucherov</td>
+											<td>Mathew Barzal</td>
 										</tr>
 										<tr>
-											<td>Matt Duchene</td>
+											<td>Nicklas Backstrom</td>
 										</tr>
 									</tbody>
 								</table>
@@ -608,22 +609,22 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Phil Kessel: 13.846</td>
+											<td class="text-left">Erik Karlsson: 13.689</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Carl Hagelin: 13.606</td>
+											<td class="text-left">Mathew Barzal: 14.059</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Tobias Rieder: 14.143</td>
+											<td class="text-left">Nicklas Backstrom: 13.883</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Jon Marchessault: 14.170</td>
+											<td class="text-left">Connor McDavid: 13.726</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Nikita Kucherov: 14.106</td>
+											<td class="text-left">Alexander Radulov: 14.124</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Matt Duchene: 14.124</td>
+											<td class="text-left">Michael Grabner: 14.328</td>
 										</tr>
 									</tbody>
 								</table>
@@ -637,16 +638,16 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Average Time Western Conference: 13.865</td>
+											<td class="text-left">Average Time Eastern Conference: 13.877</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Average Time Eastern Conference: 14.133</td>
+											<td class="text-left">Average Time Western Conference: 14.059</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Western Conference wins the Team Event</td>
+											<td class="text-left">Eastern Conference wins the Team Event</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Winner Individual Event: Carl Hagelin - Western Conference Time: 13.606</td>
+											<td class="text-left">Winner Individual Event: Erik Karlsson - Eastern Conference Time: 13.689</td>
 										</tr>
 									</tbody>
 								</table>
@@ -665,11 +666,11 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>2</td>
+											<td>0</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Eastern Conference</td>
-											<td>0</td>
+											<td>2</td>
 										</tr>
 									</tbody>
 								</table>
@@ -720,16 +721,16 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Victor Hedman</td>
+											<td>Dougie Hamilton</td>
 										</tr>
 										<tr>
 											<td>Brent Burns</td>
 										</tr>
 										<tr>
-											<td>Zach Bogosian</td>
+											<td>Yohann Auvitu</td>
 										</tr>
 										<tr>
-											<td>Alexander Ovechkin</td>
+											<td>Jamie Benn</td>
 										</tr>
 									</tbody>
 								</table>
@@ -742,13 +743,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>John Carlson</td>
+											<td>Mark Giordano</td>
 										</tr>
 										<tr>
-											<td>Alex Pietrangelo</td>
+											<td>Kristopher Letang</td>
 										</tr>
 										<tr>
-											<td>Jeff Petry</td>
+											<td>Darnell Nurse</td>
 										</tr>
 										<tr>
 											<td>Auston Matthews</td>
@@ -766,28 +767,28 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Victor Hedman First shot: 105.6 Second Shot: 107.6</td>
+											<td class="text-left">Mark Giordano First shot: 100.7 Second Shot: 99.3</td>
 										</tr>
 										<tr>	
-											<td class="text-left">John Carlson First shot: 100.2 Second Shot: 102.2</td>
+											<td class="text-left">Dougie Hamilton First shot: 96.2 Second Shot: 105.1</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Brent Burns First shot: 102.5 Second Shot: 108.5</td>
+											<td class="text-left">Kristopher Letang First shot: 96.0 Second Shot: 102.0</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Alex Pietrangelo First shot: 98.8 Second Shot: 100.4</td>
+											<td class="text-left">Brent Burns First shot: 104.2 Second Shot: 104.4</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Zach Bogosian First shot: 97.5 Second Shot: 103.7</td>
+											<td class="text-left">Darnell Nurse First shot: 96.0 Second Shot: 98.0</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Jeff Petry First shot: 97.3 Second Shot: 102.9</td>
+											<td class="text-left">Yohann Auvitu First shot: 87.9 Second Shot: 90.9</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Alexander Ovechkin First shot: 95.4 Second Shot: 104.7</td>
+											<td class="text-left">Auston Matthews First shot: 103.2 Second Shot: 95.3</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Auston Matthews First shot: 94.8 Second Shot: 95.8</td>
+											<td class="text-left">Jamie Benn First shot: 94.5 Second Shot: 97.5</td>
 										</tr>
 									</tbody>
 								</table>
@@ -801,13 +802,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Western Conference average score in mph: 106.1</td>
+											<td class="text-left">Western Conference average score in mph: 99.5</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Eastern Conference average score in mph: 100.3</td>
+											<td class="text-left">Eastern Conference average score in mph: 100.9</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Brent Burns recorded the hardest shot with 108.5</td>
+											<td class="text-left">Dougie Hamilton recorded the hardest shot with 105.1</td>
 										</tr>
 									</tbody>
 								</table>
@@ -826,11 +827,11 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>2</td>
+											<td>1</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Eastern Conference</td>
-											<td>0</td>
+											<td>1</td>
 										</tr>
 									</tbody>
 								</table>
@@ -878,13 +879,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Connor McDavid</td>
+											<td>John Tavares</td>
 										</tr>
 										<tr>
-											<td>Erik Karlsson</td>
+											<td>Torey Krug</td>
 										</tr>
 										<tr>
-											<td>Jamie Benn</td>
+											<td>John Klingberg</td>
 										</tr>
 									</tbody>
 								</table>
@@ -896,13 +897,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Evgeni Malkin</td>
+											<td>Artemi Panarin</td>
 										</tr>
 										<tr>
-											<td>Alex Pietrangelo</td>
+											<td>Erik Karlsson</td>
 										</tr>
 										<tr>
-											<td>Nicklas Backstrom</td>
+											<td>Kristopher Letang</td>
 										</tr>
 									</tbody>
 								</table>
@@ -917,27 +918,27 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>	
-											<td class="text-left">Connor McDavid for the Western Conference and Evgeni Malkin for the Eastern</td>
+											<td class="text-left">Artemi Panarin for the Eastern Conference and John Tavares for the Western </td>
 										</tr>
 										<tr>	
 											<td class="text-left">Conference hit the ice and start skating....</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Connor McDavid crosses the line with a 2ft lead.</td>
+											<td class="text-left">Artemi Panarin crosses the line with a 2ft lead.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">The next skaters are Erik Karlsson for the Western Conference
-									and Alex Pietrangelo for the Eastern Conference.</td>
+											<td class="text-left">The next skaters are Torey Krug for the Western Conference
+									and  Erik Karlsson for the Eastern Conference.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Erik Karlsson crosses the line with a 10ft lead.</td>
+											<td class="text-left"> Erik Karlsson crosses the line with a 10ft lead.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">The next skaters are Jamie Benn for the Western Conference
-									and Nicklas Backstrom for the Eastern Conference.</td>
+											<td class="text-left">The next skaters are John Klingberg for the Western Conference
+									and Kristopher Letang for the Eastern Conference.</td>
 										</tr>
 										<tr>	
-											<td class="text-left">Jamie Benn crosses the line with a 11ft lead.</td>
+											<td class="text-left">Kristopher Letang crosses the line with a 3ft lead.</td>
 										</tr>
 									</tbody>
 								</table>
@@ -956,11 +957,11 @@ include 'head.php';
 									<tbody>
 										<tr>	
 											<td class="text-left">Western Conference</td>
-											<td>1</td>
+											<td>0</td>
 										</tr>
 										<tr>	
 											<td class="text-left">Eastern Conference</td>
-											<td>0</td>
+											<td>1</td>
 										</tr>
 									</tbody>
 								</table>
@@ -1008,13 +1009,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Phil Kessel</td>
+											<td>Connor McDavid</td>
 										</tr>
 										<tr>
-											<td>Carl Hagelin</td>
+											<td>Alexander Radulov</td>
 										</tr>
 										<tr>
-											<td>Tobias Rieder</td>
+											<td>Michael Grabner</td>
 										</tr>
 									</tbody>
 								</table>
@@ -1026,13 +1027,13 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Jon Marchessault</td>
+											<td>Erik Karlsson</td>
 										</tr>
 										<tr>
-											<td>Nikita Kucherov</td>
+											<td>Mathew Barzal</td>
 										</tr>
 										<tr>
-											<td>Matt Duchene</td>
+											<td>Nicklas Backstrom</td>
 										</tr>
 									</tbody>
 								</table>
@@ -1840,32 +1841,32 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Sidney Crosby</td>
-										</tr>
-										<tr>
-											<td>Logan Couture</td>
-										</tr>
-										<tr>
 											<td>Connor McDavid</td>
+										</tr>
+										<tr>
+											<td>Jamie Benn</td>
 										</tr>
 										<tr>
 											<td>John Tavares</td>
 										</tr>
 										<tr>
-											<td>Kyle Okposo</td>
+											<td>Matthew Tkachuk</td>
 										</tr>
 										<tr>
-											<td>Vladislav Namestnikov</td>
+											<td>Torey Krug</td>
+										</tr>
+										<tr>
+											<td>John Klingberg</td>
 										</tr>
 										<tr class="tableau-top"><td>Goalies</td></tr>
 										<tr>
-											<td>Braden Holtby</td>
-										</tr>
-										<tr>
-											<td>Jonathan Quick</td>
+											<td>Jordan Binnington</td>
 										</tr>
 										<tr>
 											<td>Connor Hellebuyck</td>
+										</tr>
+										<tr>
+											<td>Semyon Varlamov</td>
 										</tr>
 									</tbody>
 								</table>
@@ -1878,33 +1879,33 @@ include 'head.php';
 									</thead>
 									<tbody>
 										<tr>
-											<td>Nikita Kucherov</td>
-										</tr>
-										<tr>
 											<td>Auston Matthews</td>
 										</tr>
 										<tr>
-											<td>Brayden Point</td>
+											<td>Artemi Panarin</td>
 										</tr>
 										<tr>
-											<td>Nicklas Backstrom</td>
+											<td>Mark Stone</td>
 										</tr>
 										<tr>
-											<td>Jon Marchessault</td>
+											<td>Brock Boeser</td>
 										</tr>
 										<tr>
-											<td>Joshua Bailey</td>
+											<td>Mark Giordano</td>
+										</tr>
+										<tr>
+											<td>Erik Karlsson</td>
 										</tr>
 										
 										<tr class="tableau-top"><td>Goalies</td></tr>
 										<tr>
-											<td>Andrei Vasilevskiy</td>
+											<td>Frederik Andersen</td>
 										</tr>
 										<tr>
-											<td>Matt Murray</td>
+											<td>Sergei Bobrovsky</td>
 										</tr>
 										<tr>
-											<td>Tuukka Rask</td>
+											<td>Henrik Lundqvist</td>
 										</tr>
 									</tbody>
 								</table>
@@ -1926,8 +1927,8 @@ include 'head.php';
 											<td colspan="4">Round 1</td>
 										</tr>
 										<tr class="tableau-top">
-											<td colspan="2"><strong>Goalie: Andrei Vasilevskiy</strong></td>
-											<td colspan="2"><strong>Goalie: Braden Holtby</strong></td>
+											<td colspan="2"><strong>Goalie: Connor Hellebuyck</strong></td>
+											<td colspan="2"><strong>Goalie: Jordan Binnington</strong></td>
 										</tr>
 										<tr>
 											<td class="text-left">Sidney Crosby misses</td>

@@ -38,9 +38,9 @@
 	
 	<p class="small-paragraph text-left">First up is the All Stars Skills Competition</p>
 		
-	<p class="small-paragraph text-left">The East tried to keep up with the West, but in the end were not able to handle the onslaught of talent on the western side.</p>
+	<p class="small-paragraph text-left">This was truly the massacre we've all been waiting for. Toyed with for decades, the EAST finally comes out on top.</p>
 	
-	<p class="small-paragraph text-left">Final Score: Western Conference <strong>9</strong>. Eastern Conference <strong>5</strong></p>
+	<p class="small-paragraph text-left">Final Score: Eastern Conference <strong>9</strong>. Western Conference <strong>3</strong></p>
 	
 	<p class="small-paragraph text-left">Click below to see the results of the competition including prize winners!</p>
 	
