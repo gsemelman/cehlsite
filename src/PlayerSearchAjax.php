@@ -12,6 +12,8 @@ include_once 'classes/TeamHolder.php';
 include_once 'classes/ProspectObj.php';
 include_once 'classes/ProspectHolder.php';
 include_once 'classes/PlayerSearchWrapper.php';
+include_once 'classes/PlayerVitalObj.php';
+include_once 'classes/PlayerVitalsHolder.php';
 
 $playoffs='';
 if(isPlayoffs(TRANSFER_DIR, LEAGUE_MODE)){
@@ -22,6 +24,7 @@ $gmFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'GMs.html', 'GMs');
 $rosterFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'Rosters.html', 'Rosters');
 $unassignedFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'Unassigned.html', 'Unassigned');
 $futuresFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'Futures.html', 'Futures');
+$vitalsFileName = getLeagueFile(TRANSFER_DIR, $playoffs, 'PlayerVitals.html', 'PlayerVitals');
 
 if (!file_exists($rosterFile) || !file_exists($gmFile)) {
     http_response_code(400);
@@ -37,9 +40,12 @@ $allPlayers = array();
 //add roster players for each team
 foreach($teams->get_teams() as $team){
     $rosterHolder = new RostersHolder($rosterFile, $team, false);
+    $playerVitals = new PlayerVitalsHolder($vitalsFileName, $team);
     
     foreach($rosterHolder->getProRosters() as $roster){
         $wrapper = new PlayerSearchWrapper();
+        
+        $vitals = $playerVitals->findVital($roster->getNumber(), $roster->getName());
 
         $wrapper->setType('Pro');
         $wrapper->setTeam($roster->getTeam());
@@ -63,12 +69,16 @@ foreach($teams->get_teams() as $team){
         $wrapper->setEx($roster->getEx());
         $wrapper->setLd($roster->getLd());
         $wrapper->setOv($roster->getOv());
+        $wrapper->setCt($vitals->getContractLength());
+        $wrapper->setSalary($vitals->getSalary());
 
         array_push($allPlayers, $wrapper);
     }
     
     foreach($rosterHolder->getFarmRosters() as $roster){
         $wrapper = new PlayerSearchWrapper();
+        
+        $vitals = $playerVitals->findVital($roster->getNumber(), $roster->getName());
         
         $wrapper->setType('Farm');
         $wrapper->setTeam($roster->getTeam());
@@ -92,6 +102,8 @@ foreach($teams->get_teams() as $team){
         $wrapper->setEx($roster->getEx());
         $wrapper->setLd($roster->getLd());
         $wrapper->setOv($roster->getOv());
+        $wrapper->setCt($vitals->getContractLength());
+        $wrapper->setSalary($vitals->getSalary());
         
         array_push($allPlayers, $wrapper);
     }

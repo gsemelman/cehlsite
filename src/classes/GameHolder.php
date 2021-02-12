@@ -47,10 +47,6 @@ class GameHolder implements \JsonSerializable
     
     private $overtime = false;
     
-
-
-
-
     public function __construct(string $file) {
 
         $gamesSavesOutOf = 'saves out of';

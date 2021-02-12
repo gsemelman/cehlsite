@@ -1,6 +1,44 @@
 
 
 <div class="card">
+  <img class="card-img-top" src="./assets/img/news/matthews.png" alt="News Image">
+  <div class="card-body">
+    <h5 class="card-title">Live from CEHL HQ - Dec 31st, 2020</h5>
+    
+    <p class="small-paragraph text-left">CEHL season 29 is about to begin!</p>
+    
+    <p class="small-paragraph text-left">After a long and gruling draft and free agency, we are ready to begin preseason. We will start New Years day around 3PM EST</p>
+    
+    <p class="small-paragraph text-left">Please make sure you have valid sim lines set. You do not have to be cap compliant until the season starts though. (as a reminder 53M)</p>
+
+    <p class="small-paragraph text-left">Good luck everyone!</p>
+
+  </div>
+</div>
+
+<div class="card">
+  <img class="card-img-top" src="./assets/img/news/2019_draft.png" alt="News Image">
+  <div class="card-body">
+    <h5 class="card-title">Live from CEHL HQ - Nov 27th, 2020</h5>
+    
+    <p class="small-paragraph text-left">The CEHL Draft is upon us!</p>
+    
+    <p class="small-paragraph text-left">The Draft will be held on Sunday (this weekend) November 29rd at 1PM EST</p>
+    
+    <p class="small-paragraph text-left">We are will be drafting players eligible for the 2019 NHL Draft. That is any player born before September 15th, 2001 that was NOT drafted in the 2020 NHL draft</p>
+
+	<p class="small-paragraph text-left">If you can not make the draft, please feel free to email me a list of ranked players, or tell me what positions to look for.</p>
+
+	<p class="small-paragraph text-left">The draft will be held in on a Google doc that will be updated live. Picks will be made on the FB chat group. 
+	If you are not in the group, you can email me when you pick comes close</p>
+	
+	<p class="small-paragraph text-left">Click below to open the draft board</p>
+    <a href="https://docs.google.com/spreadsheets/d/19p94i3oMTjKpTPhEvHIGugdIS6ZLDLG-dD1tuXSo1A0/edit?usp=sharing" class="btn btn-outline-primary">2019 CEHL Draft</a>
+  </div>
+</div>
+
+
+<div class="card">
   <img class="card-img-top" src="./assets/img/news/oilers-cup.jpg" alt="News Image">
   <div class="card-body">
     <h5 class="card-title">Live from CEHL HQ - Oct 27th, 2020</h5>

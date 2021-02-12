@@ -294,7 +294,7 @@ $teams = new TeamHolder($gmFile);
                     { "data": "ld" },
                     { "data": "ov" },
                     { "data": "age" },
-                    { "data": "contract"},
+                    { "data": "ct"},
                     { "data": "salary"}
                 ],
                 "columnDefs": [

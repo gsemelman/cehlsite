@@ -24,7 +24,7 @@ if(isPlayoffs(TRANSFER_DIR, LEAGUE_MODE)){
 $gmFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'GMs.html', 'GMs');
 $rosterFile = getLeagueFile(TRANSFER_DIR, $playoffs, 'Rosters.html', 'Rosters');
 $vitalsFileName = getLeagueFile(TRANSFER_DIR, $playoffs, 'PlayerVitals.html', 'PlayerVitals');
-$teamScoringFileName = getLeagueFile(str_replace("#","27",CAREER_STATS_DIR), $playoffs, 'TeamScoring.html', 'TeamScoring');
+$teamScoringFileName = getLeagueFile(str_replace("#","28",CAREER_STATS_DIR), $playoffs, 'TeamScoring.html', 'TeamScoring');
 
 if (!file_exists($rosterFile) || !file_exists($gmFile) || !file_exists($vitalsFileName)) {
     http_response_code(500);
@@ -226,6 +226,8 @@ foreach($teams->get_teams() as $team){
             continue;
         }
         
+        error_log($teamScoringFileName, 0);
+        
         if(get_games_played($roster->getName(), $teamScoringFileName) < 20) continue;
       //  error_log($roster->getName().''.get_games_played($roster->getName(), $teamScoringFileName), 0);
         
@@ -253,7 +255,7 @@ foreach($teams->get_teams() as $team){
         $wrapper->setOv($roster->getOv());
         $wrapper->setAge($playerVital->getAge());
         //$wrapper->setSalary($playerVital->getSalary());
-        $wrapper->setContract($playerVital->getContractLength());
+        $wrapper->setCt($playerVital->getContractLength());
         $wrapper->setSalary('$'.number_format($playerVital->getSalary()));
         
         
