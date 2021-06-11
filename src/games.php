@@ -1243,6 +1243,7 @@ table.table-sm>thead>tr>th:first-of-type {
 													<th>A</th>
 													<th>PTS</th>
 													<th>+/-</th>
+													<th>SOG</th>
 													<th>PIM</th>
 													<th>HT</th>
 													<th>IT</th>
@@ -1259,6 +1260,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                                         <td>' . $scoringTemp['A'] . '</td>
                                                         <td>' . $scoringTemp['P'] . '</td>
                                                         <td>' . $scoringTemp['PLUSMINUS'] . '</td>
+                                                        <td>' . $scoringTemp['S'] . '</td>
                                                         <td>' . $scoringTemp['PIM'] . '</td>
                                                         <td>' . $scoringTemp['HT'] . '</td>
                                                         <td>' . $scoringTemp['IT'] . '</td>
@@ -1313,6 +1315,7 @@ table.table-sm>thead>tr>th:first-of-type {
 													<th>A</th>
 													<th>PTS</th>
 													<th>+/-</th>
+													<th>SOG</th>
 													<th>PIM</th>
 													<th>HT</th>
 													<th>IT</th>
@@ -1329,6 +1332,7 @@ table.table-sm>thead>tr>th:first-of-type {
                                                         <td>' . $scoringTemp['A'] . '</td>
                                                         <td>' . $scoringTemp['P'] . '</td>
                                                         <td>' . $scoringTemp['PLUSMINUS'] . '</td>
+                                                        <td>' . $scoringTemp['S'] . '</td>
                                                         <td>' . $scoringTemp['PIM'] . '</td>
                                                         <td>' . $scoringTemp['HT'] . '</td>
                                                         <td>' . $scoringTemp['IT'] . '</td>
