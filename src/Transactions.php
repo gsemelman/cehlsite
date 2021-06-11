@@ -21,7 +21,8 @@ include 'head.php';
 				</div>
 	
                 <select name="tradesMenu" class="form-control" id="tradesMenu" aria-describedby="yaerSearchField">
-    				<option value="29">Current</option>
+    				<option value="30">Current</option>
+    				<option value="29">Season 29</option>
     				<option value="28">Season 28</option>
 					<option value="27">Season 27</option>
         			<option data-legacy value="26">Season 26</option>

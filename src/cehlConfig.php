@@ -1,11 +1,11 @@
 <?php
 
-/* $agentDivisions = array("Northeast"=>"Andrew Bradley", "Atlantic"=>"Cory Williams", "Southeast"=>"Jeremy Wall",
+/* $agentDivisions = array("Northeast"=>"Devin Decastro", "Atlantic"=>"Cory Williams", "Southeast"=>"Jeremy Wall",
     "Central"=>"Chad Wise", "Pacific"=>"Grant Semelman", "Northwest"=>"Colin March"); */
-$agentDivisions = array("Northeast"=>"Jeremy Wall", "Atlantic"=>"Andrew Bradley", "Southeast"=>"Cory Williams",
+$agentDivisions = array("Northeast"=>"Jeremy Wall", "Atlantic"=>"Devin Decastro", "Southeast"=>"Cory Williams",
     "Central"=>"Colin March", "Pacific"=>"Chad Wise", "Northwest"=>"Grant Semelman");
 
-$agentEmails = array("Andrew Bradley"=>"cehloilers@gmail.com", "Cory Williams"=>"corywa@gmail.com", "Jeremy Wall"=>"jeremywall89@gmail.com",
+$agentEmails = array("Devin Decastro"=>"devin.decastro77@gmail.com", "Cory Williams"=>"corywa@gmail.com", "Jeremy Wall"=>"jeremywall89@gmail.com",
     "Chad Wise"=>"pudge119@hotmail.com", "Grant Semelman"=>"grant3@gmail.com", "Colin March"=>"cehlottawa@gmail.com");
 
 $teamDivisions = array(

@@ -90,7 +90,7 @@ if($modeGMO == 2){
 ?>
 
 <div class="container p-0">
-<div class="card">
+<div class="card border-0">
 <div class="card-header p-1">
     <ul class="nav nav-pills justify-content-center">
       <li class="nav-item">
@@ -102,9 +102,9 @@ if($modeGMO == 2){
         <a class="nav-link <?php echo $game2Active?>" href="<?php echo BASE_URL.$game2url?>">Day <?php echo $nextDay2;?></a>
       </li>
       <?php }?>
-<!--        <li class="nav-item"> -->
-<!--       		<button type="button" id="btnAddGame" class="btn btn-outline-primary btn-sm" >ADD</button> -->
-<!--       </li> -->
+<!--         <li class="nav-item">  -->
+<!--        		<button type="button" id="btnAddGame" class="btn btn-outline-primary btn-sm" >ADD</button> -->
+<!--        </li>  -->
     </ul>
 </div>
 <div class="card-body p-0">

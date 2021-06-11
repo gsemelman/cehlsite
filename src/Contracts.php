@@ -17,7 +17,8 @@ include 'head.php';
     				
             		<div class="col-sm-3">
             			 <select name="contractsMenu" class="form-control mb-3" id="contractsMenu">
-            				<option value="29">Current</option>
+            				<option value="30">Current</option>
+            				<option value="29">Season 29</option>
 							<option value="28">Season 28</option>
 							<option value="27">Season 27</option>
                 			<option data-legacy value="26">Season 26</option>
