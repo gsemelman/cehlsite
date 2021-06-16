@@ -160,12 +160,16 @@ include 'head.php';
     				    			
                 		<div class="form-group">
                     		<label for="usernameControl">Username:</label>	
-                    		<input class="form-control text-center"  type="text" name="user" id="usernameControl" <?php echo 'value="'.$username.'"'?> required>	
+                    		<input class="form-control text-center"  type="text" name="user" id="usernameControl" <?php echo 'value="'.$username.'"'?> required
+                    		oninvalid="this.setCustomValidity('Please Enter valid username')"
+							oninput="setCustomValidity('')">	
                 		</div>
                 		
                 		<div class="form-group">
                             <label for="passControl">Password</label>
-                            <input class="form-control text-center" type="password" name="pass"  id="passControl" >
+                            <input class="form-control text-center" type="password" name="pass"  id="passControl" required
+                            oninvalid="this.setCustomValidity('Password is required')"
+							oninput="setCustomValidity('')">
                         </div>
                         
                         <?php 
@@ -178,7 +182,7 @@ include 'head.php';
                             <div class="col-sm-12 custom-control custom-checkbox">
                              
                               <input id="rememberMe" name="rememberMe" type="checkbox" class="custom-control-input">
-                               <label for="rememberMe" class="custom-control-label">Keep Me Logged-In</label>
+                               <label for="rememberMe" class="custom-control-label">Keep me logged in</label>
                             </div>
                          </div>
             
