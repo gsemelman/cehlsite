@@ -12,8 +12,6 @@ class AuthHelper
     public static function redirectPage(){
         //when forwarded from other secure page.
         if(isset($_COOKIE['currentPage']) && $_COOKIE['currentPage'] && $_COOKIE['currentPage'] !== 'Login'){
-            //             header('Location:' . $_COOKIE['CURRENT_PAGE'].'.php');
-            //             exit();
             AuthHelper::redirect($_COOKIE['currentPage'].'.php');
         }else{
             AuthHelper::redirect('MyCehl.php');
@@ -57,9 +55,7 @@ class AuthHelper
             setcookie("login", "", time() - 36000, "/");
   
         }
-//         if (isset($_COOKIE["rememberMe"])) {
-//             setcookie("rememberMe", "", time() - 36000, "/");
-//         }
+
         if (isset($_COOKIE["loginToken"])) {
             unset($_COOKIE['loginToken']);
             setcookie("loginToken", "", time() - 36000, "/");
