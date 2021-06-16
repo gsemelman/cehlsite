@@ -12,9 +12,9 @@ include_once 'common.php';
 class ScheduleHolder2  implements \JsonSerializable{
     
     private $schedule = array();
-    private $lastDayPlayed;
-    private $lastGamePlayed;
-    private $totalSimDays;
+    private $lastDayPlayed = 0;
+    private $lastGamePlayed = 0;
+    private $totalSimDays = 0;
     
     public function __construct(string $file) {
         if(!file_exists($file)) {
@@ -99,9 +99,9 @@ class ScheduleHolder2  implements \JsonSerializable{
         return $this->lastDayPlayed > 0;
     }
     
-    public function isSeasonOverStarted() :bool
+    public function isSeasonOver() :bool
     {
-        return $this->lastDayPlayed == $this->totalSimDays;
+        return $this->isSeasonStarted() && $this->lastDayPlayed == $this->totalSimDays;
     }
 
     /**
@@ -132,6 +132,20 @@ class ScheduleHolder2  implements \JsonSerializable{
         }
         
         return false;
+    }
+    
+    public function getGameByTeamAndDay($teamId, int $searchDay){
+
+        error_log('search day:'.$searchDay.' for teamid='.$teamId);
+        foreach($this->schedule as $sched){
+            if($sched['DAY'] == $searchDay){
+                if($sched['HOME'] == $teamId || $sched['AWAY'] == $teamId){
+                    return $sched;
+                }
+            }
+        }
+        
+        return null;
     }
 
     public function jsonSerialize()

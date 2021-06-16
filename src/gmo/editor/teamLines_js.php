@@ -873,6 +873,7 @@ function tlSave() {
 	parameters += "lineup=" + encodeURIComponent(tlLNSLineup);
 	parameters += "&passwd=" + encodeURIComponent(tlPasswd);
 	parameters += "&game=" + encodeURIComponent(<?php echo $linesGame;?>);
+	parameters += "&day=" + encodeURIComponent(<?php echo $activeGameDay?>);
 	
 	xmlhttp.open("POST", page, true)
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")

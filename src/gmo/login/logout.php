@@ -23,13 +23,18 @@ session_start();
 if(isset($_COOKIE['login'])){
     unset($_COOKIE['login']);
     setcookie('login', '', time() - 3600, '/'); // empty value and old timestamp
-
 }
 
-if(isset($_COOKIE['rememberMe'])){
-    unset($_COOKIE['rememberMe']);
-    setcookie('rememberMe', '', time() - 3600, '/'); // empty value and old timestamp
+// if(isset($_COOKIE['rememberMe'])){
+//     unset($_COOKIE['rememberMe']);
+//     setcookie('rememberMe', '', time() - 3600, '/'); // empty value and old timestamp
+// }
+
+if(isset($_COOKIE['loginToken'])){
+    unset($_COOKIE['loginToken']);
+    setcookie('loginToken', '', time() - 3600, '/'); // empty value and old timestamp
 }
+
 
 // remove all session variables
 session_unset();

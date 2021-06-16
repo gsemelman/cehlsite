@@ -109,7 +109,7 @@ foreach($teasData as $teamArray){
     $teamRank = $teamArray[0];
     $teamFHLSimName = $teamArray[1];
 
-//    error_log('processing team: '.$teamFHLSimName.' teamRank: '.$teamRank);
+    error_log('processing team: '.$teamFHLSimName.' teamRank: '.$teamRank);
     
     $LNSTMRank = dechex($teamRank);
     if(strlen($LNSTMRank) == 1) $LNSTMRank = "0".$LNSTMRank;

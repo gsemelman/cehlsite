@@ -4,6 +4,7 @@ include 'lang.php';
 $CurrentHTML = '';
 $CurrentTitle = 'Free Agency';
 $CurrentPage = 'FreeAgency';
+$SecurePage = true;
 include 'head.php';
 
 //include_once 'cehlConfig.php';

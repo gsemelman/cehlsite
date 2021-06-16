@@ -10,14 +10,35 @@ if(!isset($CurrentPage)){
     $CurrentPage = '';
 }
 
+if(!isset($SecurePage)){
+    $SecurePage = false;
+}
+
 //start session
-session_name(SESSION_NAME);
-session_start();
+if(!isset($_SESSION)){
+    session_name(SESSION_NAME);
+    session_start();
+}
+// session_name(SESSION_NAME);
+// session_start();
 
+if ($CurrentPage !== ''){
+    setcookie('currentPage',$CurrentPage);
+}
 
-//include 'auth.php';
-if(!isAuthenticated() && !empty($_COOKIE['rememberMe']) && !empty($_COOKIE['login'])){
-    include GMO_ROOT.'login/authenticate.php';
+if($SecurePage){
+    if(!isAuthenticated()){
+        header('Location: Login2.php');
+        exit();
+
+//         //stay logged in logic.
+//         //include GMO_ROOT.'login/authenticate.php';
+        
+//         if(!isAuthenticated()){
+//             header('Location: Login2.php');
+//             exit();
+//         }
+    }
 }
 
 if(isset($_SESSION['teamId'])){

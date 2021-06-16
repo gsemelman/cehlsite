@@ -44,6 +44,17 @@ if($query){
 $LNSPasswd = $_POST['passwd']; // Password
 $LNSLineup = $_POST['lineup']; // Lineup
 $linesGame = $_POST['game']; // Lineup
+$linesDay = $_POST['day']; // Lineup
+
+//only accept numeric values as we will be creating directories.
+if($linesGame && !is_numeric($linesGame)){
+    throw new Exception("Lines Game must be numeric");
+}
+
+//only accept numeric values as we will be creating directories.
+if($linesDay && !is_numeric($linesDay)){
+    throw new Exception("Lines day must be numeric");
+}
 
 error_log('pass='.$LNSPasswd);
 
@@ -109,13 +120,24 @@ error_log($file_folder_lines,0);
 $output = pack('H*', $LNS_File);
 //$newfile = "../".$file_folder_lines.$teamFHLSimName.".lns";
 
-if($LNSGame == 1){
-    $newfile = $file_folder_lines.$teamFHLSimName.".lns";
+// if($LNSGame == 1){
+//     $newfile = $file_folder_lines.$teamFHLSimName.".lns";
+// }else{
+//     $newfile = $file_folder_lines.'game2/'.$teamFHLSimName.".lns";
+// }
+if($linesDay){
+    if (!is_dir($file_folder_lines.$linesDay.'/')) {
+        mkdir($file_folder_lines.$linesDay.'/');
+    }
+    $newfile = $file_folder_lines.$linesDay.'/'.$teamFHLSimName.".lns";
 }else{
-    $newfile = $file_folder_lines.'game2/'.$teamFHLSimName.".lns";
+    $newfile = $file_folder_lines.$teamFHLSimName.".lns";
 }
 
-//$newfile = $file_folder_lines.$teamFHLSimName.".lns";
+
+
+error_log($newfile);
+
 $file = fopen ($newfile, "w");
 fwrite($file, $output);
 fclose ($file);

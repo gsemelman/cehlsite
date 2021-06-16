@@ -71,6 +71,8 @@ if(isset($file_ros) && isset($file_tms)) {
     $d1 = new DateTime($file_date);
     $d2 = new DateTime($file_lastUpdate);
     
+    error_log("old file date:". $d1->format('Y-m-d H:i:s'). ' new file date:' .$d2->format('Y-m-d H:i:s'),0);
+    error_log($d1 > $d2);
     
     if($d1 > $d2) {
         error_log("loading new files!!!!!",0);

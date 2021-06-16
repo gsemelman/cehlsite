@@ -1,9 +1,12 @@
 <?php
 require_once 'config.php';
 include 'lang.php';
+
 $CurrentHTML = 'GMs';
 $CurrentTitle = $GMsTitle;
 $CurrentPage = 'GMs';
+$SecurePage=true;
+
 include 'head.php';
 ?>
 

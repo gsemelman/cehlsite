@@ -1,10 +1,11 @@
 <?php
 require_once 'config.php';
 include 'lang.php';
+include_once 'common.php';
 
-$CurrentHTML = 'Standings';
+$CurrentHTML = 'Standings3.php';
 $CurrentTitle = $standingTitle;
-$CurrentPage = 'Standings';
+$CurrentPage = 'Standings3';
 
 include 'head.php';
 

@@ -20,11 +20,17 @@ define("SESSION_NAME",'GMO');
 define("CDN_SUPPORT", true);
 
 //DB params
-$db_server = 'localhost';
-$db_name = 'cehldbtest';
-$db_table = 'gmo';
-$db_username = 'cehlgmo';
-$db_password = 'cehlgmo';
+define("DB_SERVER", 'localhost');
+define("DB_NAME", 'cehldbtest');
+define("DB_USER", 'cehlgmo');
+define("DB_PASS", 'cehlgmo');
+define("DB_TABLE", 'gmo');
+
+$db_server = DB_SERVER;
+$db_name = DB_NAME;
+$db_username = DB_USER;
+$db_password = DB_PASS;
+$db_table = DB_TABLE;
 
 //gmo from email address
 $email_from_address = 'no-reply@canadianelitehockeyleague.ca';

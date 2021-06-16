@@ -4,6 +4,8 @@
 
 // include GMO_ROOT.'login/mysqli.php';
 
+include GMO_ROOT.'editor/lang.php';
+
 $sql = "SELECT `VALUE` FROM `".$db_table."_parameters` WHERE `PARAM` = 'file_folder' LIMIT 1";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
 if($query){
@@ -270,8 +272,105 @@ if(isset($_GET['game']) || isset($_POST['game'])) {
     $linesGame = htmlspecialchars($linesGame);
 }
 
+?>
 
-include GMO_ROOT.'editor/lang.php';
+
+<?php 
+
+include_once FS_ROOT.'classes/ScheduleHolder2.php';
+error_log($file_folder.'cehl.scx');
+
+$simTeamId = $_SESSION['teamId'] -1;
+$scheduleHolder2 = new ScheduleHolder2($file_folder.'cehl.scx');
+//$playsGameOne = $scheduleHolder2->playsInDays($_SESSION['teamId'] -1 , 1);
+//$playsGameTwo = $scheduleHolder2->playsInDays($_SESSION['teamId'] -1 , 2);
+
+$lastDaySimmed = $scheduleHolder2->getLastDayPlayed();
+error_log('---------------------------------------------');
+error_log("last played:".$lastDaySimmed);
+error_log('---------------------------------------------');
+$nextDay = $lastDaySimmed + 1;
+$nextDay2 = $lastDaySimmed + 2;
+
+$gameDay1 = $scheduleHolder2->getGameByTeamAndDay($simTeamId , $nextDay);
+$gameDay2 = $scheduleHolder2->getGameByTeamAndDay($simTeamId, $nextDay2);
+$playsGameOne = !is_null($gameDay1);
+$playsGameTwo = !is_null($gameDay2);
+
+$game1Display = 'Day ' . $nextDay;
+$game2Display = 'Day ' . $nextDay2;
+
+$vsTeam1 = '';
+$vsTeam2 = '';
+
+$game1Day = $lastDaySimmed + 1;
+$game2Day = 0;
+
+if($playsGameOne){
+    
+    $opponent1Id = $gameDay1['HOME'] !== $simTeamId ? $gameDay1['HOME'] : $gameDay1['AWAY'];
+
+    include GMO_ROOT.'login/mysqli.php';
+    
+    error_log('--------------------------------------------------------');
+    error_log('game 1 team:'.$opponent1Id);
+    error_log('--------------------------------------------------------');
+    $sql = "SELECT EQUIPE FROM ".$db_table." WHERE `RANK` = ".$opponent1Id." LIMIT 1";
+    
+    $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+    if($query){
+        while($data = mysqli_fetch_array($query)) {
+            $vsTeam1 = $data['EQUIPE'];
+        }
+    }
+    
+    error_log('--------------------------------------------------------');
+    error_log('game 1 team:'.$vsTeam1);
+    error_log('--------------------------------------------------------');
+    
+    mysqli_close($con);
+    
+    $game1Display = $game1Display.' ('.$vsTeam1.')';
+    $game1Day = $gameDay1['DAY'];
+}else{
+    $game1Display = $game1Display. ' (No Game)';
+}
+
+if($playsGameTwo){
+    
+    $opponent2Id = $gameDay2['HOME'] != $simTeamId ? $gameDay2['HOME'] : $gameDay2['AWAY'];
+    
+    include GMO_ROOT.'login/mysqli.php';
+    
+    error_log('--------------------------------------------------------');
+    error_log('game 2 team id:'.$opponent2Id);
+    error_log('--------------------------------------------------------');
+    $sql = "SELECT EQUIPE FROM ".$db_table." WHERE `RANK` = ".$opponent2Id." LIMIT 1";
+    error_log($sql);
+    $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+    if($query){
+        while($data = mysqli_fetch_array($query)) {
+            $vsTeam2 = $data['EQUIPE'];
+        }
+    }
+    
+    error_log('--------------------------------------------------------');
+    error_log('game 2 team:'.$vsTeam2);
+    error_log('--------------------------------------------------------');
+    
+    mysqli_close($con);
+    
+    $game2Display = $game2Display.' ('.$vsTeam2.')';
+    $game2Day = $gameDay2['DAY'];
+}else{
+    $game2Display = $game2Display. ' (No Game)';
+}
+
+//set active game day for use when uploading (teamLines_js)
+$activeGameDay = $linesGame == 1 ? $game1Day : $game2Day;
+?>
+
+<?php 
 if($modeGMO == 1) {
     include GMO_ROOT.'editor/teamRoster_js.php';
     $divMaxWidth = "max-width:530px";

@@ -7,7 +7,8 @@ include 'lang.php';
 
 $CurrentHTML = 'MyCehl.php';
 $CurrentTitle = 'My CEHL';
-$CurrentPage = 'MyCEHL';
+$CurrentPage = 'MyCehl';
+$SecurePage = true;
 
 //error_reporting(E_ALL);
 //ini_set("display_errors", "On");
@@ -100,19 +101,25 @@ include 'nav.php';
 
 				<div class="card-body p-2">
 					<?php 
-					$requiresLogin = true;
+					//$requiresLogin = true;
 					
 					   if ( !isAuthenticated() ) {
     					    // LIGUE NAME
-    					    include GMO_ROOT.'login/header.php';
-    					    include GMO_ROOT.'login/index.php';
-    					    $requiresLogin = false;
+    					    //no longer needed. done in main header.
+//     					    include GMO_ROOT.'login/header.php';
+//     					    include GMO_ROOT.'login/index.php';
+//     					    $requiresLogin = false;
+    					    
+    					    error_log('HTTP/1.1 403 Forbidden', 0);
+    					    http_response_code(403);
+    					    //header('Location: ' . BASE_URL);
+    					    exit();
 					   }else{
 					?>
 					
 				
 					<div id="nav-mygm">
-						<ul class="nav nav-tabs ">
+						<ul class="nav nav-tabs" id = "myCehlNav">
 						
 							<li class="nav-item"><a class="nav-link" href="#Team"
 								data-toggle="tab">My Team</a></li>
@@ -244,13 +251,24 @@ include 'nav.php';
 		      $('#MyCEHL .nav-tabs a:first').tab('show');
 		    }
 		  });
-	      //inittab
-		  var activeTab = $('[href="' + location.hash + '"]');
-		    if (activeTab.length) {
-		      activeTab.tab('show');
-		    } else {
-		      $('#MyCEHL .nav-tabs a:first').tab('show');
-		    }
+
+ 		//inittab based on last location. (back button support)
+		 if(location.hash){
+			 var activeTab = $('[href="' + location.hash + '"]');
+			 
+			  if (activeTab.length) {
+			      activeTab.tab('show');
+			      console.log(activeTab);
+			    } else {
+			      //unable to resolve location.
+			      $("#myCehlNav a:first").tab('show');
+			    }
+		 }else{
+			 //if no location provider
+			 $("#myCehlNav a:first").tab('show');
+		 }
+
+
 		});
 
 	</script>
