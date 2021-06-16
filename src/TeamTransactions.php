@@ -38,7 +38,7 @@ include 'TeamHeader.php';
 
 								<select id="contractsMenu" class="col custom-select">
 									<option selected value="30">Current</option> 
-									<option selected value="29">Season 29</option> 
+									<option value="29">Season 29</option> 
 									<option value="28">Season 28</option> 
 									<option value="27">Season 27</option> 
 								</select>
