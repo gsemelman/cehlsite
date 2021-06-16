@@ -151,7 +151,7 @@ include 'head.php';
 
 <div class="container">
     <div class="row">
-    	<div class="col-12 col-md-6 col-lg-4 text-center mx-auto">
+    	<div class="col-12 col-md-6 col-lg-5 text-center mx-auto">
     	    <div class="card">
     	    	<div class="card-header">Login</div>
     			<div class="card-body">
