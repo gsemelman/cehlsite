@@ -30,11 +30,27 @@ class SessionDao
         return $result;
     }
     
+    function getToken($token, $teamId) {
+        $db_handle = new DBController();
+        $token = mysqli_real_escape_string($db_handle->getConnection(), $token);
+        $query = "SELECT * FROM gmo_session where token = ? and team_id = ?";
+        $result = $db_handle->runQuery($query, 'si', array($token, $teamId));
+        return $result;
+    }
+    
     function getTokenByTeamId($teamId,$expired) {
         $db_handle = new DBController();
 
         $query = "Select * from gmo_session where team_id = ? and is_expired = ?";
         $result = $db_handle->runQuery($query, 'ii', array($teamId, $expired));
+        return $result;
+    }
+    
+    function markAsExpiredByTeam($teamId) {
+        $db_handle = new DBController();
+        $query = "UPDATE gmo_session SET is_expired = ? where expiry_date > now() and team_id = ? and is_expired = 0";
+        $expired = 1;
+        $result = $db_handle->update($query, 'ii', array($expired, $teamId));
         return $result;
     }
     

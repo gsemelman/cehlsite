@@ -82,11 +82,14 @@ class AuthHelper
     
     public static function createAndSaveToken($teamId, SessionDao $sessionDao){
         
-        $userToken = $sessionDao->getTokenByTeamId($teamId, 0);
+//         $userToken = $sessionDao->getTokenByTeamId($teamId, 0);
         
-        if($userToken && !empty($userToken[0]["id"])) {
-            $sessionDao->markAsExpired($userToken[0]["id"]);
-        }
+//         if($userToken && !empty($userToken[0]["id"])) {
+//             $sessionDao->markAsExpired($userToken[0]["id"]);
+//         }
+
+        //mark existing records that have passed expiry for specific team.(cleanup)
+        $sessionDao->markAsExpiredByTeam($teamId);
         
         $random_selector = AuthHelper::getToken(32);
         $random_selector_hash = password_hash($random_selector, PASSWORD_DEFAULT);

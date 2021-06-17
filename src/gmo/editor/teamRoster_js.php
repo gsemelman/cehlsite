@@ -39,7 +39,7 @@ if (is_readable($server_file)) {
     $db_last_updated = new DateTime($file_lastUpdate);
 
     error_log("lines old file date:" . $lines_file_date->format('Y-m-d H:i:s') . ' server update date:' . $db_last_updated->format('Y-m-d H:i:s'), 0);
-    error_log(var_export($db_last_updated > $lines_file_date));
+    //error_log(var_export($db_last_updated > $lines_file_date));
 
     if ($db_last_updated > $lines_file_date) {
 
@@ -59,7 +59,7 @@ if (is_readable($server_file)) {
             $savedLinesDate = new DateTime($savedLinesDate);
             error_log('saved lines date: ' . $savedLinesDate->format('Y-m-d H:i:s'));
 
-            error_log('saved lines date check: ' . var_export($db_last_updated > $savedLinesDate));
+           // error_log('saved lines date check: ' . var_export($db_last_updated > $savedLinesDate));
             if ($db_last_updated > $savedLinesDate) {
                 $loadLinesAvailable = true;
                 $loadlinesDisplay = "inline";

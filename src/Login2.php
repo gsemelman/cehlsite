@@ -83,13 +83,18 @@ if (!empty($_POST["user"])) {
 //if(!empty($_COOKIE['selectorHash']) && !empty($_COOKIE['rememberMe']) && !empty($_COOKIE['login'])){
 if(!empty($_COOKIE['loginToken']) && !empty($_COOKIE['login'])){
 
+    $loginToken = urldecode($_COOKIE['loginToken']);
     $current_time = time();
     $current_date = date("Y-m-d H:i:s", $current_time);
     $isSelectorVerified = false;
     $isExpiryDateVerified = false;
     $username = $_COOKIE['login'];
+    $userToken='';
     
-    $userToken = $sessionDao->getTokenByUsername($username, 0);
+    $auth = $sessionDao->getAuthByUsername($username);
+    if($auth && !empty($auth[0]["INT"])){
+        $userToken = $sessionDao->getToken($loginToken, $auth[0]["INT"]);
+    }
     
     if($userToken && !empty($userToken[0]["token"])){
         
@@ -106,29 +111,21 @@ if(!empty($_COOKIE['loginToken']) && !empty($_COOKIE['login'])){
         }
         
         if (!empty($userToken[0]["id"]) && $isSelectorVerified && $isExpiryDateVerified) {
-            //authenticate
-            $auth = $sessionDao->getAuthByUsername($username);
+            $_SESSION['teamId'] = $auth[0]['INT'];
+            $_SESSION['login'] = $username;
+            $_SESSION['equipe'] = $auth[0]['EQUIPE'];
+            $_SESSION['equipesim'] = $auth[0]['EQUIPESIM'];
             
-            //check auth. if none found reset session
-            if($auth){
-                $_SESSION['teamId'] = $auth[0]['INT'];
-                $_SESSION['login'] = $username;
-                $_SESSION['equipe'] = $auth[0]['EQUIPE'];
-                $_SESSION['equipesim'] = $auth[0]['EQUIPESIM'];
-                
-                if(1==$auth[0]['ADMIN']){
-                    $_SESSION['isAdmin'] = true;
-                }
-                
-                $_SESSION['authenticated'] = true;
-                
-                //setcookie('login', $username, time() + (86400 * 30), "/");
-                
-                AuthHelper::redirectPage(); //redirect on successful login.
-            }else{
-                //mark old as expired.
-                $sessionDao->markAsExpired($userToken[0]["id"]);
+            if(1==$auth[0]['ADMIN']){
+                $_SESSION['isAdmin'] = true;
             }
+            
+            $_SESSION['authenticated'] = true;
+
+            //update login timestamps
+            AuthHelper::updateLoginSession($_SESSION['teamId'], $sessionDao);
+            
+            AuthHelper::redirectPage(); //redirect on successful login.
         } else {
             //mark old as expired.
             if(!empty($userToken[0]["id"])) {
