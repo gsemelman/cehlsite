@@ -68,6 +68,9 @@ if (!empty($_POST["user"])) {
             setcookie('loginToken', $random_token, time() + (86400 * 30), "/");
 
         }
+        
+        //update login timestamps
+        AuthHelper::updateLoginSession($_SESSION['teamId'], $sessionDao);
 
         AuthHelper::redirectPage();
     } else {

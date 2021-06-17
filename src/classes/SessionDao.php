@@ -13,6 +13,15 @@ class SessionDao
         return $result;
     }
     
+    function updateAuth($teamId, $remoteAddress, $lastUpdated) {
+        $db_handle = new DBController();
+        $query = "UPDATE `".DB_TABLE."` SET `LAST`=?,`IP`=? WHERE `INT`=?";
+
+        $result = $db_handle->update($query, 'ssi', array($lastUpdated, $remoteAddress, $teamId));
+        
+        return $result;
+    }
+    
     function getTokenByUsername($username,$expired) {
         $db_handle = new DBController();
         $username = mysqli_real_escape_string($db_handle->getConnection(), $username);

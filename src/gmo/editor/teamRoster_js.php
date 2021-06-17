@@ -13,11 +13,27 @@ if($query){
 // Search for .LNS on the server
 $teamFHLSimName = $_SESSION['equipesim'];
 $name_lines = $teamFHLSimName.'.lns';
-$server_file = $file_folder_lines.$name_lines;
+//$server_file = $file_folder_lines.$name_lines;
+$server_file = $file_folder_lines.$activeGameDay.'/'.$name_lines;
+//error_log('----------------------'.$server_file.'----readable-'.var_export(is_readable($server_file), 1));
 $loadlinesDisplay = "none";
-error_log($server_file);
+//error_log($server_file);
 if( is_readable($server_file) ) {
 	$loadlinesDisplay = "inline";
+	
+// 	$file_date = date ("Y-m-d H:i:s", filemtime($server_file));
+	
+// 	//error_log("checking ",0);
+	
+// 	$d1 = new DateTime($file_date);
+// 	$d2 = new DateTime($file_lastUpdate);
+	
+// 	error_log("lines old file date:". $d1->format('Y-m-d H:i:s'). ' server update date:' .$d2->format('Y-m-d H:i:s'),0);
+// 	//error_log(var_export($d2 > $d1));
+	
+// 	if($d2 > $d1) {
+// 	    error_log("lines can be loaded!!!");
+// 	}
 }
 
 if($linesGame == 1){
@@ -892,15 +908,36 @@ function trSave() {
 	else {
 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			var response = xmlhttp.responseText;
-			document.body.style.cursor = "default";
-			if(response == "done") {
+// 	xmlhttp.onreadystatechange=function() {
+// 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+// 			var response = xmlhttp.responseText;
+// 			document.body.style.cursor = "default";
+// 			if(response == "done") {
 				popupAlert("<?php echo $db_membre_gmo_langue[104]; ?>", "#4caf50");
 				document.location.href="?lines=2&game=<?php echo $linesGame;?>#Lines";
-			}
-			else alert('Error! ' + response);
+// 			}
+// 			else alert('Error! ' + response);
+// 		}
+// 	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4) {
+			document.body.style.cursor = "default";
+			if( xmlhttp.status==200){
+				var response = xmlhttp.responseText;
+				document.body.style.cursor = "default";
+				if(response == "done") {
+					popupAlert("<?php echo $db_membre_gmo_langue[104]; ?>", "#4caf50");
+					document.location.href="?lines=2&game=<?php echo $linesGame;?>#Lines";
+				}
+				else{
+					console.log("Error", response);
+					popupAlert("Error Loading Lines! "+ response, "#ae654c");
+				}
+			}else{
+				console.log("Error", xmlhttp.statusText + xmlhttp.responseText);
+				popupAlert("Error Loading Lines!", "#ae654c");
+			}					
+	
 		}
 	}
 	var page = 'gmo/editor/teamRosterSave.php';
@@ -926,26 +963,53 @@ function trLoadLines() {
 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			var response = xmlhttp.responseText;
-			document.body.style.cursor = "default";
-			if(response == "") {
+// 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+// 			var response = xmlhttp.responseText;
+// 			document.body.style.cursor = "default";
+// 			if(response == "") {
 				popupAlert("<?php echo $db_membre_gmo_langue[119]; ?>", "#4caf50");
-				//document.location.href="";
-			}
-			else alert('Error! ' + response);
-		}else{
-			var response = xmlhttp.responseText;
+// 				//document.location.href="";
+// 				//need to reload after db is refreshed.
+// 				location.reload();
+// 			}
+// 			else alert('Error! ' + response);
+// 		}else{
+// 			var response = xmlhttp.responseText;
+// 			document.body.style.cursor = "default";
+// 			//popupAlert("Error Loading Lines!", "#ae654c");
+// 		}
+		if (xmlhttp.readyState==4) {
 			document.body.style.cursor = "default";
-			popupAlert("Error Loading Lines!", "#ae654c");
+			if(xmlhttp.status==200){
+				var response = xmlhttp.responseText;
+				//document.body.style.cursor = "default";
+				if(response == "") {
+					popupAlert("<?php echo $db_membre_gmo_langue[119]; ?>", "#4caf50");
+					//document.location.href="";
+					//need to reload after db is refreshed.
+					location.reload();
+				}else alert('Error! ' + response);
+			}	
+			else{
+				//var response = xmlhttp.responseText;
+				//alert('Error! ' + response);
+				console.log("Error", xmlhttp.statusText + xmlhttp.responseText);
+				popupAlert("Error Loading Lines!", "#ae654c");
+			}
 		}
 	}
 	var page = '<?php echo BASE_URL?>gmo/editor/teamRosterLoadLines.php';
 	var parameters = "";
+	parameters += "&game=" + encodeURIComponent(<?php echo $linesGame;?>);
+	parameters += "&day=" + encodeURIComponent(<?php echo $activeGameDay?>);
+	
 	xmlhttp.open("POST", page, true)
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 	
 	xmlhttp.send(parameters)
+
+
+	
 }
 
 

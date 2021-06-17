@@ -99,5 +99,14 @@ class AuthHelper
         return $random_selector_hash;
     }
     
+    public static function updateLoginSession($teamId, SessionDao $sessionDao){
+       // date_default_timezone_set($TimeZone);
+        // For more information about timezone available : http://php.net/manual/en/timezones.php, copy paste your timezone in the box bellow!
+        $lastUpdated = date("Y-m-d H:i:s");
+        $remoteAddress = $_SERVER["REMOTE_ADDR"];
+        
+        return $sessionDao->updateAuth($teamId, $remoteAddress, $lastUpdated);
+    }
+    
 }
 
