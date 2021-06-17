@@ -170,7 +170,8 @@ echo '<tr class="tr">
 <td>'.$db_admin_actif_langue[11].'</td>
 <td>'.$db_admin_actif_langue[12].'</td></tr>';
 echo '</table>';
-echo '<form method="post" action="index.php?admin=actif">';
+//echo '<form method="post" action="index.php?admin=actif">';
+echo '<form method="post" action="MyCehl.php?admin=actif#Admin">';
 echo '<br>'.$db_admin_actif_langue[14];
 echo '<br><input style="width:150px;" class="button" type="submit" value="'.$db_admin_actif_langue[13].'" name="changer"></form>';
 ?>

@@ -10,6 +10,18 @@ if($query){
 	}
 }
 
+if($linesGame == 1){
+    $SAVE_STAT = 'SAVE_STAT';
+    $SAVE_PROT = 'SAVE_PROT';
+    $LNS_DATE = 'LNS_DATE';
+}
+if($linesGame == 2){
+    $SAVE_STAT = 'SAVE_STAT2';
+    $SAVE_PROT = 'SAVE_PROT2';
+    $LNS_DATE = 'LNS_DATE2';
+}
+
+
 // Search for .LNS on the server
 $teamFHLSimName = $_SESSION['equipesim'];
 $name_lines = $teamFHLSimName.'.lns';
@@ -17,33 +29,45 @@ $name_lines = $teamFHLSimName.'.lns';
 $server_file = $file_folder_lines.$activeGameDay.'/'.$name_lines;
 //error_log('----------------------'.$server_file.'----readable-'.var_export(is_readable($server_file), 1));
 $loadlinesDisplay = "none";
-//error_log($server_file);
-if( is_readable($server_file) ) {
-	$loadlinesDisplay = "inline";
-	
-// 	$file_date = date ("Y-m-d H:i:s", filemtime($server_file));
-	
-// 	//error_log("checking ",0);
-	
-// 	$d1 = new DateTime($file_date);
-// 	$d2 = new DateTime($file_lastUpdate);
-	
-// 	error_log("lines old file date:". $d1->format('Y-m-d H:i:s'). ' server update date:' .$d2->format('Y-m-d H:i:s'),0);
-// 	//error_log(var_export($d2 > $d1));
-	
-// 	if($d2 > $d1) {
-// 	    error_log("lines can be loaded!!!");
-// 	}
+$loadLinesAvailable = false;
+if (is_readable($server_file)) {
+    //$loadlinesDisplay = "inline";
+
+    $file_date = date("Y-m-d H:i:s", filemtime($server_file));
+
+    $lines_file_date = new DateTime($file_date);
+    $db_last_updated = new DateTime($file_lastUpdate);
+
+    error_log("lines old file date:" . $lines_file_date->format('Y-m-d H:i:s') . ' server update date:' . $db_last_updated->format('Y-m-d H:i:s'), 0);
+    error_log(var_export($db_last_updated > $lines_file_date));
+
+    if ($db_last_updated > $lines_file_date) {
+
+        //include GMO_ROOT . 'login/mysqli.php';
+        $savedLinesDate = '';
+        $sql = "SELECT `" . $LNS_DATE . "` FROM `$db_table` WHERE `INT` = '$teamID' LIMIT 1";
+        $query = mysqli_query($con, $sql) or die(mysqli_error($con));
+        if ($query) {
+            while ($data = mysqli_fetch_array($query)) {
+                $savedLinesDate = $data[$LNS_DATE];
+            }
+        }
+        //mysqli_close($con);
+
+        if ($savedLinesDate) {
+
+            $savedLinesDate = new DateTime($savedLinesDate);
+            error_log('saved lines date: ' . $savedLinesDate->format('Y-m-d H:i:s'));
+
+            error_log('saved lines date check: ' . var_export($db_last_updated > $savedLinesDate));
+            if ($db_last_updated > $savedLinesDate) {
+                $loadLinesAvailable = true;
+                $loadlinesDisplay = "inline";
+            }
+        }
+    }
 }
 
-if($linesGame == 1){
-    $SAVE_STAT = 'SAVE_STAT';
-    $SAVE_PROT = 'SAVE_PROT';
-}
-if($linesGame == 2){
-    $SAVE_STAT = 'SAVE_STAT2';
-    $SAVE_PROT = 'SAVE_PROT2';
-}
 
 
 $sql = "SELECT `ID`, `RANK`, `NAME`, `POSI`, `NUMB`, `PROT`, `HAND`, `HEIG`, `WEIG`, `AGES`, `STAT`, `COND`, 
@@ -1027,3 +1051,19 @@ function trMoreStatsToggle() {
 
 //-->
 </script>
+
+<!-- check if new files have been loaded if saved lines file is found
+prompt user if file exists but no new lines have been saved to the db.
+once the saved lines db date is larger than the saved file date (i.e they've since updated their line)
+don't prompt
+ -->
+<?php if ($loadLinesAvailable) { ?>
+ <script>
+    	$(document).ready(function() {
+    		popupAlert("Existing Lines available to be loaded!", "#4caf50");
+    	});
+</script>
+<?php }?>
+
+
+  

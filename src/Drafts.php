@@ -19,6 +19,7 @@ include 'head.php';
 		
 		<div class="col-sm-3">
 			<select name="menu1" class="form-control mb-3" id="menu1">
+				<option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vTUhgfgvX1ALSH-BhW4oZq32u3OAkaSHhBjMBT8sSGp4s5rq6zMl5JUd3CzVzil0Ei6tVd427qevABo/pubhtml?gid=1385704465&single=true">2020 Draft</option>
 				<option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDHw8SsB0piU3VwSwKnpidkTZGa343ddGCm0UJPeIgc1zUIFy_Qb6-KZ12_fTE6SfzpoGV2j1KYjkQ/pubhtml?gid=1385704465&single=true">2019 Draft</option>
 				<option value="https://docs.google.com/spreadsheets/d/e/2PACX-1vSrQ8nkHXhKBcHarYRA5kFVJnktAFddhFMixIJaq11Kl3zSIsz_BlkDA7a3AKSNFIqOmS59BPNbPe-7/pubhtml?gid=1385704465&single=true">2018 Draft</option>
     			<option value="https://docs.google.com/spreadsheets/d/1hjOwb0M1nsEomyFvQL6dLpj0rSGLDTZ_vZS1p2QmN3c/pubhtml?gid=1385704465&amp;single=true&amp;widget=true&amp;headers=false">2017 Draft</option>
@@ -44,7 +45,7 @@ include 'head.php';
 <!-- 				<iframe id="draftFrame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTCOAzPLDY02CUCgRgyT96TGupcHtNGOS5v9Y9UWBTXy4p5KAAnt9IFcgMBb0PF-VpFKOqM1XPdGkJK/pubhtml?widget=true&amp;headers=false" frameborder="0" allowfullscreen></iframe> -->
 <!-- 		</div> -->
 		
-		<iframe id="draftFrame" onload="this.width=screen.width;this.height=screen.height;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDHw8SsB0piU3VwSwKnpidkTZGa343ddGCm0UJPeIgc1zUIFy_Qb6-KZ12_fTE6SfzpoGV2j1KYjkQ/pubhtml?gid=1385704465&single=true" frameborder="0" allowfullscreen></iframe>
+		<iframe id="draftFrame" onload="this.width=screen.width;this.height=screen.height;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTUhgfgvX1ALSH-BhW4oZq32u3OAkaSHhBjMBT8sSGp4s5rq6zMl5JUd3CzVzil0Ei6tVd427qevABo/pubhtml?gid=1385704465&single=true" frameborder="0" allowfullscreen></iframe>
 
         <script type="text/javascript">
 
